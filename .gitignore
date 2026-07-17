@@ -1,0 +1,7 @@
+# the concept is its own repo, deployed separately:
+# https://github.com/Tridominous/hackett-hackett-concept
+hackett-homepage-v2/
+
+# local tooling
+.playwright-mcp/
+.claude/

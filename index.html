@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hackett &amp; Hackett · Digital Relaunch Briefing</title>
+<meta name="description" content="A digital relaunch plan for Hackett &amp; Hackett: SWOT, PESTLE, initiatives and a phased roadmap, with a live homepage concept. Prepared by James." />
+<meta name="theme-color" content="#F3F4F7" />
+<!-- set theme before paint: saved choice, then OS preference, then light default -->
+<script>(function(){try{var s=localStorage.getItem('hh-theme');var t=s||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',t==='dark'?'#0E1218':'#F3F4F7');}catch(e){}})();</script>
+<meta property="og:title" content="Hackett &amp; Hackett · Digital Relaunch Briefing" />
+<meta property="og:description" content="SWOT, PESTLE, initiatives and a phased roadmap, with a live homepage concept." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0C10'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-style='italic' fill='%23C9A24B' text-anchor='middle'%3E%26%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- non-blocking font load: the page never stalls if fonts are slow or blocked; falls back to Palatino/system -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+<style>
+  :root {
+    color-scheme: light dark;
+
+    /* neutrals: cool porcelain with a whisper of brass warmth */
+    --bg:        #F3F4F7;
+    --bg-2:      #EBEDF1;
+    --surface:   #FFFFFF;
+    --surface-2: #F6F7F9;
+    --ink:       #161B22;
+    --ink-soft:  #39424E;
+    --muted:     #697280;
+    --line:      #DCE0E7;
+    --line-soft: #E7EAEF;
+
+    /* brass / champagne accent */
+    --accent:      #9C7726;   /* AA text on light */
+    --accent-graphic: #BE9A4E;
+    --accent-glow: rgba(190,154,78,.16);
+    --steel:       #3E6389;   /* cool secondary */
+
+    /* SWOT / semantic */
+    --s: #2E7D57;  --s-bg: rgba(46,125,87,.10);
+    --w: #B26A26;  --w-bg: rgba(178,106,38,.10);
+    --o: #3C6592;  --o-bg: rgba(60,101,146,.10);
+    --t: #B23A48;  --t-bg: rgba(178,58,72,.10);
+
+    --shadow: 0 1px 2px rgba(16,22,34,.04), 0 8px 30px rgba(16,22,34,.06);
+    --radius: 14px;
+    --radius-sm: 9px;
+
+    --font-display: "Fraunces","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+    --font-sans: "Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+    --font-mono: "SFMono-Regular",ui-monospace,"Cascadia Mono","Consolas","Liberation Mono",monospace;
+
+    --maxw: 1120px;
+    --readw: 760px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #0E1218;
+      --bg-2:      #0A0D12;
+      --surface:   #151B23;
+      --surface-2: #1A212B;
+      --ink:       #EEF1F5;
+      --ink-soft:  #C4CBD4;
+      --muted:     #8A94A1;
+      --line:      #29323D;
+      --line-soft: #212a34;
+
+      --accent:      #D9BA70;
+      --accent-graphic: #CBA65D;
+      --accent-glow: rgba(203,166,93,.16);
+      --steel:       #82A6C8;
+
+      --s: #58B98C;  --s-bg: rgba(88,185,140,.12);
+      --w: #E0A15C;  --w-bg: rgba(224,161,92,.12);
+      --o: #7FA9D8;  --o-bg: rgba(127,169,216,.12);
+      --t: #E37B87;  --t-bg: rgba(227,123,135,.12);
+
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+    }
+  }
+
+  /* explicit toggle overrides: must win in both directions */
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg:#F3F4F7; --bg-2:#EBEDF1; --surface:#FFFFFF; --surface-2:#F6F7F9;
+    --ink:#161B22; --ink-soft:#39424E; --muted:#697280; --line:#DCE0E7; --line-soft:#E7EAEF;
+    --accent:#9C7726; --accent-graphic:#BE9A4E; --accent-glow:rgba(190,154,78,.16); --steel:#3E6389;
+    --s:#2E7D57; --s-bg:rgba(46,125,87,.10); --w:#B26A26; --w-bg:rgba(178,106,38,.10);
+    --o:#3C6592; --o-bg:rgba(60,101,146,.10); --t:#B23A48; --t-bg:rgba(178,58,72,.10);
+    --shadow:0 1px 2px rgba(16,22,34,.04), 0 8px 30px rgba(16,22,34,.06);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0E1218; --bg-2:#0A0D12; --surface:#151B23; --surface-2:#1A212B;
+    --ink:#EEF1F5; --ink-soft:#C4CBD4; --muted:#8A94A1; --line:#29323D; --line-soft:#212a34;
+    --accent:#D9BA70; --accent-graphic:#CBA65D; --accent-glow:rgba(203,166,93,.16); --steel:#82A6C8;
+    --s:#58B98C; --s-bg:rgba(88,185,140,.12); --w:#E0A15C; --w-bg:rgba(224,161,92,.12);
+    --o:#7FA9D8; --o-bg:rgba(127,169,216,.12); --t:#E37B87; --t-bg:rgba(227,123,135,.12);
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); }
+  .hh { margin: 0; }
+
+  .hh {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .hh ::selection { background: var(--accent-glow); }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(20px, 5vw, 44px); }
+
+  /* ---------- typographic primitives ---------- */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 .9rem;
+    display: inline-flex; align-items: center; gap: .6em;
+  }
+  .eyebrow::before {
+    content: ""; width: 26px; height: 1px; background: var(--accent-graphic); opacity: .8;
+  }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 480; text-wrap: balance; letter-spacing: -.015em; }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.45rem); line-height: 1.1; margin: 0 0 .5rem; }
+  h3 { font-size: 1.2rem; font-weight: 540; line-height: 1.25; margin: 0 0 .4rem; }
+  p { margin: 0 0 1rem; color: var(--ink-soft); }
+  .lede { font-size: 1.12rem; color: var(--ink-soft); max-width: var(--readw); }
+  a { color: var(--steel); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, .navlink:focus-visible, .btn:focus-visible, .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px;
+  }
+  strong { color: var(--ink); font-weight: 650; }
+  em { font-style: italic; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: .5em;
+    font-family: var(--font-sans); font-weight: 600; font-size: .95rem;
+    padding: .72rem 1.25rem; border-radius: 10px; text-decoration: none;
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  }
+  .btn--primary {
+    background: linear-gradient(180deg, #E2C884, #C9A655);
+    color: #241C07; box-shadow: 0 1px 2px rgba(16,22,34,.15), 0 6px 18px rgba(190,154,78,.28);
+  }
+  .btn--primary:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(16,22,34,.15), 0 10px 26px rgba(190,154,78,.36); }
+  .btn--ghost {
+    border: 1px solid var(--line); color: var(--ink); background: var(--surface);
+  }
+  .btn--ghost:hover { border-color: var(--accent-graphic); }
+  .btn .arrow { font-family: var(--font-display); font-style: italic; }
+
+  /* ---------- top nav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar__inner { display: flex; align-items: center; gap: 1rem; height: 58px; }
+  .brand { font-family: var(--font-display); font-weight: 520; font-size: 1.02rem; letter-spacing: .01em; white-space: nowrap; }
+  .brand .amp { color: var(--accent); font-style: italic; padding: 0 .1em; }
+  .nav { display: flex; gap: .35rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .navlink {
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; padding: .45rem .55rem; border-radius: 7px; white-space: nowrap;
+    transition: color .18s, background .18s;
+  }
+  .navlink:hover { color: var(--ink); background: var(--surface-2); }
+  .navlink.active { color: var(--accent); }
+  .navlink--demo { color: var(--accent); border: 1px solid var(--accent-graphic); border-radius: 999px; padding-inline: .8rem; }
+  .navlink--demo:hover { background: var(--accent-glow); color: var(--accent); }
+  .theme-toggle {
+    flex: none; margin-left: .25rem; width: 34px; height: 34px; border-radius: 8px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+    cursor: pointer; display: grid; place-items: center; transition: border-color .18s, color .18s;
+  }
+  .theme-toggle:hover { color: var(--accent); border-color: var(--accent-graphic); }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .hero__glow {
+    position: absolute; z-index: 0; inset: 0;
+    background:
+      radial-gradient(60% 90% at 82% -10%, var(--accent-glow), transparent 60%),
+      radial-gradient(50% 70% at 8% 110%, color-mix(in srgb, var(--steel) 18%, transparent), transparent 60%);
+    pointer-events: none;
+  }
+  .hero__inner { position: relative; z-index: 2; padding-block: clamp(3.2rem, 8vw, 6rem) clamp(2.4rem, 5vw, 3.4rem); }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6.4vw, 4.3rem); font-weight: 420; line-height: 1.02; margin: .2rem 0 1.1rem; max-width: 16ch;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(100deg, var(--accent) 0%, var(--accent-graphic) 55%, var(--accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: var(--accent);
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
+  }
+  .hero .lede { font-size: clamp(1.05rem, 1.9vw, 1.24rem); max-width: 60ch; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.8rem; }
+  .hero__meta {
+    display: flex; flex-wrap: wrap; gap: .6rem .5rem; margin-top: 1.4rem; align-items: center;
+  }
+  .prepared {
+    font-family: var(--font-mono); font-size: .74rem; color: var(--muted); letter-spacing: .03em;
+    border: 1px dashed var(--line); border-radius: 999px; padding: .4rem .85rem;
+  }
+  .prepared b { color: var(--accent); font-weight: 600; }
+
+  .statbar {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; margin-top: 2.4rem;
+  }
+  .stat { background: var(--surface); padding: 1.1rem 1.15rem; }
+  .stat__n { font-family: var(--font-display); font-weight: 480; font-size: 1.5rem; line-height: 1; color: var(--ink); }
+  .stat__l { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-top: .5rem; }
+
+  /* ---------- sections ---------- */
+  section.block { padding: clamp(3rem, 7vw, 5.2rem) 0; border-bottom: 1px solid var(--line-soft); }
+  .block__head { max-width: var(--readw); margin-bottom: 2.2rem; }
+  .grid { display: grid; gap: 1.1rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.4rem 1.4rem; box-shadow: var(--shadow);
+  }
+  .card h3 { display: flex; align-items: baseline; gap: .6rem; }
+  .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+
+  ul.ticks { list-style: none; padding: 0; margin: .6rem 0 0; display: grid; gap: .5rem; }
+  ul.ticks li { position: relative; padding-left: 1.4rem; color: var(--ink-soft); font-size: .96rem; overflow-wrap: break-word; }
+  ul.ticks li::before {
+    content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 2px;
+    background: var(--accent-graphic); transform: rotate(45deg);
+  }
+  ul.ticks li b { color: var(--ink); }
+
+  /* business two-col */
+  .biz-grid { grid-template-columns: 1.35fr 1fr; align-items: start; }
+  .factsheet { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .factsheet__row { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 1.1rem; border-bottom: 1px solid var(--line-soft); font-size: .9rem; }
+  .factsheet__row:last-child { border-bottom: 0; }
+  .factsheet__row .k { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .factsheet__row .v { color: var(--ink); text-align: right; font-weight: 550; }
+  .pills { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
+  .pill {
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .03em;
+    border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-soft);
+    padding: .3rem .6rem; border-radius: 999px;
+  }
+
+  /* diagnosis */
+  .diag-grid { grid-template-columns: repeat(2, 1fr); }
+  .diag { border-left: 3px solid var(--w); }
+  .diag .sev { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--w); }
+  .diag.flag { border-left-color: var(--t); }
+  .diag.flag .sev { color: var(--t); }
+
+  /* SWOT */
+  .swot { grid-template-columns: repeat(2, 1fr); }
+  .quad { border-top: 3px solid; padding-top: 1.25rem; }
+  .quad__tag { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+  .quad h3 { margin-top: .2rem; }
+  .quad.s { border-color: var(--s); background: linear-gradient(var(--s-bg), transparent 70%); }
+  .quad.s .quad__tag, .quad.s h3 { color: var(--s); }
+  .quad.w { border-color: var(--w); background: linear-gradient(var(--w-bg), transparent 70%); }
+  .quad.w .quad__tag, .quad.w h3 { color: var(--w); }
+  .quad.o { border-color: var(--o); background: linear-gradient(var(--o-bg), transparent 70%); }
+  .quad.o .quad__tag, .quad.o h3 { color: var(--o); }
+  .quad.t { border-color: var(--t); background: linear-gradient(var(--t-bg), transparent 70%); }
+  .quad.t .quad__tag, .quad.t h3 { color: var(--t); }
+  .quad.s ul.ticks li::before { background: var(--s); }
+  .quad.w ul.ticks li::before { background: var(--w); }
+  .quad.o ul.ticks li::before { background: var(--o); }
+  .quad.t ul.ticks li::before { background: var(--t); }
+
+  /* PESTLE */
+  .pestle { grid-template-columns: repeat(3, 1fr); }
+  .pest .mark {
+    font-family: var(--font-display); font-weight: 480; font-size: 1.9rem; line-height: 1; color: var(--accent);
+    border: 1px solid var(--line); background: var(--surface-2); width: 46px; height: 46px;
+    display: grid; place-items: center; border-radius: 10px; flex: none;
+  }
+  .pest__top { display: flex; align-items: center; gap: .8rem; margin-bottom: .7rem; }
+  .pest__top h3 { margin: 0; font-size: 1.05rem; }
+  .pest__top .sub { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+  /* initiatives */
+  .initgroup { margin-top: 1.4rem; }
+  .initgroup__label {
+    display: flex; align-items: center; gap: .8rem; margin: 2rem 0 1rem;
+  }
+  .initgroup__label .gk { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .initgroup__label .rule { flex: 1; height: 1px; background: var(--line); }
+  .init { display: grid; grid-template-columns: auto 1fr; gap: 1rem 1.1rem; }
+  .init__num { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); padding-top: .15rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+  .chip {
+    font-family: var(--font-mono); font-size: .66rem; letter-spacing: .04em; text-transform: uppercase;
+    padding: .22rem .5rem; border-radius: 6px; border: 1px solid var(--line); color: var(--muted);
+  }
+  .chip.win { color: var(--s); border-color: color-mix(in srgb, var(--s) 40%, var(--line)); background: var(--s-bg); }
+  .chip.impact { color: var(--accent); border-color: color-mix(in srgb, var(--accent-graphic) 45%, var(--line)); background: var(--accent-glow); }
+  .chip.dev { color: var(--steel); border-color: color-mix(in srgb, var(--steel) 40%, var(--line)); }
+
+  /* email callout */
+  .callout {
+    background:
+      linear-gradient(180deg, var(--accent-glow), transparent 40%),
+      var(--surface);
+    border: 1px solid color-mix(in srgb, var(--accent-graphic) 40%, var(--line));
+    border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.2rem);
+  }
+  .principle {
+    border-left: 3px solid var(--accent-graphic); padding: .3rem 0 .3rem 1.1rem; margin: 1.1rem 0 1.4rem;
+    font-size: 1.06rem; color: var(--ink);
+  }
+  .principle b { color: var(--accent); }
+  .twocol { grid-template-columns: 1fr 1fr; margin-top: 1.3rem; }
+  @media (max-width: 720px) { .twocol { grid-template-columns: 1fr; } }
+
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); margin-top: 1rem; }
+  table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: .92rem; }
+  thead th {
+    text-align: left; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; padding: .85rem 1rem; background: var(--surface-2); border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  tbody td { padding: .85rem 1rem; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); vertical-align: top; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody td .name { color: var(--ink); font-weight: 600; }
+  tr.rec { background: var(--accent-glow); }
+  tr.rec td .name::after { content: "Recommended"; font-family: var(--font-mono); font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-graphic); border-radius: 5px; padding: .1rem .35rem; margin-left: .5rem; vertical-align: middle; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* redesign showpiece */
+  .redesign { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .browser { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); flex: 1; display: flex; flex-direction: column; }
+  .browser__bar { display: flex; align-items: center; gap: .5rem; padding: .6rem .8rem; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .browser__url { font-family: var(--font-mono); font-size: .68rem; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: .2rem .6rem; margin-left: .4rem; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .badge-label { position: absolute; top: 12px; left: 12px; z-index: 3; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .5rem; border-radius: 6px; }
+  .rd-col { position: relative; display: flex; flex-direction: column; }
+  .badge-before { color: var(--muted); border: 1px solid var(--line); background: var(--surface); }
+  .badge-after { color: var(--accent); border: 1px solid var(--accent-graphic); background: var(--surface); }
+
+  /* the "before" mock: deliberately flat, cramped, dated */
+  .mock-before { background: #e9e7e2; color: #55524c; padding: 0; flex: 1; }
+  :root[data-theme="dark"] .mock-before { background: #23242a; color: #8c8a86; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mock-before { background:#23242a; color:#8c8a86; } }
+  .mb-nav { display: flex; gap: 8px; padding: 8px 10px; background: #2b2b2b; }
+  .mb-nav span { height: 8px; width: 46px; background: #6a6a6a; border-radius: 2px; }
+  .mb-hero { padding: 16px 12px; text-align: center; }
+  .mb-hero .t { font-family: var(--font-sans); font-weight: 700; font-size: 13px; color: #444; }
+  .mb-blocks { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; padding: 6px 12px 14px; }
+  .mb-blocks span { height: 34px; background: #cfccc5; border-radius: 3px; }
+  .mb-line { height: 7px; background: #cfccc5; border-radius: 2px; margin: 5px 12px; }
+  .mb-line.s { width: 55%; }
+
+  /* the "after" mock: cinematic luxury hero */
+  .mock-after { position: relative; flex: 1; min-height: 300px; overflow: hidden; background: #0c1016; color: #f3efe6; }
+  .mock-after__glow { position: absolute; inset: 0; background: radial-gradient(70% 90% at 78% 0%, rgba(203,166,93,.22), transparent 60%), radial-gradient(60% 80% at 0% 100%, rgba(60,101,146,.28), transparent 55%); }
+  .mock-after__route { position: absolute; inset: 0; opacity: .5; }
+  .mock-after__c { position: relative; z-index: 2; padding: 26px 22px; display: flex; flex-direction: column; height: 100%; }
+  .ma-brand { font-family: var(--font-display); font-size: 13px; letter-spacing: .02em; }
+  .ma-brand .amp { color: #d9ba70; font-style: italic; }
+  .ma-h { font-family: var(--font-display); font-weight: 440; font-size: clamp(20px, 3.4vw, 30px); line-height: 1.05; margin: auto 0 10px; max-width: 15ch; }
+  .ma-h em { color: #d9ba70; font-style: italic; }
+  .ma-sub { font-size: 12.5px; color: #c9c3b5; max-width: 34ch; margin-bottom: 16px; }
+  .ma-cta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ma-btn { font-family: var(--font-sans); font-size: 12px; font-weight: 600; padding: .5rem .85rem; border-radius: 8px; }
+  .ma-btn.p { background: linear-gradient(180deg,#e2c884,#c9a655); color: #241c07; }
+  .ma-btn.g { border: 1px solid rgba(255,255,255,.25); color: #f3efe6; }
+  .ma-trust { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; }
+  .ma-trust span { color: rgba(243,239,230,.6); }
+
+  /* live-demo panel: a slice of the concept's midnight world inside the document */
+  .democta {
+    position: relative; overflow: hidden; border-radius: var(--radius);
+    background: #0c1016; color: #f3efe6; border: 1px solid #2a3038;
+    padding: clamp(1.6rem, 4vw, 2.4rem);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.4rem 2rem;
+    margin-top: 1.6rem;
+  }
+  .democta::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(70% 120% at 85% -20%, rgba(203,166,93,.24), transparent 60%), radial-gradient(50% 90% at 0% 120%, rgba(60,101,146,.25), transparent 55%);
+    pointer-events: none;
+  }
+  .democta > * { position: relative; z-index: 1; }
+  .democta__copy { flex: 1 1 320px; }
+  .democta__copy h3 { color: #f3efe6; font-size: 1.45rem; font-weight: 440; margin-bottom: .4rem; }
+  .democta__copy h3 em { color: #d9ba70; }
+  .democta__copy p { color: #b9beba; color: #b8bdc6; margin: 0; max-width: 52ch; }
+  .democta__btns { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .democta .btn--ghost { background: transparent; border-color: rgba(255,255,255,.25); color: #f3efe6; }
+  .democta .btn--ghost:hover { border-color: #d9ba70; }
+
+  /* roadmap */
+  .phase-tl { display: grid; gap: 1rem; }
+  .phase { display: grid; grid-template-columns: auto 1fr; gap: 1.2rem; align-items: stretch; }
+  .phase__spine { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+  .phase__dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--accent-graphic); background: var(--surface); flex: none; margin-top: .35rem; }
+  .phase__line { width: 2px; flex: 1; background: var(--line); min-height: 20px; }
+  .phase:last-child .phase__line { display: none; }
+  .phase__k { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+  .phase__time { font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+
+  /* sources / footer */
+  .sources { display: grid; gap: .5rem; }
+  .sources a { font-size: .9rem; word-break: break-word; }
+  .note { font-size: .84rem; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--radius-sm); padding: .9rem 1.1rem; }
+  footer.foot { padding: 2.4rem 0 3rem; color: var(--muted); font-size: .85rem; }
+  .foot__brand { font-family: var(--font-display); color: var(--ink); font-size: 1.05rem; }
+
+  /* reveal animation (progressive enhancement) */
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .js .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn, .btn--primary:hover { transition: none; transform: none; }
+  }
+  html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 74px; }
+
+  /* responsive */
+  @media (max-width: 860px) {
+    .biz-grid, .diag-grid, .swot, .redesign { grid-template-columns: 1fr; }
+    .pestle { grid-template-columns: 1fr 1fr; }
+    .statbar { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    .pestle { grid-template-columns: 1fr; }
+    .nav { display: none; }
+    .init { grid-template-columns: 1fr; }
+    .init__num { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="hh">
+  <!-- ================= TOP NAV ================= -->
+  <div class="topbar">
+    <div class="wrap topbar__inner">
+      <span class="brand">Hackett <span class="amp">&amp;</span> Hackett</span>
+      <nav class="nav" aria-label="Section navigation">
+        <a class="navlink" href="#business">Business</a>
+        <a class="navlink" href="#diagnosis">Diagnosis</a>
+        <a class="navlink" href="#swot">SWOT</a>
+        <a class="navlink" href="#pestle">PESTLE</a>
+        <a class="navlink" href="#initiatives">Initiatives</a>
+        <a class="navlink" href="#email">Email fix</a>
+        <a class="navlink" href="#redesign">Concept</a>
+        <a class="navlink" href="#roadmap">Roadmap</a>
+        <a class="navlink navlink--demo" href="https://tridominous.github.io/hackett-hackett-concept/">Live demo</a>
+      </nav>
+      <button class="theme-toggle" id="themeBtn" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="hero__glow"></div>
+    <svg class="hero__bg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-50 430 C 300 430, 380 210, 700 210 S 1100 90, 1300 90" fill="none" stroke="var(--accent-graphic)" stroke-width="1.2" opacity="0.35" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <path d="M-50 470 C 350 470, 450 300, 780 300 S 1150 170, 1300 170" fill="none" stroke="var(--steel)" stroke-width="1" opacity="0.22" stroke-dasharray="1 10" stroke-linecap="round"/>
+    </svg>
+    <div class="wrap hero__inner">
+      <p class="eyebrow">Digital relaunch briefing · Web development</p>
+      <h1>Bring the digital side up to <span class="accent">first class</span>.</h1>
+      <p class="lede">Hackett &amp; Hackett has spent 16 years earning the trust of an elite clientele. Its website and email setup haven't kept up with the service. This briefing sets out where the gaps are and a practical, low-risk plan for closing them, starting with the cheap fixes.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="https://tridominous.github.io/hackett-hackett-concept/">View the homepage concept <span class="arrow">&rarr;</span></a>
+        <a class="btn btn--ghost" href="#diagnosis">Start with the diagnosis</a>
+      </div>
+      <div class="hero__meta">
+        <span class="prepared">Prepared by <b>James</b> · Web developer intern candidate</span>
+        <span class="prepared">SWOT · PESTLE · Initiatives · Roadmap</span>
+      </div>
+
+      <div class="statbar reveal">
+        <div class="stat"><div class="stat__n">2009</div><div class="stat__l">Established</div></div>
+        <div class="stat"><div class="stat__n">100+</div><div class="stat__l">Countries served</div></div>
+        <div class="stat"><div class="stat__n">SIA · TfL</div><div class="stat__l">Licensed operator</div></div>
+        <div class="stat"><div class="stat__n">W1W</div><div class="stat__l">Great Portland St, London</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= BUSINESS ================= -->
+    <section class="block" id="business">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">01 · Understanding the business</p>
+          <h2>What Hackett &amp; Hackett sells</h2>
+          <p class="lede">Before writing a line of code, the plan has to fit the company. This is the read I'd bring into the room.</p>
+        </div>
+        <div class="grid biz-grid">
+          <div class="reveal">
+            <p>Hackett &amp; Hackett is a premium London chauffeur and ground transport firm, founded in 2009 by <strong>Edwin Hackett</strong>. Alongside chauffeur-driven airport transfers and hourly hire, it offers <strong>SIA-licensed close protection</strong>, private jet charter, and wedding and event work. The clientele is deliberately select: corporates in banking, media and the creative industries, plus celebrities and, in the company's own words, "royal families."</p>
+            <p>The model is <strong>asset-light</strong>. Rather than owning a large fleet, the company books vetted chauffeurs and vehicles through a network covering <strong>100+ countries</strong>, which keeps it capital-efficient and lets it scale. What clients are really buying is <strong>discretion, reliability and status</strong>. The brand promise is "lifestyle-enhancing services," and all of it rests on trust.</p>
+            <p style="margin-bottom:0">That is the lens for this whole briefing: <strong>trust is the product</strong>. A dated website and staff emailing VIP clients from personal Gmail accounts don't just look untidy. They quietly work against the one thing the company sells.</p>
+          </div>
+          <div class="reveal">
+            <div class="factsheet">
+              <div class="factsheet__row"><span class="k">Founder / MD</span><span class="v">Edwin Hackett</span></div>
+              <div class="factsheet__row"><span class="k">Est.</span><span class="v">2009</span></div>
+              <div class="factsheet__row"><span class="k">HQ</span><span class="v">Great Portland St, W1W</span></div>
+              <div class="factsheet__row"><span class="k">Companies House</span><span class="v num">07100605</span></div>
+              <div class="factsheet__row"><span class="k">Licensing</span><span class="v">SIA · TfL / PCO</span></div>
+              <div class="factsheet__row"><span class="k">Model</span><span class="v">Asset-light broker</span></div>
+            </div>
+            <div class="pills" aria-label="Service lines">
+              <span class="pill">Chauffeur hire</span>
+              <span class="pill">Airport transfers</span>
+              <span class="pill">As-directed hourly</span>
+              <span class="pill">Close protection</span>
+              <span class="pill">Private jet charter</span>
+              <span class="pill">Weddings</span>
+              <span class="pill">Events &amp; security</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DIAGNOSIS ================= -->
+    <section class="block" id="diagnosis">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">02 · Current digital state</p>
+          <h2>The diagnosis</h2>
+          <p class="lede">An honest look at where the digital presence undersells the brand today. A few items still need a formal audit to confirm, and I've flagged those, but the overall direction is clear.</p>
+        </div>
+        <div class="grid diag-grid">
+          <div class="card diag flag reveal">
+            <span class="sev">Credibility · High priority</span>
+            <h3>Staff on personal Gmail</h3>
+            <p>Team members email from personal <em>@gmail.com</em> addresses while handling VIP travel details. That means no central control, no audit trail, addresses that are easy to spoof, and mailboxes that walk out the door when someone leaves. For a company selling discretion, it's the first thing I would fix. <strong>The plan is in section 05.</strong></p>
+          </div>
+          <div class="card diag reveal">
+            <span class="sev">Brand · High priority</span>
+            <h3>Dated WordPress site</h3>
+            <p>An ageing WordPress build with a heavy theme and plugin stack usually means <strong>slow loads, a clunky mobile experience and a dated look</strong> that reads mid-market to a luxury buyer. Right now the site tells visitors it's first class instead of showing them.</p>
+          </div>
+          <div class="card diag reveal">
+            <span class="sev">Growth · Medium</span>
+            <h3>Little measurement, hard to find</h3>
+            <p>There's little sign of analytics or technical SEO, so the company <strong>can't see what converts</strong> and struggles to compete for high-intent searches against app-first rivals. You can't improve what you don't measure.</p>
+          </div>
+          <div class="card diag reveal">
+            <span class="sev">Conversion · Medium</span>
+            <h3>Manual, enquiry-led booking</h3>
+            <p>Booking runs on a contact form and a callback. Clients used to Blacklane or Wheely now expect an <strong>instant quote, secure online booking and an account</strong>. Every manual step is a chance to lose a high-value lead.</p>
+          </div>
+        </div>
+        <p class="note reveal" style="margin-top:1.1rem"><strong>Method note:</strong> the public site does use a proper domain (<code>info@hackettandhackett.co.uk</code>), so the email fix is about giving <em>every staff member</em> a mailbox on that domain, not buying one. The performance and SEO points are working assumptions to confirm with a Lighthouse and Search Console audit as step one.</p>
+      </div>
+    </section>
+
+    <!-- ================= SWOT ================= -->
+    <section class="block" id="swot">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">03 · Strategic analysis</p>
+          <h2>SWOT</h2>
+          <p class="lede">Where the company stands: internal strengths and weaknesses, external opportunities and threats, viewed with the digital work in mind.</p>
+        </div>
+        <div class="grid swot">
+          <div class="card quad s reveal">
+            <span class="quad__tag">Strengths · internal</span>
+            <h3>What's already working</h3>
+            <ul class="ticks">
+              <li><b>16 years of trading</b> and a trusted name among corporate, celebrity and royal clients.</li>
+              <li><b>Broad service range</b> across chauffeur, security, aviation and events, which supports cross-selling and repeat business.</li>
+              <li><b>SIA and TfL licensing</b> plus vetted close protection that ride-hailing apps can't offer.</li>
+              <li><b>An asset-light global network</b> covering 100+ countries, so it scales without heavy capital.</li>
+              <li>A prestige central London identity, genuine discretion, and charity associations.</li>
+            </ul>
+          </div>
+          <div class="card quad w reveal">
+            <span class="quad__tag">Weaknesses · internal</span>
+            <h3>What's holding it back</h3>
+            <ul class="ticks">
+              <li><b>A dated website</b> with weak mobile and booking journeys that undercuts the premium price point.</li>
+              <li><b>Personal Gmail</b> in client communication, inconsistent branding, and gaps in data governance.</li>
+              <li>Little measurement or SEO, and <b>heavy reliance on manual, founder-led handling</b>.</li>
+              <li>The brand <b>tells rather than shows</b>: not much visible proof like case studies or structured reviews.</li>
+              <li>No self-serve booking or client account to match what clients now expect.</li>
+            </ul>
+          </div>
+          <div class="card quad o reveal">
+            <span class="quad__tag">Opportunities · external</span>
+            <h3>Where to grow</h3>
+            <ul class="ticks">
+              <li><b>Turn the offline reputation into online bookings</b> and captured leads with a modern site.</li>
+              <li><b>Corporate accounts and travel management</b>: recurring, higher-margin revenue.</li>
+              <li><b>An EV tier with carbon reporting</b> to win sustainability-minded corporate clients.</li>
+              <li>Content and SEO authority in luxury travel, security and events, plus a real reviews engine.</li>
+              <li>Partnerships with hotels, PAs and concierges, private aviation, and event planners.</li>
+            </ul>
+          </div>
+          <div class="card quad t reveal">
+            <span class="quad__tag">Threats · external</span>
+            <h3>What to defend against</h3>
+            <ul class="ticks">
+              <li><b>App-first competitors</b> (Blacklane, Wheely) and scaled incumbents (Addison Lee) with stronger tech.</li>
+              <li><b>Ride-hail and autonomous pressure</b>, with Uber trailing self-driving pilots in London.</li>
+              <li><b>Cost and regulation</b>: ULEZ, congestion charging, EV transition costs, driver-status law.</li>
+              <li>Economic sensitivity to corporate travel budgets, hybrid work and cost-of-living pressure.</li>
+              <li><b>Reputation and data-breach risk</b>, magnified by the VIP clientele and the current stack.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PESTLE ================= -->
+    <section class="block" id="pestle">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">04 · Macro environment</p>
+          <h2>PESTLE</h2>
+          <p class="lede">The outside forces shaping the market, and what each one means for the digital plan.</p>
+        </div>
+        <div class="grid pestle">
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">P</span><div><h3>Political</h3><span class="sub">Regulation &amp; policy</span></div></div>
+            <p>TfL and PCO rules for private hire, SIA rules for close protection, London transport and emissions policy, and post-Brexit visa dynamics for international clients. <strong>For the plan:</strong> put licences and compliance front and centre as trust signals.</p>
+          </div>
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">E</span><div><h3>Economic</h3><span class="sub">Markets &amp; spend</span></div></div>
+            <p>City activity and corporate travel budgets drive demand; inflation and fuel costs squeeze margins; luxury spend stays resilient while the mid-market tightens; exchange rates bring inbound visitors. <strong>For the plan:</strong> compete on experience and defend the premium, not on price.</p>
+          </div>
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">S</span><div><h3>Social</h3><span class="sub">Culture &amp; behaviour</span></div></div>
+            <p>Spending keeps shifting toward experiences and discretion; sustainability expectations are rising; hybrid work trims routine trips while occasion travel holds up; safety concerns among wealthy clients are lifting close-protection demand. <strong>For the plan:</strong> publish content on safety, sustainability and occasion travel.</p>
+          </div>
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">T</span><div><h3>Technological</h3><span class="sub">Digital shift</span></div></div>
+            <p>App-based booking is now the baseline, along with live tracking, dynamic pricing and chat. EVs and charging have matured, and autonomous vehicles are on the horizon. <strong>For the plan:</strong> this is the whole case for the relaunch. Close the experience gap with app-first rivals.</p>
+          </div>
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">L</span><div><h3>Legal</h3><span class="sub">Compliance &amp; risk</span></div></div>
+            <p>UK GDPR and the Data Protection Act (VIP data is high-sensitivity), private-hire and operator licensing, SIA rules, driver-classification law after <em>Uber v Aslam</em>, PECR cookie and marketing rules, and accessibility duties under the Equality Act. <strong>For the plan:</strong> privacy by design, proper consent, and accessibility are non-negotiable.</p>
+          </div>
+          <div class="card pest reveal">
+            <div class="pest__top"><span class="mark">E</span><div><h3>Environmental</h3><span class="sub">Sustainability</span></div></div>
+            <p>ULEZ and clean-air zones, net-zero targets, corporate Scope 3 travel reporting, and the cost of moving to an EV fleet, set against growing client demand for green options. <strong>For the plan:</strong> an EV tier with per-journey carbon data turns a cost pressure into a selling point.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INITIATIVES ================= -->
+    <section class="block" id="initiatives">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">05 · Recommendations</p>
+          <h2>Initiatives for the relaunch</h2>
+          <p class="lede">Weighted to my field, web and digital, and sequenced so credibility and quick wins come first, growth second, and future-proofing third. Each one is tagged by impact, effort, and whether an intern can own it.</p>
+        </div>
+
+        <!-- Group A -->
+        <div class="initgroup">
+          <div class="initgroup__label reveal"><span class="gk">Group A · Foundation &amp; credibility</span><span class="rule"></span></div>
+          <div class="grid" style="grid-template-columns:1fr">
+            <div class="card init reveal">
+              <div class="init__num">01</div>
+              <div>
+                <h3>Professional email on the company's own domain</h3>
+                <p>Retire personal Gmail and give every staff member <em>name@hackettandhackett.co.uk</em>. It's cheap, it's quick, and done properly there is <strong>no vendor lock-in</strong>. The full plan is in the next section.</p>
+                <div class="chips"><span class="chip win">Quick win</span><span class="chip impact">High impact</span><span class="chip">Low effort</span><span class="chip dev">Intern-ownable</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">02</div>
+              <div>
+                <h3>Rebuild the website: fast, mobile-first, secure</h3>
+                <p>A modern, quick, accessible site that <em>shows</em> the luxury rather than describing it. My recommendation is a modern static build (for example Astro or Next.js with a lightweight CMS) for speed, security and low upkeep, or a hardened, well-themed WordPress if the team needs to keep self-editing in a familiar tool. Either way: a Core Web Vitals budget, HTTPS, optimised images, and a proper design system.</p>
+                <div class="chips"><span class="chip impact">High impact</span><span class="chip">Medium effort</span><span class="chip dev">Core dev workstream</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">03</div>
+              <div>
+                <h3>Measurement baseline &amp; email deliverability</h3>
+                <p>Set up privacy-friendly analytics (GA4 or Plausible), Google Search Console and conversion tracking so decisions are backed by data. Configure <strong>SPF, DKIM and DMARC</strong> so company mail lands in inboxes and can't be spoofed. That's a security win and a credibility win in one.</p>
+                <div class="chips"><span class="chip win">Quick win</span><span class="chip">Low effort</span><span class="chip dev">Intern-ownable</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group B -->
+        <div class="initgroup">
+          <div class="initgroup__label reveal"><span class="gk">Group B · Growth &amp; conversion</span><span class="rule"></span></div>
+          <div class="grid" style="grid-template-columns:1fr">
+            <div class="card init reveal">
+              <div class="init__num">04</div>
+              <div>
+                <h3>A smoother booking journey</h3>
+                <p>Instant online quote, then secure booking, then <strong>payment through Stripe</strong>, with WhatsApp and callbacks kept for clients who prefer a person. Add the account area and ride credits the current site hints at, so repeat clients can self-serve.</p>
+                <div class="chips"><span class="chip impact">High impact</span><span class="chip">Medium effort</span><span class="chip dev">Dev-led</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">05</div>
+              <div>
+                <h3>SEO, local SEO &amp; a content hub</h3>
+                <p>Technical SEO, a claimed and tuned Google Business Profile, service and location landing pages, and a content hub covering luxury travel, executive security and event logistics to win long-tail, high-intent search.</p>
+                <div class="chips"><span class="chip impact">High impact</span><span class="chip">Ongoing</span><span class="chip dev">Intern-ownable</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">06</div>
+              <div>
+                <h3>A reputation &amp; proof engine</h3>
+                <p>Structured Google review capture, discreet anonymised case studies, and trust badges (SIA, TfL, memberships) presented as design elements rather than afterthoughts. Turn "we're first class" into visible evidence.</p>
+                <div class="chips"><span class="chip">Low effort</span><span class="chip impact">Trust</span><span class="chip dev">Intern-ownable</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group C -->
+        <div class="initgroup">
+          <div class="initgroup__label reveal"><span class="gk">Group C · Differentiation &amp; future-proofing</span><span class="rule"></span></div>
+          <div class="grid" style="grid-template-columns:1fr">
+            <div class="card init reveal">
+              <div class="init__num">07</div>
+              <div>
+                <h3>Sustainability: an EV tier with carbon data</h3>
+                <p>An electric service tier with per-journey carbon figures that corporate clients can drop straight into their ESG reporting. It turns ULEZ and net-zero pressure into an advantage.</p>
+                <div class="chips"><span class="chip impact">Differentiator</span><span class="chip">Medium effort</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">08</div>
+              <div>
+                <h3>CRM &amp; automation, then an AI concierge</h3>
+                <p>A CRM with automated quote and confirmation emails to cut manual work, then an AI concierge for enquiries once the basics are solid. Efficiency first, personalisation later.</p>
+                <div class="chips"><span class="chip">Phased</span><span class="chip dev">Dev-led</span></div>
+              </div>
+            </div>
+            <div class="card init reveal">
+              <div class="init__num">09</div>
+              <div>
+                <h3>Performance &amp; accessibility as standing habits</h3>
+                <p>Core Web Vitals targets and WCAG 2.2 AA built into the workflow, so the site stays fast and accessible by default. That's better SEO and legally safer too.</p>
+                <div class="chips"><span class="chip">Ongoing</span><span class="chip dev">Intern-ownable</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EMAIL FIX ================= -->
+    <section class="block" id="email">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">Spotlight · the flagged issue</p>
+          <h2>Fixing the Gmail problem cheaply, with no lock-in</h2>
+        </div>
+        <div class="callout reveal">
+          <p><strong>The problem.</strong> Staff representing a luxury, security-conscious firm from personal <em>@gmail.com</em> addresses erodes credibility and creates real risk: no central admin, no audit trail, addresses that are trivial to impersonate, and a mess when people leave. It also hurts deliverability and brand consistency.</p>
+
+          <p class="principle">The no-lock-in principle: because mailboxes live on the company's <b>own domain</b> and use <b>open standards</b> (IMAP, SMTP, and ordinary DNS records like MX, SPF, DKIM and DMARC), the company can switch provider at any time by re-pointing DNS. <b>Owning the domain plus open standards means portability, which means no lock-in.</b> The provider is a rental; the identity is owned.</p>
+
+          <p style="margin-bottom:.4rem"><strong>The options, all cheap, standards-based and easy to leave:</strong></p>
+          <div class="tablewrap">
+            <table>
+              <thead>
+                <tr><th>Provider</th><th>Indicative cost</th><th>Lock-in / portability</th><th>Ease</th><th>Best for</th></tr>
+              </thead>
+              <tbody>
+                <tr class="rec">
+                  <td><span class="name">Zoho Mail</span></td>
+                  <td class="num">Free to start (1 domain, limited), then about £1/user/mo</td>
+                  <td>Low. Standard IMAP/SMTP, export freely</td>
+                  <td>Easy admin console</td>
+                  <td>Lowest-cost start, quick rollout</td>
+                </tr>
+                <tr class="rec">
+                  <td><span class="name">Fastmail</span></td>
+                  <td class="num">About £3&ndash;5/user/mo</td>
+                  <td>Very low. Open standards, simple import/export</td>
+                  <td>Excellent UX</td>
+                  <td>Easy to adopt, easy to leave</td>
+                </tr>
+                <tr>
+                  <td><span class="name">Migadu</span></td>
+                  <td class="num">Flat per-domain, not per-mailbox</td>
+                  <td>Very low. Standards-first, anti-lock-in ethos</td>
+                  <td>Moderate (more technical)</td>
+                  <td>Many aliases and shared boxes cheaply</td>
+                </tr>
+                <tr>
+                  <td><span class="name">Google Workspace / Microsoft 365</span></td>
+                  <td class="num">About £5&ndash;10+/user/mo</td>
+                  <td>Higher. Proprietary suites, harder to migrate</td>
+                  <td>Very polished</td>
+                  <td>If they want the full Docs/Teams suite</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="grid twocol">
+            <div class="reveal">
+              <h3 style="color:var(--accent)">My recommendation</h3>
+              <ul class="ticks">
+                <li>Start on <b>Zoho Mail</b> for cost, or <b>Fastmail</b> for UX and portability.</li>
+                <li>Give everyone <b>firstname@hackettandhackett.co.uk</b>, plus shared boxes: <b>bookings@, accounts@, security@</b>.</li>
+                <li>Set up <b>SPF, DKIM and DMARC</b>, and require <b>2FA</b>.</li>
+                <li>Because it all lives on their own domain, <b>they're never trapped</b>.</li>
+              </ul>
+            </div>
+            <div class="reveal">
+              <h3 style="color:var(--accent)">What it unlocks</h3>
+              <ul class="ticks">
+                <li>Branded signatures carrying <b>licences and accreditations</b>.</li>
+                <li>Shared calendars for dispatch and bookings.</li>
+                <li>Plugs straight into the new site's <b>contact and booking forms</b>.</li>
+                <li>Central offboarding: reclaim a mailbox in seconds.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REDESIGN SHOWPIECE ================= -->
+    <section class="block" id="redesign">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">06 · Show, don't tell</p>
+          <h2>The homepage, reimagined</h2>
+          <p class="lede">Rather than describe a better site, I built one. Here's where the current site sits next to the concept, and the concept itself is deployed alongside this briefing.</p>
+        </div>
+        <div class="grid redesign">
+          <div class="rd-col reveal">
+            <span class="badge-label badge-before">Before · today</span>
+            <div class="browser">
+              <div class="browser__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="browser__url">hackettandhackett.co.uk</span></div>
+              <div class="mock-before" aria-hidden="true">
+                <div class="mb-nav"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="mb-hero"><div class="t">WELCOME TO HACKETT &amp; HACKETT</div></div>
+                <div class="mb-line"></div><div class="mb-line"></div><div class="mb-line s"></div>
+                <div class="mb-blocks"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="mb-line"></div><div class="mb-line s"></div>
+              </div>
+            </div>
+            <ul class="ticks" style="margin-top:1rem">
+              <li>Cluttered, template-driven layout with no single clear action.</li>
+              <li>Generic type, so the luxury doesn't come through.</li>
+              <li>Heavy build, which means slow loads, especially on mobile.</li>
+            </ul>
+          </div>
+
+          <div class="rd-col reveal">
+            <span class="badge-label badge-after">After · concept</span>
+            <div class="browser">
+              <div class="browser__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="browser__url">hackettandhackett.co.uk</span></div>
+              <div class="mock-after">
+                <div class="mock-after__glow"></div>
+                <svg class="mock-after__route" viewBox="0 0 400 300" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M-10 250 C 120 250, 150 120, 300 110 S 420 60, 460 55" fill="none" stroke="#cba65d" stroke-width="1" opacity=".5" stroke-dasharray="1 7" stroke-linecap="round"/>
+                </svg>
+                <div class="mock-after__c">
+                  <div class="ma-brand">Hackett <span class="amp">&amp;</span> Hackett</div>
+                  <div class="ma-h">Arrive as you <em>mean to continue</em>.</div>
+                  <div class="ma-sub">Chauffeur, close protection &amp; private travel. London and 100+ countries. Discreet by default.</div>
+                  <div class="ma-cta">
+                    <span class="ma-btn p">Get an instant quote</span>
+                    <span class="ma-btn g">Book a chauffeur</span>
+                  </div>
+                  <div class="ma-trust"><span>SIA Licensed</span><span>TfL / PCO</span><span>Since 2009</span></div>
+                </div>
+              </div>
+            </div>
+            <ul class="ticks" style="margin-top:1rem">
+              <li>One cinematic hero and one primary action: <b>the instant quote</b>.</li>
+              <li>A serif-and-brass identity that reads as luxury straight away.</li>
+              <li>Licences shown as trust signals. Fast, mobile-first, accessible.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="democta reveal">
+          <div class="democta__copy">
+            <h3>See it <em>live</em></h3>
+            <p>The full concept: real photography, a working instant-quote card, and light and dark themes driven by the same design tokens. Hand-built as a single static page with no framework and no build step. The theme you pick here carries over.</p>
+          </div>
+          <div class="democta__btns">
+            <a class="btn btn--primary" href="https://tridominous.github.io/hackett-hackett-concept/">Open the homepage concept <span class="arrow">&rarr;</span></a>
+            <a class="btn btn--ghost" href="hackett-homepage/">v1 · illustrated version</a>
+          </div>
+        </div>
+
+        <p class="note reveal" style="margin-top:1.2rem">This briefing page is part of the pitch too: a single hand-built, responsive, theme-aware file, made with the same care I'd bring to the real rebuild.</p>
+      </div>
+    </section>
+
+    <!-- ================= ROADMAP ================= -->
+    <section class="block" id="roadmap">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">07 · Sequencing</p>
+          <h2>A phased, low-risk roadmap</h2>
+          <p class="lede">Credibility first, growth second, differentiation third, so value shows early and risk stays low. Costs are indicative, and much of the early work an intern can do in-house.</p>
+        </div>
+        <div class="phase-tl">
+          <div class="phase reveal">
+            <div class="phase__spine"><span class="phase__dot"></span><span class="phase__line"></span></div>
+            <div class="card" style="width:100%">
+              <span class="phase__k">Phase 0 · Quick wins</span> &nbsp; <span class="phase__time">Weeks 1&ndash;2 · low cost</span>
+              <h3 style="margin-top:.5rem">Credibility &amp; measurement</h3>
+              <p style="margin:0">Company email on the domain with SPF, DKIM, DMARC and 2FA; analytics and Search Console; Google Business Profile; HTTPS and cookie consent. <strong>Outcome:</strong> an immediate credibility lift, plus the data to guide everything after.</p>
+            </div>
+          </div>
+          <div class="phase reveal">
+            <div class="phase__spine"><span class="phase__dot"></span><span class="phase__line"></span></div>
+            <div class="card" style="width:100%">
+              <span class="phase__k">Phase 1 · Rebuild</span> &nbsp; <span class="phase__time">Months 1&ndash;2</span>
+              <h3 style="margin-top:.5rem">New website + booking</h3>
+              <p style="margin:0">Design system and core pages; instant quote and booking with Stripe payments; SEO foundations; review capture. <strong>Outcome:</strong> a site that converts and finally matches the brand.</p>
+            </div>
+          </div>
+          <div class="phase reveal">
+            <div class="phase__spine"><span class="phase__dot"></span><span class="phase__line"></span></div>
+            <div class="card" style="width:100%">
+              <span class="phase__k">Phase 2 · Deepen</span> &nbsp; <span class="phase__time">Months 3&ndash;4</span>
+              <h3 style="margin-top:.5rem">Accounts, content &amp; CRM</h3>
+              <p style="margin:0">Client portal and ride credits; content hub; CRM with automated comms; discreet case studies. <strong>Outcome:</strong> repeat business and less manual load.</p>
+            </div>
+          </div>
+          <div class="phase reveal">
+            <div class="phase__spine"><span class="phase__dot"></span><span class="phase__line"></span></div>
+            <div class="card" style="width:100%">
+              <span class="phase__k">Phase 3 · Differentiate</span> &nbsp; <span class="phase__time">Ongoing</span>
+              <h3 style="margin-top:.5rem">EV tier, B2B &amp; AI</h3>
+              <p style="margin:0">The EV tier with carbon data; corporate accounts; the AI concierge; standing performance and accessibility budgets, iterated with the analytics. <strong>Outcome:</strong> growth that's hard to copy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SOURCES ================= -->
+    <section class="block" id="sources">
+      <div class="wrap">
+        <div class="block__head reveal">
+          <p class="eyebrow">Appendix</p>
+          <h2>Sources &amp; basis</h2>
+        </div>
+        <div class="sources reveal">
+          <a href="https://hackettandhackett.co.uk/" target="_blank" rel="noopener">hackettandhackett.co.uk · company website (services, fleet, credentials, contact)</a>
+          <a href="https://www.hackettandhackett.co.uk/about-us-2/" target="_blank" rel="noopener">Hackett &amp; Hackett · About Us (founder, history, clientele)</a>
+          <a href="https://find-and-update.company-information.service.gov.uk/company/07100605" target="_blank" rel="noopener">Companies House · registration 07100605</a>
+          <a href="https://uk.linkedin.com/company/hackett&hackett-london-ltd" target="_blank" rel="noopener">Hackett &amp; Hackett · LinkedIn company profile</a>
+          <a href="https://www.blacklane.com" target="_blank" rel="noopener">Competitor context · Blacklane</a>
+          <a href="https://wheely.com" target="_blank" rel="noopener">Competitor context · Wheely</a>
+          <a href="https://www.addisonlee.com" target="_blank" rel="noopener">Competitor context · Addison Lee (EV / executive division)</a>
+        </div>
+        <p class="note reveal" style="margin-top:1.2rem">Founding year, licensing and clientele come from the company's own site. Market, competitor and regulatory points (EV and ULEZ, autonomous trials, driver-status law) reflect widely reported UK context and would be re-verified before any external use. Performance and SEO claims are hypotheses to confirm with a Lighthouse and Search Console audit.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot__brand">Hackett <span class="amp" style="color:var(--accent);font-style:italic">&amp;</span> Hackett · Digital Relaunch Briefing</div>
+        <p style="margin:.5rem 0 0">Prepared by James · Web developer intern candidate · July 2026 · An independent interview-preparation concept, not affiliated with or endorsed by Hackett &amp; Hackett.</p>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+
+    // theme toggle: persists, and shares the 'hh-theme' key with the homepage concept
+    var btn = document.getElementById('themeBtn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var current = root.getAttribute('data-theme');
+        if (!current) {
+          current = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        var next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('hh-theme', next); } catch (e) {}
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', next === 'dark' ? '#0E1218' : '#F3F4F7');
+      });
+    }
+
+    // scroll reveal
+    var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      reveals.forEach(function (el) { io.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // scrollspy for nav
+    var links = [].slice.call(document.querySelectorAll('.navlink'));
+    var map = {};
+    links.forEach(function (l) {
+      var href = l.getAttribute('href');
+      if (href && href.charAt(0) === '#') map[href.slice(1)] = l;
+    });
+    var sections = [].slice.call(document.querySelectorAll('section.block, header.hero'));
+    if ('IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && map[e.target.id]) {
+            links.forEach(function (l) { l.classList.remove('active'); });
+            map[e.target.id].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(function (s) { if (s.id) spy.observe(s); });
+    }
+  })();
+</script>
+</body>
+</html>

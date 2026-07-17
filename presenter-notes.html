@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Presenter notes · Hackett &amp; Hackett briefing</title>
+<meta name="description" content="Private presenter notes for the Hackett &amp; Hackett digital relaunch briefing." />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="theme-color" content="#F3F4F7" />
+<script>(function(){try{var s=localStorage.getItem('hh-theme');var t=s||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0C10'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-style='italic' fill='%23C9A24B' text-anchor='middle'%3E%26%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg:#F3F4F7; --surface:#FFFFFF; --surface-2:#F6F7F9;
+    --ink:#161B22; --ink-soft:#39424E; --muted:#697280; --line:#DCE0E7; --line-soft:#E7EAEF;
+    --accent:#9C7726; --accent-graphic:#BE9A4E; --accent-glow:rgba(190,154,78,.16); --steel:#3E6389;
+    --shadow:0 1px 2px rgba(16,22,34,.04), 0 8px 30px rgba(16,22,34,.06);
+    --radius:14px;
+    --font-display:"Fraunces","Palatino Linotype",Palatino,Georgia,serif;
+    --font-sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --font-mono:"SFMono-Regular",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:#0E1218; --surface:#151B23; --surface-2:#1A212B;
+      --ink:#EEF1F5; --ink-soft:#C4CBD4; --muted:#8A94A1; --line:#29323D; --line-soft:#212a34;
+      --accent:#D9BA70; --accent-graphic:#CBA65D; --accent-glow:rgba(203,166,93,.16); --steel:#82A6C8;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --bg:#F3F4F7; --surface:#FFFFFF; --surface-2:#F6F7F9;
+    --ink:#161B22; --ink-soft:#39424E; --muted:#697280; --line:#DCE0E7; --line-soft:#E7EAEF;
+    --accent:#9C7726; --accent-graphic:#BE9A4E; --accent-glow:rgba(190,154,78,.16); --steel:#3E6389;
+    --shadow:0 1px 2px rgba(16,22,34,.04), 0 8px 30px rgba(16,22,34,.06);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#0E1218; --surface:#151B23; --surface-2:#1A212B;
+    --ink:#EEF1F5; --ink-soft:#C4CBD4; --muted:#8A94A1; --line:#29323D; --line-soft:#212a34;
+    --accent:#D9BA70; --accent-graphic:#CBA65D; --accent-glow:rgba(203,166,93,.16); --steel:#82A6C8;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 40px rgba(0,0,0,.4);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin-inline: auto; padding: clamp(2.2rem, 6vw, 4rem) clamp(20px, 5vw, 44px) 4rem; }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 .9rem; display: inline-flex; align-items: center; gap: .6em;
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--accent-graphic); }
+  h1 { font-family: var(--font-display); font-weight: 440; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.05; letter-spacing: -.015em; margin: 0 0 .6rem; text-wrap: balance; }
+  h2 { font-family: var(--font-display); font-weight: 480; font-size: 1.35rem; letter-spacing: -.01em; margin: 2.6rem 0 .9rem; }
+  h3 { font-family: var(--font-display); font-weight: 540; font-size: 1.08rem; margin: 0 0 .35rem; }
+  p { margin: 0 0 1rem; color: var(--ink-soft); }
+  .lede { font-size: 1.08rem; }
+  a { color: var(--steel); text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  b, strong { color: var(--ink); }
+
+  .private {
+    font-family: var(--font-mono); font-size: .74rem; color: var(--muted);
+    border: 1px dashed var(--line); border-radius: 999px; padding: .4rem .85rem; display: inline-block; margin-bottom: 1.6rem;
+  }
+  .private b { color: var(--accent); }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.2rem 1.3rem; box-shadow: var(--shadow); border-left: 3px solid var(--steel);
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+
+  ol.runorder { padding-left: 0; margin: 0; list-style: none; counter-reset: step; display: grid; gap: .7rem; }
+  ol.runorder li {
+    counter-increment: step; position: relative; padding: .85rem 1rem .85rem 3.2rem;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px; color: var(--ink-soft);
+  }
+  ol.runorder li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute; left: 1rem; top: .95rem;
+    font-family: var(--font-mono); font-size: .78rem; color: var(--accent);
+  }
+  ol.runorder li b { color: var(--ink); }
+  ol.runorder .t { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; margin-left: .5rem; }
+
+  .quoteline {
+    font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--line); border-left: 3px solid var(--accent-graphic);
+    border-radius: var(--radius); padding: 1.1rem 1.3rem; margin: 1.2rem 0 0;
+  }
+  .note { font-size: .84rem; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; padding: .9rem 1.1rem; margin-top: 2.4rem; }
+  .backlink { font-family: var(--font-mono); font-size: .78rem; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="eyebrow">Hackett &amp; Hackett · Digital relaunch</p>
+    <h1>Presenter notes</h1>
+    <span class="private">For <b>James</b> only · not linked from the briefing</span>
+    <p class="lede">The brief's real ask is to bring initiatives and present them credibly. These notes are how to land them. Keep this page open on a second screen or phone; present from the <a class="backlink" href="./">briefing itself</a>.</p>
+
+    <h2>Suggested run order (about 10 minutes)</h2>
+    <ol class="runorder">
+      <li><b>Open on the briefing hero.</b> One line on who you are, then straight into what the company sells. <span class="t">1 min</span></li>
+      <li><b>Business &amp; diagnosis.</b> Land "trust is the product," then the four findings, Gmail first. <span class="t">2 min</span></li>
+      <li><b>SWOT &amp; PESTLE.</b> Don't read the grids. Pick two or three items each and connect them to the plan. <span class="t">2 min</span></li>
+      <li><b>Initiatives &amp; the email fix.</b> Quick wins first, then the no-lock-in principle. This is your credibility peak. <span class="t">2 min</span></li>
+      <li><b>Hit the button.</b> Open the live homepage concept, toggle the theme, run the instant-quote card. <span class="t">2 min</span></li>
+      <li><b>Roadmap &amp; close.</b> Phase 0 ships in a fortnight, and you're offering to own it. <span class="t">1 min</span></li>
+    </ol>
+
+    <h2>Talking points</h2>
+    <div class="cards">
+      <div class="card"><h3>Lead with the business, not the tech</h3><p>Open by showing you understand what they sell: trust and discretion. Then frame every recommendation as protecting or growing that. Tech is the means, not the message.</p></div>
+      <div class="card"><h3>Frame everything as ROI, risk or credibility</h3><p>Not "let's use Astro" but "a faster site converts more high-value enquiries and costs less to run." Speak the founder's language.</p></div>
+      <div class="card"><h3>Start with the cheap quick wins</h3><p>The email fix and the measurement baseline show pragmatism and respect for budget. You're not a junior asking for a big rebuild on day one.</p></div>
+      <div class="card"><h3>Use the concept as your moment</h3><p>"I didn't just analyse it, I built you a concept." Demo it live. It's your differentiator against other candidates.</p></div>
+      <div class="card"><h3>Show you understand their constraints</h3><p>Name ULEZ, GDPR around VIP data, driver-status law and EV costs. It proves you researched the industry, not just the website.</p></div>
+      <div class="card"><h3>Close on ownership</h3><p>Offer to own the web workstream as the intern. Phase 0 could ship in your first fortnight. End with initiative, not a wish list.</p></div>
+    </div>
+
+    <h2>The closing line</h2>
+    <p class="quoteline">"Hackett &amp; Hackett sells trust and discretion to an elite clientele. My job as your web developer intern is to make sure every digital touchpoint, from the homepage to the address staff email from, earns that trust before a word is exchanged. Here's how I'd do it, starting in week one."</p>
+
+    <p class="note">This page is not linked from the briefing and carries a <code>noindex</code> tag, but if the repo is public, anyone who guesses the URL can read it. If that bothers you, keep this file out of the deployed branch and open it locally instead.</p>
+  </div>
+</body>
+</html>
