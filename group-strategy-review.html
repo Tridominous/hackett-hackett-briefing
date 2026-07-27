@@ -1,0 +1,1149 @@
+<title>Hackett & Hackett Group — Strategic Reality Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#FAF7F0; --surface:#FFFFFF; --surface-2:#F3EFE5;
+    --ink:#23262B; --ink-2:#5C5F66; --ink-3:#8B8E95;
+    --brass:#8C6F2F; --brass-ink:#6E5620; --line:#E5DFD2; --line-2:#D8D1C0;
+    --chip-core-bg:#E3EFE6; --chip-core-ink:#2E6240;
+    --chip-build-bg:#E2EBF6; --chip-build-ink:#2C568C;
+    --chip-partner-bg:#F1EADA; --chip-partner-ink:#6E5620;
+    --chip-fix-bg:#F8EDD8; --chip-fix-ink:#8A5E14;
+    --chip-park-bg:#ECEBE7; --chip-park-ink:#5C5F66;
+    --chip-avoid-bg:#F7E3E1; --chip-avoid-ink:#96382F;
+    --good:#2E6240; --bad:#96382F;
+    --c-gold:#A07408; --c-blue:#3567A6;
+    --shadow:0 1px 2px rgba(35,38,43,.05),0 8px 24px rgba(35,38,43,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#101318; --surface:#171B22; --surface-2:#1E232C;
+      --ink:#E9E4D8; --ink-2:#A7A29A; --ink-3:#767A82;
+      --brass:#C2A45C; --brass-ink:#D4BC7A; --line:#272C36; --line-2:#333A47;
+      --chip-core-bg:#1C2B22; --chip-core-ink:#7FBB93;
+      --chip-build-bg:#1B2735; --chip-build-ink:#84AEDC;
+      --chip-partner-bg:#2A2517; --chip-partner-ink:#D4BC7A;
+      --chip-fix-bg:#2E2412; --chip-fix-ink:#DDAE55;
+      --chip-park-bg:#232730; --chip-park-ink:#A7A29A;
+      --chip-avoid-bg:#301B18; --chip-avoid-ink:#E08A7E;
+      --good:#7FBB93; --bad:#E08A7E;
+      --c-gold:#C08A1E; --c-blue:#5D8FDE;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#FAF7F0; --surface:#FFFFFF; --surface-2:#F3EFE5;
+    --ink:#23262B; --ink-2:#5C5F66; --ink-3:#8B8E95;
+    --brass:#8C6F2F; --brass-ink:#6E5620; --line:#E5DFD2; --line-2:#D8D1C0;
+    --chip-core-bg:#E3EFE6; --chip-core-ink:#2E6240;
+    --chip-build-bg:#E2EBF6; --chip-build-ink:#2C568C;
+    --chip-partner-bg:#F1EADA; --chip-partner-ink:#6E5620;
+    --chip-fix-bg:#F8EDD8; --chip-fix-ink:#8A5E14;
+    --chip-park-bg:#ECEBE7; --chip-park-ink:#5C5F66;
+    --chip-avoid-bg:#F7E3E1; --chip-avoid-ink:#96382F;
+    --good:#2E6240; --bad:#96382F;
+    --c-gold:#A07408; --c-blue:#3567A6;
+    --shadow:0 1px 2px rgba(35,38,43,.05),0 8px 24px rgba(35,38,43,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#101318; --surface:#171B22; --surface-2:#1E232C;
+    --ink:#E9E4D8; --ink-2:#A7A29A; --ink-3:#767A82;
+    --brass:#C2A45C; --brass-ink:#D4BC7A; --line:#272C36; --line-2:#333A47;
+    --chip-core-bg:#1C2B22; --chip-core-ink:#7FBB93;
+    --chip-build-bg:#1B2735; --chip-build-ink:#84AEDC;
+    --chip-partner-bg:#2A2517; --chip-partner-ink:#D4BC7A;
+    --chip-fix-bg:#2E2412; --chip-fix-ink:#DDAE55;
+    --chip-park-bg:#232730; --chip-park-ink:#A7A29A;
+    --chip-avoid-bg:#301B18; --chip-avoid-ink:#E08A7E;
+    --good:#7FBB93; --bad:#E08A7E;
+    --c-gold:#C08A1E; --c-blue:#5D8FDE;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .prose{max-width:72ch}
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;text-wrap:balance;margin:0 0 .5em}
+  h2{font-size:1.9rem;margin-top:0}
+  h3{font-size:1.25rem;margin-top:1.6em}
+  p{margin:.85em 0}
+  a{color:var(--brass-ink)}
+  strong{color:var(--ink)}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--brass);font-weight:600;margin-bottom:.9rem;display:flex;align-items:center;gap:.7rem;
+  }
+  .eyebrow::after{content:"";height:1px;flex:0 0 42px;background:var(--brass);opacity:.5}
+  header.masthead{border-bottom:1px solid var(--line);padding:64px 0 40px;background:var(--surface)}
+  .kicker{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:600}
+  h1.title{font-size:clamp(2rem,5vw,3.1rem);margin:.35em 0 .3em;font-weight:600}
+  .subtitle{color:var(--ink-2);font-size:1.06rem;max-width:64ch}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;font-size:.85rem;color:var(--ink-3)}
+  .meta-row b{color:var(--ink-2);font-weight:600}
+  nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:9px 0;backdrop-filter:blur(6px)}
+  nav.toc .row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;padding:0 24px;max-width:1060px;margin:0 auto}
+  nav.toc .row::-webkit-scrollbar{display:none}
+  nav.toc a{
+    flex:0 0 auto;font-size:.78rem;color:var(--ink-2);text-decoration:none;
+    padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);white-space:nowrap;
+  }
+  nav.toc a:hover{border-color:var(--brass);color:var(--brass-ink)}
+  nav.toc a.key{border-color:var(--brass);color:var(--brass-ink);font-weight:600}
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin:26px 0 6px}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 15px;box-shadow:var(--shadow)}
+  .tile .n{font-family:"Fraunces",Georgia,serif;font-size:1.75rem;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .tile .l{font-size:.8rem;color:var(--ink-2);margin-top:4px;line-height:1.45}
+  .tile .s{font-size:.7rem;color:var(--ink-3);margin-top:7px}
+  .callout{background:var(--surface-2);border-left:3px solid var(--brass);border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0;max-width:78ch}
+  .callout.warn{border-left-color:var(--bad)}
+  .callout .t{font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;color:var(--brass-ink)}
+  .callout.warn .t{color:var(--bad)}
+  .callout p{margin:.4em 0}
+  .tbl-wrap{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;font-size:.88rem;min-width:640px}
+  th{
+    text-align:left;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    padding:12px 14px;border-bottom:1px solid var(--line-2);font-weight:700;background:var(--surface-2);
+  }
+  td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
+  tr:last-child td{border-bottom:none}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  .divname{font-weight:700;white-space:nowrap}
+  .chip{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .chip.core{background:var(--chip-core-bg);color:var(--chip-core-ink)}
+  .chip.build{background:var(--chip-build-bg);color:var(--chip-build-ink)}
+  .chip.partner{background:var(--chip-partner-bg);color:var(--chip-partner-ink)}
+  .chip.fix{background:var(--chip-fix-bg);color:var(--chip-fix-ink)}
+  .chip.park{background:var(--chip-park-bg);color:var(--chip-park-ink)}
+  .chip.avoid{background:var(--chip-avoid-bg);color:var(--chip-avoid-ink)}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:24px 0}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px;box-shadow:var(--shadow)}
+  .panel h4{font-size:1.02rem;margin:0 0 10px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .panel .tag{font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:2px 9px;border-radius:999px}
+  .panel ul{margin:0;padding-left:19px}
+  .panel li{margin:.5em 0;font-size:.9rem;color:var(--ink-2)}
+  .panel li b{color:var(--ink)}
+  .case{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin:18px 0;box-shadow:var(--shadow)}
+  .case h3{margin:0 0 4px;font-size:1.2rem}
+  .case .who{font-size:.8rem;color:var(--ink-3);margin-bottom:12px}
+  .case .lesson{border-top:1px dashed var(--line-2);margin-top:14px;padding-top:12px;font-size:.92rem}
+  .case .lesson b{color:var(--brass-ink)}
+  figure.chart{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px 16px;margin:24px 0;box-shadow:var(--shadow)}
+  figure.chart figcaption{font-weight:700;font-size:.95rem;margin-bottom:2px;font-family:"Hanken Grotesk","Segoe UI",system-ui,sans-serif}
+  figure.chart .sub{font-size:.78rem;color:var(--ink-3);margin-bottom:14px}
+  .legend{display:flex;gap:18px;font-size:.78rem;color:var(--ink-2);margin:4px 0 10px;flex-wrap:wrap}
+  .legend .key{display:flex;align-items:center;gap:7px}
+  .legend .sw{width:11px;height:11px;border-radius:3px}
+  .chart-svg-wrap{overflow-x:auto}
+  #tooltip{
+    position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);
+    font-size:.75rem;padding:6px 10px;border-radius:6px;opacity:0;transition:opacity .12s;z-index:50;white-space:nowrap;
+  }
+  @media (prefers-reduced-motion: reduce){#tooltip{transition:none}}
+  .chart-note{font-size:.72rem;color:var(--ink-3);margin-top:10px}
+  .quarter{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 0;border-bottom:1px dashed var(--line-2)}
+  .quarter:last-child{border-bottom:none}
+  .quarter .q{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--brass-ink);font-size:1.02rem}
+  .quarter .q small{display:block;color:var(--ink-3);font-family:"Hanken Grotesk","Segoe UI",system-ui,sans-serif;font-size:.72rem;font-weight:400;letter-spacing:.05em;margin-top:3px}
+  .quarter ul{margin:0;padding-left:18px}
+  .quarter li{margin:.35em 0;font-size:.92rem;color:var(--ink-2)}
+  @media (max-width:560px){.quarter{grid-template-columns:1fr;gap:6px}}
+  ol.moves{counter-reset:mv;list-style:none;padding:0;margin:24px 0}
+  ol.moves li{
+    counter-increment:mv;position:relative;padding:16px 18px 16px 62px;background:var(--surface);
+    border:1px solid var(--line);border-radius:10px;margin:10px 0;box-shadow:var(--shadow)
+  }
+  ol.moves li::before{
+    content:counter(mv,decimal-leading-zero);position:absolute;left:18px;top:15px;
+    font-family:"Fraunces",Georgia,serif;font-size:1.25rem;font-weight:600;color:var(--brass);
+  }
+  ol.moves b{display:block;margin-bottom:2px}
+  ol.moves .why{font-size:.88rem;color:var(--ink-2)}
+  ul.tight{padding-left:20px}
+  ul.tight li{margin:.5em 0}
+  .src-group{margin:18px 0}
+  .src-group h4{font-size:.9rem;margin:0 0 6px}
+  .src-group ul{margin:0;padding-left:19px;font-size:.82rem;color:var(--ink-2)}
+  .src-group li{margin:.3em 0;overflow-wrap:anywhere}
+  .foot{padding:34px 0 60px;color:var(--ink-3);font-size:.8rem}
+  .smallcaps-note{font-size:.8rem;color:var(--ink-3);font-style:italic}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="kicker">Confidential · Prepared for the founder · July 2026 · Second edition</div>
+    <h1 class="title">Hackett &amp; Hackett International Group</h1>
+    <p class="subtitle" style="font-family:Fraunces,Georgia,serif;font-size:1.3rem;color:var(--ink-2);font-style:italic;">A strategic reality review: what the business is, what the evidence says, and the operating plan that gets it from claims to cash — without giving up the discretion the business is built on.</p>
+    <div class="meta-row">
+      <span><b>Entity</b> · Hackett &amp; Hackett International Group Ltd, Companies House 07100605</span>
+      <span><b>Basis</b> · full site audit, public filings, market data, comparator research, and the group's own internal documents</span>
+      <span><b>Status</b> · independent analysis, sources in §19</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="row">
+    <a href="#s1">1 · Verdict</a>
+    <a href="#s2">2 · Filed vs presented</a>
+    <a href="#s3">3 · Anatomy</a>
+    <a href="#s4">4 · Division matrix</a>
+    <a href="#s5">5 · SWOT</a>
+    <a href="#s6">6 · PESTLE</a>
+    <a href="#s7">7 · Case studies</a>
+    <a href="#s8">8 · Strategy</a>
+    <a href="#s9" class="key">9 · Referrals &amp; the digital question</a>
+    <a href="#s10" class="key">10 · The internal pack</a>
+    <a href="#s11">11 · Fix now</a>
+    <a href="#s12">12 · 90 days</a>
+    <a href="#s13">13 · Growth plays</a>
+    <a href="#s14">14 · Advanced tactics</a>
+    <a href="#s15">15 · Do not do</a>
+    <a href="#s16">16 · Numbers</a>
+    <a href="#s17">17 · Roadmap</a>
+    <a href="#s18">18 · Risks</a>
+    <a href="#s19">19 · Sources</a>
+  </div>
+</nav>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="eyebrow">Section 1 · Executive summary</div>
+    <h2>The honest verdict</h2>
+    <div class="prose">
+      <p>Hackett &amp; Hackett has something most firms never build. A seventeen-year trading history with a clean filing record. A genuine chauffeur reputation, 4.6★ across 49 reviews and five-star wedding-car feedback. An events track record that includes serious venues. A prime W1 address. A network of nineteen delivery partners. A founder whose working life inside elite security and royal-household circles gives him access that money cannot buy. And — the number that matters most — a business where roughly <strong>85% of revenue arrives by personal introduction</strong>. In a market where competitors burn capital on customer acquisition, that is close to a superpower.</p>
+      <p>It also has two problems, and they compound.</p>
+      <p><strong>The first is that the presentation has run ahead of the operation.</strong> The website presents a fourteen-division global group. The filings show micro-entity accounts through FY2024 — a regime capped at roughly £632k turnover and ten employees — with one registered director. The live store sells twelve placeholder products named "I'm a product." The privacy policy, terms, refund policy and accessibility statement are unfilled template text, while real money and real client data move through the site. Any corporate buyer, family office, bank or journalist who spends ten minutes checking finds that gap, and in premium services being checked and found wanting is worse than being modest and verified.</p>
+      <p><strong>The second is that the engine which produces the revenue cannot, on its own, hold it.</strong> Referral wins the client. Memory keeps them. Today that memory lives in one man's head — the group's own internal review says personalised service depends on the founder recalling details manually, that every enquiry arrives in a single unsorted inbox, that there is no system tracking partner availability, and that double bookings result. That is not a criticism of the founder's instincts; it is the arithmetic of a channel that scales linearly with one person's attention while the service portfolio has grown to fourteen lines.</p>
+      <p>The strategic evidence on what works here is unambiguous. Focused, asset-light operators win: Blacklane is profitable across a global chauffeur network it does not own; Addison Lee refocused on London corporate ground transport and sold for £269m. Sprawling luxury-lifestyle conglomerates struggle: Quintessentially, the most famous name in concierge, lost £2.1m last year and carries a going-concern warning. The one proven way to run many verticals under one brand is the Virgin model — rigorous brand control, contracted partners carrying the operations, and fees that flow whether or not each venture thrives. Hackett &amp; Hackett is already close to that model by accident. The plan below makes it deliberate.</p>
+    </div>
+    <ol class="moves">
+      <li><b>Repair credibility before spending a pound on growth.</b><span class="why">Retire the placeholder store, replace the template legal pages, consolidate the two live websites, publish one master service list and one contact block, and put evidence behind every claim. Thirty days, mostly labour, near-zero cash. (§11)</span></li>
+      <li><b>Collapse fourteen divisions into three engines plus a referral desk.</b><span class="why">Move (chauffeur, secure transport), Make (events, weddings, production support), Serve (household staffing, concierge). Everything else becomes contracted referral revenue rather than a claimed in-house capability. (§8)</span></li>
+      <li><b>Build the operating system the client never sees.</b><span class="why">The founder is right that his clients do not want to be processed through a public booking funnel. The answer is not a consumer app — it is an internal system that remembers every preference, tracks partner availability, and invoices cleanly, while the client's experience stays exactly what it is today: a call, a message, a person who already knows. (§9)</span></li>
+      <li><b>Turn the partner network into paper.</b><span class="why">Nineteen partners with no visible contractual architecture is a liability; the same nineteen with referral agreements, service standards, insurance evidence and data terms is a moat and a second revenue line. The group's own Corporate Manual has already drafted what goes in the agreement. (§10, §12)</span></li>
+      <li><b>Reposition Club Magenta, and sell concierge to firms rather than individuals.</b><span class="why">£100 a month is neither HNW concierge — real players charge £25k–£100k a year — nor a clear consumer proposition, and member-funded concierge loses money even at £30m scale. Ten Lifestyle's profits come from selling through institutions. (§7, §13)</span></li>
+      <li><b>Run the company on numbers, and let the accounts catch up to the story.</b><span class="why">Monthly management accounts by engine, weekly pipeline, referral attribution, and a KPI sheet read every Monday (§16). The FY2027 goal is simple: file accounts you would happily attach to a tender.</span></li>
+    </ol>
+    <div class="callout">
+      <div class="t">The one-sentence thesis</div>
+      <p>Stop being a fourteen-division brochure and become London's best-run three-engine boutique with a contracted partner network and a memory — because the brochure version gets found out, and the boutique version gets bought.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="eyebrow">Section 2 · The reality gap</div>
+    <h2>The business as filed vs as presented</h2>
+    <div class="prose">
+      <p>Everything in this section is verifiable by anyone in minutes, which is precisely why it matters.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Dimension</th><th>As presented (website)</th><th>As filed / observed (public record)</th></tr></thead>
+        <tbody>
+          <tr><td class="divname">Scale</td><td>"International Group", 100+ countries, 14 service divisions, royal families and celebrities as clientele</td><td>Micro-entity accounts FY2022–FY2024 (regime limits: ≤£632k turnover, ≤£316k balance sheet, ≤10 staff); first small-company accounts filed Dec 2025 for FY2025 — a step up, but no public P&amp;L</td></tr>
+          <tr><td class="divname">Governance</td><td>Group with divisions, partners page, "Meet the Team" of 14</td><td>One registered director (Edwin Francis Hackett, also company secretary) since 2009; the only other director resigned on day one; roles are heavily events-weighted and the Opportunities page recruits on commission</td></tr>
+          <tr><td class="divname">History</td><td>Founded 2009, "legacy of excellence"</td><td>Confirmed: incorporated 10 Dec 2009 as Hackett &amp; Hackett (London) Ltd; renamed Aug 2021; no overdue filings; SIC codes: private security (80100) and other business support (82990). <strong>This part checks out — lead with it.</strong></td></tr>
+          <tr><td class="divname">Digital estate</td><td>New group site with store, membership and service pages</td><td>Two live websites (the legacy chauffeur site is still up); the store contains 12 template placeholders ("I'm a product"); privacy, terms, refund and accessibility pages are unfilled boilerplate; the fleet page lists class names with no vehicles</td></tr>
+          <tr><td class="divname">Reputation</td><td>"Extravagantly extraordinary, every time"</td><td>Genuinely good where it is checkable: 4.6★/49 reviews, five-star wedding-car feedback — plus one admitted no-show where, in the company's words, the system failed. Thin to absent for the newer divisions</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p><strong>Why this is the first-order problem.</strong> The clients this business wants all run checks. Procurement teams pull filings before onboarding a supplier. Family offices search. Journalists writing the profile you want will also find the placeholder store. Every marketing pound spent while the gap exists buys traffic that lands on disconfirming evidence. Conversely, a business that says "boutique London firm, seventeen years, one accountable principal, elite partner network" is <em>fully consistent</em> with its public record — and that consistency is itself a luxury signal. Discretion and precision are the product; the shop window must model them.</p>
+      <p>The group's own onboarding deck already contains the right instinct, in its own words: <strong>"digital presence as a credibility tool."</strong> That is exactly the job. The estate is not there to convert strangers — it is there to survive the ten-minute check that follows every introduction.</p>
+      <p><strong>The subscription products sharpen the legal edge.</strong> Taking £100-a-month memberships and store payments against template terms, a template refund policy and a template privacy notice is not cosmetic. UK consumer-contract and data-protection rules apply to real money collected through real forms. This needs a solicitor's afternoon, not a design budget. (Detail in §6 · Legal.)</p>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="eyebrow">Section 3 · Anatomy</div>
+    <h2>The group as it stands today</h2>
+    <div class="tiles">
+      <div class="tile"><div class="n">~85%</div><div class="l">of revenue arriving by personal introduction and recommendation</div><div class="s">Founder estimate — worth measuring (§9)</div></div>
+      <div class="tile"><div class="n">14</div><div class="l">service divisions listed publicly, from chauffeur to real estate</div><div class="s">Site audit, July 2026</div></div>
+      <div class="tile"><div class="n">19</div><div class="l">named delivery partners carrying much of the actual capability</div><div class="s">Our Partners page</div></div>
+      <div class="tile"><div class="n">1</div><div class="l">registered director and company secretary</div><div class="s">Companies House</div></div>
+      <div class="tile"><div class="n">14</div><div class="l">people on "Meet the Team", weighted to events management</div><div class="s">Site audit</div></div>
+      <div class="tile"><div class="n">~20</div><div class="l">open roles, essentially all commission, owner-driver or unpaid</div><div class="s">Opportunities page</div></div>
+      <div class="tile"><div class="n">2</div><div class="l">live public websites for one brand</div><div class="s">Site audit</div></div>
+      <div class="tile"><div class="n">3</div><div class="l">different phone numbers across the site and internal documents</div><div class="s">§10</div></div>
+    </div>
+    <div class="prose">
+      <h3>What the structure actually is</h3>
+      <p>Strip the labels and the group is a <strong>network-orchestration business</strong>: a small principal team wins premium work, then delivers through owner-drivers, freelancers and specialist partner firms. Chapman Freeborn and Fly Victor fly the jets. Pure Funding Services arranges the finance. Apex Global supplies security capability. Event, casting and film work runs through named partners. The company's own muscle is relationships, chauffeur operations and event management.</p>
+      <p>That is not a weakness to hide — it is the same asset-light architecture that lets Blacklane serve fifty countries without owning cars. But there is a decisive difference between an <em>orchestrator</em> and a <em>brochure</em>: the orchestrator has contracts, margins, service standards and data flowing through it; the brochure points at other people's businesses. Publicly, the group currently reads closer to the second. The work of this plan is moving it decisively into the first.</p>
+
+      <h3>The founder's asset base — and why it is the strategy</h3>
+      <p>Two facts about the principal shape everything below, and both are advantages that competitors cannot replicate by spending money.</p>
+      <p><strong>He operates inside the world he sells to.</strong> Part-time work in elite protection and around royal-household environments puts him in rooms that no marketing budget buys. In this market, the buyers of secure transport, close protection, discreet staffing and private events are reached through exactly that network: protection officers, estate and household managers, private offices, embassy staff, private-bank relationship managers. That is why the referral channel works, and it is why the security-plus-transport bundle is the most defensible thing the group sells. It is a strength to build a channel on — see §13 — provided it is never turned into advertising copy. <strong>The value is in the access, not in the claim.</strong> Naming protected people, households or venues in marketing would breach the discretion that makes the access valuable, and very likely contractual obligations too. Reputation in this world travels by introduction, not by case study.</p>
+      <p><strong>His attention is the constraint.</strong> A part-time principal, one registered director, fourteen advertised divisions, and a channel that runs on personal recall — that is the whole strategic problem in one sentence. Every recommendation in this document is ultimately about converting what currently lives in the founder's head and diary into something the business owns. Not to replace him. To let him be in the room instead of in the inbox.</p>
+
+      <h3>Revenue architecture as it stands</h3>
+      <ul class="tight">
+        <li><strong>Transactional services</strong> — chauffeur work, event contracts, white-glove moves, weddings; no public pricing anywhere.</li>
+        <li><strong>Club Magenta</strong> — £100/month, marketed as savings and benefits on bookings.</li>
+        <li><strong>Ride Credit Incentive</strong> — recurring credit for booking and paying 48 hours ahead: a smart cash-flow device in embryo.</li>
+        <li><strong>Placements and representation</strong> — household staff recruitment and talent management; fee basis not stated publicly.</li>
+        <li><strong>Referral income</strong> — implied by the partner pages, nowhere formalised publicly.</li>
+        <li><strong>Store</strong> — live but holding only template placeholders; currently negative value.</li>
+      </ul>
+      <p class="smallcaps-note">Note: neither Club Magenta, the ride-credit scheme, nor the store appears in any of the three internal strategy documents. Those products are currently running without a written commercial rationale behind them — which is why §13 proposes rebuilding the first two and retiring the third until it has a purpose.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="eyebrow">Section 4 · Division-by-division</div>
+    <h2>Market reality and the portfolio verdict</h2>
+    <div class="prose">
+      <p>Each division judged on three questions: is the market real and reachable, does Hackett &amp; Hackett have a right to win, and what should happen next. Verdicts: <span class="chip core">Core</span> double down · <span class="chip build">Build</span> grow deliberately · <span class="chip partner">Partner</span> deliver via contracted partners only · <span class="chip fix">Fix</span> restructure before selling it · <span class="chip park">Park</span> take out of the shop window for now · <span class="chip avoid">Avoid</span> risk outweighs the prize.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Division</th><th>Market reality</th><th>Right to win</th><th>Verdict</th><th>Next move</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="divname">Chauffeur services</td>
+            <td>Europe ≈ $6.1bn (2024), ~6% CAGR; corporate demand is 55–60% of the market; consolidators pay real money (Addison Lee: £269m)</td>
+            <td><strong>Strong</strong> — 17 years, real reviews, roadshow specialism, EV models already in the fleet list. One caveat: the internal introduction attributes global chauffeur travel to a delivery partner, so the <em>contract</em> is the asset to secure</td>
+            <td><span class="chip core">Core</span></td>
+            <td>Corporate accounts and a roadshow desk; publish the fleet with real photography; secure the delivery agreement first</td>
+          </tr>
+          <tr>
+            <td class="divname">Event management &amp; production</td>
+            <td>UK events industry £68.7bn (2025), up from £61.6bn; exhibitions at a decade high</td>
+            <td><strong>Strong</strong> — the team is weighted here; the venue list is exceptional <em>if owned</em>, so evidence it or attribute it plainly</td>
+            <td><span class="chip core">Core</span></td>
+            <td>Three productised packages; five written case studies with client permission</td>
+          </tr>
+          <tr>
+            <td class="divname">Security &amp; management</td>
+            <td>Crowded supply: ~451,000 SIA licence holders (2024, up from 235k in 2008); close-protection demand rising with HNW anxiety</td>
+            <td><strong>Strong on access, moderate on scale</strong> — licence displayed, security sits in the SIC codes, and this is where the founder's own network is deepest. The differentiator is the combination: security-trained chauffeurs, event security, vetted staffing</td>
+            <td><span class="chip build">Build</span></td>
+            <td>Sell bundles rather than guards; pursue SIA Approved Contractor status for procurement credibility</td>
+          </tr>
+          <tr>
+            <td class="divname">Wedding services</td>
+            <td>UK average spend £20.8k (2025); London £27k; a quarter of couples spend £26k+ — the top quartile is the target</td>
+            <td><strong>Good</strong> — five-star wedding-car record; a natural bundle of cars, planning, security and staffing</td>
+            <td><span class="chip build">Build</span></td>
+            <td>Two flagship weddings with full media rights; one bundled price architecture</td>
+          </tr>
+          <tr>
+            <td class="divname">Household staff &amp; recruitment</td>
+            <td>Proven fee model (agencies charge ~15–22% of annual salary per placement); strong incumbents including Greycoat Lumleys and Beauchamp Partners</td>
+            <td><strong>Moderate</strong> — the vetting message is right and the founder's circles are exactly where these roles are filled; no visible track record yet</td>
+            <td><span class="chip build">Build</span></td>
+            <td>Fees from employers only, never candidates; start with roles adjacent to existing clients — chauffeurs, event staff, PAs, house managers</td>
+          </tr>
+          <tr>
+            <td class="divname">Lifestyle &amp; concierge / Club Magenta</td>
+            <td>Member-funded concierge economics are brutal: Quintessentially lost £2.1m on £29.6m revenue; genuine HNW memberships price at £25k–£100k/yr; the profitable model (Ten) sells through institutions</td>
+            <td><strong>Weak as currently priced</strong> — £100/month is neither HNW concierge nor a clear consumer proposition</td>
+            <td><span class="chip fix">Fix</span></td>
+            <td>Relaunch as a prepaid ride account (honest and cash-positive); pilot the white-label version with two or three firms in 2027 (§13)</td>
+          </tr>
+          <tr>
+            <td class="divname">White glove logistics</td>
+            <td>Growing niche owned by specialists with facilities: Momart, Cadogan Tate, Gander &amp; White, Crown, Crozier</td>
+            <td><strong>Narrow</strong> — credible where it touches existing strengths: film props, event assets, discreet vehicle-based moves</td>
+            <td><span class="chip partner">Partner</span></td>
+            <td>Referral agreements with one or two specialists; keep the film and event courier niche in-house</td>
+          </tr>
+          <tr>
+            <td class="divname">Film production &amp; support</td>
+            <td>UK production is substantial and studio-led; support services are fragmented</td>
+            <td><strong>Narrow</strong> — the defensible slice is unit transport, crew movement and set security, not VFX and animation, which is partner capability</td>
+            <td><span class="chip partner">Partner</span></td>
+            <td>Sell the transport slice under Move; route the rest to partners under contract; evidence the awards claim or retire it</td>
+          </tr>
+          <tr>
+            <td class="divname">Music &amp; artist management</td>
+            <td>Relationship business with long payback; roster value takes years; CAA and UTA define the category</td>
+            <td><strong>Thin</strong> — advertised via commission-only scouts; no visible roster</td>
+            <td><span class="chip park">Park</span></td>
+            <td>Take out of the shop window until there is a roster; serve musicians as transport and event clients meanwhile</td>
+          </tr>
+          <tr>
+            <td class="divname">Model management</td>
+            <td>Legitimate agencies earn commission on bookings; UK law prohibits upfront fees for finding work, with a narrow photo-services exception and a 30-day cooling-off; unsolicited "portfolio" offers are a known scam pattern the BFMA warns about</td>
+            <td><strong>Reputationally exposed</strong> — the current portfolio framing sits adjacent to that pattern even where intentions are entirely good</td>
+            <td><span class="chip avoid">Avoid</span></td>
+            <td>Either retire it, or restructure to commission-only with zero charges to models — nothing in between</td>
+          </tr>
+          <tr>
+            <td class="divname">Supercar sales &amp; self-drive hire</td>
+            <td>UK insurers have largely exited supercar self-drive hire; remaining cover runs through fragile overseas markets; theft-by-hirer co-insurance and fraud exposure are severe</td>
+            <td><strong>Weak</strong> — capital-heavy, insurance-hostile, fraud-magnetic</td>
+            <td><span class="chip avoid">Avoid</span></td>
+            <td>Do not proceed on self-drive without underwritten cover confirmed in writing; keep chauffeur-driven prestige hire and sales sourcing</td>
+          </tr>
+          <tr>
+            <td class="divname">Bespoke financial solutions</td>
+            <td>Delivered by a specialist partner with access to 70+ funders; introducing consumer credit is FCA-regulated territory</td>
+            <td><strong>Partner capability</strong> — this is an introducer relationship, and the internal pack also references wealth management, which sits further inside the perimeter</td>
+            <td><span class="chip partner">Partner</span></td>
+            <td>Confirm introducer or appointed-representative status in writing before either line appears publicly; present as "arranged through our partner"</td>
+          </tr>
+          <tr>
+            <td class="divname">PR / marketing</td>
+            <td>Saturated; Freuds and The Communications Store define the top; buyers buy proof</td>
+            <td><strong>Thin</strong> — a fifteen-sector capability claim invites an obvious retort while the store still says "I'm a product"</td>
+            <td><span class="chip park">Park</span></td>
+            <td>Use the function internally first; sell it later with named results</td>
+          </tr>
+          <tr>
+            <td class="divname">Real estate &amp; property</td>
+            <td>Regulated in practice: estate agency requires HMRC AML registration and redress-scheme membership; lettings needs client-money protection. Savills and Knight Frank own the prime market</td>
+            <td><strong>None visible in-house</strong></td>
+            <td><span class="chip park">Park</span></td>
+            <td>Serve property needs through a qualified partner under referral agreement; revisit only with a licensed principal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <div class="t">Portfolio arithmetic</div>
+      <p>Two Core plus three Build is the set that can produce profitable revenue in the next eighteen months, and all five reinforce each other — cars serve weddings, events feed staffing, security wraps all of it, and the founder's network sells all five. Three Partner lines convert brand reach into contracted referral income at near-zero cost. Three Park and two Avoid remove the highest-risk, lowest-evidence claims from the shop window. Fourteen storefronts become five engines of record plus a referral desk, with no loss of what the group can actually deliver for a client.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="eyebrow">Section 5 · SWOT</div>
+    <h2>Strengths, weaknesses, opportunities, threats</h2>
+    <div class="grid2">
+      <div class="panel">
+        <h4><span class="tag" style="background:var(--chip-core-bg);color:var(--chip-core-ink)">Strengths</span> Real, verifiable assets</h4>
+        <ul>
+          <li><b>Referral-led acquisition at ~85%</b> — near-zero customer acquisition cost and trust as the product. Competitors with far more capital cannot buy this.</li>
+          <li><b>Founder access</b> — working proximity to elite protection and royal-household circles reaches the exact buyers of secure transport, staffing and private events.</li>
+          <li><b>17-year clean trading record</b> — incorporated Dec 2009, no overdue filings; rare and bankable for a boutique.</li>
+          <li><b>Genuine chauffeur reputation</b> — 4.6★/49 reviews, five-star wedding cars; the one marketing asset money cannot fake quickly.</li>
+          <li><b>Events pedigree</b> — a venue list including Downing Street, the House of Lords and Frogmore House, and a team actually weighted to events delivery.</li>
+          <li><b>Asset-light partner network</b> — nineteen partners spanning jets to casting, with no fleet or facility capital tied up.</li>
+          <li><b>Written operating standards</b> — the group's Corporate Manual already codifies service, safety, affiliate onboarding, SLAs, KPIs and ESG to a standard most boutiques never reach.</li>
+          <li><b>Founder control</b> — one decision-maker; strategy can change in a week, not a quarter.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4><span class="tag" style="background:var(--chip-avoid-bg);color:var(--chip-avoid-ink)">Weaknesses</span> Mostly self-inflicted, mostly fixable</h4>
+        <ul>
+          <li><b>Claims-versus-filings credibility gap</b> — "global group" marketing against micro-entity accounts, findable in minutes.</li>
+          <li><b>Placeholder store and template legal pages live</b> — actively damaging trust and creating exposure while subscriptions are sold.</li>
+          <li><b>No client memory outside the founder's head</b> — the internal review states plainly that personalisation depends on manual recall, that enquiries land in a single unsorted inbox, and that double bookings occur.</li>
+          <li><b>The referral channel is unmeasured</b> — with no CRM, the 85% is an estimate. The business cannot yet prove, reward or deliberately grow its single best channel.</li>
+          <li><b>Breadth diluting focus</b> — fourteen divisions against one part-time principal; the evidence on unrelated diversification is one-way, and attention is the scarcest resource in the building.</li>
+          <li><b>Key-man concentration</b> — one director and secretary, and the referral network is his personally. A non-executive search is already advertised, which is the right instinct.</li>
+          <li><b>Inconsistent public and internal record</b> — service counts, contact numbers and mission text differ between the website and the internal documents (§10).</li>
+          <li><b>Capability claims owned by partners</b> — jets, finance, VFX and yachts are other firms' businesses; disintermediation is one search away without contracts.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4><span class="tag" style="background:var(--chip-build-bg);color:var(--chip-build-ink)">Opportunities</span> Where the upside is</h4>
+        <ul>
+          <li><b>A deliberate introducer programme</b> — the referral channel currently happens <em>to</em> the business. Cultivated inside protection, private-office and household-management circles, it becomes a managed channel (§13).</li>
+          <li><b>Corporate and roadshow transport</b> — the claimed specialism sits in the majority segment (corporate is 55–60% of chauffeur demand) and it contracts and renews.</li>
+          <li><b>Concierge sold to firms</b> — a white-label client-benefits desk for law firms, family offices and wealth managers; the only concierge model with proven profits.</li>
+          <li><b>Wedding top quartile</b> — London averages £27k and a quarter of couples spend above £26k; the cars-plus-planning-plus-security bundle is a genuine differentiator.</li>
+          <li><b>Chauffeur training and certification</b> — already drafted internally; done properly it creates a supply-side moat and a second revenue line (structuring note in §10).</li>
+          <li><b>Referral flywheel with partners</b> — nineteen partners currently receive links for free; contracted two-way referral turns reach into revenue.</li>
+          <li><b>Accreditation arbitrage</b> — SIA Approved Contractor, ISO 20121, award entries: few boutiques bother, and procurement teams notice.</li>
+          <li><b>Operating leverage from software</b> — a fourteen-person firm can now run dispatch, quoting, client memory and reporting to near-enterprise standard.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4><span class="tag" style="background:var(--chip-fix-bg);color:var(--chip-fix-ink)">Threats</span> External and structural</h4>
+        <ul>
+          <li><b>HNW exodus</b> — the UK is forecast to lose a record net 16,500 millionaires in 2025, the largest outflow globally; London lost 11,300 dollar-millionaires in 2024. The resident UHNW pool is shrinking.</li>
+          <li><b>Referral concentration</b> — a channel that is 85% of revenue and lives in one person's network is a single point of failure, not just a strength.</li>
+          <li><b>Capitalised consolidators</b> — ComfortDelGro-owned Addison Lee, a profitable Blacklane, Wheely and Uber's premium tiers own the booking experience and squeeze margins.</li>
+          <li><b>Concierge economics</b> — the category leader loses money; a £100/month consumer club has no proven path.</li>
+          <li><b>Regulatory perimeter</b> — five or more regimes touched: data, consumer contracts, employment agencies, FCA credit and wealth, SIA, and AML if property proceeds.</li>
+          <li><b>Single-incident reputational risk</b> — security, childcare staffing and weddings are zero-tolerance categories; one vetting failure defines the brand.</li>
+          <li><b>Discretion breach through technology</b> — putting protected clients' movements into poorly chosen third-party systems is a real risk, and a legitimate reason for caution (addressed in §9).</li>
+          <li><b>Insurance market closure</b> — supercar self-drive is effectively uninsurable for new entrants; proceeding anyway risks an uncovered catastrophic loss.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="eyebrow">Section 6 · PESTLE</div>
+    <h2>The operating environment, 2026</h2>
+    <div class="prose">
+      <p class="smallcaps-note">The group's internal PESTLE was written earlier and its macro data stops around 2023. The single most consequential update since then is the abolition of non-domicile status and the wealth migration that followed — which bears directly on this client base and is set out below.</p>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <h4>Political</h4>
+        <ul>
+          <li><b>Non-dom abolition and the wealth-tax debate</b> — the biggest political fact for this client base: policy has triggered record HNW outflow and continuing uncertainty keeps wealthy residents mobile.</li>
+          <li><b>Events as policy favourite</b> — the UK events report frames Britain as a safe harbour for global events; visa and major-event support benefit the Make engine.</li>
+          <li><b>Security demand politics</b> — elevated geopolitical tension and public-figure risk keep close-protection demand rising, which favours the founder's strongest network.</li>
+          <li><b>London transport policy</b> — TfL private-hire regulation and clean-air rules push compliance costs onto small operators, and raise the bar rivals must clear.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Economic</h4>
+        <ul>
+          <li><b>Shrinking resident wealth, resilient visiting wealth</b> — net −16,500 millionaires forecast for 2025 against growing corporate events (£61.6bn → £68.7bn): sell to the flow, not only the stock.</li>
+          <li><b>Employer cost inflation</b> — national insurance and wage rises make the partner model cheaper than payroll, a tailwind for this structure if quality is controlled.</li>
+          <li><b>Chauffeur market growth</b> — global ~$85bn (2025) at ~6% CAGR, Europe ~$6bn; growth accrues to operators with corporate contracts and systems.</li>
+          <li><b>Input costs</b> — fuel, insurance, maintenance and partner fees all rose; the internal review flags this correctly, and rate-card discipline is the answer (§16).</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Social</h4>
+        <ul>
+          <li><b>Experience economy</b> — spend keeps shifting to experiences; weddings hold around £21k on average and top-quartile spend is stable.</li>
+          <li><b>Privacy as luxury</b> — discretion, unmarked vehicles and vetted staff are a rising consumer value, and the group's natural register.</li>
+          <li><b>Generational split in booking behaviour</b> — younger and corporate buyers expect digital self-service; UHNW private clients often expect the opposite. Both are true at once, which is the whole subject of §9.</li>
+          <li><b>Scrutiny of unpaid work</b> — a luxury brand advertising unpaid internships and commission-only roles carries avoidable social risk; structure roles defensibly.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Technological</h4>
+        <ul>
+          <li><b>Systems are table stakes for corporate buyers</b> — procurement will not onboard a supplier without invoicing trails and, increasingly, booking and reporting portals. This is a contract-winning issue, not a fashion.</li>
+          <li><b>Automation leverage</b> — quoting, dispatch, follow-up, review responses and management reporting can be automated so fourteen people operate like forty.</li>
+          <li><b>Credibility technology</b> — selling cyber security while running template pages undermines the pitch; the estate must model the promise.</li>
+          <li><b>Data as the moat</b> — booking history, preferences and corporate travel patterns are the defensible asset an orchestrator accumulates, and the one thing a buyer would pay for.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Legal</h4>
+        <ul>
+          <li><b>UK GDPR</b> — live forms, member data and payments against an unfilled template privacy notice is exposure, not housekeeping. Priority one.</li>
+          <li><b>Consumer contracts and subscriptions</b> — auto-renewing memberships attract specific cancellation and renewal rules; template terms do not cover them.</li>
+          <li><b>Employment agency conduct rules</b> — for staffing, talent and any paid training tied to work-finding: fees come from hirers, not workers.</li>
+          <li><b>FCA perimeter</b> — introducing clients to credit can constitute credit broking, and wealth management sits further inside the perimeter still. Confirm status in writing.</li>
+          <li><b>SIA licensing</b> — individual licences are required and the number is displayed, which is good; Approved Contractor status is the corporate credibility layer.</li>
+          <li><b>Sector rules on entry</b> — package-travel rules if trips are bundled; HMRC AML registration and a redress scheme before any estate-agency activity.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h4>Environmental</h4>
+        <ul>
+          <li><b>EV transition</b> — electric models already appear in the fleet list and the Corporate Manual already sets EV operating standards; corporate tenders increasingly require both.</li>
+          <li><b>Clean-air costs</b> — favour newer fleets, and reinforce the need for written vehicle standards in owner-driver agreements.</li>
+          <li><b>Sustainable events</b> — ISO 20121 and sustainability riders appear in event tenders; an accreditation few boutiques hold.</li>
+          <li><b>Client ESG flow-down</b> — banking and media clients push supplier-conduct requirements; being pre-armed shortens procurement.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <div class="eyebrow">Section 7 · Case studies</div>
+    <h2>What comparable businesses prove</h2>
+
+    <figure class="chart">
+      <figcaption>Concierge economics: member-funded model vs institution-funded model</figcaption>
+      <div class="sub">Latest reported full-year figures, £ millions</div>
+      <div class="legend">
+        <span class="key"><span class="sw" style="background:var(--c-gold)"></span>Net revenue</span>
+        <span class="key"><span class="sw" style="background:var(--c-blue)"></span>Pre-tax result</span>
+      </div>
+      <div class="chart-svg-wrap">
+        <svg id="conciergeChart" viewBox="0 0 660 190" width="660" height="190" role="img" aria-label="Bar chart: Ten Lifestyle Group net revenue 65.7 million pounds and pre-tax profit 2.9 million; Quintessentially revenue 29.6 million and pre-tax loss 2.1 million">
+          <g font-family="inherit" font-size="12">
+            <line x1="90" y1="14" x2="90" y2="152" stroke="var(--line-2)" stroke-width="1"/>
+            <text x="0" y="40" fill="var(--ink)" font-weight="600">Ten Lifestyle</text>
+            <text x="0" y="56" fill="var(--ink-3)" font-size="10">FY2025 (AIM-listed)</text>
+            <rect class="bar" data-tip="Ten Lifestyle — net revenue £65.7m (FY2025)" x="90" y="26" width="420" height="16" fill="var(--c-gold)"/>
+            <rect x="506" y="26" width="4" height="16" rx="3" fill="var(--c-gold)"/>
+            <text x="518" y="39" fill="var(--ink-2)" font-variant-numeric="tabular-nums">£65.7m</text>
+            <rect class="bar" data-tip="Ten Lifestyle — pre-tax profit £2.9m, up from £0.5m" x="90" y="46" width="19" height="16" fill="var(--c-blue)"/>
+            <text x="117" y="59" fill="var(--ink-2)" font-variant-numeric="tabular-nums">+£2.9m</text>
+
+            <text x="0" y="106" fill="var(--ink)" font-weight="600">Quintessentially</text>
+            <text x="0" y="122" fill="var(--ink-3)" font-size="10">FY to Apr 2024</text>
+            <rect class="bar" data-tip="Quintessentially — revenue £29.6m (year to Apr 2024)" x="90" y="92" width="189" height="16" fill="var(--c-gold)"/>
+            <rect x="277" y="92" width="4" height="16" rx="3" fill="var(--c-gold)"/>
+            <text x="289" y="105" fill="var(--ink-2)" font-variant-numeric="tabular-nums">£29.6m</text>
+            <rect class="bar" data-tip="Quintessentially — pre-tax loss £2.1m; ~£29m net liabilities; going-concern warning" x="77" y="112" width="13" height="16" fill="var(--c-blue)"/>
+            <text x="10" y="125" fill="var(--ink-2)" font-variant-numeric="tabular-nums">−£2.1m</text>
+
+            <text x="90" y="172" fill="var(--ink-3)" font-size="10" text-anchor="middle">£0</text>
+            <text x="410" y="172" fill="var(--ink-3)" font-size="10" text-anchor="middle">£50m</text>
+            <line x1="410" y1="14" x2="410" y2="152" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4"/>
+          </g>
+        </svg>
+      </div>
+      <div class="chart-note">Ten Lifestyle Group plc preliminary results FY2025 (net revenue £65.7m, PBT £2.9m, adjusted EBITDA margin 22.2%). Quintessentially Group filed accounts to April 2024 (revenue £29.6m, pre-tax loss £2.1m, net liabilities ≈ £29m, going-concern "material uncertainty"). Sources in §19.</div>
+    </figure>
+
+    <div class="case">
+      <h3>Quintessentially — separating the platform from the business model</h3>
+      <div class="who">Global luxury concierge, founded 2000</div>
+      <p class="prose" style="margin:0">Quintessentially is rightly cited internally as a technology benchmark: its centralised request platform improved response times and largely eliminated the double-booking problem. That lesson stands and is worth copying. The filings, however, tell a second story that is worth keeping separate from the first — £29.6m revenue, a £2.1m pre-tax loss, roughly £29m of net liabilities, a £15m loan falling due and a going-concern warning, after rounds of job cuts and office closures. Member-funded concierge has punishing unit economics: members demand unlimited human attention and the fee never covers it at scale.</p>
+      <div class="lesson"><b>Reading for H&amp;H:</b> copy their operating system, not their commercial model. If the best-connected operator in the category loses money on memberships at £29.6m of revenue, a £100/month consumer club is a marketing device rather than a growth engine — and should be priced and described as one.</div>
+    </div>
+
+    <div class="case">
+      <h3>Ten Lifestyle Group — concierge that actually pays</h3>
+      <div class="who">AIM-listed concierge technology platform, FY2025</div>
+      <p class="prose" style="margin:0">Ten sells concierge <em>through institutions</em>: private banks and premium card issuers buy it as a benefit for their customers. FY2025 produced record net revenue of £65.7m, pre-tax profit up more than fivefold to £2.9m, a 22.2% adjusted EBITDA margin and £10.6m of cash. Corporate contracts, multi-year, technology-delivered and human-topped.</p>
+      <div class="lesson"><b>Reading for H&amp;H:</b> the buyer of concierge should be a business, not the member. At boutique scale that means offering law firms, family offices, wealth managers and members' clubs a white-label client-benefits desk — priority cars, tables, tickets, staffing — on a per-firm retainer. Ten proves the direction of the economics; Hackett &amp; Hackett can run the artisan version, and the founder's network is exactly where those firms are.</div>
+    </div>
+
+    <div class="case">
+      <h3>Blacklane and Addison Lee — two chauffeur endgames, both built on focus</h3>
+      <div class="who">Global asset-light network · London's corporate incumbent</div>
+      <p class="prose" style="margin:0">Blacklane owns no cars: a booking platform over vetted local chauffeur partners in fifty-plus countries, profitable since 2022 on roughly $214m of revenue, with a $65m Series G at a higher valuation. Addison Lee focused on London corporate ground transport, returned to profit on £231.2m of revenue, and sold to ComfortDelGro for £269.1m in November 2024 — its 2021 booking app having lifted booking capacity around 30% and cut manual coordination costs around 15%. Both created real enterprise value; neither ran fourteen divisions.</p>
+      <div class="lesson"><b>Reading for H&amp;H:</b> the partner-network chauffeur model scales and exits, and it is the architecture Hackett &amp; Hackett already uses. The value came from focus, corporate contracts and booking systems rather than breadth. This is the engine most likely to compound into something sellable.</div>
+    </div>
+
+    <div class="case">
+      <h3>Virgin Group — the only proven playbook for one brand across many verticals</h3>
+      <div class="who">Brand-licensing group, 300+ ventures</div>
+      <p class="prose" style="margin:0">Virgin runs airlines, banks, gyms and cruise lines without operating most of them. Partners and licensees carry the operations and the capital while Virgin controls the brand through licence agreements with minimum guarantees, so fees flow even when a venture is unprofitable, alongside advisory fees and equity exits. The discipline underneath is unglamorous: rigorous brand standards, contracts for everything, and a small central team guarding claims.</p>
+      <div class="lesson"><b>Reading for H&amp;H:</b> a multi-vertical brand works only when the brand owner's income is contractual rather than aspirational. The nineteen-partner network is proto-Virgin; what is missing is paper and enforcement. "Hackett &amp; Hackett — delivered with our certified partners" is a stronger sentence than fourteen claimed in-house divisions, and it is also true.</div>
+    </div>
+
+    <div class="case">
+      <h3>The research backdrop — why breadth usually costs more than it earns</h3>
+      <div class="who">Meta-analytic evidence on diversification</div>
+      <p class="prose" style="margin:0">Across decades of studies, related diversification — adjacent capabilities, shared customers — outperforms unrelated spread. Unrelated diversification tends to help only firms in weak financial contexts with little to lose, and its classic failure mode is fragmented management attention and a starved core. In a company with one part-time principal, attention is the scarcest asset in the building.</p>
+      <div class="lesson"><b>Reading for H&amp;H:</b> every division should share customers, capabilities or channel with the core. That test comfortably justifies weddings, security, staffing and events — and is the reason property, PR-for-hire and standalone talent management should wait.</div>
+    </div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="wrap">
+    <div class="eyebrow">Section 8 · Strategy</div>
+    <h2>One brand, three engines, one referral desk</h2>
+    <div class="prose">
+      <p>The group reorganises around what it demonstrably does well, keeps its full breadth through contracted partners, and tells one consistent story. This is not a reduction in what a client can ask for. It is a reduction in what the business claims to do with its own hands.</p>
+      <h3>Engine 1 — Move <span class="smallcaps-note">(chauffeur · secure transport · unit and event logistics)</span></h3>
+      <p>The revenue backbone. Corporate accounts, financial roadshows, airport programmes, security-trained and multilingual drivers, film-unit and event transport, and discreet white-glove moves that fit in a vehicle. This is where the reviews, the history and the licence already sit — and where consolidators eventually pay for well-run books of corporate business.</p>
+      <h3>Engine 2 — Make <span class="smallcaps-note">(events · weddings · production support)</span></h3>
+      <p>The margin engine. Corporate events and galas, top-quartile weddings sold as a bundle of planning, cars, security and staffing under one accountable principal, and the production-support slice the team can genuinely run. Three named packages each, priced, with written case studies.</p>
+      <h3>Engine 3 — Serve <span class="smallcaps-note">(household staffing · concierge desk)</span></h3>
+      <p>The relationship annuity, and the natural home for the founder's network. Vetted household staffing with fees from employers at 15–20% of salary, and a concierge desk that exists to deepen Move and Make relationships — relaunched honestly as a prepaid credit account now, and piloted as a white-label benefit for firms in 2027.</p>
+      <h3>The referral desk <span class="smallcaps-note">(everything else, monetised properly)</span></h3>
+      <p>Jets, yachts, asset finance subject to FCA status, art-grade white glove, film post-production, property. Each relationship gets a one-page agreement covering scope, referral fee, service standard, insurance evidence, data terms and a review date. The website presents these as "arranged through our certified partners", which converts a credibility problem into a curation story: <em>we know who is genuinely best, and we place you at the front of the queue.</em></p>
+      <div class="callout">
+        <div class="t">Positioning line</div>
+        <p>"One call. One accountable principal. Seventeen years of London's most discreet logistics — and a certified partner network for everything beyond it." That sentence is fully consistent with the public record, which is what makes it powerful.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="wrap">
+    <div class="eyebrow">Section 9 · The central question</div>
+    <h2>The referral engine and the digital question</h2>
+    <div class="prose">
+      <p>There is a tension running through this business that has to be resolved before anything else is built, because every other decision depends on how it is answered. The founder wants a digital overhaul. The founder is also, rightly, reluctant to put his clients through anything resembling a public booking funnel. Both positions are held sincerely and both are defensible. They are usually treated as a contradiction. They are not.</p>
+
+      <h3>Start by taking the objection seriously, because it is correct</h3>
+      <p>Around 85% of revenue arrives by introduction. The clients who arrive that way are not looking for a website with a "Book Now" button. Some of them are protected people whose movements are confidential, and putting a principal's pickup time and address into a consumer booking product would be a genuine security failure, not merely a stylistic one. Others simply expect that a service at this level answers the phone. There is real precedent for this: the most exclusive concierge clubs are invitation-only with no public sign-up, and private banks do not put "open an account" buttons in front of ultra-high-net-worth clients. A public funnel would also attract precisely the wrong enquiries — price-shoppers, time-wasters, and occasionally people whose interest in a principal's schedule is not commercial.</p>
+      <p>So the instinct to protect the front door is not resistance to progress. It is an accurate read of the market. Any recommendation that ignores it should be rejected.</p>
+
+      <h3>Then be equally honest about where the referral engine runs out</h3>
+      <p>Word of mouth is an <em>acquisition</em> channel, and it is an outstanding one. The difficulty is that it does four things badly, and the business is currently asking it to do all four.</p>
+      <ul class="tight">
+        <li><strong>It cannot be forecast.</strong> The group's own internal review states that the model "does not generate a predictable monthly income" — a large wedding or roadshow in one month, minor activity the next. Referral arrives when it arrives. You cannot turn it up in a quiet quarter, which makes hiring, investment and cash planning guesswork.</li>
+        <li><strong>It cannot be measured.</strong> With no client system, the 85% is an informed estimate rather than a number. The business cannot currently say which introducer sent which client, what that relationship is worth, or who deserves thanking. It is running its best channel blind.</li>
+        <li><strong>It does not, by itself, produce repeat business.</strong> A referral gets someone through the door once. What brings them back is being remembered — the preferred car, the child's seat, the airport they always fly from, the assistant who actually books, the thing that went slightly wrong last time and was fixed. Today that lives in one person's recall. As volume grows, recall degrades, and the moment a client has to re-explain themselves, the premium evaporates. The internal review says this outright: personalisation depends on the founder remembering manually.</li>
+        <li><strong>It is concentrated in one person.</strong> The network is the founder's, built over decades in elite security circles. That is a genuine asset — and it means that when his attention is elsewhere, the channel is too.</li>
+      </ul>
+      <p>Put plainly: <strong>the referral engine wins the client, and the absence of a memory quietly loses them.</strong> The single documented service failure in the public reviews was not a failure of care or attitude — it was, in the company's own words, a system failure. That is the shape of the risk.</p>
+
+      <div class="callout">
+        <div class="t">The question worth putting to the founder</div>
+        <p>Not "should we digitise?" but: <em>"When a client who last travelled with us fourteen months ago calls tonight, what does the person answering know about them — and what happens if that person isn't you?"</em> Everything below is an answer to that question, and none of it requires a single client to use a website.</p>
+      </div>
+
+      <h3>The resolution: separate the front door from the back office</h3>
+      <p>The conflict dissolves the moment two different things stop being treated as one. A <strong>client-facing booking funnel</strong> is what the founder is resisting, and it is not what this business needs. An <strong>internal operating system</strong> — client memory, dispatch, partner availability, invoicing, referral attribution — is what it needs, and no client ever has to see it.</p>
+      <p>Digitising the back office does not dilute the personal service. It is the only way to protect it at volume. The system remembers so that the human appears to. The right principle to hold on to is simple: <strong>the technology should be invisible, and its whole job is to make the person unforgettable.</strong></p>
+
+      <figure class="chart">
+        <figcaption>What changes, and what deliberately does not</figcaption>
+        <div class="sub">The client's experience stays exactly as it is; everything new sits below the line</div>
+        <div class="legend">
+          <span class="key"><span class="sw" style="background:var(--c-blue)"></span>What the client sees — unchanged</span>
+          <span class="key"><span class="sw" style="background:var(--c-gold)"></span>What the group runs, unseen — new</span>
+        </div>
+        <div class="chart-svg-wrap">
+          <svg viewBox="0 0 700 290" width="700" height="290" role="img" aria-label="Diagram: above the discretion line, the client experiences an introduction, a direct line, a person who already knows their preferences and a discreet invoice. Below the line, the group runs client memory, partner availability and dispatch, referral attribution, and invoicing and reconciliation.">
+            <g font-family="inherit" font-size="11.5">
+              <text x="8" y="18" fill="var(--ink)" font-weight="700" font-size="12">What the client experiences</text>
+              <g fill="var(--surface-2)" stroke="var(--c-blue)" stroke-width="2">
+                <rect x="8" y="30" width="160" height="52" rx="8"/>
+                <rect x="180" y="30" width="160" height="52" rx="8"/>
+                <rect x="352" y="30" width="160" height="52" rx="8"/>
+                <rect x="524" y="30" width="168" height="52" rx="8"/>
+              </g>
+              <g fill="var(--ink)">
+                <text x="24" y="52">An introduction from</text><text x="24" y="68">someone they trust</text>
+                <text x="196" y="52">A direct line —</text><text x="196" y="68">phone, WhatsApp</text>
+                <text x="368" y="52">A person who already</text><text x="368" y="68">knows their preferences</text>
+                <text x="540" y="52">A discreet, correct</text><text x="540" y="68">invoice</text>
+              </g>
+
+              <line x1="8" y1="118" x2="692" y2="118" stroke="var(--brass)" stroke-width="2" stroke-dasharray="6 5"/>
+              <text x="8" y="110" fill="var(--brass-ink)" font-weight="700" font-size="11">THE DISCRETION LINE — nothing above this changes</text>
+
+              <text x="8" y="150" fill="var(--ink)" font-weight="700" font-size="12">What the group runs, unseen</text>
+              <g fill="var(--surface-2)" stroke="var(--c-gold)" stroke-width="2">
+                <rect x="8" y="162" width="160" height="66" rx="8"/>
+                <rect x="180" y="162" width="160" height="66" rx="8"/>
+                <rect x="352" y="162" width="160" height="66" rx="8"/>
+                <rect x="524" y="162" width="168" height="66" rx="8"/>
+              </g>
+              <g fill="var(--ink)">
+                <text x="24" y="186">Client memory —</text><text x="24" y="202">preferences, history,</text><text x="24" y="218">who introduced them</text>
+                <text x="196" y="186">Partner availability</text><text x="196" y="202">and dispatch — no</text><text x="196" y="218">more double bookings</text>
+                <text x="368" y="186">Referral attribution</text><text x="368" y="202">— who sends work,</text><text x="368" y="218">and what it is worth</text>
+                <text x="540" y="186">Invoicing, partner pay</text><text x="540" y="202">and reconciliation,</text><text x="540" y="218">automatically</text>
+              </g>
+              <text x="8" y="256" fill="var(--ink-2)" font-size="11">The client never logs in, never fills a form, never sees a dashboard. They notice only that nothing is ever forgotten.</text>
+              <text x="8" y="276" fill="var(--ink-3)" font-size="10.5">Exception by design: corporate and production accounts, where the buyer actively requires a portal and an audit trail (see the table below).</text>
+            </g>
+          </svg>
+        </div>
+      </figure>
+
+      <h3>Not every client is the same client</h3>
+      <p>The other half of the resolution is that "our clients don't want to book online" is true of some of the client base and untrue of the rest — and the rest is where the contracted, forecastable revenue lives. A corporate travel manager arranging a roadshow, a production manager moving a crew, or a procurement team onboarding a supplier will often <em>refuse</em> to work without digital booking, reporting and invoicing trails. Declining to offer it there does not protect discretion; it forfeits contracts.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Client type</th><th>How they should reach the business</th><th>What they must never be given</th><th>What the system does behind it</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="divname">UHNW private, protected and diplomatic</td>
+            <td>Introduction, direct line, WhatsApp, a named person. No account, no form, no login.</td>
+            <td>Any public booking funnel; any journey data in a consumer-grade third-party product</td>
+            <td>Silent client record; restricted access; the person answering is briefed before they speak</td>
+          </tr>
+          <tr>
+            <td class="divname">Repeat private clients</td>
+            <td>Same direct line, plus — optionally, by invitation only — a private page to reconfirm a standing journey</td>
+            <td>Public sign-up, marketing emails, anything that looks like a consumer app</td>
+            <td>Standing preferences, saved routes, proactive re-booking prompts to the account holder, not the client</td>
+          </tr>
+          <tr>
+            <td class="divname">Corporate, financial roadshow, embassy accounts</td>
+            <td><strong>A proper account portal with booking, cost centres, reporting and consolidated invoicing</strong> — this is what wins the tender</td>
+            <td>Nothing — this buyer wants more system, not less</td>
+            <td>Multi-car scheduling, PO handling, SLA reporting, renewal triggers</td>
+          </tr>
+          <tr>
+            <td class="divname">Weddings and private events</td>
+            <td>Enquiry, then a human consultation; a shared planning space once engaged</td>
+            <td>Instant self-serve pricing on a six-figure production</td>
+            <td>Vendor and milestone tracking, staged payments, one accountable coordinator</td>
+          </tr>
+          <tr>
+            <td class="divname">Production companies</td>
+            <td>Account-managed booking with call sheets and unit-movement scheduling</td>
+            <td>Manual email chains that lose a 5am crew move</td>
+            <td>Crew logistics, driver assignment, per-production billing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <h3>Make the referral engine itself compound</h3>
+      <p>The final move is to stop treating referral as weather that happens to the business and start running it as the channel it is. None of this makes it less personal; all of it makes it larger and more durable.</p>
+      <ul class="tight">
+        <li><strong>Record the introducer on every single job.</strong> One field. Within a quarter the business knows who its ten most valuable advocates are — which, today, nobody can say with certainty.</li>
+        <li><strong>Close the loop every time.</strong> A same-week personal thank-you to the introducer, and a note back after the job confirming it went well. Referrers refer again when they learn their reputation was safe.</li>
+        <li><strong>Build the introducer list deliberately.</strong> Protection officers, estate and household managers, private offices, PAs to principals, wealth managers, embassy staff, wedding venues, production managers. These are the people the founder already stands next to. Twenty relationships cultivated properly outperform any advertising this business could afford.</li>
+        <li><strong>Give introducers something to hand over.</strong> A single discreet card or one-page PDF is worth more than a website in this channel — but it points at a site that must survive the check that follows.</li>
+        <li><strong>Formalise the partner side.</strong> Reciprocal referral terms turn nineteen partner relationships into nineteen sales forces at no salary cost (§12).</li>
+        <li><strong>Then prove the number.</strong> Once attribution runs, "over four fifths of our work comes by personal introduction" becomes a verified statement rather than an estimate — and it is one of the strongest things a luxury service business can say in public. <em>The system the founder is wary of is the only thing that can substantiate the fact he is proudest of.</em></li>
+      </ul>
+      <div class="callout">
+        <div class="t">How to frame the whole decision</div>
+        <p>The overhaul is not about changing how clients reach Hackett &amp; Hackett. It is about making sure that when they do, the business already knows them — and that it still knows them in five years, on a Tuesday, when the founder is unavailable. Protect the front door absolutely. Build the memory behind it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="wrap">
+    <div class="eyebrow">Section 10 · The internal pack</div>
+    <h2>What the group's own documents already establish</h2>
+    <div class="prose">
+      <p>Three internal documents were reviewed alongside the public material: a <strong>Corporate Manual for the International Chauffeur Drive Programme</strong>, a <strong>thirty-page digital-transformation study</strong> examining the booking problem, and the <strong>onboarding presentation</strong> given to new team members. Read together they change the tone of this review in one important way: <em>this is not a business that needs to be told what is wrong. It has already worked much of it out and written it down.</em> What is missing is not diagnosis. It is sequencing, consistency, and execution.</p>
+
+      <h3>What is already right, and ready to execute</h3>
+      <ul class="tight">
+        <li><strong>The partner architecture is drafted.</strong> The Corporate Manual's affiliate chapter already specifies business-licence verification, insurance certificates, compliance declarations, confidentiality and data-protection obligations, incident reporting, and service standards covering punctuality, driver appearance, vehicle presentation and response times. This review recommends turning nineteen logo links into signed agreements — the content of that agreement already exists. It needs signatures, not authorship.</li>
+        <li><strong>The performance framework is drafted.</strong> Pickup and drop-off punctuality, airport accuracy, booking accuracy, dispatch response time, cancellation and no-show rates, satisfaction and complaint frequency. That is a professional KPI set. One gap worth closing: financial efficiency appears as a category but has no metrics attached — §16 supplies contribution by engine, which completes it.</li>
+        <li><strong>The commercial policy is drafted.</strong> Rate cards distinguishing standard, premium, affiliate and corporate pricing, reviewed periodically for margin protection, with booking confirmations required to carry service description, price and cancellation terms. Implementing that last requirement also moves the business toward the consumer-contract compliance flagged in §6.</li>
+        <li><strong>The sustainability chapter is tender-ready.</strong> EV integration, eco-driving standards, low-emission zone compliance and lifecycle considerations are exactly what corporate and public tenders now ask for. It should be used for that purpose rather than sitting in a manual.</li>
+        <li><strong>The operational diagnosis is candid and accurate.</strong> The thirty-page study identifies the single unsorted inbox, the absence of partner-availability tracking, the resulting double bookings, manual invoicing, unpredictable monthly income, and dependence on the founder's recall. Every one of those findings is corroborated by this review's independent analysis. It is the strongest evidence in the pack that the business sees itself clearly.</li>
+        <li><strong>The strategic thesis is already held.</strong> The onboarding deck names the fully integrated, all-in-one model as the competitive edge, and the study's competitive analysis reaches the same place: bundling raises retention because clients with limited time value one accountable point of contact. That is precisely the position §8 and §14 recommend building on.</li>
+      </ul>
+
+      <h3>What would benefit from repositioning</h3>
+      <p>The items below are not errors of judgement so much as points where the material has been overtaken — by the calendar, by the group's own growth, or by newer data. Each is offered as a reposition rather than a correction.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Where it currently sits</th><th>Suggested reposition</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="divname">The macro analysis</td>
+            <td>The internal PESTLE's data largely stops around 2023 and centres on post-pandemic recovery, inflation and fuel prices</td>
+            <td>Refresh it around the abolition of non-dom status and the resulting record outflow of UK millionaires. For a business selling to resident UHNW clients, that is now the dominant external fact, and it argues for weighting toward corporate, visiting and event demand (§6)</td>
+          </tr>
+          <tr>
+            <td class="divname">Quintessentially as a benchmark</td>
+            <td>Cited as a best-practice example on the strength of its platform and response times</td>
+            <td>Keep the technology lesson and separate it from the commercial one. Their filed accounts show sustained losses and a going-concern warning, so pair the comparison with Ten Lifestyle, whose institution-funded model is profitable (§7). Copy the system; do not copy the membership economics</td>
+          </tr>
+          <tr>
+            <td class="divname">The booking-platform recommendation</td>
+            <td>A ready-made SaaS ecosystem is recommended as the near-term option, and the study's own comparison scores it lowest on branding and user-experience consistency</td>
+            <td>Treat that low score as the specification rather than an acceptable trade-off. Adopt the recommended tools as the engine, and commission a branded, discreet front end over them — which is also what the study's low-code option was reaching for. For a brand whose entire proposition is polish, the interface is not cosmetic. Realistically this is a matter of weeks rather than the six to eight months estimated</td>
+          </tr>
+          <tr>
+            <td class="divname">Brand consistency in the model</td>
+            <td>Set aside in the study's conceptual model as less pressing than usability and integration</td>
+            <td>Restore it. The Corporate Manual is, from first page to last, a brand-and-service-consistency document, and in this market consistency <em>is</em> the credibility signal (§2). Usability and consistency are not competing priorities here — the same build delivers both</td>
+          </tr>
+          <tr>
+            <td class="divname">The onboarding deck's structure</td>
+            <td>Four slides of strengths and four of opportunities, with no weaknesses or threats section</td>
+            <td>Pair it with this review, which supplies the other two quadrants. A deck that only shows strengths leaves new team members unprepared for the operational realities the group's own study documents</td>
+          </tr>
+          <tr>
+            <td class="divname">Several "strengths" on the deck</td>
+            <td>Retainer-based recurring revenue and centralised 24/7 coordination are listed as current financial and operational strengths</td>
+            <td>Relabel them as objectives with owners and target dates. The group's own study says revenue is not yet predictable and coordination currently runs through one inbox. Both are achievable within a year under this plan — they are the destination, and stating them as such makes the plan credible rather than aspirational</td>
+          </tr>
+          <tr>
+            <td class="divname">The mission statement text</td>
+            <td>The wording on the deck describes a benchmarking and operational-consulting proposition rather than the group's own</td>
+            <td>Replace with the group's own language, which already exists and is much stronger: lifestyle management and production, delivered with discretion. The wording appears to have been picked up from an unrelated US consultancy that shares the Hackett name — worth owning deliberately, since that name overlap also affects search results and should be managed (§11)</td>
+          </tr>
+          <tr>
+            <td class="divname">Service counts and contact details</td>
+            <td>Thirteen services on the deck (security is omitted), fourteen on the website, fifteen in the study; three different telephone numbers across the site and documents</td>
+            <td>Publish one master service list and one contact block, owned by one named person, and have every document draw from it. Security in particular should never be missing — it is one of the two registered SIC codes and the licence is displayed on every page</td>
+          </tr>
+          <tr>
+            <td class="divname">Wealth management as a service line</td>
+            <td>Appears in the internal study as a fifteenth line alongside bespoke financial solutions</td>
+            <td>Confirm the regulatory position in writing before it appears anywhere public. Advising on or arranging investments sits further inside the FCA perimeter than credit introductions, and this is a line worth being certain about rather than quick about</td>
+          </tr>
+          <tr>
+            <td class="divname">Who delivers global chauffeur travel</td>
+            <td>The study's introduction attributes the chauffeur line, and the prestige fleet, to a named delivery partner who does not appear on the public partners page</td>
+            <td>Confirm the delivery map, then contract it — with notice periods and non-circumvention terms. If the flagship engine is delivered by a partner, the agreement <em>is</em> the asset, and securing it becomes the highest-value hour of work available (§12)</td>
+          </tr>
+          <tr>
+            <td class="divname">The chauffeur training programme</td>
+            <td>Drafted in the Corporate Manual as a full academy: core and advanced modules, assessment and certification, with benefits framed around drivers' earning potential</td>
+            <td>Strategically strong — it creates a certified supply pool no competitor can borrow. Settle who pays before launch: employer-funded or company-funded training recovered through work is clean, whereas charging work-seekers fees connected to finding them work runs into employment-agency conduct rules. Same structuring point as the talent divisions (§15)</td>
+          </tr>
+          <tr>
+            <td class="divname">Reach claims</td>
+            <td>"100+ countries" publicly, "100+ countries and 1,000 cities" in the manual</td>
+            <td>Standardise on one phrasing that is both impressive and unimpeachable: "delivered in over 100 countries through our certified partner network." True, checkable, and it makes the network a feature rather than something to be read between the lines</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <div class="callout">
+        <div class="t">The theme underneath all of it</div>
+        <p>The internal documents are consistently more honest about the business than the public material is — and the onboarding deck is the least accurate of the three. That is the reality gap of §2 reproduced inside the company's own paperwork. One master set of facts, owned by one person and used by every document, closes it in an afternoon and keeps it closed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s11">
+  <div class="wrap">
+    <div class="eyebrow">Section 11 · Fix now</div>
+    <h2>The 30-day credibility repair</h2>
+    <div class="prose"><p>Near-zero cash cost and the highest return on effort of anything in this document. Order matters, and nothing else should be marketed until these are done.</p></div>
+    <ol class="moves">
+      <li><b>Retire the placeholder store.</b><span class="why">Twelve items named "I'm a product" are live on a luxury brand today. Unpublish the store and tracking pages until there is a real use for them, such as gift experiences or credit top-ups.</span></li>
+      <li><b>Replace the four template legal pages.</b><span class="why">Privacy, terms, refunds and accessibility are unfilled boilerplate while forms collect data and memberships collect money. One solicitor session covering subscriptions, cancellation and data protection. This is exposure, not polish.</span></li>
+      <li><b>Consolidate to one website.</b><span class="why">Choose the primary domain, redirect the other, and unify the phone, WhatsApp and email routes to a single published set. Clear the unused placeholder URLs while you are in there.</span></li>
+      <li><b>Publish one master fact sheet, and an evidence page.</b><span class="why">One service list, one contact block, one set of registration and licence numbers, one approved description of reach — used by every document and owned by one person. Then evidence the claims: insurance certificates, licences, association memberships, real fleet photography, named case studies with permission. Anything that cannot be evidenced comes out, including the awards claim.</span></li>
+      <li><b>Replace the mission text on the internal deck, and claim the name in search.</b><span class="why">Use the group's own words rather than wording belonging to an unrelated consultancy that shares the Hackett name. While you are at it, make sure searches for the brand resolve to this business — the name overlap is a live source of confusion for anyone running a check.</span></li>
+      <li><b>Reposition Club Magenta honestly.</b><span class="why">As sold, £100/month "exclusive savings" invites comparison with £25k concierge clubs and disappoints. Relaunch as a prepaid ride account: pay £1,200 a year, receive £1,320 of credit plus priority dispatch and fixed airport rates. Prepaid cash, honest arithmetic, real loyalty, and it strengthens the existing 48-hour advance-booking incentive.</span></li>
+      <li><b>Tidy the recruitment shop window.</b><span class="why">Remove the crowd-fund role from public listings, since it signals capital-raising intent to anyone running diligence. Restructure or remove unpaid internships. Keep the owner-driver and non-executive searches, which are the right instincts.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="s12">
+  <div class="wrap">
+    <div class="eyebrow">Section 12 · 90 days</div>
+    <h2>Operating upgrades</h2>
+    <div class="prose">
+      <ul class="tight">
+        <li><strong>Sign the partner paper.</strong> Take the Corporate Manual's affiliate requirements and turn them into a one-page agreement — scope, fee, service standard, insurance, data terms — signed with every partner that stays on the site. Start with whoever delivers chauffeur capability. Target: nineteen links become ten or more contracts.</li>
+        <li><strong>Stand up the client memory first, not the booking form.</strong> A CRM holding every client, preference, journey history and introducer, populated from the founder's records and the existing inbox. This is the single highest-value item in the plan and no client ever sees it (§9).</li>
+        <li><strong>Then dispatch and availability.</strong> Booking and dispatch software for the Move engine, covering quoting, driver assignment, partner availability and corporate accounts. This is what ends double bookings and unlocks corporate contracts.</li>
+        <li><strong>Response-time standard.</strong> Every enquiry acknowledged by a person within an agreed window. Premium buyers measure in minutes; the current single-inbox arrangement cannot guarantee anything.</li>
+        <li><strong>Pricing architecture.</strong> Activate the manual's rate cards. Publish from-rates for chauffeur classes and named packages for events and weddings, keeping genuinely bespoke work above the line. Opacity below £5k loses buyers.</li>
+        <li><strong>Contribution by engine.</strong> Move, Make, Serve and the referral desk each get monthly revenue, direct cost and contribution lines. By month three the founder should know which engine actually makes money.</li>
+        <li><strong>Vetting file.</strong> A written vetting standard for drivers and household staff — checks, references, right to work, licences. Both a legal necessity and the core sales asset for Engine 3.</li>
+        <li><strong>Reviews engine.</strong> A post-job review request flowing into the Google Business Profile, with one named owner for responses. The 4.6★ base is real equity; compound it.</li>
+        <li><strong>Email hygiene.</strong> Everyone on the company domain with authentication properly configured, and no personal addresses anywhere client-facing.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s13">
+  <div class="wrap">
+    <div class="eyebrow">Section 13 · Growth plays</div>
+    <h2>The 12-month revenue plays</h2>
+    <div class="prose">
+      <ul class="tight">
+        <li><strong>The introducer programme.</strong> The highest-return play in this document, because it strengthens the channel that already produces most of the revenue. Name twenty people in protection, private-office, household-management, venue and production circles; log every introduction; thank every introducer personally; review the list quarterly. This is the founder's existing world, run deliberately (§9).</li>
+        <li><strong>The Roadshow Desk.</strong> Package the financial-roadshow specialism as a named product for banks, brokers and investor-relations firms — multi-car days, security-trained drivers, confidentiality-bound staff, one invoice. Ten anchor corporate accounts is the year-one target; corporate is 55–60% of the market and it renews.</li>
+        <li><strong>Two flagship weddings.</strong> Sell the full bundle at competitive pricing in exchange for full media rights, then convert them into the definitive case studies for the top quartile. London averages £27k; the bundle targets £35k–£60k productions.</li>
+        <li><strong>Film unit transport.</strong> Approach production managers and studios with the transport-captain package — crew movement, talent cars, prop runs, set security. Repeatable business with credits that compound, and existing partners open the doors.</li>
+        <li><strong>Concierge sold to firms.</strong> Two or three professional-services firms take a white-label client-benefits desk on a monthly retainer: priority cars, tables, tickets and staffing access for their partners and clients. Small, contractual, and shaped like the model that actually makes money.</li>
+        <li><strong>Staffing beachhead.</strong> Place the roles the group already touches — chauffeurs, event staff, PAs, house managers — for existing clients first. Each placement at 15–20% of salary is £6k–£15k of high-margin fee revenue with no new marketing.</li>
+        <li><strong>Accreditation sprint.</strong> SIA Approved Contractor for the security line, ISO 20121 consideration for events, and entries into credible industry awards. Procurement-visible credentials that few boutiques hold.</li>
+        <li><strong>Tender channel.</strong> Register on the public contract portals and relevant frameworks. Embassies, production companies and corporates all buy secure transport and event services through processes a seventeen-year-old licensed firm can credibly enter — once the evidence page exists and the account portal is real.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s14">
+  <div class="wrap">
+    <div class="eyebrow">Section 14 · Advanced tactics</div>
+    <h2>Founder-level tactics and insights</h2>
+    <div class="prose">
+      <ul class="tight">
+        <li><strong>Sell the bundle no one else can sign.</strong> The genuinely rare offer is one accountable principal across transport, security, events and staffing. Large rivals are siloed; small rivals are single-service. Price the bundle with a coordination premium — that premium is the business model, and the group's own documents already identify it as the edge.</li>
+        <li><strong>Trade on access, never on names.</strong> The founder's proximity to elite protection and royal-household circles is the most valuable asset in the business and the one most easily destroyed by mentioning it. Use it to open doors, brief partners and win introductions; never put it in marketing copy, never name a principal, a household or a venue. In this world, the people who matter already know, and the ones who need telling are the wrong clients.</li>
+        <li><strong>Anchor clients beat volume.</strong> One prestige retained client per engine — a bank's roadshow desk, a family office, a production company — is worth more than fifty one-off jobs: reference, cash regularity and operational tempo. Discount for the retainer, never for the one-off.</li>
+        <li><strong>Make the partner network sell.</strong> Nineteen partners currently receive outbound links. Contracted reciprocity means every partner's clients hear about Hackett &amp; Hackett cars and events — nineteen sales forces at no salary cost. Track partner-sourced revenue as its own line.</li>
+        <li><strong>Prove the 85%.</strong> Once attribution is running, the referral share stops being a claim and becomes a metric — and "over four fifths of our work comes by personal introduction" is among the most persuasive sentences a luxury service firm can publish. It is also the strongest possible answer to the question of why the business does not advertise.</li>
+        <li><strong>Evidence marketing over adjective marketing.</strong> Replace "extravagantly extraordinary" with artefacts: an annual insight note for corporate travel managers, named case studies, the driver-vetting standard published in full. In luxury services, proof is the aesthetic.</li>
+        <li><strong>Productise before hiring.</strong> The Corporate Manual is already the runbook for the chauffeur engine; do the same for events, weddings and staffing. The runbook library is what makes a partner network scalable, and it is a substantial part of what a buyer would one day be paying for.</li>
+        <li><strong>Guard the brand deliberately.</strong> One person signs off every public claim, partner logo and price. Claim inflation is how the current gap formed; a claims register is how it stays closed.</li>
+        <li><strong>Know the endgame.</strong> Focused books of corporate ground-transport business get bought, and well-run boutiques transact on multiples of profit. Building toward auditable accounts, contracted revenue, documented systems and a client memory that is not in one person's head keeps every option open — sale, investment, or simply a business that runs without heroics.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s15">
+  <div class="wrap">
+    <div class="eyebrow">Section 15 · Discipline</div>
+    <h2>What not to do</h2>
+    <div class="prose">
+      <ul class="tight">
+        <li><strong>Do not put a public booking funnel in front of the private client base.</strong> The founder's instinct here is correct and should be written into the design brief, not argued with. Corporate and production accounts are the exception, and they should be a separate, account-managed door (§9).</li>
+        <li><strong>Do not put protected clients' movements into consumer-grade systems.</strong> Whatever is chosen must support restricted access, sensible data retention and a clear processing agreement. Discretion is the product; the system has to defend it.</li>
+        <li><strong>Do not launch a fifteenth division.</strong> Every new storefront now subtracts credibility from the fourteen that already exist.</li>
+        <li><strong>Do not crowdfund at this stage.</strong> Equity crowdfunding invites exactly the public diligence that the claims-versus-filings gap in §2 would fail. Fix the record first, and raise later if at all.</li>
+        <li><strong>Do not charge work-seekers for finding them work.</strong> This applies to the talent divisions and to the new training academy alike. Employer-funded or company-funded models are clean; fees flowing from candidates are not.</li>
+        <li><strong>Do not run self-drive supercar hire on optimism.</strong> No confirmed underwritten cover, no business line. One bad hire is a company-ending event.</li>
+        <li><strong>Do not make regulated introductions informally.</strong> Confirm introducer or appointed-representative status in writing before finance or wealth services appear publicly.</li>
+        <li><strong>Do not let claims outrun evidence again.</strong> Every impressive fact about this business is more impressive when it is checkable.</li>
+        <li><strong>Do not compete with Blacklane on technology or Uber on price.</strong> Compete on the bundle, the discretion and the accountability — the axes where a boutique beats a platform.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s16">
+  <div class="wrap">
+    <div class="eyebrow">Section 16 · Numbers</div>
+    <h2>Numbers to run the business by</h2>
+    <div class="prose"><p>An illustrative working model — assumptions to be replaced with actuals as the engines start reporting. The margin ranges are the industry-typical bands the business should be managed against, not forecasts.</p></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Engine</th><th>Revenue model</th><th>Typical gross margin</th><th>Year-1 focus metric</th></tr></thead>
+        <tbody>
+          <tr><td class="divname">Move</td><td>Per-job, corporate accounts, prepaid ride accounts</td><td class="num">20–30% (brokered)</td><td>10 corporate accounts; repeat-booking rate above 60%</td></tr>
+          <tr><td class="divname">Make</td><td>Management fee (15–20%) or cost-plus packages</td><td class="num">15–25%</td><td>5 written case studies; 2 flagship weddings</td></tr>
+          <tr><td class="divname">Serve</td><td>Placement fees at 15–20% of salary; desk retainers</td><td class="num">70%+ (placements)</td><td>12 placements; 2 retainer pilots signed</td></tr>
+          <tr><td class="divname">Referral desk</td><td>Contracted referral percentage per partner</td><td class="num">~100% (fee income)</td><td>10+ signed agreements; first £25k of tracked fees</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <h3>The founder's Monday sheet</h3>
+      <ul class="tight">
+        <li><strong>Cash:</strong> bank balance, 13-week forecast, debtor days.</li>
+        <li><strong>Pipeline:</strong> enquiries, quotes out, win rate, average job value — by engine.</li>
+        <li><strong>Delivery:</strong> jobs completed, on-time rate, no-shows, complaints and refunds. Target: nothing unresolved beyond 48 hours.</li>
+        <li><strong>Referral:</strong> share of jobs by introduction, top introducers this month, thank-yous sent. This is the channel that pays the bills; it deserves a line.</li>
+        <li><strong>Reputation:</strong> new reviews, rating trajectory, response time to enquiries.</li>
+        <li><strong>Network:</strong> partner-sourced revenue in, referral fees earned out.</li>
+      </ul>
+      <h3>Milestones that would mark real progress</h3>
+      <ul class="tight">
+        <li>FY2027 accounts the founder would happily attach to a corporate tender.</li>
+        <li>More than half of Move revenue from repeat or contracted corporate clients.</li>
+        <li>Every client with a written record that survives the founder being unavailable for a week.</li>
+        <li>A non-executive director appointed — already advertised, worth following through — and a quarterly board rhythm.</li>
+        <li>Every public claim traceable to the evidence page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s17">
+  <div class="wrap">
+    <div class="eyebrow">Section 17 · Roadmap</div>
+    <h2>Twelve months, four quarters</h2>
+    <div class="quarter">
+      <div class="q">Q3 2026 <small>AUG – OCT · REPAIR</small></div>
+      <ul>
+        <li>The 30-day credibility repair completed in full (§11): store, legal pages, single site, master fact sheet, evidence page, Club Magenta reframed.</li>
+        <li>Solicitor review covering subscriptions, data protection, agency conduct and the FCA perimeter.</li>
+        <li>Client memory live and populated — the first and most important build (§9). Booking and dispatch software selected.</li>
+        <li>Delivery map confirmed and the chauffeur partner agreement signed.</li>
+      </ul>
+    </div>
+    <div class="quarter">
+      <div class="q">Q4 2026 <small>NOV – JAN · FOUNDATIONS</small></div>
+      <ul>
+        <li>Partner agreements signed across the network; referral-fee tracking live.</li>
+        <li>Introducer programme running, with attribution on every job and thank-yous closing the loop.</li>
+        <li>Roadshow Desk launched with the first corporate accounts; Christmas party season maximised under Make.</li>
+        <li>Vetting standard published; reviews engine running; rate cards and pricing pages live.</li>
+      </ul>
+    </div>
+    <div class="quarter">
+      <div class="q">Q1 2027 <small>FEB – APR · PROOF</small></div>
+      <ul>
+        <li>Two flagship weddings contracted for the season; case-study library reaching five.</li>
+        <li>Corporate account portal live for corporate, embassy and production clients — the private client experience unchanged.</li>
+        <li>Concierge desk piloted with two or three firms; staffing placements underway.</li>
+        <li>Approved Contractor application progressed; award entries submitted; non-executive director appointed.</li>
+      </ul>
+    </div>
+    <div class="quarter">
+      <div class="q">Q2 2027 <small>MAY – JUL · COMPOUND</small></div>
+      <ul>
+        <li>Double down on whichever engine's contribution margin leads; park whatever has not moved.</li>
+        <li>Film unit-transport wedge in market through partner introductions.</li>
+        <li>Referral share measured and published as a verified figure.</li>
+        <li>Year-one review against the §16 milestones; FY2027 accounts prepared as a sales asset rather than a filing chore.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="s18">
+  <div class="wrap">
+    <div class="eyebrow">Section 18 · Risk register</div>
+    <h2>Top risks and mitigations</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Risk</th><th>Severity</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Credibility gap discovered by a major prospect or journalist before repair</td><td><span class="chip avoid">Critical</span></td><td>Execute §11 within 30 days; sequence all publicity after it</td></tr>
+          <tr><td class="num">2</td><td>Key-man dependency — operations, memory and the referral network all sit with one part-time principal</td><td><span class="chip avoid">Critical</span></td><td>Client memory system (§9), non-executive appointment, documented runbooks, a deputy for dispatch, key-man insurance</td></tr>
+          <tr><td class="num">3</td><td>Regulatory breach — data, subscriptions, agency conduct, FCA perimeter, training fees</td><td><span class="chip avoid">Critical</span></td><td>Solicitor review in Q3 2026; annual compliance calendar; drop or restructure non-compliant lines</td></tr>
+          <tr><td class="num">4</td><td>Vetting failure in security or staffing — a single incident defines the brand</td><td><span class="chip avoid">Critical</span></td><td>Written vetting standard, insurance, incident protocol, no exceptions made for speed</td></tr>
+          <tr><td class="num">5</td><td>Partner disintermediation or withdrawal, including the chauffeur delivery relationship</td><td><span class="chip fix">High</span></td><td>Contracts with notice periods and non-circumvention; two partners per category where possible; own the client data</td></tr>
+          <tr><td class="num">6</td><td>Referral channel concentrated in one person's network and unmeasured</td><td><span class="chip fix">High</span></td><td>Attribution on every job; a named introducer list cultivated beyond the founder; partner reciprocity as a second source (§9, §13)</td></tr>
+          <tr><td class="num">7</td><td>Discretion breach through poorly chosen technology</td><td><span class="chip fix">High</span></td><td>Restricted access, retention limits, processing agreements, no client movement data in consumer-grade tools; nothing client-facing without sign-off</td></tr>
+          <tr><td class="num">8</td><td>Margin squeeze from capitalised platforms</td><td><span class="chip fix">High</span></td><td>Compete on bundle, discretion and accountability; win corporate contracts; avoid price wars</td></tr>
+          <tr><td class="num">9</td><td>HNW resident outflow shrinking local private demand</td><td><span class="chip fix">High</span></td><td>Weight toward corporate, visiting and event demand; follow existing clients internationally through the partner network</td></tr>
+          <tr><td class="num">10</td><td>Commission workforce quality variance</td><td><span class="chip fix">High</span></td><td>The Corporate Manual's standards written into owner-driver contracts, plus mystery shopping and review monitoring</td></tr>
+          <tr><td class="num">11</td><td>Cash concentrated in a few large jobs with no recurring base</td><td><span class="chip build">Medium</span></td><td>Deposits and stage payments as standard; 13-week cash forecast; prepaid ride accounts and retainers</td></tr>
+          <tr><td class="num">12</td><td>Public and internal documents drifting apart again</td><td><span class="chip build">Medium</span></td><td>One master fact sheet with a named owner; quarterly content audit; claims register (§10, §11)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="s19">
+  <div class="wrap">
+    <div class="eyebrow">Section 19 · Sources &amp; method</div>
+    <h2>Sources and method</h2>
+    <div class="prose">
+      <p><strong>Method.</strong> Full crawl of the group website — all navigation pages, all fourteen service pages, store, pricing, partners, opportunities, team and legal pages — plus the legacy site, in July 2026; Companies House records; the group's three internal documents; and the market data and comparator financials below. Figures are as reported by the cited sources. Regulatory points are flags for professional advice rather than legal advice, and the illustrative economics in §16 are labelled assumptions. The referral share is as reported by the founder and is one of the first things the recommended systems would measure.</p>
+    </div>
+    <div class="src-group">
+      <h4>Company record and internal documents</h4>
+      <ul>
+        <li>Companies House — company profile, filing history and officers: find-and-update.company-information.service.gov.uk/company/07100605</li>
+        <li>hackettandhackettinternationalgrouplimited.com (all pages and sitemaps) · hackettandhackett.co.uk (legacy site, live)</li>
+        <li>Internal: <em>Corporate Manual for the International Chauffeur Drive Programme</em>; the thirty-page digital-transformation study on the booking system; the new-team onboarding presentation</li>
+        <li>Reviews: Birdeye (4.6★ across 49 reviews) and Bark company profile</li>
+      </ul>
+    </div>
+    <div class="src-group">
+      <h4>Comparators</h4>
+      <ul>
+        <li>Ten Lifestyle Group plc — Preliminary Results FY2025 (Investegate; annual report)</li>
+        <li>Quintessentially — filed accounts to April 2024 and associated reporting on the going-concern position</li>
+        <li>Addison Lee — return to profit and the £269.1m ComfortDelGro acquisition (Nov 2024); 2023 corporate responsibility reporting on booking-app performance</li>
+        <li>Blacklane — $65m Series G (Oct 2024) and reported profitability since 2022</li>
+        <li>Virgin Group — brand-licensing model and reporting on how the group earns</li>
+        <li>Diversification research — Journal of Management Studies meta-analysis (2019); Management Decision (2023) on unrelated diversification contexts</li>
+      </ul>
+    </div>
+    <div class="src-group">
+      <h4>Markets and regulation</h4>
+      <ul>
+        <li>UK events industry £68.7bn (2025) — UKEVENTS UK Events Report; Allied Market Research long-range projection</li>
+        <li>Chauffeur market — global market sizing (~$85.4bn, 2025); IBISWorld UK Luxury Car &amp; Chauffeur Services; Europe ≈ $6.1bn (2024)</li>
+        <li>SIA licence holders ≈ 451,000 (2024) — Statista; SIA licensing guidance (gov.uk)</li>
+        <li>Weddings — Bridebook UK Wedding Report (average £20,822 in 2025; London £26,986)</li>
+        <li>Household staffing fees — published agency terms (Nanny &amp; Butler, Bespoke Bureau, Randolphs, Forbes Private Staff)</li>
+        <li>Concierge pricing — Knightsbridge Circle from approximately £25,000 a year</li>
+        <li>Agency and model-agency fee rules — gov.uk employment-agency regulation guidance (Conduct Regulations 2003); BFMA fraud guidance; nidirect entertainment and modelling guidance</li>
+        <li>Supercar-hire insurance — broker and trade commentary on market withdrawal and self-drive hire terms</li>
+        <li>Wealth migration — Henley Private Wealth Migration Report 2025 (net −16,500 UK millionaires forecast; London −11,300 in 2024)</li>
+      </ul>
+    </div>
+    <div class="foot">Prepared July 2026 · Second edition, incorporating the group's internal documents · Independent analysis for internal strategy use · Not legal, financial or investment advice · Figures belong to their cited sources</div>
+  </div>
+</section>
+
+<div id="tooltip" role="status" aria-hidden="true"></div>
+<script>
+  (function(){
+    var tip=document.getElementById('tooltip');
+    document.querySelectorAll('#conciergeChart .bar').forEach(function(b){
+      b.addEventListener('mousemove',function(e){
+        tip.textContent=b.getAttribute('data-tip');
+        tip.style.opacity='1';
+        tip.style.left=(e.clientX+14)+'px';
+        tip.style.top=(e.clientY-10)+'px';
+      });
+      b.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+    });
+  })();
+</script>
