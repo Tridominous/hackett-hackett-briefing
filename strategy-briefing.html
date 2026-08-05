@@ -2,110 +2,150 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
-    --bg:#FFFFFF; --surface:#FAFAFA; --surface-2:#F2F0F1; --ink:#16181C; --ink-2:#54585F;
-    --ink-3:#84888F; --accent:#B0125E; --accent-soft:#FBEFF4; --line:#E4E2E3; --line-2:#D2CFD1;
-    --ok-bg:#E8F0E9; --ok-ink:#2C5F3C; --warn-bg:#FBEEDC; --warn-ink:#875312;
-    --stop-bg:#FAE7E5; --stop-ink:#94382F; --hold-bg:#EDECEC; --hold-ink:#54585F;
+    --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+    --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+    --ok-bg:#E7F0E9; --ok-ink:#2B5E3B; --warn-bg:#FAEDDA; --warn-ink:#855211;
+    --stop-bg:#F9E6E4; --stop-ink:#93372E; --hold-bg:#ECEAE7; --hold-ink:#53575E;
     --c-a:#B0125E; --c-b:#2F6F9F;
-    --shadow:0 1px 2px rgba(22,24,28,.05),0 6px 18px rgba(22,24,28,.05);
+    --shadow:0 1px 2px rgba(25,27,31,.05),0 6px 18px rgba(25,27,31,.05);
   }
   @media (prefers-color-scheme:dark){
     :root{
-      --bg:#14161A; --surface:#1B1E24; --surface-2:#22262E; --ink:#F0EDEE; --ink-2:#A9ADB4;
-      --ink-3:#777C85; --accent:#E85EA0; --accent-soft:#2B1922; --line:#2A2E36; --line-2:#3A3F49;
-      --ok-bg:#1B2A20; --ok-ink:#7FBB93; --warn-bg:#2E2412; --warn-ink:#DDAE55;
-      --stop-bg:#301B18; --stop-ink:#E08A7E; --hold-bg:#242830; --hold-ink:#A9ADB4;
+      --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+      --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+      --ok-bg:#1C2B21; --ok-ink:#7FBB93; --warn-bg:#2F2513; --warn-ink:#DDAE55;
+      --stop-bg:#311C19; --stop-ink:#E08A7E; --hold-bg:#252931; --hold-ink:#AAAEB5;
       --c-a:#D94B8C; --c-b:#4F8FD4;
       --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.28);
     }
   }
   :root[data-theme="light"]{
-    --bg:#FFFFFF; --surface:#FAFAFA; --surface-2:#F2F0F1; --ink:#16181C; --ink-2:#54585F;
-    --ink-3:#84888F; --accent:#B0125E; --accent-soft:#FBEFF4; --line:#E4E2E3; --line-2:#D2CFD1;
-    --ok-bg:#E8F0E9; --ok-ink:#2C5F3C; --warn-bg:#FBEEDC; --warn-ink:#875312;
-    --stop-bg:#FAE7E5; --stop-ink:#94382F; --hold-bg:#EDECEC; --hold-ink:#54585F;
+    --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+    --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+    --ok-bg:#E7F0E9; --ok-ink:#2B5E3B; --warn-bg:#FAEDDA; --warn-ink:#855211;
+    --stop-bg:#F9E6E4; --stop-ink:#93372E; --hold-bg:#ECEAE7; --hold-ink:#53575E;
     --c-a:#B0125E; --c-b:#2F6F9F;
-    --shadow:0 1px 2px rgba(22,24,28,.05),0 6px 18px rgba(22,24,28,.05);
+    --shadow:0 1px 2px rgba(25,27,31,.05),0 6px 18px rgba(25,27,31,.05);
   }
   :root[data-theme="dark"]{
-    --bg:#14161A; --surface:#1B1E24; --surface-2:#22262E; --ink:#F0EDEE; --ink-2:#A9ADB4;
-    --ink-3:#777C85; --accent:#E85EA0; --accent-soft:#2B1922; --line:#2A2E36; --line-2:#3A3F49;
-    --ok-bg:#1B2A20; --ok-ink:#7FBB93; --warn-bg:#2E2412; --warn-ink:#DDAE55;
-    --stop-bg:#301B18; --stop-ink:#E08A7E; --hold-bg:#242830; --hold-ink:#A9ADB4;
+    --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+    --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+    --ok-bg:#1C2B21; --ok-ink:#7FBB93; --warn-bg:#2F2513; --warn-ink:#DDAE55;
+    --stop-bg:#311C19; --stop-ink:#E08A7E; --hold-bg:#252931; --hold-ink:#AAAEB5;
     --c-a:#D94B8C; --c-b:#4F8FD4;
     --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.28);
   }
+  /* Text colour used on top of a solid accent fill. Light theme accent is dark,
+     so white reads; dark theme accent is a light pink, so near-black reads. */
+  :root{--on-accent:#FFFFFF}
+  @media (prefers-color-scheme:dark){:root{--on-accent:#15171B}}
+  :root[data-theme="light"]{--on-accent:#FFFFFF}
+  :root[data-theme="dark"]{--on-accent:#15171B}
   *{box-sizing:border-box}
   body{
     margin:0;background:var(--bg);color:var(--ink);
     font-family:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
-    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    font-size:18px;line-height:1.75;letter-spacing:.005em;
+    text-align:left;-webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.15;text-wrap:balance;margin:0 0 .45em}
-  .wrap{max-width:980px;margin:0 auto;padding:0 26px}
-  p{margin:.7em 0;max-width:68ch}
+  h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;text-wrap:balance;margin:0 0 .45em}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+  p{margin:.75em 0;max-width:62ch}
   strong{color:var(--ink)}
-  header.cover{padding:78px 0 54px;border-bottom:3px solid var(--accent);background:var(--surface)}
+  header.cover{padding:76px 0 52px;border-bottom:3px solid var(--accent);background:var(--surface)}
   .brandmark{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:.95rem;letter-spacing:.03em;color:var(--accent)}
-  h1{font-size:clamp(2.1rem,5.5vw,3.4rem);margin:.3em 0 .25em}
-  .cover .lede{font-size:1.15rem;color:var(--ink-2);max-width:60ch;margin:0}
-  .cover .who{margin-top:26px;font-size:.9rem;color:var(--ink-3)}
+  h1{font-size:clamp(2.1rem,5.5vw,3.3rem);margin:.3em 0 .25em}
+  .cover .lede{font-size:1.15rem;color:var(--ink-2);max-width:56ch;margin:0}
+  .cover .who{margin-top:24px;font-size:.9rem;color:var(--ink-3)}
   nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
-  nav .row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:980px;margin:0 auto;padding:0 26px}
+  nav .row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:1000px;margin:0 auto;padding:0 26px}
   nav .row::-webkit-scrollbar{display:none}
   nav a{flex:0 0 auto;font-size:.76rem;color:var(--ink-2);text-decoration:none;padding:5px 11px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
   nav a:hover{border-color:var(--accent);color:var(--accent)}
-  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
   section:last-of-type{border-bottom:none}
   .num{
     display:inline-block;font-family:Fraunces,Georgia,serif;font-size:.8rem;font-weight:600;
     color:var(--accent);border:1px solid var(--accent);border-radius:999px;
     width:29px;height:29px;line-height:27px;text-align:center;margin-bottom:14px;
   }
-  h2{font-size:clamp(1.6rem,3.6vw,2.2rem)}
-  h3{font-size:1.12rem;margin-top:1.7em;color:var(--ink)}
-  .sub{color:var(--ink-2);font-size:1.02rem;max-width:64ch;margin-top:-.2em}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:26px 0}
+  h2{font-size:clamp(1.6rem,3.6vw,2.1rem)}
+  h3{font-size:1.1rem;margin-top:1.8em;color:var(--ink)}
+  .sub{color:var(--ink-2);font-size:1.02rem;max-width:60ch;margin-top:-.2em}
+  /* Start here band */
+  .starthere{background:var(--accent);color:var(--on-accent);border-radius:12px;padding:26px 28px;margin:26px 0}
+  .starthere .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.85}
+  .starthere h3{color:var(--on-accent);margin:.35em 0 .3em;font-size:1.35rem}
+  .starthere p{color:var(--on-accent);opacity:.92;margin:.3em 0;max-width:58ch}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin:26px 0}
   .stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px}
-  .stat b{display:block;font-family:Fraunces,Georgia,serif;font-size:1.65rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
-  .stat span{display:block;font-size:.82rem;color:var(--ink-2);margin-top:3px;line-height:1.4}
+  .stat b{display:block;font-family:Fraunces,Georgia,serif;font-size:1.6rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.2}
+  .stat span{display:block;font-size:.82rem;color:var(--ink-2);margin-top:4px;line-height:1.45}
   .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:24px 0}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px 22px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 10px;font-size:1.05rem}
+  .card h3{margin:0 0 10px;font-size:1.04rem}
   .card ul{margin:0;padding-left:19px}
-  .card li{margin:.45em 0;font-size:.95rem;color:var(--ink-2)}
+  .card li{margin:.5em 0;font-size:.95rem;color:var(--ink-2)}
   .card li b{color:var(--ink)}
   .card.good{border-top:3px solid var(--c-b)}
   .card.work{border-top:3px solid var(--accent)}
   ol.check{counter-reset:c;list-style:none;padding:0;margin:24px 0}
   ol.check li{
-    counter-increment:c;position:relative;padding:14px 18px 14px 58px;
-    background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:9px 0;font-size:.98rem;
+    counter-increment:c;position:relative;padding:15px 18px 15px 60px;
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:10px 0;font-size:.98rem;
   }
   ol.check li::before{
-    content:counter(c);position:absolute;left:18px;top:13px;width:26px;height:26px;line-height:26px;
-    text-align:center;border-radius:50%;background:var(--accent);color:#fff;font-size:.8rem;font-weight:700;
+    content:counter(c);position:absolute;left:18px;top:15px;width:27px;height:27px;line-height:27px;
+    text-align:center;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:.8rem;font-weight:700;
   }
   ol.check li b{display:block}
-  ol.check li span{font-size:.88rem;color:var(--ink-2)}
-  .engines{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0}
-  .engine{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px;box-shadow:var(--shadow)}
-  .engine .tag{font-family:Fraunces,Georgia,serif;font-size:1.3rem;font-weight:600;color:var(--accent);display:block;margin-bottom:6px}
-  .engine p{font-size:.92rem;color:var(--ink-2);margin:.3em 0}
+  ol.check li span{font-size:.89rem;color:var(--ink-2)}
+  /* NODE MAP */
+  .nodemap{margin:28px 0}
+  .hub{
+    background:var(--accent);color:var(--on-accent);border-radius:12px;padding:18px 22px;text-align:center;
+    max-width:520px;margin:0 auto;position:relative;
+  }
+  .hub .hub-t{display:block;font-family:Fraunces,Georgia,serif;font-size:1.3rem;font-weight:600}
+  .hub .hub-s{display:block;font-size:.85rem;opacity:.9;margin-top:3px;line-height:1.45}
+  .stem{height:26px;width:2px;background:var(--line-2);margin:0 auto}
+  .branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px}
+  .branch{background:var(--surface);border:1px solid var(--line);border-radius:11px;overflow:hidden;box-shadow:var(--shadow)}
+  .bhead{
+    background:var(--surface-2);padding:13px 15px;border-bottom:1px solid var(--line);
+    font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--accent);
+  }
+  .bhead small{display:block;font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:.75rem;font-weight:400;color:var(--ink-2);letter-spacing:.02em;margin-top:2px;line-height:1.4}
+  .leaf{
+    display:flex;align-items:flex-start;justify-content:space-between;gap:9px;
+    padding:10px 15px;border-bottom:1px solid var(--line);font-size:.88rem;line-height:1.45;
+  }
+  .leaf:last-child{border-bottom:none}
+  .leaf span{color:var(--ink)}
+  .maplegend{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 0;font-size:.78rem;color:var(--ink-2);align-items:center}
+  .mapnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;max-width:66ch}
+  /* CHANNEL MAP */
+  .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:26px 0}
+  .fbox{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow)}
+  .fbox.mid{border:2px solid var(--accent)}
+  .fbox .step{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--accent);display:block;margin-bottom:8px}
+  .fbox h4{margin:0 0 8px;font-family:Fraunces,Georgia,serif;font-size:1.02rem;font-weight:600}
+  .fbox ul{margin:0;padding-left:18px}
+  .fbox li{font-size:.88rem;color:var(--ink-2);margin:.35em 0;line-height:1.5}
   .tbl{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:600px}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:580px}
   th{text-align:left;font-size:.71rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding:11px 14px;background:var(--surface-2);border-bottom:1px solid var(--line-2);font-weight:700}
-  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5}
   tr:last-child td{border-bottom:none}
-  td.name{font-weight:600;white-space:nowrap}
-  .pill{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+  td.name{font-weight:600}
+  .pill{display:inline-block;font-size:.67rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
   .p-grow{background:var(--ok-bg);color:var(--ok-ink)}
   .p-build{background:var(--accent-soft);color:var(--accent)}
   .p-partner{background:var(--hold-bg);color:var(--hold-ink)}
   .p-rework{background:var(--warn-bg);color:var(--warn-ink)}
   .p-pause{background:var(--hold-bg);color:var(--hold-ink)}
   .p-stop{background:var(--stop-bg);color:var(--stop-ink)}
-  .note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0;max-width:72ch}
+  .note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0;max-width:70ch}
   .note b{display:block;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
   .note p{margin:.3em 0}
   figure{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px 22px 14px;margin:24px 0;box-shadow:var(--shadow)}
@@ -114,23 +154,26 @@
   .key{display:flex;gap:16px;font-size:.78rem;color:var(--ink-2);margin:2px 0 10px;flex-wrap:wrap}
   .key i{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-1px}
   .svgbox{overflow-x:auto}
-  .fnote{font-size:.74rem;color:var(--ink-3);margin-top:9px}
-  .qtr{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line-2)}
+  .fnote{font-size:.75rem;color:var(--ink-3);margin-top:9px}
+  .qtr{display:grid;grid-template-columns:118px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line-2)}
   .qtr:last-child{border-bottom:none}
   .qtr .lbl{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--accent);font-size:1rem}
   .qtr .lbl small{display:block;font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:.7rem;color:var(--ink-3);letter-spacing:.05em;font-weight:400;margin-top:2px}
   .qtr ul{margin:0;padding-left:18px}
-  .qtr li{margin:.3em 0;font-size:.94rem;color:var(--ink-2)}
+  .qtr li{margin:.3em 0;font-size:.93rem;color:var(--ink-2)}
   @media (max-width:560px){.qtr{grid-template-columns:1fr;gap:5px}}
-  ul.plain{padding-left:20px;max-width:68ch}
-  ul.plain li{margin:.45em 0}
+  ul.plain{padding-left:20px;max-width:64ch}
+  ul.plain li{margin:.5em 0}
   .foot{padding:32px 0 56px;color:var(--ink-3);font-size:.8rem}
   @media print{
     nav{display:none}
-    body{font-size:11pt}
-    section{page-break-inside:avoid;padding:22px 0}
-    .card,.engine,.stat,figure,ol.check li{box-shadow:none}
-    header.cover{padding:20px 0}
+    body{font-size:11pt;background:#fff}
+    section{page-break-inside:avoid;padding:20px 0}
+    .card,.branch,.stat,figure,ol.check li,.fbox{box-shadow:none}
+    header.cover{padding:18px 0}
+    .starthere{border:2px solid #000;background:#fff;color:#000}
+    .starthere h3,.starthere p{color:#000}
+    .hub{background:#fff;color:#000;border:2px solid #000}
   }
 </style>
 
@@ -138,25 +181,27 @@
   <div class="wrap">
     <div class="brandmark">HACKETT &amp; HACKETT INTERNATIONAL GROUP</div>
     <h1>Strategy Briefing</h1>
-    <p class="lede">Current position, immediate priorities, and a twelve month plan.</p>
-    <div class="who">July 2026</div>
+    <p class="lede">Current position, the first move, and a twelve month plan.</p>
+    <div class="who">August 2026</div>
   </div>
 </header>
 
 <nav aria-label="Contents">
   <div class="row">
     <a href="#s1">1 Current Position</a>
-    <a href="#s2">2 Credibility Gap</a>
-    <a href="#s3">3 Thirty Day Priorities</a>
-    <a href="#s4">4 Service Structure</a>
+    <a href="#s2">2 Trust and Reputation</a>
+    <a href="#s3">3 First Thirty Days</a>
+    <a href="#s4">4 Service Map</a>
     <a href="#s5">5 Service Decisions</a>
-    <a href="#s6">6 Referrals and Digital Approach</a>
-    <a href="#s7">7 Technology Stack</a>
-    <a href="#s8">8 Twelve Month Plan</a>
-    <a href="#s9">9 Performance Measures</a>
-    <a href="#s10">10 Principal Risks</a>
-    <a href="#s11">11 Market Evidence</a>
-    <a href="#s12">12 Decisions Required</a>
+    <a href="#s6">6 How Work Arrives</a>
+    <a href="#s7">7 Moving the Website</a>
+    <a href="#s8">8 Technology Stack</a>
+    <a href="#s9">9 Compliance Checks</a>
+    <a href="#s10">10 Twelve Month Plan</a>
+    <a href="#s11">11 Performance Measures</a>
+    <a href="#s12">12 Principal Risks</a>
+    <a href="#s13">13 Market Evidence</a>
+    <a href="#s14">14 Decisions Required</a>
   </div>
 </nav>
 
@@ -170,27 +215,27 @@
       <div class="stat"><b>85%</b><span>of work reported to arrive by personal recommendation</span></div>
       <div class="stat"><b>4.6★</b><span>average across 49 customer reviews</span></div>
       <div class="stat"><b>19</b><span>delivery partners in the network</span></div>
-      <div class="stat"><b>14</b><span>services listed on the website</span></div>
+      <div class="stat"><b>98</b><span>pages on the old website earning search traffic</span></div>
     </div>
     <div class="cols">
       <div class="card good">
         <h3>Strengths</h3>
         <ul>
           <li><b>Seventeen years of clean trading.</b> Few firms of this size can show this.</li>
-          <li><b>Genuine customer feedback.</b> 4.6 stars across 49 reviews, and five stars on wedding cars.</li>
           <li><b>Referrals generate most new work.</b> Competitors spend heavily to win what arrives here by recommendation.</li>
-          <li><b>A licensed security operation.</b> Registered and licensed, which is uncommon alongside transport.</li>
+          <li><b>Access at the top of the market.</b> The founder moves in circles that most competitors cannot reach at any price.</li>
+          <li><b>A licensed security operation,</b> which is uncommon alongside transport.</li>
           <li><b>Nineteen delivery partners,</b> so most requests can be met without owning the assets.</li>
-          <li><b>A central London address and a name clients trust.</b></li>
+          <li><b>Real search traffic already earned.</b> The old website ranks for chauffeur terms across London and abroad.</li>
         </ul>
       </div>
       <div class="card work">
         <h3>Constraints</h3>
         <ul>
-          <li><b>The website promises more than the business can currently evidence.</b></li>
-          <li><b>The online store still shows sample products.</b></li>
+          <li><b>Trust needs rebuilding</b> after damage done in the past.</li>
+          <li><b>The new website promises more than the business can currently evidence,</b> and the store still shows sample products.</li>
           <li><b>The privacy policy and terms are still website templates.</b></li>
-          <li><b>Two websites are live,</b> carrying different phone numbers.</li>
+          <li><b>Two websites are live,</b> and the search traffic sits on the older one.</li>
           <li><b>Every enquiry lands in one inbox</b> with no way to sort or prioritise it.</li>
           <li><b>Client details are held mainly from memory</b> rather than on record.</li>
         </ul>
@@ -198,7 +243,7 @@
     </div>
     <div class="note">
       <b>Summary</b>
-      <p>None of the constraints above concern the quality of the service. They concern the systems around it. Most are content and process changes rather than capital investment.</p>
+      <p>None of the constraints concern the quality of the service. They concern the systems around it. Most are content and process changes rather than capital investment.</p>
     </div>
   </div>
 </section>
@@ -206,14 +251,28 @@
 <section id="s2">
   <div class="wrap">
     <span class="num">2</span>
-    <h2>Credibility Gap</h2>
-    <p class="sub">A trust issue rather than a marketing one.</p>
-    <p>Corporate clients, family offices and banks check suppliers before buying. They look at Companies House, read the website, and search the company name. That check takes about ten minutes.</p>
-    <p>At present it finds a store showing sample products and legal pages that were never completed. Whoever is checking draws their own conclusion, and the business rarely hears about it.</p>
-    <p><strong>The aim is not to appear larger. It is to present the business as accurately as it performs.</strong> Seventeen years of trading, genuine reviews, a licensed security operation and nineteen delivery partners is a strong record, and all of it can be verified.</p>
+    <h2>Trust and Reputation</h2>
+    <p class="sub">The one thing worth being methodical about, because word of mouth carries in both directions.</p>
+    <p>Referral is the strongest asset in this business. The same network that delivers most of the work also carries any bad account of it. That makes reputation an operating priority rather than a marketing one.</p>
+    <p>Trust is not restored by a statement. It is restored by a steady supply of recent, checkable evidence that outweighs anything older.</p>
+
+    <h3>Rebuilding it</h3>
+    <ul class="plain">
+      <li><strong>Ask for a review after every completed job.</strong> Recent volume matters more than any single old entry.</li>
+      <li><strong>Reply to every review, calm and factual,</strong> including old negative ones. A measured reply reads better than silence.</li>
+      <li><strong>Publish the vetting standard.</strong> Showing how people are screened today answers the question directly.</li>
+      <li><strong>Name one owner per job</strong> on the confirmation, so the client knows exactly who is accountable.</li>
+      <li><strong>Publish written service standards</strong> that a client can hold the business to.</li>
+      <li><strong>Add third party proof.</strong> Security accreditation and industry awards are checkable by strangers in a way that self description is not.</li>
+      <li><strong>Collect case studies with named clients</strong> who are willing to vouch.</li>
+    </ul>
+
+    <h3>Preventing a repeat</h3>
+    <p>Three controls do most of the work: written vetting for every person who touches a client, one named owner per job, and conduct terms inside every partner and driver agreement.</p>
+
     <div class="note">
       <b>Note</b>
-      <p>Being checked and found short is worse than being modest and verified. Marketing spend before this is corrected sends people to pages that argue against the business.</p>
+      <p>Do not argue with the past in public. Publish enough current evidence that the recent record is the first thing anyone finds.</p>
     </div>
   </div>
 </section>
@@ -221,15 +280,23 @@
 <section id="s3">
   <div class="wrap">
     <span class="num">3</span>
-    <h2>Thirty Day Priorities</h2>
-    <p class="sub">Low cost items with the highest expected return. Each needs one named owner.</p>
+    <h2>First Thirty Days</h2>
+    <p class="sub">Low cost, high return. Each item needs one named owner.</p>
+
+    <div class="starthere">
+      <span class="lbl">Start here</span>
+      <h3>Take the store offline and replace the legal pages.</h3>
+      <p>One afternoon of work, no budget, no decisions needed from anyone else. It removes the two things most likely to lose a client who is checking the business out. Everything else in this document can wait until this is done.</p>
+    </div>
+
     <ol class="check">
       <li><b>Take the online store offline.</b><span>It currently displays sample products. Restore it once there is stock worth selling.</span></li>
       <li><b>Replace the privacy policy, terms and refund policy.</b><span>The site takes card payments and monthly memberships, so these need to be proper documents. One session with a solicitor should cover it.</span></li>
-      <li><b>Close one of the two websites.</b><span>Choose the main domain, redirect the other, and publish one phone number and one email address.</span></li>
-      <li><b>Agree one set of facts.</b><span>One service list, one company description, one contact block, used by every document and every staff member.</span></li>
+      <li><b>Choose the main domain and keep it.</b><span>Section 7 explains why this decision comes before any website work, and why the shorter address is the stronger candidate.</span></li>
+      <li><b>Agree one set of facts.</b><span>One service list, one company description, one phone number, one email address, used by every document and every staff member.</span></li>
       <li><b>Build an evidence page.</b><span>Licences, insurance, accreditations, photographs of the actual fleet, and named jobs cleared for publication.</span></li>
-      <li><b>Reprice Club Magenta.</b><span>Relaunch as a prepaid travel account. For example £1,200 paid in advance for £1,320 of travel credit, priority booking and fixed airport rates. The arithmetic is transparent and the cash arrives up front.</span></li>
+      <li><b>Switch review requests on.</b><span>Every completed job gets a review request. This is the first step of section 2 and it starts paying back immediately.</span></li>
+      <li><b>Reprice Club Magenta.</b><span>Relaunch as a prepaid travel account. For example £1,200 in advance for £1,320 of travel credit, priority booking and fixed airport rates. The arithmetic is transparent and the cash arrives up front.</span></li>
     </ol>
   </div>
 </section>
@@ -237,31 +304,58 @@
 <section id="s4">
   <div class="wrap">
     <span class="num">4</span>
-    <h2>Service Structure</h2>
-    <p class="sub">Fourteen services is more than a team of this size can sell well. The proposal is to keep what Hackett &amp; Hackett delivers directly and introduce the rest through partners.</p>
-    <div class="engines">
-      <div class="engine">
-        <span class="tag">Move</span>
-        <p>Chauffeur, secure transport, event and film logistics.</p>
-        <p><strong>The largest earner and the strongest reputation.</strong></p>
+    <h2>Service Map</h2>
+    <p class="sub">How the services group together, and what happens to each. Hackett &amp; Hackett sits at the centre as the orchestrator: it wins the work, owns the client relationship, and chooses who delivers.</p>
+
+    <div class="nodemap">
+      <div class="hub">
+        <span class="hub-t">Hackett &amp; Hackett</span>
+        <span class="hub-s">Orchestrator. Wins the work, holds the client, selects and manages delivery.</span>
       </div>
-      <div class="engine">
-        <span class="tag">Make</span>
-        <p>Events, weddings, production support.</p>
-        <p><strong>The best margins, and where the team is strongest.</strong></p>
+      <div class="stem" aria-hidden="true"></div>
+      <div class="branches">
+        <div class="branch">
+          <div class="bhead">Move<small>Travel and transport. The core business and the largest earner.</small></div>
+          <div class="leaf"><span>Chauffeur, airport and roadshow</span><i class="pill p-grow">Grow</i></div>
+          <div class="leaf"><span>Security and close protection</span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>Private aviation and marine</span><i class="pill p-partner">Partner</i></div>
+          <div class="leaf"><span>Event and film logistics</span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>White glove transport</span><i class="pill p-partner">Partner</i></div>
+          <div class="leaf"><span>Prestige cars</span><i class="pill p-rework">Rework</i></div>
+        </div>
+        <div class="branch">
+          <div class="bhead">Make<small>Events and production. The best margins.</small></div>
+          <div class="leaf"><span>Event management and production</span><i class="pill p-grow">Grow</i></div>
+          <div class="leaf"><span>Weddings</span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>Film production support</span><i class="pill p-partner">Partner</i></div>
+          <div class="leaf"><span>Music and artist management</span><i class="pill p-pause">Pause</i></div>
+          <div class="leaf"><span>Model management</span><i class="pill p-stop">Stop</i></div>
+        </div>
+        <div class="branch">
+          <div class="bhead">Serve<small>Staffing and lifestyle. Repeat relationships.</small></div>
+          <div class="leaf"><span>Household staff and recruitment</span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>Lifestyle, concierge and Club Magenta</span><i class="pill p-rework">Rework</i></div>
+        </div>
+        <div class="branch">
+          <div class="bhead">Introduce<small>Delivered by partners for a fee. Not run in house.</small></div>
+          <div class="leaf"><span>Finance</span><i class="pill p-partner">Partner</i></div>
+          <div class="leaf"><span>Property</span><i class="pill p-partner">Partner</i></div>
+          <div class="leaf"><span>PR and marketing</span><i class="pill p-pause">Pause</i></div>
+        </div>
       </div>
-      <div class="engine">
-        <span class="tag">Serve</span>
-        <p>Household staffing and the concierge desk.</p>
-        <p><strong>Repeat relationships that deepen over years.</strong></p>
+      <div class="maplegend">
+        <i class="pill p-grow">Grow</i><i class="pill p-build">Build</i><i class="pill p-partner">Partner</i>
+        <i class="pill p-rework">Rework</i><i class="pill p-pause">Pause</i><i class="pill p-stop">Stop</i>
       </div>
-      <div class="engine">
-        <span class="tag">Partners</span>
-        <p>Jets, yachts, finance, property, film post production.</p>
-        <p><strong>Introduce, take a fee, do not run them.</strong></p>
-      </div>
+      <p class="mapnote">Security supports all three groups. It is shown under Move because secure transport is its largest single use. Prestige cars means chauffeur driven only, with self drive hire stopped. Reasons for each decision are in section 5.</p>
     </div>
-    <p><strong>Clients lose nothing.</strong> Any request can still be met. The change is that Hackett &amp; Hackett stops describing all fourteen lines as in house work, and starts describing them as delivered with selected partners. That is a stronger sentence, and it is the accurate one.</p>
+
+    <p><strong>Clients lose nothing.</strong> Any request can still be met. The change is that Hackett &amp; Hackett stops describing every line as in house work, and starts describing the outer ones as delivered with selected partners. That is a stronger sentence, and it is the accurate one.</p>
+
+    <div class="note">
+      <b>Why the orchestrator model fits</b>
+      <p>The valuable position is not owning cars, jets or venues. It is being the one number a client calls, holding the relationship, and knowing exactly who to trust with each job. That is a position built from access and judgement, and it is the hardest thing for a competitor to copy.</p>
+    </div>
   </div>
 </section>
 
@@ -269,31 +363,33 @@
   <div class="wrap">
     <span class="num">5</span>
     <h2>Service Decisions</h2>
-    <p class="sub">Fourteen services, one recommendation each.</p>
+    <p class="sub">The reason behind each decision in the map.</p>
     <div class="tbl">
       <table>
-        <thead><tr><th>Service</th><th>Recommendation</th><th>Reason</th></tr></thead>
+        <thead><tr><th>Service</th><th>Decision</th><th>Reason</th></tr></thead>
         <tbody>
-          <tr><td class="name">Chauffeur</td><td><span class="pill p-grow">Grow</span></td><td>Best reputation, largest market, and corporate accounts renew annually</td></tr>
-          <tr><td class="name">Events and production</td><td><span class="pill p-grow">Grow</span></td><td>Strongest part of the team, in a UK market worth £68.7bn</td></tr>
-          <tr><td class="name">Security</td><td><span class="pill p-build">Build</span></td><td>Already licensed, and it sells alongside transport</td></tr>
+          <tr><td class="name">Chauffeur, airport, roadshow</td><td><span class="pill p-grow">Grow</span></td><td>Best reputation, largest market, and corporate accounts renew annually. Already ranking in search</td></tr>
+          <tr><td class="name">Event management and production</td><td><span class="pill p-grow">Grow</span></td><td>Strongest part of the team, in a UK market worth £68.7bn</td></tr>
+          <tr><td class="name">Security and close protection</td><td><span class="pill p-build">Build</span></td><td>Already licensed, sells alongside transport, and closest to the founder's own network</td></tr>
           <tr><td class="name">Weddings</td><td><span class="pill p-build">Build</span></td><td>Five star record on cars, and London couples spend £27k on average</td></tr>
-          <tr><td class="name">Household staff</td><td><span class="pill p-build">Build</span></td><td>Good fee rates, and the households that hire are already known</td></tr>
-          <tr><td class="name">Concierge and Club Magenta</td><td><span class="pill p-rework">Rework</span></td><td>£100 a month does not match what the name promises. Reprice, then sell the service version to firms rather than individuals</td></tr>
-          <tr><td class="name">White glove logistics</td><td><span class="pill p-partner">Partner</span></td><td>Specialist firms own this. Keep the work that fits in a vehicle</td></tr>
-          <tr><td class="name">Film production</td><td><span class="pill p-partner">Partner</span></td><td>Crew transport and set security are the defensible parts. Partners cover the rest</td></tr>
-          <tr><td class="name">Financial solutions</td><td><span class="pill p-partner">Partner</span></td><td>The partner delivers it. Confirm in writing what may be advertised before it returns to the site</td></tr>
-          <tr><td class="name">Property</td><td><span class="pill p-partner">Partner</span></td><td>Selling and letting requires licences the company does not hold. Introduce instead</td></tr>
+          <tr><td class="name">Household staff and recruitment</td><td><span class="pill p-build">Build</span></td><td>Good fee rates, and the households that hire are already known</td></tr>
+          <tr><td class="name">Event and film logistics</td><td><span class="pill p-build">Build</span></td><td>Repeatable business for production companies, using skills the business already has</td></tr>
+          <tr><td class="name">Private aviation and marine</td><td><span class="pill p-partner">Partner</span></td><td>Established charter partners already deliver this. Introduce and take a fee. See section 9 first</td></tr>
+          <tr><td class="name">White glove transport</td><td><span class="pill p-partner">Partner</span></td><td>Specialist firms own the art and antiques end. Keep the work that fits in a vehicle</td></tr>
+          <tr><td class="name">Film production support</td><td><span class="pill p-partner">Partner</span></td><td>Crew transport and set security are the defensible parts. Partners cover the rest</td></tr>
+          <tr><td class="name">Finance</td><td><span class="pill p-partner">Partner</span></td><td>The partner delivers it. Confirm in writing what may be advertised before it returns to the site</td></tr>
+          <tr><td class="name">Property</td><td><span class="pill p-partner">Partner</span></td><td>Selling and letting requires licences the business does not hold. Introduce instead</td></tr>
+          <tr><td class="name">Lifestyle, concierge, Club Magenta</td><td><span class="pill p-rework">Rework</span></td><td>£100 a month does not match what the name promises. Reprice, then sell the service version to firms rather than individuals</td></tr>
+          <tr><td class="name">Prestige cars</td><td><span class="pill p-rework">Rework</span></td><td>Chauffeur driven only. Insurers have largely left self drive hire, so that side should not proceed without cover confirmed in writing</td></tr>
           <tr><td class="name">Music and artist management</td><td><span class="pill p-pause">Pause</span></td><td>No roster yet. Serve musicians as transport and event clients meanwhile</td></tr>
           <tr><td class="name">PR and marketing</td><td><span class="pill p-pause">Pause</span></td><td>Apply it in house first, then sell it once there are results to point at</td></tr>
-          <tr><td class="name">Model management</td><td><span class="pill p-stop">Stop or restructure</span></td><td>Payment must only come from clients booking models, never from models themselves. Either run it that way or leave the category</td></tr>
-          <tr><td class="name">Supercar self drive hire</td><td><span class="pill p-stop">Stop</span></td><td>Insurers have largely left this market. Do not proceed without cover confirmed in writing. Chauffeur driven prestige hire is unaffected</td></tr>
+          <tr><td class="name">Model management</td><td><span class="pill p-stop">Stop</span></td><td>Payment must only come from clients booking models, never from models themselves. Either run it that way or leave the category</td></tr>
         </tbody>
       </table>
     </div>
     <div class="note">
       <b>Rationale</b>
-      <p>The five services marked for growth support each other. Cars serve weddings, events create staffing work, and security applies across all of it. One client can buy several services through one accountable contact, which larger competitors are generally not structured to offer.</p>
+      <p>The services marked to grow and build support each other. Cars serve weddings, events create staffing work, and security applies across all of it. One client can buy several services through one accountable contact, which larger competitors are generally not structured to offer.</p>
     </div>
   </div>
 </section>
@@ -301,67 +397,61 @@
 <section id="s6">
   <div class="wrap">
     <span class="num">6</span>
-    <h2>Referrals and Digital Approach</h2>
-    <p class="sub">The most important section. It addresses a fair concern with a specific plan.</p>
-    <p>Around 85% of work is reported to arrive by personal recommendation. That is the strongest feature of the business, and <strong>nothing in this plan alters it.</strong></p>
+    <h2>How Work Arrives</h2>
+    <p class="sub">Referral, WhatsApp, Facebook, phone and email. Every one of these stays exactly as it is.</p>
+    <p>Around 85% of work is reported to arrive by personal recommendation, and the rest comes through Facebook, WhatsApp, the phone and email. Those channels convert because a person answers them. <strong>Nothing in this plan changes how a client gets in touch.</strong></p>
 
     <h3>The concern, and why it holds</h3>
     <p>Clients at this level are not looking for a website with a booking button. Some cannot have their movements recorded in an ordinary booking system. That is a security matter rather than a preference. <strong>A public booking funnel for private clients should stay off the table.</strong></p>
 
     <h3>What still needs attention</h3>
     <p>Referrals bring clients in. Records keep them. What brings a client back is being remembered: the preferred car, the usual airport, the assistant who books, the detail that went wrong once and was corrected.</p>
-    <p>At present that information is held largely from memory. It holds until two demanding jobs coincide. Once a client has to explain themselves again, the premium is lost.</p>
+    <p>At present that sits in memory. It holds until two demanding jobs coincide. Once a client has to explain themselves again, the premium is lost.</p>
 
     <div class="note">
       <b>Key question</b>
       <p>A client who last travelled fourteen months ago calls this evening. What does the person answering the phone know about them, and what happens if that person is unavailable?</p>
     </div>
 
-    <h3>Change the systems, not the client experience</h3>
-    <figure>
-      <figcaption>What changes, and what deliberately does not</figcaption>
-      <div class="cap">Everything the client experiences stays as it is today</div>
-      <div class="key">
-        <span><i style="background:var(--c-b)"></i>What the client sees: unchanged</span>
-        <span><i style="background:var(--c-a)"></i>What runs behind it: new</span>
+    <h3>Every channel into one place</h3>
+    <div class="flow">
+      <div class="fbox">
+        <span class="step">Step one</span>
+        <h4>However the client prefers</h4>
+        <ul>
+          <li>Personal introduction</li>
+          <li>WhatsApp</li>
+          <li>Facebook message</li>
+          <li>Phone call</li>
+          <li>Email</li>
+        </ul>
+        <p style="font-size:.85rem;color:var(--ink-3);margin:.7em 0 0">Unchanged. No forms, no logins, no accounts.</p>
       </div>
-      <div class="svgbox">
-        <svg viewBox="0 0 680 280" width="680" height="280" role="img" aria-label="Above the line the client still receives an introduction, a direct phone or WhatsApp line, a person who knows their preferences, and a clear invoice. Below the line the business runs client records, partner availability and job allocation, referral tracking, and invoicing.">
-          <g font-family="inherit" font-size="11.5">
-            <text x="6" y="16" fill="var(--ink)" font-weight="700" font-size="12">What the client sees</text>
-            <g fill="var(--surface-2)" stroke="var(--c-b)" stroke-width="2">
-              <rect x="6" y="28" width="158" height="50" rx="8"/>
-              <rect x="176" y="28" width="158" height="50" rx="8"/>
-              <rect x="346" y="28" width="158" height="50" rx="8"/>
-              <rect x="516" y="28" width="158" height="50" rx="8"/>
-            </g>
-            <g fill="var(--ink)">
-              <text x="20" y="49">An introduction from</text><text x="20" y="65">someone they trust</text>
-              <text x="190" y="49">A phone call or</text><text x="190" y="65">a WhatsApp message</text>
-              <text x="360" y="49">Someone who already</text><text x="360" y="65">knows what they like</text>
-              <text x="530" y="49">A clear invoice,</text><text x="530" y="65">correct first time</text>
-            </g>
-            <line x1="6" y1="112" x2="674" y2="112" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 5"/>
-            <text x="6" y="105" fill="var(--accent)" font-weight="700" font-size="11">NOTHING ABOVE THIS LINE CHANGES</text>
-            <text x="6" y="142" fill="var(--ink)" font-weight="700" font-size="12">What runs behind it</text>
-            <g fill="var(--surface-2)" stroke="var(--c-a)" stroke-width="2">
-              <rect x="6" y="154" width="158" height="64" rx="8"/>
-              <rect x="176" y="154" width="158" height="64" rx="8"/>
-              <rect x="346" y="154" width="158" height="64" rx="8"/>
-              <rect x="516" y="154" width="158" height="64" rx="8"/>
-            </g>
-            <g fill="var(--ink)">
-              <text x="20" y="177">Client records:</text><text x="20" y="193">preferences, history,</text><text x="20" y="209">who introduced them</text>
-              <text x="190" y="177">Partner availability</text><text x="190" y="193">and job allocation,</text><text x="190" y="209">reducing clashes</text>
-              <text x="360" y="177">Referral tracking:</text><text x="360" y="193">who sends the work</text><text x="360" y="209">and what it is worth</text>
-              <text x="530" y="177">Invoicing, partner</text><text x="530" y="193">payments and</text><text x="530" y="209">reconciliation</text>
-            </g>
-            <text x="6" y="246" fill="var(--ink-2)" font-size="11">The client never logs in, never fills a form, never sees a screen. The only difference is that details are not forgotten.</text>
-            <text x="6" y="266" fill="var(--ink-3)" font-size="10.5">One exception by design: corporate, embassy and production accounts, which ask for a booking system and often will not sign without one.</text>
-          </g>
-        </svg>
+      <div class="fbox mid">
+        <span class="step">Step two</span>
+        <h4>One shared place to receive it</h4>
+        <ul>
+          <li>Every message visible to the whole team</li>
+          <li>Assigned to one named owner</li>
+          <li>Logged against the client record</li>
+          <li>Introducer recorded</li>
+          <li>Nothing lost in a personal inbox</li>
+        </ul>
+        <p style="font-size:.85rem;color:var(--ink-3);margin:.7em 0 0">This is the only new part, and the client never sees it.</p>
       </div>
-    </figure>
+      <div class="fbox">
+        <span class="step">Step three</span>
+        <h4>Routed and delivered</h4>
+        <ul>
+          <li>Sent to Move, Make or Serve</li>
+          <li>Answered by someone who already knows the client</li>
+          <li>Priced from an agreed rate card</li>
+          <li>Invoiced correctly first time</li>
+          <li>Review requested afterwards</li>
+        </ul>
+        <p style="font-size:.85rem;color:var(--ink-3);margin:.7em 0 0">Feeds section 2 and section 11.</p>
+      </div>
+    </div>
 
     <h3>Different clients, different routes in</h3>
     <div class="tbl">
@@ -389,65 +479,97 @@
 <section id="s7">
   <div class="wrap">
     <span class="num">7</span>
+    <h2>Moving the Website</h2>
+    <p class="sub">The search traffic is real and it sits on the older site. Moving carelessly would lose it.</p>
+
+    <div class="stats">
+      <div class="stat"><b>74</b><span>pages on the old site, mostly targeting chauffeur searches by location</span></div>
+      <div class="stat"><b>24</b><span>blog articles earning traffic on chauffeur and wedding topics</span></div>
+      <div class="stat"><b>9x</b><span>heavier: the new site is around 1.1MB per page against 119KB</span></div>
+    </div>
+
+    <p>The old site is built for search. Its home page is titled for chauffeur hire in London, and it has separate pages for central, north, south, east and west London, for Croydon, Bromley, Barnet, Enfield and Romford, and for Paris, Dublin, Edinburgh, Hong Kong, Shanghai, Dubai, New York and Washington. There is also a published airport rates page.</p>
+    <p>The new site has none of that. Its home page is titled simply Home, which targets nothing. <strong>Switching off the old site without carrying its pages across would remove the search channel entirely.</strong></p>
+
+    <h3>Which address to keep</h3>
+    <p>The shorter address is the stronger candidate. It holds the search history, it is easier to say on the phone and print on a card, and it makes a shorter email address. The longer one can redirect to it and continue to work.</p>
+
+    <h3>How to move without losing the traffic</h3>
+    <ol class="check">
+      <li><b>List every old page before touching anything.</b><span>All 98 addresses, ordered by the traffic each one brings.</span></li>
+      <li><b>Rebuild the pages that earn traffic.</b><span>Location pages, the airport rates page and the blog articles. Same subjects, better presentation.</span></li>
+      <li><b>Redirect each old address to its matching new one.</b><span>One to one, permanent redirects. Not everything pointed at the home page, which loses the value.</span></li>
+      <li><b>Keep the page titles that already work.</b><span>Titles naming the service and the place are why those pages rank.</span></li>
+      <li><b>Ask the nineteen partners to update their links.</b><span>Those links carry weight and most will update on request.</span></li>
+      <li><b>Submit the new sitemap and monitor for ninety days.</b><span>Recovery normally takes several weeks. Keep the redirects in place for at least a year.</span></li>
+      <li><b>Fix the page weight while rebuilding.</b><span>The new site is far heavier than the old one, which slows it on phones and works against search ranking.</span></li>
+    </ol>
+
+    <div class="note">
+      <b>Note</b>
+      <p>Google Business Profile, the Facebook page and the reviews sit outside the website and are not affected by the move, provided the address they point to is updated on the day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="wrap">
+    <span class="num">8</span>
     <h2>Technology Stack</h2>
-    <p class="sub">Three separate systems, not one. Treating them as one platform is what makes projects of this kind fail.</p>
+    <p class="sub">Three separate systems, not one. Treating them as a single platform is what makes projects of this kind fail.</p>
     <div class="cols">
       <div class="card">
         <h3>1. The website</h3>
-        <p style="font-size:.93rem;color:var(--ink-2);margin:0">What people see when they check the company out. Content and design work, updated often.</p>
+        <p style="font-size:.93rem;color:var(--ink-2);margin:0;max-width:none">What people see when they check the business out. Content and search work, updated often.</p>
       </div>
       <div class="card">
         <h3>2. The records</h3>
-        <p style="font-size:.93rem;color:var(--ink-2);margin:0">Who the clients are and what they prefer. Private, sensitive, never client facing.</p>
+        <p style="font-size:.93rem;color:var(--ink-2);margin:0;max-width:none">Who the clients are and what they prefer. Private, sensitive, never client facing.</p>
       </div>
       <div class="card">
         <h3>3. Operations</h3>
-        <p style="font-size:.93rem;color:var(--ink-2);margin:0">Bookings, drivers, partner allocation, invoices. Live, multi party, transactional.</p>
+        <p style="font-size:.93rem;color:var(--ink-2);margin:0;max-width:none">Bookings, drivers, partner allocation, invoices. Live, multi party, transactional.</p>
       </div>
     </div>
 
     <div class="note">
       <b>Industry note</b>
-      <p>Winning the job and passing delivery to trusted partners is how the wider chauffeur industry operates. The industry term is farming out, and software has existed for it for years. The hardest single requirement here is available to rent rather than build.</p>
+      <p>Winning the job and passing delivery to trusted partners is how the wider chauffeur industry operates. The industry calls it farming out, and software has existed for it for years. The hardest single requirement here can be rented rather than built.</p>
     </div>
 
     <h3>In house development capacity</h3>
-    <p>A full stack developer is available to the business, working in Next.js, React, Node and MongoDB, deploying to Vercel or Railway. That changes which parts are worth building rather than renting, and it changes them in a specific direction.</p>
-    <p>Rented operational software is generally strong on function and weak on appearance. It tends to look the same for every operator. For a business whose proposition is polish and discretion, that matters. The practical answer is to <strong>rent the engines and build the surfaces</strong>: keep the domain heavy machinery as a subscription, and put a Hackett &amp; Hackett interface over it through its API.</p>
+    <p>A full stack developer is available to the business, working in Next.js, React, Node and MongoDB, deploying to Vercel or Railway. That changes which parts are worth building rather than renting.</p>
+    <p>Rented operational software is strong on function and weak on appearance. It looks the same for every operator. For a business whose proposition is polish and discretion, that matters. The approach is to <strong>rent the engines and build the surfaces</strong>: keep the heavy machinery as a subscription, and put a Hackett &amp; Hackett interface over it.</p>
 
     <div class="tbl">
       <table>
         <thead><tr><th>Component</th><th>Approach</th><th>Detail</th></tr></thead>
         <tbody>
-          <tr><td class="name">Public website</td><td><span class="pill p-build">Build</span></td><td>Next.js with a content management system so non technical staff can edit pages without code. Hosted on Vercel</td></tr>
-          <tr><td class="name">Quote and enquiry form</td><td><span class="pill p-build">Build</span></td><td>Branded estimate that creates a record and emails a person, rather than taking a booking. Small piece of work</td></tr>
-          <tr><td class="name">Corporate client portal</td><td><span class="pill p-build">Build</span></td><td>Next.js and MongoDB. Cost centres, purchase orders, traveller profiles, booking history, monthly invoices, on time reporting</td></tr>
-          <tr><td class="name">Internal dashboard</td><td><span class="pill p-build">Build</span></td><td>One screen showing the weekly measures in section 9, reading from the rented systems</td></tr>
-          <tr><td class="name">Integration service</td><td><span class="pill p-build">Build</span></td><td>Small Node service on Railway connecting messaging, records, dispatch and accounts. Cheaper and sturdier than paid automation tools at volume</td></tr>
-          <tr><td class="name">Client records</td><td><span class="pill p-partner">Rent</span></td><td>HubSpot, Zoho or Pipedrive. Configuration rather than development</td></tr>
-          <tr><td class="name">Shared inbox</td><td><span class="pill p-partner">Rent</span></td><td>Front, Missive or Help Scout. Ends the single unsorted inbox</td></tr>
-          <tr><td class="name">Messaging</td><td><span class="pill p-partner">Rent</span></td><td>WhatsApp Business Platform through a provider</td></tr>
-          <tr><td class="name">Booking and dispatch</td><td><span class="pill p-partner">Rent</span></td><td>Chauffeur dispatch software with partner allocation, hourly rates and flight tracking</td></tr>
-          <tr><td class="name">Accounting</td><td><span class="pill p-partner">Rent</span></td><td>Xero or QuickBooks</td></tr>
-          <tr><td class="name">Card payments</td><td><span class="pill p-partner">Rent</span></td><td>Stripe. Never built in house</td></tr>
+          <tr><td class="name">Website, including the search pages</td><td><span class="pill p-build">Build</span></td><td>Next.js with a content management system so staff can edit pages without code. Carries the section 7 migration</td></tr>
+          <tr><td class="name">Quote and enquiry form</td><td><span class="pill p-build">Build</span></td><td>Branded estimate that creates a record and emails a person, rather than taking a booking</td></tr>
+          <tr><td class="name">Corporate client portal</td><td><span class="pill p-build">Build</span></td><td>Cost centres, purchase orders, traveller profiles, booking history, monthly invoices, on time reporting</td></tr>
+          <tr><td class="name">Internal dashboard</td><td><span class="pill p-build">Build</span></td><td>One screen showing the section 11 measures, reading from the rented systems</td></tr>
+          <tr><td class="name">Integration service</td><td><span class="pill p-build">Build</span></td><td>Small service connecting messaging, records, dispatch and accounts. Sturdier than paid automation tools at volume</td></tr>
+          <tr><td class="name">Client records</td><td><span class="pill p-partner">Rent</span></td><td>Configuration rather than development</td></tr>
+          <tr><td class="name">Shared inbox</td><td><span class="pill p-partner">Rent</span></td><td>Brings Facebook, WhatsApp and email into one place. Ends the single unsorted inbox</td></tr>
+          <tr><td class="name">Messaging</td><td><span class="pill p-partner">Rent</span></td><td>WhatsApp Business Platform through a provider. Replies to a client message carry no charge</td></tr>
+          <tr><td class="name">Booking and dispatch</td><td><span class="pill p-partner">Rent</span></td><td>Chauffeur software with partner allocation, hourly rates and flight tracking</td></tr>
+          <tr><td class="name">Accounting and card payments</td><td><span class="pill p-partner">Rent</span></td><td>Never built in house</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="note">
-      <b>Where the developer time goes first</b>
-      <p>Order matters more than speed. Content fixes on the existing site come first because they need no code. Then the website rebuild, then the quote form and integrations, then the corporate portal, which is the largest single piece. The internal dashboard follows once there is data worth displaying.</p>
+      <b>Order of work</b>
+      <p>Content fixes on the existing site come first, because they need no code. Then the domain decision and the page inventory. Then the website rebuild carrying the search pages across. Then the quote form and the integrations. The corporate portal is the largest single piece and comes after. The dashboard follows once there is data worth showing.</p>
     </div>
 
     <h3>Data boundary</h3>
-    <p>An important design rule. Records for private and protected clients stay inside the rented system, which carries security certifications and a data processing agreement. The custom built portal handles <strong>corporate account data only</strong>: companies, cost centres, bookings and invoices. That keeps the most sensitive information inside audited software and limits what a bespoke application is responsible for.</p>
+    <p>Records for private and protected clients stay inside the rented system, which carries security certifications and a data processing agreement. The custom built portal handles <strong>corporate account data only</strong>: companies, cost centres, bookings and invoices. That keeps the most sensitive information inside audited software.</p>
     <p>Alongside that: not every member of staff sees every client, sensitive clients get restricted records, only necessary data is held, retention periods are agreed, and every supplier signs a data agreement.</p>
 
     <h3>Maintenance</h3>
-    <p>Anything custom built needs someone to look after it. Four things reduce that risk: a content management system so routine changes need no developer, standard and widely used tooling, written handover documentation, and automatic deployment so releases do not depend on one person's machine.</p>
-
-    <h3>WhatsApp</h3>
-    <p>Clients already message on WhatsApp and prefer it. The business version connects those messages to the client records. The client sees no difference. On the company side, whoever picks up the message can see the preferred car and the last journey. Replies to a customer message carry no charge, so the running cost at this volume is small.</p>
+    <p>Anything custom built needs someone to look after it. Four things reduce that risk: a content management system so routine changes need no developer, standard and widely used tooling, written handover documentation, and automatic deployment.</p>
 
     <div class="cols">
       <div class="card good">
@@ -470,66 +592,41 @@
   </div>
 </section>
 
-<section id="s8">
-  <div class="wrap">
-    <span class="num">8</span>
-    <h2>Twelve Month Plan</h2>
-    <div class="qtr">
-      <div class="lbl">Now<small>AUG TO OCT</small></div>
-      <ul>
-        <li>Thirty day list completed, with a named owner for each item.</li>
-        <li>Solicitor reviews the legal pages, the memberships, and what may be said about finance.</li>
-        <li>Client records set up and populated. Shared inbox in use.</li>
-        <li>Written agreements signed with the partners who deliver the work.</li>
-      </ul>
-    </div>
-    <div class="qtr">
-      <div class="lbl">Winter<small>NOV TO JAN</small></div>
-      <ul>
-        <li>Booking and dispatch software in use, with partner availability visible.</li>
-        <li>Referral tracking on every job, and thank you notes going out.</li>
-        <li>Corporate roadshow service launched, targeting the first accounts.</li>
-        <li>Christmas party season worked through the events team.</li>
-        <li>Rebuilt website live.</li>
-      </ul>
-    </div>
-    <div class="qtr">
-      <div class="lbl">Spring<small>FEB TO APR</small></div>
-      <ul>
-        <li>Two flagship weddings booked, with permission to photograph and publish.</li>
-        <li>Corporate account portal live. Private client experience unchanged.</li>
-        <li>Five written case studies published.</li>
-        <li>Security accreditation started. Award entries submitted.</li>
-      </ul>
-    </div>
-    <div class="qtr">
-      <div class="lbl">Summer<small>MAY TO JUL</small></div>
-      <ul>
-        <li>Weight resources toward whichever engine is contributing most.</li>
-        <li>Film and production transport pursued through partner introductions.</li>
-        <li>Referral share measured and reported.</li>
-        <li>Year reviewed against the measures in section 9.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <section id="s9">
   <div class="wrap">
     <span class="num">9</span>
-    <h2>Performance Measures</h2>
-    <p class="sub">Six lines, reviewed weekly. Without them the business is working on impressions.</p>
-    <ul class="plain">
-      <li><strong>Cash.</strong> Bank balance, thirteen week forecast, outstanding invoices.</li>
-      <li><strong>Work coming in.</strong> Enquiries, quotes sent, conversion rate, average job value.</li>
-      <li><strong>Work delivered.</strong> Jobs completed, on time arrivals, complaints. Nothing left unresolved beyond two days.</li>
-      <li><strong>Referrals.</strong> Share of the month arriving by introduction, who sent it, whether they were thanked.</li>
-      <li><strong>Reputation.</strong> New reviews, current rating, response time to enquiries.</li>
-      <li><strong>Partners.</strong> Work received from partners, and fees earned on work referred out.</li>
-    </ul>
+    <h2>Compliance Checks</h2>
+    <p class="sub">Four written answers to obtain. Each is cheap to check now and expensive to get wrong later.</p>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Area</th><th>Why it matters</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="name">Travel</td>
+            <td>Selling a trip that combines two or more travel services for one price can make a business a package organiser under the 2018 travel regulations. Organisers must hold insolvency protection such as a bond, insurance or trust account, and flights bring ATOL into it. Travel is now a core line, so this is the most pressing item</td>
+            <td>Written advice from a travel law adviser before travel is marketed further</td>
+          </tr>
+          <tr>
+            <td class="name">Subscriptions and data</td>
+            <td>The site collects card payments, monthly memberships and personal data against template documents</td>
+            <td>Proper privacy policy, terms and refund policy. Already item two in section 3</td>
+          </tr>
+          <tr>
+            <td class="name">Staffing and talent</td>
+            <td>Agency rules require that fees for finding someone work come from the hirer, not the worker. This covers household staffing, model and artist work, and any paid driver training</td>
+            <td>Confirm every fee flows from clients, and structure driver training as employer funded</td>
+          </tr>
+          <tr>
+            <td class="name">Finance introductions</td>
+            <td>Introducing clients to credit or investment products is regulated activity</td>
+            <td>Confirm the introducer position in writing with the partner before the service returns to the website</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="note">
-      <b>Twelve month targets</b>
-      <p>Proposed targets rather than forecasts. Accounts suitable to submit alongside a corporate tender. More than half of transport income coming from repeat or contracted work. Every client held on record, so that delivery does not depend on one individual being available.</p>
+      <b>Note</b>
+      <p>This section flags questions for professional advice. It is not legal advice, and the answers may well be straightforward. The value is in having them in writing.</p>
     </div>
   </div>
 </section>
@@ -537,18 +634,44 @@
 <section id="s10">
   <div class="wrap">
     <span class="num">10</span>
-    <h2>Principal Risks</h2>
-    <div class="tbl">
-      <table>
-        <thead><tr><th>Risk</th><th>Suggested mitigation</th></tr></thead>
-        <tbody>
-          <tr><td class="name">An important client checks the company before the website is corrected</td><td>Complete the thirty day list first, and hold back publicity until it is done</td></tr>
-          <tr><td class="name">Too much depends on one person</td><td>Move client knowledge onto records, appoint the non executive director, document how each service runs</td></tr>
-          <tr><td class="name">A vetting failure in security or household staffing</td><td>One written vetting standard, no exceptions for speed, and appropriate insurance</td></tr>
-          <tr><td class="name">A partner approaches a client directly</td><td>Written agreements with notice periods, two partners per category where possible, and the client relationship held centrally</td></tr>
-          <tr><td class="name">Wealthy residents are leaving the UK in record numbers</td><td>Weight toward corporate work, visiting clients and events, which are growing</td></tr>
-        </tbody>
-      </table>
+    <h2>Twelve Month Plan</h2>
+    <div class="qtr">
+      <div class="lbl">Now<small>AUG TO OCT</small></div>
+      <ul>
+        <li>Thirty day list completed, with a named owner for each item.</li>
+        <li>Domain decision made and every old page listed by traffic.</li>
+        <li>Solicitor reviews the legal pages, the memberships, the travel question and the finance wording.</li>
+        <li>Client records set up and populated. Shared inbox in use across Facebook, WhatsApp and email.</li>
+        <li>Written agreements signed with the partners who deliver the work.</li>
+      </ul>
+    </div>
+    <div class="qtr">
+      <div class="lbl">Winter<small>NOV TO JAN</small></div>
+      <ul>
+        <li>Rebuilt website live, with the search pages carried across and redirects in place.</li>
+        <li>Booking and dispatch software in use, with partner availability visible.</li>
+        <li>Referral tracking on every job, and thank you notes going out.</li>
+        <li>Corporate roadshow service launched, targeting the first accounts.</li>
+        <li>Christmas party season worked through the events team.</li>
+      </ul>
+    </div>
+    <div class="qtr">
+      <div class="lbl">Spring<small>FEB TO APR</small></div>
+      <ul>
+        <li>Two flagship weddings booked, with permission to photograph and publish.</li>
+        <li>Corporate account portal live. Private client experience unchanged.</li>
+        <li>Five written case studies published, with named clients.</li>
+        <li>Security accreditation started. Award entries submitted.</li>
+      </ul>
+    </div>
+    <div class="qtr">
+      <div class="lbl">Summer<small>MAY TO JUL</small></div>
+      <ul>
+        <li>Weight resources toward whichever group is contributing most.</li>
+        <li>Film and production transport pursued through partner introductions.</li>
+        <li>Referral share and search traffic both measured and reported.</li>
+        <li>Year reviewed against the measures in section 11.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -556,8 +679,51 @@
 <section id="s11">
   <div class="wrap">
     <span class="num">11</span>
+    <h2>Performance Measures</h2>
+    <p class="sub">Seven lines, reviewed weekly. Without them the business is working on impressions.</p>
+    <ul class="plain">
+      <li><strong>Cash.</strong> Bank balance, thirteen week forecast, outstanding invoices.</li>
+      <li><strong>Work coming in.</strong> Enquiries by channel, quotes sent, conversion rate, average job value.</li>
+      <li><strong>Work delivered.</strong> Jobs completed, on time arrivals, complaints. Nothing unresolved beyond two days.</li>
+      <li><strong>Referrals.</strong> Share of the month arriving by introduction, who sent it, whether they were thanked.</li>
+      <li><strong>Reputation.</strong> New reviews this week, current rating, response time to enquiries.</li>
+      <li><strong>Search.</strong> Visits from search, and which pages bring them.</li>
+      <li><strong>Partners.</strong> Work received from partners, and fees earned on work referred out.</li>
+    </ul>
+    <div class="note">
+      <b>Twelve month targets</b>
+      <p>Proposed targets rather than forecasts. Accounts suitable to submit alongside a corporate tender. More than half of transport income from repeat or contracted work. Search traffic at or above where it stands today after the website move. Every client held on record, so that delivery does not depend on one individual being available.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s12">
+  <div class="wrap">
+    <span class="num">12</span>
+    <h2>Principal Risks</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Risk</th><th>Suggested mitigation</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Search traffic lost when the website moves</td><td>Inventory every page first, rebuild the ones that earn traffic, and redirect one to one. Section 7</td></tr>
+          <tr><td class="name">Past reputation reaching a client before the recent record does</td><td>Steady review volume, replies to old entries, published standards, third party accreditation. Section 2</td></tr>
+          <tr><td class="name">An important client checks the business before the site is corrected</td><td>Complete the thirty day list first, and hold back publicity until it is done</td></tr>
+          <tr><td class="name">Too much depends on one person</td><td>Move client knowledge onto records, appoint the non executive director, document how each service runs</td></tr>
+          <tr><td class="name">A vetting failure in security or household staffing</td><td>One written vetting standard, no exceptions for speed, and appropriate insurance</td></tr>
+          <tr><td class="name">Selling travel without the right protection in place</td><td>Obtain written advice before marketing travel further. Section 9</td></tr>
+          <tr><td class="name">A partner approaches a client directly</td><td>Written agreements with notice periods, two partners per category where possible, and the client relationship held centrally</td></tr>
+          <tr><td class="name">Attention spread across too many lines at once</td><td>The map in section 4 fixes what is being grown and what is waiting. One starting point in section 3</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="s13">
+  <div class="wrap">
+    <span class="num">13</span>
     <h2>Market Evidence</h2>
-    <p class="sub">Each recommendation here rests on published figures rather than opinion.</p>
+    <p class="sub">Each recommendation rests on published figures rather than opinion.</p>
 
     <figure>
       <figcaption>Concierge business models compared</figcaption>
@@ -616,20 +782,21 @@
   </div>
 </section>
 
-<section id="s12">
+<section id="s14">
   <div class="wrap">
-    <span class="num">12</span>
+    <span class="num">14</span>
     <h2>Decisions Required</h2>
-    <p class="sub">Nine decisions. The rest of the plan follows from them.</p>
+    <p class="sub">Ten decisions. The rest of the plan follows from them.</p>
     <ol class="check">
-      <li><b>Approve the thirty day list, and name an owner for each of the six items.</b></li>
-      <li><b>Approve the three engine structure</b><span>and the fourteen service recommendations in section 5.</span></li>
-      <li><b>Confirm that private clients keep telephone, WhatsApp and introductions only.</b><span>No public booking form for them, now or later.</span></li>
+      <li><b>Approve the first thirty days, and name an owner for each item.</b></li>
+      <li><b>Choose the main domain.</b><span>This decision blocks the website work, so it comes first.</span></li>
+      <li><b>Approve the service map in section 4</b><span>and the decisions behind it in section 5.</span></li>
+      <li><b>Confirm that private clients keep telephone, WhatsApp, Facebook and introductions only.</b><span>No public booking form for them, now or later.</span></li>
       <li><b>Approve building client records before booking software.</b><span>This is the piece that protects the referral business.</span></li>
       <li><b>Approve an indicative software budget of up to £600 a month.</b></li>
-      <li><b>Confirm the scope of in house development work.</b><span>Which items in section 7 are built rather than rented, and in what order.</span></li>
-      <li><b>Name the owner of the master fact sheet.</b><span>One service list, one company description, one phone number. Every other document copies from it.</span></li>
-      <li><b>Decide on model management and supercar self drive hire.</b><span>Restructure or leave, in both cases.</span></li>
+      <li><b>Confirm the scope of in house development work.</b><span>Which items in section 8 are built rather than rented, and in what order.</span></li>
+      <li><b>Commission the travel compliance answer.</b><span>Section 9. This one carries the most financial risk of the four checks.</span></li>
+      <li><b>Name the owner of the master fact sheet</b><span>and the owner of reviews and replies.</span></li>
       <li><b>Confirm in writing which company delivers the chauffeur work.</b><span>If the largest service line is delivered by a partner, that agreement is among the most valuable assets the business holds.</span></li>
     </ol>
     <div class="note">
@@ -637,8 +804,8 @@
       <p>This plan does not change what the business does well. Referrals, discretion and personal service stay as they are. The work proposed is the machinery underneath, so that the business retains more of what its reputation brings in.</p>
     </div>
     <div class="foot">
-      Hackett &amp; Hackett International Group Limited &middot; Companies House 07100605 &middot; July 2026<br>
-      Figures drawn from Companies House, published accounts of Ten Lifestyle Group and Quintessentially, UKEVENTS, Bridebook, Henley &amp; Partners and company announcements. Cost figures are estimates for planning purposes. Not legal or financial advice.
+      Hackett &amp; Hackett International Group Limited &middot; Companies House 07100605 &middot; August 2026<br>
+      Figures drawn from Companies House, published accounts of Ten Lifestyle Group and Quintessentially, UKEVENTS, Bridebook, Henley &amp; Partners, the Package Travel and Linked Travel Arrangements Regulations 2018 guidance, and a direct review of both Hackett &amp; Hackett websites and their sitemaps. Cost figures are estimates for planning purposes. Not legal or financial advice.
     </div>
   </div>
 </section>
