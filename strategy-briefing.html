@@ -1,5 +1,8 @@
 <title>Hackett &amp; Hackett Strategy Briefing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root{
     --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
@@ -57,6 +60,12 @@
   h1{font-size:clamp(2.1rem,5.5vw,3.3rem);margin:.3em 0 .25em}
   .cover .lede{font-size:1.15rem;color:var(--ink-2);max-width:56ch;margin:0}
   .cover .who{margin-top:24px;font-size:.9rem;color:var(--ink-3)}
+  .backlinks{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .backlinks a{
+    font-size:.78rem;text-decoration:none;color:var(--ink-2);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  }
+  .backlinks a:hover{border-color:var(--accent);color:var(--accent)}
   /* Nav + theme toggle */
   nav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
   .navwrap{display:flex;align-items:center;gap:12px;max-width:1000px;margin:0 auto;padding:0 26px}
@@ -135,12 +144,17 @@
     font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--accent);
   }
   .bhead small{display:block;font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:.75rem;font-weight:400;color:var(--ink-2);letter-spacing:.02em;margin-top:2px;line-height:1.4}
+  .bhead em{
+    font-family:"Hanken Grotesk",system-ui,sans-serif;font-style:normal;font-size:.68rem;font-weight:700;
+    color:var(--on-accent);background:var(--accent);border-radius:999px;padding:1px 7px;vertical-align:2px;margin-left:2px;
+  }
   .leaf{
     display:flex;align-items:flex-start;justify-content:space-between;gap:9px;
     padding:10px 15px;border-bottom:1px solid var(--line);font-size:.88rem;line-height:1.45;
   }
   .leaf:last-child{border-bottom:none}
   .leaf span{color:var(--ink)}
+  .leaf span small{display:block;font-size:.72rem;color:var(--ink-3);line-height:1.4;margin-top:1px}
   .maplegend{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 0;font-size:.78rem;color:var(--ink-2);align-items:center}
   .mapnote{font-size:.8rem;color:var(--ink-3);margin-top:12px;max-width:66ch}
   .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:26px 0}
@@ -184,6 +198,117 @@
   ul.plain{padding-left:20px;max-width:64ch}
   ul.plain li{margin:.5em 0}
   .foot{padding:32px 0 56px;color:var(--ink-3);font-size:.8rem}
+
+  /* ── Group structure explorer (section 6) ────────────────────────────
+     The five-tier structure drawn as a collapsible left-to-right tree:
+     branches open only when asked for, so the default view stays legible
+     instead of showing all fourteen divisions at once. Built from the
+     brief's own tokens, with no external images, so it works offline.
+     Marked up as an ARIA tree, so it is operable from the keyboard. */
+  .gs-bleed{width:100vw;margin-left:calc(50% - 50vw);margin-top:26px}
+  .gs-shell{background:var(--surface);border-block:1px solid var(--line)}
+  .gs-toolbar{
+    display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+    max-width:1360px;margin:0 auto;padding:11px 26px;
+  }
+  .gs-toolbar .gs-t{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-right:auto}
+  .gs-btn{
+    font:inherit;font-size:.76rem;font-weight:600;cursor:pointer;
+    background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line);
+    border-radius:999px;padding:5px 12px;line-height:1.4;
+  }
+  .gs-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .gs-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .gs-sep{width:1px;height:20px;background:var(--line);flex:0 0 auto}
+  .gs-zoom{font-size:.74rem;color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:44px;text-align:center}
+  .gs-viewport{
+    position:relative;overflow:hidden;height:min(80vh,720px);
+    background:var(--bg);border-top:1px solid var(--line);
+    cursor:grab;touch-action:pan-y;
+  }
+  .gs-viewport.is-panning{cursor:grabbing}
+  .gs-canvas{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
+  .gs-lines{position:absolute;top:0;left:0;overflow:visible;pointer-events:none}
+  .gs-lines path{stroke:var(--line-2);fill:none;stroke-width:1.4;opacity:.6}
+  .gs-tree{position:absolute;top:0;left:0}
+
+  .gs-node{
+    position:absolute;top:0;left:0;display:flex;align-items:center;gap:8px;
+    border-radius:10px;padding:7px 9px 7px 11px;
+    border:1px solid var(--line);background:var(--surface);
+    box-shadow:0 1px 2px rgba(0,0,0,.04);
+  }
+  .gs-node:focus-visible{outline:2px solid var(--accent);outline-offset:2px;z-index:6}
+  .gs-node.is-parent{cursor:pointer}
+  .gs-node.is-parent:hover{border-color:var(--accent)}
+  .gs-node .gs-txt{min-width:0;flex:1 1 auto}
+  .gs-node .gs-nm{
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+    font-family:Fraunces,Georgia,serif;font-weight:600;font-size:12.5px;
+    line-height:1.22;color:var(--ink);overflow:hidden;overflow-wrap:break-word;
+  }
+  .gs-node .gs-meta{
+    display:block;font-size:9.5px;line-height:1.35;color:var(--ink-3);
+    margin-top:2px;letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  /* Expand / collapse affordance */
+  .gs-tog{
+    flex:0 0 auto;width:19px;height:19px;padding:0;cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--line-2);border-radius:50%;
+    background:var(--surface-2);color:var(--ink-2);
+  }
+  .gs-tog svg{width:9px;height:9px;transition:transform .22s ease}
+  .gs-node.is-open > .gs-tog svg{transform:rotate(90deg)}
+  .gs-node.is-parent:hover .gs-tog{border-color:var(--accent);color:var(--accent)}
+  .gs-ext{
+    flex:0 0 auto;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;
+    border-radius:5px;color:var(--ink-3);text-decoration:none;
+  }
+  .gs-ext svg{width:11px;height:11px}
+  .gs-ext:hover{background:var(--accent-soft);color:var(--accent)}
+  .gs-ext:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  /* Kinds */
+  .gs-node.k-root{background:var(--accent);border-color:var(--accent)}
+  .gs-node.k-root .gs-nm{color:var(--on-accent);font-size:13.5px}
+  .gs-node.k-root .gs-meta{color:var(--on-accent);opacity:.85}
+  .gs-node.k-root .gs-tog{background:transparent;border-color:var(--on-accent);color:var(--on-accent)}
+  .gs-node.k-root .gs-ext{color:var(--on-accent);opacity:.85}
+  .gs-node.k-branch{border-left:3px solid var(--accent)}
+  .gs-node.k-branch .gs-nm{color:var(--accent)}
+  .gs-node.k-charity-branch{border-left:3px solid var(--ok-ink)}
+  .gs-node.k-charity-branch .gs-nm{color:var(--ok-ink)}
+  .gs-node.k-division .gs-nm{color:var(--ink)}
+  .gs-node.k-partner{background:var(--surface-2)}
+  .gs-node.k-partner .gs-nm{font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:500;font-size:11.5px;color:var(--ink-2)}
+  .gs-node.k-charity{background:var(--ok-bg);border-color:transparent}
+  .gs-node.k-charity .gs-nm{font-family:"Hanken Grotesk",system-ui,sans-serif;font-weight:500;font-size:11.5px;color:var(--ok-ink)}
+  .gs-node.k-empty{border-style:dashed;background:transparent}
+  .gs-node.k-empty .gs-nm{color:var(--ink-3);font-weight:500}
+  @media (prefers-reduced-motion:reduce){.gs-tog svg{transition:none}}
+
+  .gs-hint{
+    max-width:1360px;margin:0 auto;padding:10px 26px 14px;
+    font-size:.76rem;color:var(--ink-3);
+  }
+  .gs-hint kbd{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em;
+    border:1px solid var(--line-2);border-radius:4px;padding:0 4px;
+  }
+
+  .gs-reg{margin:24px 0 0}
+  .gs-reg > summary{
+    cursor:pointer;font-weight:600;font-size:.9rem;color:var(--accent);
+    padding:9px 0;list-style-position:inside;
+  }
+  .gs-reg > summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .gs-reg td.gs-tier{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+  @media print{
+    .gs-bleed{display:none}
+    .gs-reg{margin-top:14px}
+    .gs-reg > summary{display:none}
+    .gs-reg[open] > *,.gs-reg > *{display:revert}
+  }
   @media print{
     nav{display:none}
     body{font-size:11pt;background:#fff}
@@ -212,6 +337,11 @@
     <h1>Strategy Briefing</h1>
     <p class="lede">Current position, the first move, and a twelve month plan. Prepared for discussion.</p>
     <div class="who">August 2026</div>
+    <div class="backlinks">
+      <a href="press.html">Brand &amp; Press Standards</a>
+      <a href="group-strategy-review.html">Strategic Reality Review</a>
+      <a href="index.html">Digital Relaunch Briefing</a>
+    </div>
   </div>
 </header>
 
@@ -223,17 +353,18 @@
       <a href="#s3">3 Early Priorities</a>
       <a href="#s4">4 Service Map</a>
       <a href="#s5">5 Service Notes</a>
-      <a href="#s6">6 How Work Arrives</a>
-      <a href="#s7">7 Moving the Website</a>
-      <a href="#s8">8 Technology Stack</a>
-      <a href="#s9">9 Email and Domain</a>
-      <a href="#s10">10 Development Scope</a>
-      <a href="#s11">11 Compliance Checks</a>
-      <a href="#s12">12 Twelve Month Plan</a>
-      <a href="#s13">13 Performance Measures</a>
-      <a href="#s14">14 Principal Risks</a>
-      <a href="#s15">15 Market Evidence</a>
-      <a href="#s16">16 Points for Decision</a>
+      <a href="#s6">6 Group Structure</a>
+      <a href="#s7">7 How Work Arrives</a>
+      <a href="#s8">8 Moving the Website</a>
+      <a href="#s9">9 Technology Stack</a>
+      <a href="#s10">10 Email and Domain</a>
+      <a href="#s11">11 Development Scope</a>
+      <a href="#s12">12 Compliance Checks</a>
+      <a href="#s13">13 Twelve Month Plan</a>
+      <a href="#s14">14 Performance Measures</a>
+      <a href="#s15">15 Principal Risks</a>
+      <a href="#s16">16 Market Evidence</a>
+      <a href="#s17">17 Points for Decision</a>
     </div>
     <button id="themeToggle" class="themetoggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
       <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -251,7 +382,8 @@
       <div class="stat"><b>17</b><span>years trading, with a clean filing record</span></div>
       <div class="stat"><b>85%</b><span>of work reported to arrive by personal recommendation</span></div>
       <div class="stat"><b>4.6★</b><span>average across 49 customer reviews</span></div>
-      <div class="stat"><b>19</b><span>delivery partners in the network</span></div>
+      <div class="stat"><b>14</b><span>service divisions in the group structure</span></div>
+      <div class="stat"><b>19</b><span>named delivery partners across seven of them</span></div>
       <div class="stat"><b>98</b><span>pages on the older website earning search traffic</span></div>
     </div>
     <div class="cols">
@@ -262,7 +394,7 @@
           <li><b>Referrals generate most new work.</b> Competitors spend heavily to win what arrives here by recommendation.</li>
           <li><b>Access at the top of the market.</b> The founder moves in circles most competitors cannot reach at any price.</li>
           <li><b>A licensed security operation,</b> which is uncommon alongside transport.</li>
-          <li><b>Nineteen delivery partners,</b> so most requests can be met without owning the assets.</li>
+          <li><b>Nineteen named delivery partners</b> across seven of the fourteen divisions, so most requests can be met without owning the assets.</li>
           <li><b>Search traffic already earned.</b> The older website ranks for chauffeur terms across London and abroad.</li>
         </ul>
       </div>
@@ -342,7 +474,12 @@
   <div class="wrap">
     <span class="num">4</span>
     <h2>Service Map</h2>
-    <p class="sub">How the services group together, with a suggested direction for each. Hackett &amp; Hackett sits at the centre as the orchestrator: it wins the work, owns the client relationship, and chooses who delivers.</p>
+    <p class="sub">All fourteen divisions from the group structure, sorted into four groups with a suggested direction for each. Hackett &amp; Hackett sits at the centre as the orchestrator: it wins the work, owns the client relationship, and chooses who delivers.</p>
+
+    <div class="note">
+      <b>The two counts, kept separate</b>
+      <p>The group structure records <strong>fourteen service divisions</strong> and <strong>nineteen named delivery partners</strong>. These are different things and are easy to conflate. A division is a line of work the group sells; a partner is a named firm that delivers some of it. Seven of the fourteen divisions have partners attached, and the other seven are delivered in house. Every division below is named exactly as the group structure names it.</p>
+    </div>
 
     <div class="nodemap">
       <div class="hub">
@@ -352,46 +489,44 @@
       <div class="stem" aria-hidden="true"></div>
       <div class="branches">
         <div class="branch">
-          <div class="bhead">Move<small>Travel and transport. The core business and the largest earner.</small></div>
-          <div class="leaf"><span>Chauffeur, airport and roadshow</span><i class="pill p-grow">Grow</i></div>
-          <div class="leaf"><span>Security and close protection</span><i class="pill p-build">Build</i></div>
-          <div class="leaf"><span>Private aviation and marine</span><i class="pill p-partner">With partners</i></div>
-          <div class="leaf"><span>Event and film logistics</span><i class="pill p-build">Build</i></div>
-          <div class="leaf"><span>White glove transport</span><i class="pill p-partner">With partners</i></div>
-          <div class="leaf"><span>Prestige cars</span><i class="pill p-refine">Refine</i></div>
+          <div class="bhead">Move <em>4</em><small>Travel and transport. The core business and the largest earner.</small></div>
+          <div class="leaf"><span>Chauffeur Services<small>In house</small></span><i class="pill p-grow">Grow</i></div>
+          <div class="leaf"><span>Security &amp; Management Services<small>2 named partners</small></span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>White Glove Services<small>3 named partners — aviation and marine</small></span><i class="pill p-partner">With partners</i></div>
+          <div class="leaf"><span>Super Car Sales &amp; Self Drive Hire<small>In house</small></span><i class="pill p-refine">Refine</i></div>
         </div>
         <div class="branch">
-          <div class="bhead">Make<small>Events and production. The best margins.</small></div>
-          <div class="leaf"><span>Event management and production</span><i class="pill p-grow">Grow</i></div>
-          <div class="leaf"><span>Weddings</span><i class="pill p-build">Build</i></div>
-          <div class="leaf"><span>Film production support</span><i class="pill p-partner">With partners</i></div>
-          <div class="leaf"><span>Music and artist management</span><i class="pill p-later">Later phase</i></div>
-          <div class="leaf"><span>Model management</span><i class="pill p-check">Review first</i></div>
+          <div class="bhead">Make <em>5</em><small>Events and production. The best margins.</small></div>
+          <div class="leaf"><span>Event Management &amp; Production<small>5 named partners</small></span><i class="pill p-grow">Grow</i></div>
+          <div class="leaf"><span>Wedding Services<small>In house</small></span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>Film Production &amp; Support<small>2 named partners</small></span><i class="pill p-partner">With partners</i></div>
+          <div class="leaf"><span>Music &amp; Artist Management<small>In house</small></span><i class="pill p-later">Later phase</i></div>
+          <div class="leaf"><span>Model Management<small>In house</small></span><i class="pill p-check">Review first</i></div>
         </div>
         <div class="branch">
-          <div class="bhead">Serve<small>Staffing and lifestyle. Repeat relationships.</small></div>
-          <div class="leaf"><span>Household staff and recruitment</span><i class="pill p-build">Build</i></div>
-          <div class="leaf"><span>Lifestyle, concierge and Club Magenta</span><i class="pill p-refine">Refine</i></div>
+          <div class="bhead">Serve <em>2</em><small>Staffing and lifestyle. Repeat relationships.</small></div>
+          <div class="leaf"><span>Household Staff &amp; Recruitment<small>In house</small></span><i class="pill p-build">Build</i></div>
+          <div class="leaf"><span>Lifestyle &amp; Concierge<small>2 named partners — includes Club Magenta</small></span><i class="pill p-refine">Refine</i></div>
         </div>
         <div class="branch">
-          <div class="bhead">Introduce<small>Delivered by partners for a fee, rather than run in house.</small></div>
-          <div class="leaf"><span>Finance</span><i class="pill p-partner">With partners</i></div>
-          <div class="leaf"><span>Property</span><i class="pill p-partner">With partners</i></div>
-          <div class="leaf"><span>PR and marketing</span><i class="pill p-later">Later phase</i></div>
+          <div class="bhead">Introduce <em>3</em><small>Delivered by partners for a fee, rather than run in house.</small></div>
+          <div class="leaf"><span>Bespoke Financial Solutions<small>1 named partner</small></span><i class="pill p-partner">With partners</i></div>
+          <div class="leaf"><span>Real Estate &amp; Property Maintenance<small>In house</small></span><i class="pill p-partner">With partners</i></div>
+          <div class="leaf"><span>Public Relations / Marketing<small>4 named partners</small></span><i class="pill p-later">Later phase</i></div>
         </div>
       </div>
       <div class="maplegend">
         <i class="pill p-grow">Grow</i><i class="pill p-build">Build</i><i class="pill p-partner">With partners</i>
         <i class="pill p-refine">Refine</i><i class="pill p-later">Later phase</i><i class="pill p-check">Review first</i>
       </div>
-      <p class="mapnote">Security supports all three groups. It is shown under Move because secure transport is its largest single use. Nothing here is a decision that has been taken. These are suggestions for the team to weigh, and section 5 gives the reasoning behind each one.</p>
+      <p class="mapnote">Fourteen divisions: four Move, five Make, two Serve, three Introduce. Security supports all four groups; it is shown under Move because secure transport is its largest single use. Real Estate is marked <em>with partners</em> as a recommendation — the group structure currently lists no partner against it, which is the gap section 12 covers. None of this is a decision that has been taken; section 5 gives the reasoning behind each suggestion, and section 6 shows the full structure including partners and charities.</p>
     </div>
 
     <p><strong>Clients lose nothing.</strong> Any request can still be met. The change is that Hackett &amp; Hackett describes the outer lines as delivered with selected partners rather than in house. That is a stronger sentence, and it is the accurate one.</p>
 
     <div class="note">
       <b>Why the orchestrator position works</b>
-      <p>The valuable position is not owning cars, jets or venues. It is being the one number a client calls, holding the relationship, and knowing exactly who to trust with each job. That is built from access and judgement, and it is the hardest thing for a competitor to copy.</p>
+      <p>The valuable position is not owning cars, jets or venues, but being the one number a client calls, holding the relationship, and knowing who to trust with each job. That is built from access and judgement, which is what makes it difficult for a competitor to copy.</p>
     </div>
   </div>
 </section>
@@ -400,27 +535,25 @@
   <div class="wrap">
     <span class="num">5</span>
     <h2>Service Notes</h2>
-    <p class="sub">The reasoning behind each suggestion in the map. Offered as input to the discussion rather than as conclusions.</p>
+    <p class="sub">The reasoning behind each suggestion in the map, one row per division, named as the group structure names them. Offered as input to the discussion rather than as conclusions.</p>
     <div class="tbl">
       <table>
-        <thead><tr><th>Service</th><th>Suggestion</th><th>Reasoning</th></tr></thead>
+        <thead><tr><th>Division</th><th>Suggestion</th><th>Reasoning</th></tr></thead>
         <tbody>
-          <tr><td class="name">Chauffeur, airport, roadshow</td><td><span class="pill p-grow">Grow</span></td><td>Best reputation, largest market, and corporate accounts renew annually. Already ranking in search</td></tr>
-          <tr><td class="name">Event management and production</td><td><span class="pill p-grow">Grow</span></td><td>Strongest part of the team, in a UK market worth £68.7bn</td></tr>
-          <tr><td class="name">Security and close protection</td><td><span class="pill p-build">Build</span></td><td>Already licensed, sells alongside transport, and closest to the founder's own network</td></tr>
-          <tr><td class="name">Weddings</td><td><span class="pill p-build">Build</span></td><td>Five star record on cars, and London couples spend £27k on average</td></tr>
-          <tr><td class="name">Household staff and recruitment</td><td><span class="pill p-build">Build</span></td><td>Good fee rates, and the households that hire are already known</td></tr>
-          <tr><td class="name">Event and film logistics</td><td><span class="pill p-build">Build</span></td><td>Repeatable work for production companies, using skills the business already has</td></tr>
-          <tr><td class="name">Private aviation and marine</td><td><span class="pill p-partner">With partners</span></td><td>Established charter partners already deliver this. Introducing and taking a fee avoids the capital and the liability. Worth reading section 11 first</td></tr>
-          <tr><td class="name">White glove transport</td><td><span class="pill p-partner">With partners</span></td><td>Specialist firms own the art and antiques end. The work that fits in a vehicle can stay in house</td></tr>
-          <tr><td class="name">Film production support</td><td><span class="pill p-partner">With partners</span></td><td>Crew transport and set security are the defensible parts. Partners can cover the rest</td></tr>
-          <tr><td class="name">Finance</td><td><span class="pill p-partner">With partners</span></td><td>The partner delivers it. Worth confirming in writing what may be advertised before it returns to the site</td></tr>
-          <tr><td class="name">Property</td><td><span class="pill p-partner">With partners</span></td><td>Selling and letting call for licences the business does not currently hold. Introducing sidesteps that</td></tr>
-          <tr><td class="name">Lifestyle, concierge, Club Magenta</td><td><span class="pill p-refine">Refine</span></td><td>£100 a month sits awkwardly against what the name suggests. Repricing, then offering the service version to firms rather than individuals, follows what the figures in section 15 show</td></tr>
-          <tr><td class="name">Prestige cars</td><td><span class="pill p-refine">Refine</span></td><td>Chauffeur driven works well. Insurers have largely withdrawn from self drive hire, so that side would need cover confirmed in writing before it went ahead</td></tr>
-          <tr><td class="name">Music and artist management</td><td><span class="pill p-later">Later phase</span></td><td>Takes years to build a roster. Stronger once the core groups are running well. Musicians can be served as transport and event clients meanwhile</td></tr>
-          <tr><td class="name">PR and marketing</td><td><span class="pill p-later">Later phase</span></td><td>Applying it in house first gives the results that make it sellable afterwards</td></tr>
-          <tr><td class="name">Model management</td><td><span class="pill p-check">Review first</span></td><td>Agency rules require that fees for finding someone work come from the hirer rather than the worker. Worth confirming the fee structure before this line develops further</td></tr>
+          <tr><td class="name">Chauffeur Services</td><td><span class="pill p-grow">Grow</span></td><td>Best reputation, largest market, and corporate accounts renew annually. Already ranking in search. No named partner is listed against it, so confirm in writing who actually delivers the international work</td></tr>
+          <tr><td class="name">Event Management &amp; Production</td><td><span class="pill p-grow">Grow</span></td><td>Strongest part of the team, in a UK market worth £68.7bn. Carries five of the nineteen partners, the deepest bench in the group</td></tr>
+          <tr><td class="name">Security &amp; Management Services</td><td><span class="pill p-build">Build</span></td><td>Already licensed, sells alongside transport, and closest to the founder's own network. Two partners carry additional capability</td></tr>
+          <tr><td class="name">Wedding Services</td><td><span class="pill p-build">Build</span></td><td>Five star record on cars, and London couples spend £27k on average. Delivered in house, which makes it one of the cleanest lines to evidence</td></tr>
+          <tr><td class="name">Household Staff &amp; Recruitment</td><td><span class="pill p-build">Build</span></td><td>Good fee rates, and the households that hire are already known. Delivered in house</td></tr>
+          <tr><td class="name">White Glove Services</td><td><span class="pill p-partner">With partners</span></td><td>Three partners cover the aviation and marine side, so introducing and taking a fee avoids the capital and the liability. Specialist firms own the art and antiques end; the work that fits in a vehicle can stay in house. Worth reading section 12 first</td></tr>
+          <tr><td class="name">Film Production &amp; Support</td><td><span class="pill p-partner">With partners</span></td><td>Crew transport and set security are the defensible parts, and they are repeatable work for production companies using skills the business already has. Two partners cover casting and production</td></tr>
+          <tr><td class="name">Bespoke Financial Solutions</td><td><span class="pill p-partner">With partners</span></td><td>One named partner delivers it. Worth confirming in writing what may be advertised before it returns to the site</td></tr>
+          <tr><td class="name">Real Estate &amp; Property Maintenance</td><td><span class="pill p-partner">With partners</span></td><td>Selling and letting call for licences the business does not currently hold. Introducing sidesteps that — but no partner is listed against this division yet, so there is currently nobody named to introduce to</td></tr>
+          <tr><td class="name">Lifestyle &amp; Concierge</td><td><span class="pill p-refine">Refine</span></td><td>Club Magenta at £100 a month sits awkwardly against what the name suggests. Repricing, then offering the service version to firms rather than individuals, follows what the figures in section 16 show</td></tr>
+          <tr><td class="name">Super Car Sales &amp; Self Drive Hire</td><td><span class="pill p-refine">Refine</span></td><td>Chauffeur driven works well. Insurers have largely withdrawn from self drive hire, so that side would need cover confirmed in writing before it went ahead</td></tr>
+          <tr><td class="name">Music &amp; Artist Management</td><td><span class="pill p-later">Later phase</span></td><td>Takes years to build a roster. Stronger once the core groups are running well. Musicians can be served as transport and event clients meanwhile</td></tr>
+          <tr><td class="name">Public Relations / Marketing</td><td><span class="pill p-later">Later phase</span></td><td>Applying it in house first gives the results that make it sellable afterwards. Four partners already sit here, including the group's own web design supplier</td></tr>
+          <tr><td class="name">Model Management</td><td><span class="pill p-check">Review first</span></td><td>Agency rules require that fees for finding someone work come from the hirer rather than the worker. Worth confirming the fee structure before this line develops further</td></tr>
         </tbody>
       </table>
     </div>
@@ -434,6 +567,79 @@
 <section id="s6">
   <div class="wrap">
     <span class="num">6</span>
+    <h2>Group Structure</h2>
+    <p class="sub">The group as the structure document records it: one company, fourteen service divisions, nineteen named delivery partners, an empty sponsor tier and five supporting charities. Branches open when you click them, so the view stays readable rather than showing everything at once. Every entry links to its own site.</p>
+  </div>
+
+  <div class="gs-bleed">
+    <div class="gs-shell">
+      <div class="gs-toolbar">
+        <span class="gs-t">14 divisions · 19 partners · 5 charities</span>
+        <button class="gs-btn" type="button" data-gs="expand">Expand all</button>
+        <button class="gs-btn" type="button" data-gs="collapse">Collapse all</button>
+        <span class="gs-sep" aria-hidden="true"></span>
+        <button class="gs-btn" type="button" data-gs="out" aria-label="Zoom out">−</button>
+        <span class="gs-zoom" id="gs-zoom" role="status" aria-live="polite">100%</span>
+        <button class="gs-btn" type="button" data-gs="in" aria-label="Zoom in">+</button>
+        <button class="gs-btn" type="button" data-gs="fit">Fit</button>
+      </div>
+      <div class="gs-viewport" id="gs-viewport">
+        <div class="gs-canvas" id="gs-canvas">
+          <svg class="gs-lines" id="gs-lines" aria-hidden="true"></svg>
+          <div class="gs-tree" id="gs-tree" role="tree" aria-label="Hackett &amp; Hackett group structure"></div>
+        </div>
+      </div>
+      <p class="gs-hint">Click a row to open or close it. Drag to pan; zoom with the controls, or hold <kbd>Ctrl</kbd> (<kbd>⌘</kbd> on a Mac) and scroll. From the keyboard, <kbd>↑</kbd><kbd>↓</kbd> move between rows, <kbd>→</kbd> opens, <kbd>←</kbd> closes, and <kbd>Enter</kbd> toggles. The same information is listed in full below, which is also what prints.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="note">
+      <b>What the shape shows</b>
+      <p>The nineteen partners sit against seven divisions, not fourteen. Five stand behind Event Management &amp; Production and four behind Public Relations / Marketing, while <strong>Chauffeur Services — the largest earner and the strongest reputation — has no named partner at all</strong>. The tier four sponsor row is empty. Both are worth a decision rather than an oversight: the first because the chauffeur delivery agreement is the single most valuable piece of paper the business could hold, and the second because an empty tier in a published structure invites the question of who was expected to fill it.</p>
+    </div>
+
+    <details class="gs-reg">
+      <summary>The full register — 19 named partners and 5 charities</summary>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Tier</th><th>Name</th><th>Attached to</th></tr></thead>
+          <tbody>
+            <tr><td class="gs-tier">Partner</td><td class="name">N Events</td><td>Event Management &amp; Production</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Firefly Events &amp; Concierge</td><td>Event Management &amp; Production</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Pink Flamingo Events</td><td>Event Management &amp; Production</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Barbara Chapman</td><td>Event Management &amp; Production</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Jade Green Productions</td><td>Event Management &amp; Production</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">T.O.T. Private Consulting</td><td>Security &amp; Management Services</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Apex Global</td><td>Security &amp; Management Services</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Chapman Freeborn</td><td>White Glove Services</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Fly Victor</td><td>White Glove Services</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">One Stop Super Yachts</td><td>White Glove Services</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Hema Vyas</td><td>Lifestyle &amp; Concierge</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Nicole Thompson (Collaire)</td><td>Lifestyle &amp; Concierge</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Slick Casting</td><td>Film Production &amp; Support</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Relsah Films</td><td>Film Production &amp; Support</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Denarius Worldwide</td><td>Bespoke Financial Solutions</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Sphere Hospitality Ventures</td><td>Public Relations / Marketing</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Blue Bottle Web Design</td><td>Public Relations / Marketing</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Jellyfish Consulting</td><td>Public Relations / Marketing</td></tr>
+            <tr><td class="gs-tier">Partner</td><td class="name">Louise O'Hara</td><td>Public Relations / Marketing</td></tr>
+            <tr><td class="gs-tier">Charity</td><td class="name">Missing People</td><td>Supported by the group</td></tr>
+            <tr><td class="gs-tier">Charity</td><td class="name">Amnesty International</td><td>Supported by the group</td></tr>
+            <tr><td class="gs-tier">Charity</td><td class="name">Shawmind</td><td>Supported by the group</td></tr>
+            <tr><td class="gs-tier">Charity</td><td class="name">Film + TV Charity</td><td>Supported by the group</td></tr>
+            <tr><td class="gs-tier">Charity</td><td class="name">WWF</td><td>Supported by the group</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mapnote">Divisions with no named partner: Chauffeur Services, Wedding Services, Household Staff &amp; Recruitment, Model Management, Music &amp; Artist Management, Super Car Sales &amp; Self Drive Hire, Real Estate &amp; Property Maintenance. Tier four, company sponsors, is present in the structure but currently has no entries.</p>
+    </details>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <span class="num">7</span>
     <h2>How Work Arrives</h2>
     <p class="sub">Referral, WhatsApp, Facebook, phone and email. Every one of these stays exactly as it is.</p>
     <p>Around 85% of work is reported to arrive by personal recommendation, and the rest comes through Facebook, WhatsApp, the phone and email. Those channels convert because a person answers them. <strong>Nothing suggested here changes how a client gets in touch.</strong></p>
@@ -513,9 +719,9 @@
   </div>
 </section>
 
-<section id="s7">
+<section id="s8">
   <div class="wrap">
-    <span class="num">7</span>
+    <span class="num">8</span>
     <h2>Moving the Website</h2>
     <p class="sub">The search traffic is real and it sits on the older site. Moving carelessly risks losing it.</p>
 
@@ -549,9 +755,9 @@
   </div>
 </section>
 
-<section id="s8">
+<section id="s9">
   <div class="wrap">
-    <span class="num">8</span>
+    <span class="num">9</span>
     <h2>Technology Stack</h2>
     <p class="sub">Three separate systems, not one. Treating them as a single platform is what tends to make projects of this kind fail.</p>
     <div class="cols">
@@ -581,10 +787,10 @@
       <table>
         <thead><tr><th>Component</th><th>Suggestion</th><th>Detail</th></tr></thead>
         <tbody>
-          <tr><td class="name">Website, including the search pages</td><td><span class="pill p-build">Build</span></td><td>A content management system lets the team edit pages without code. Carries the section 7 migration</td></tr>
+          <tr><td class="name">Website, including the search pages</td><td><span class="pill p-build">Build</span></td><td>A content management system lets the team edit pages without code. Carries the section 8 migration</td></tr>
           <tr><td class="name">Quote and enquiry form</td><td><span class="pill p-build">Build</span></td><td>Branded estimate that creates a record and emails a person, rather than taking a booking</td></tr>
           <tr><td class="name">Corporate client portal</td><td><span class="pill p-build">Build</span></td><td>Cost centres, purchase orders, traveller profiles, booking history, monthly invoices, on time reporting</td></tr>
-          <tr><td class="name">Internal dashboard</td><td><span class="pill p-build">Build</span></td><td>One screen showing the section 13 measures, reading from the rented systems</td></tr>
+          <tr><td class="name">Internal dashboard</td><td><span class="pill p-build">Build</span></td><td>One screen showing the section 14 measures, reading from the rented systems</td></tr>
           <tr><td class="name">Integration service</td><td><span class="pill p-build">Build</span></td><td>Connects messaging, records, dispatch and accounts. Sturdier than paid automation tools at volume</td></tr>
           <tr><td class="name">Client records</td><td><span class="pill p-partner">Rent</span></td><td>Configuration rather than development</td></tr>
           <tr><td class="name">Shared inbox</td><td><span class="pill p-partner">Rent</span></td><td>Brings Facebook, WhatsApp and email into one place</td></tr>
@@ -623,9 +829,9 @@
   </div>
 </section>
 
-<section id="s9">
+<section id="s10">
   <div class="wrap">
-    <span class="num">9</span>
+    <span class="num">10</span>
     <h2>Email and Domain</h2>
     <p class="sub">Small, cheap, and it does more for credibility per pound than almost anything else here.</p>
     <p>Email is the first thing a corporate client checks without realising they are checking it. A quote from a personal address reads differently from the same quote sent from the company domain, and quotes that land in a spam folder are simply never answered.</p>
@@ -635,7 +841,7 @@
       <li><strong>Every client facing address on the company domain.</strong> No personal accounts anywhere a client can see.</li>
       <li><strong>Shared addresses owned by the business,</strong> such as bookings and accounts, rather than tied to one person. Nothing is then lost when somebody moves on, and cover during holidays becomes straightforward.</li>
       <li><strong>Authentication switched on.</strong> SPF, DKIM and DMARC are three settings that tell the receiving server the mail is genuinely from Hackett &amp; Hackett. Without them, quotes and invoices are far more likely to land in spam.</li>
-      <li><strong>The short domain for addresses,</strong> following the section 7 decision. Shorter is easier to read out on a call and fits on a card.</li>
+      <li><strong>The short domain for addresses,</strong> following the section 8 decision. Shorter is easier to read out on a call and fits on a card.</li>
     </ul>
 
     <h3>Provider options</h3>
@@ -658,24 +864,24 @@
   </div>
 </section>
 
-<section id="s10">
+<section id="s11">
   <div class="wrap">
-    <span class="num">10</span>
+    <span class="num">11</span>
     <h2>Development Scope</h2>
     <p class="sub">What an in house developer covers, and what that removes from the budget.</p>
-    <p>A full stack developer is available to the business, working in modern web tooling and deploying to managed hosting. That changes which parts of section 8 are worth building rather than renting, and it means changes can be made in the same week rather than raised as a change request with an outside supplier.</p>
+    <p>A full stack developer is available to the business, working in modern web tooling and deploying to managed hosting. That changes which parts of section 9 are worth building rather than renting, and it means changes can be made in the same week rather than raised as a change request with an outside supplier.</p>
 
     <div class="cols">
       <div class="card good">
         <h3>Delivered in house</h3>
         <ul>
-          <li><b>The website move.</b> Page inventory, rebuild, redirect map and monitoring, as set out in section 7.</li>
+          <li><b>The website move.</b> Page inventory, rebuild, redirect map and monitoring, as set out in section 8.</li>
           <li><b>The rebuilt website,</b> with a content management system so the team edits content without needing a developer.</li>
           <li><b>The branded quote and enquiry form,</b> feeding the client records.</li>
           <li><b>The corporate client portal,</b> the largest single piece.</li>
-          <li><b>The internal dashboard,</b> showing the section 13 measures on one screen.</li>
+          <li><b>The internal dashboard,</b> showing the section 14 measures on one screen.</li>
           <li><b>The integration service</b> connecting messaging, records, dispatch and accounts.</li>
-          <li><b>Setup and configuration</b> of the rented tools, plus the email and authentication settings in section 9.</li>
+          <li><b>Setup and configuration</b> of the rented tools, plus the email and authentication settings in section 10.</li>
         </ul>
       </div>
       <div class="card work">
@@ -697,9 +903,9 @@
   </div>
 </section>
 
-<section id="s11">
+<section id="s12">
   <div class="wrap">
-    <span class="num">11</span>
+    <span class="num">12</span>
     <h2>Compliance Checks</h2>
     <p class="sub">Four written answers worth obtaining. Each is cheap to check now and expensive to get wrong later.</p>
     <div class="tbl">
@@ -736,9 +942,9 @@
   </div>
 </section>
 
-<section id="s12">
+<section id="s13">
   <div class="wrap">
-    <span class="num">12</span>
+    <span class="num">13</span>
     <h2>Twelve Month Plan</h2>
     <p class="sub">A suggested shape for the year. Timings are indicative and can move with capacity.</p>
     <div class="qtr">
@@ -776,15 +982,15 @@
         <li>Weight resources toward whichever group is contributing most.</li>
         <li>Film and production transport pursued through partner introductions.</li>
         <li>Referral share and search traffic both measured and reported.</li>
-        <li>Year reviewed against the measures in section 13.</li>
+        <li>Year reviewed against the measures in section 14.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="s13">
+<section id="s14">
   <div class="wrap">
-    <span class="num">13</span>
+    <span class="num">14</span>
     <h2>Performance Measures</h2>
     <p class="sub">Seven lines, reviewed weekly. Without them the business is working on impressions.</p>
     <ul class="plain">
@@ -803,22 +1009,22 @@
   </div>
 </section>
 
-<section id="s14">
+<section id="s15">
   <div class="wrap">
-    <span class="num">14</span>
+    <span class="num">15</span>
     <h2>Principal Risks</h2>
     <div class="tbl">
       <table>
         <thead><tr><th>Risk</th><th>Suggested mitigation</th></tr></thead>
         <tbody>
-          <tr><td class="name">Search traffic lost when the website moves</td><td>Inventory every page first, rebuild the ones that earn traffic, and redirect one to one. Section 7</td></tr>
+          <tr><td class="name">Search traffic lost when the website moves</td><td>Inventory every page first, rebuild the ones that earn traffic, and redirect one to one. Section 8</td></tr>
           <tr><td class="name">Past reputation reaching a client before the recent record does</td><td>Steady review volume, replies to older entries, published standards, third party accreditation. Section 2</td></tr>
           <tr><td class="name">An important client checks the business before the site is corrected</td><td>Work through the early priorities first, and hold back publicity until they are done</td></tr>
           <tr><td class="name">Too much depending on one person</td><td>Move client knowledge onto records, appoint the non executive director, document how each service runs</td></tr>
           <tr><td class="name">A vetting gap in security or household staffing</td><td>One written vetting standard, no exceptions made for speed, and appropriate insurance</td></tr>
-          <tr><td class="name">Selling travel without the right protection in place</td><td>Obtain written advice before marketing travel further. Section 11</td></tr>
+          <tr><td class="name">Selling travel without the right protection in place</td><td>Obtain written advice before marketing travel further. Section 12</td></tr>
           <tr><td class="name">A partner approaching a client directly</td><td>Written agreements with notice periods, two partners per category where possible, and the client relationship held centrally</td></tr>
-          <tr><td class="name">Quotes and invoices landing in spam</td><td>Email authentication switched on. Section 9</td></tr>
+          <tr><td class="name">Quotes and invoices landing in spam</td><td>Email authentication switched on. Section 10</td></tr>
           <tr><td class="name">Attention spread across too many lines at once</td><td>The map in section 4 sets out what is growing and what can wait. One starting point in section 3</td></tr>
         </tbody>
       </table>
@@ -826,9 +1032,9 @@
   </div>
 </section>
 
-<section id="s15">
+<section id="s16">
   <div class="wrap">
-    <span class="num">15</span>
+    <span class="num">16</span>
     <h2>Market Evidence</h2>
     <p class="sub">Each suggestion rests on published figures rather than opinion.</p>
 
@@ -889,9 +1095,9 @@
   </div>
 </section>
 
-<section id="s16">
+<section id="s17">
   <div class="wrap">
-    <span class="num">16</span>
+    <span class="num">17</span>
     <h2>Points for Decision</h2>
     <p class="sub">Ten points to talk through. The rest of the plan follows from them.</p>
     <ol class="check">
@@ -900,15 +1106,15 @@
       <li><b>Discuss the service map in section 4</b><span>and the reasoning in section 5. Where the room disagrees, the map should change.</span></li>
       <li><b>Confirm that private clients keep telephone, WhatsApp, Facebook and introductions only.</b><span>No public booking form for them, now or later.</span></li>
       <li><b>Agree that client records come before booking software.</b><span>This is the piece that protects the referral business.</span></li>
-      <li><b>Agree an indicative software budget of up to £600 a month,</b><span>plus the email provider from section 9.</span></li>
-      <li><b>Agree the development scope in section 10,</b><span>which items are built in house rather than rented, and in what order.</span></li>
-      <li><b>Commission the travel compliance answer.</b><span>Section 11. This one carries the most financial risk of the four checks.</span></li>
+      <li><b>Agree an indicative software budget of up to £600 a month,</b><span>plus the email provider from section 10.</span></li>
+      <li><b>Agree the development scope in section 11,</b><span>which items are built in house rather than rented, and in what order.</span></li>
+      <li><b>Commission the travel compliance answer.</b><span>Section 12. This one carries the most financial risk of the four checks.</span></li>
       <li><b>Name the owner of the master fact sheet,</b><span>and the owner of reviews and replies.</span></li>
       <li><b>Confirm in writing which company delivers the chauffeur work.</b><span>If the largest service line is delivered by a partner, that agreement is among the most valuable assets the business holds.</span></li>
     </ol>
     <div class="note">
       <b>Scope</b>
-      <p>Nothing here changes what the business already does well. Referrals, discretion and personal service stay as they are. The suggestions concern the machinery underneath, so the business keeps more of what its reputation brings in.</p>
+      <p>Nothing in this document changes what the business already does well. Referrals, discretion and personal service stay as they are. The suggestions concern the systems underneath, so the business keeps more of what its reputation brings in.</p>
     </div>
     <div class="foot">
       Hackett &amp; Hackett International Group Limited &middot; Companies House 07100605 &middot; August 2026<br>
@@ -939,4 +1145,504 @@
       label();
     });
   })();
+</script>
+
+<script>
+/* ── Section 6: group structure explorer ───────────────────────────────
+   The five-tier structure as a collapsible left-to-right tree. Branches
+   open on click, so the default view shows the fourteen divisions at a
+   readable size instead of every node at once. Marked up as an ARIA tree
+   with roving tabindex, so the whole thing works from the keyboard. */
+(function () {
+  var viewport = document.getElementById('gs-viewport');
+  var canvas   = document.getElementById('gs-canvas');
+  var svg      = document.getElementById('gs-lines');
+  var treeEl   = document.getElementById('gs-tree');
+  var zoomTxt  = document.getElementById('gs-zoom');
+  if (!viewport || !canvas || !svg || !treeEl) return;
+
+  var SITE = 'https://www.hackettandhackettinternationalgrouplimited.com';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function div(name, path, partners) {
+    return { name: name, url: SITE + path, kind: 'division',
+             meta: partners.length ? '' : 'Delivered in house', children: partners };
+  }
+  function p(name, url) { return { name: name, url: url, kind: 'partner', children: [] }; }
+
+  var DATA = {
+    name: 'Hackett & Hackett International Group Limited',
+    meta: 'Companies House 07100605', url: SITE, kind: 'root',
+    children: [
+      { name: 'Service divisions', meta: 'Tier 2', kind: 'branch', children: [
+        div('Chauffeur Services', '/courses-11', []),
+        div('Event Management & Production', '/courses', [
+          p('N Events', 'https://www.neventslondon.co.uk/'),
+          p('Firefly Events & Concierge', 'https://www.fireflyeventsandconcierge.com/about'),
+          p('Pink Flamingo Events', 'https://www.pinkflamingo.events/'),
+          p('Barbara Chapman', 'https://the-dots.com/users/barbara-chapman-578285'),
+          p('Jade Green Productions', 'https://jadegreenevents.com/')
+        ]),
+        div('Security & Management Services', '/courses-1', [
+          p('T.O.T. Private Consulting', 'https://www.totpi.com/'),
+          p('Apex Global', 'https://www.apexglobal.eu/')
+        ]),
+        div('White Glove Services', '/courses-1-1', [
+          p('Chapman Freeborn', 'https://chapmanfreeborn.aero/'),
+          p('Fly Victor', 'https://www.flyvictor.com/en-gb/'),
+          p('One Stop Super Yachts', 'http://onestopsuperyachts.com/')
+        ]),
+        div('Lifestyle & Concierge', '/courses-1-2', [
+          p('Hema Vyas', 'https://hemavyas.com/'),
+          p('Nicole Thompson (Collaire)', 'https://nicolethompson.co.uk/')
+        ]),
+        div('Model Management', '/courses-3', []),
+        div('Music & Artist Management', '/courses-4', []),
+        div('Film Production & Support', '/courses-5', [
+          p('Slick Casting', 'https://www.slickcasting.com/'),
+          p('Relsah Films', 'https://www.relsahfilms.com/')
+        ]),
+        div('Wedding Services', '/courses-6', []),
+        div('Household Staff & Recruitment', '/courses-7', []),
+        div('Super Car Sales & Self Drive Hire', '/courses-8', []),
+        div('Bespoke Financial Solutions', '/courses-9', [
+          p('Denarius Worldwide', 'https://www.denariusworldwide.com/')
+        ]),
+        div('Public Relations / Marketing', '/courses-10', [
+          p('Sphere Hospitality Ventures', 'https://www.spherehospitality.com/'),
+          p('Blue Bottle Web Design', 'http://www.bluebottlewebdesign.com'),
+          p('Jellyfish Consulting', 'https://www.jellyfishconsulting.co.uk/'),
+          p("Louise O'Hara", 'https://www.louiseohara.com/home')
+        ]),
+        div('Real Estate & Property Maintenance', '/courses-2', [])
+      ]},
+      { name: 'Company sponsors', meta: 'Tier 4 — none named', kind: 'empty', children: [] },
+      { name: 'Supporting charities', meta: 'Tier 5', kind: 'charity-branch', children: [
+        { name: 'Missing People', url: 'https://www.missingpeople.org.uk/', kind: 'charity', children: [] },
+        { name: 'Amnesty International', url: 'https://www.amnesty.org.uk/', kind: 'charity', children: [] },
+        { name: 'Shawmind', url: 'https://shawmind.org/', kind: 'charity', children: [] },
+        { name: 'Film + TV Charity', url: 'https://filmtvcharity.org.uk/', kind: 'charity', children: [] },
+        { name: 'WWF', url: 'https://www.worldwildlife.org/', kind: 'charity', children: [] }
+      ]}
+    ]
+  };
+
+  /* Geometry */
+  var PAD = 34, NODE_W = 268, COL_GAP = 46, V_GAP = 8;
+  var COL = NODE_W + COL_GAP;
+  var H_ROOT = 58, H_DEF = 50;
+
+  /* Give every node an id, depth and parent link. */
+  var ALL = [];
+  (function walk(n, depth, parent) {
+    n._id = ALL.length; n._depth = depth; n._parent = parent;
+    n._h = n.kind === 'root' ? H_ROOT : H_DEF;
+    n.open = false;
+    ALL.push(n);
+    n.children.forEach(function (c) { walk(c, depth + 1, n); });
+  })(DATA, 0, null);
+
+  var partnerCount = ALL.filter(function (n) { return n.kind === 'partner'; }).length;
+  ALL.forEach(function (n) {
+    if (n.kind === 'division' && n.children.length) {
+      n.meta = n.children.length + (n.children.length === 1 ? ' named partner' : ' named partners');
+    }
+    if (n.kind === 'branch') n.meta = 'Tier 2 — ' + n.children.length + ' divisions, ' + partnerCount + ' partners in tier 3';
+    if (n.kind === 'charity-branch') n.meta = 'Tier 5 — ' + n.children.length + ' charities';
+  });
+
+  /* Default view: the company and its fourteen divisions, partners closed.
+     On a narrow screen fourteen rows would only fit at an unreadable zoom, so
+     there the tree opens to the three tiers and the reader drills down. */
+  DATA.open = true;
+  DATA.children[0].open = window.innerWidth >= 700;
+
+  /* ── Layout ──────────────────────────────────────────────────────────
+     Left-to-right tidy tree over visible nodes only. Each subtree occupies
+     a disjoint vertical band, so centring a parent inside its own band can
+     never collide with a sibling. */
+  var size = { w: 0, h: 0 };
+  function layout() {
+    var cursor = PAD;
+    function place(n) {
+      n._x = PAD + n._depth * COL;
+      var kids = n.open ? n.children : [];
+      if (!kids.length) {
+        n._y = cursor;
+        cursor += n._h + V_GAP;
+        return;
+      }
+      kids.forEach(place);
+      var first = kids[0], last = kids[kids.length - 1];
+      n._y = (first._y + (last._y + last._h)) / 2 - n._h / 2;
+    }
+    place(DATA);
+    var maxD = 0, maxB = 0;
+    visible().forEach(function (n) {
+      maxD = Math.max(maxD, n._depth);
+      maxB = Math.max(maxB, n._y + n._h);
+    });
+    size.w = PAD * 2 + maxD * COL + NODE_W;
+    size.h = maxB + PAD;
+  }
+  function visible() {
+    var out = [];
+    (function rec(n) {
+      out.push(n);
+      if (n.open) n.children.forEach(rec);
+    })(DATA);
+    return out;
+  }
+
+  /* ── DOM ─────────────────────────────────────────────────────────────── */
+  var CHEV = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 1.5L7 5l-3.5 3.5"/></svg>';
+  var EXT  = '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 1.5h6v6M10.5 1.5L5 7"/><path d="M9 7.5v3h-7.5V3h3"/></svg>';
+
+  var els = {};   // node id -> element
+  var focusId = 0;
+  function build(n) {
+    var el = document.createElement('div');
+    el.className = 'gs-node k-' + n.kind + (n.children.length ? ' is-parent' : '');
+    el.setAttribute('role', 'treeitem');
+    el.setAttribute('aria-level', n._depth + 1);
+    el.style.width = NODE_W + 'px';
+    el.style.height = n._h + 'px';
+    el.tabIndex = -1;
+    el.dataset.id = n._id;
+
+    if (n.children.length) {
+      var tog = document.createElement('span');
+      tog.className = 'gs-tog';
+      tog.innerHTML = CHEV;
+      el.appendChild(tog);
+    }
+    var txt = document.createElement('span');
+    txt.className = 'gs-txt';
+    var nm = document.createElement('span');
+    nm.className = 'gs-nm';
+    nm.textContent = n.name;
+    nm.title = n.name;
+    txt.appendChild(nm);
+    if (n.meta) {
+      var mt = document.createElement('span');
+      mt.className = 'gs-meta';
+      mt.textContent = n.meta;
+      txt.appendChild(mt);
+    }
+    el.appendChild(txt);
+
+    if (n.url) {
+      var a = document.createElement('a');
+      a.className = 'gs-ext';
+      a.href = n.url; a.target = '_blank'; a.rel = 'noopener';
+      a.innerHTML = EXT;
+      a.tabIndex = -1;
+      a.setAttribute('aria-label', 'Open the ' + n.name + ' website in a new tab');
+      a.addEventListener('click', function (e) { e.stopPropagation(); });
+      el.appendChild(a);
+    }
+    treeEl.appendChild(el);
+    els[n._id] = el;
+    return el;
+  }
+
+  function syncAria() {
+    var vis = visible();
+    vis.forEach(function (n) {
+      var el = els[n._id];
+      if (!el) return;
+      var sibs = n._parent ? n._parent.children : [DATA];
+      el.setAttribute('aria-setsize', sibs.length);
+      el.setAttribute('aria-posinset', sibs.indexOf(n) + 1);
+      if (n.children.length) el.setAttribute('aria-expanded', n.open ? 'true' : 'false');
+      else el.removeAttribute('aria-expanded');
+      el.classList.toggle('is-open', !!n.open);
+    });
+    syncTabStop();
+  }
+
+  /* Roving tabindex: exactly one row is in the tab order at all times, so Tab
+     reaches the tree and the arrow keys take over from there. If the row that
+     had focus was just collapsed away, hand focus to its nearest open
+     ancestor rather than dropping it on the body. */
+  function syncTabStop() {
+    if (!els[focusId]) {
+      var n = ALL[focusId], had = document.activeElement;
+      var wasInTree = had && had.closest && had.closest('.gs-node');
+      while (n && !els[n._id]) n = n._parent;
+      focusId = n ? n._id : 0;
+      if (wasInTree && els[focusId]) els[focusId].focus({ preventScroll: true });
+    }
+    Object.keys(els).forEach(function (id) { els[id].tabIndex = (+id === focusId) ? 0 : -1; });
+  }
+
+  function path(px, py, cx, cy) {
+    var dx = Math.max(18, (cx - px) / 2);
+    return 'M' + px + ',' + py + ' C' + (px + dx) + ',' + py + ' ' + (cx - dx) + ',' + cy + ' ' + cx + ',' + cy;
+  }
+  var linePath = null;
+  function drawLines(get) {
+    var d = [];
+    (function rec(n) {
+      if (!n.open) return;
+      var a = get(n);
+      n.children.forEach(function (c) {
+        var b = get(c);
+        d.push(path(a.x + NODE_W, a.y + n._h / 2, b.x, b.y + c._h / 2));
+        rec(c);
+      });
+    })(DATA);
+    if (!linePath) {
+      linePath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      svg.appendChild(linePath);   /* stroke and width come from CSS, so the
+                                      theme toggle recolours it with no redraw */
+    }
+    linePath.setAttribute('d', d.join(' '));
+  }
+
+
+  /* ── Render, with a tween between the old and new layouts ────────────── */
+  var anim = null;
+  function render(animate, anchorId) {
+    var prev = {};
+    visible().forEach(function (n) {
+      if (els[n._id]) prev[n._id] = { x: n._x, y: n._y };
+    });
+    var anchorBefore = (anchorId != null && prev[anchorId]) ? prev[anchorId] : null;
+
+    layout();
+
+    var vis = visible(), keep = {};
+    vis.forEach(function (n) { keep[n._id] = true; if (!els[n._id]) build(n); });
+    Object.keys(els).forEach(function (id) {
+      if (!keep[id]) { els[id].remove(); delete els[id]; }
+    });
+    /* Rows are absolutely positioned, so DOM order is what a screen reader
+       follows. Re-append in visible order after every change, otherwise the
+       reading order drifts from the visual one as branches open and close. */
+    var hadFocus = document.activeElement;
+    var refocus = hadFocus && hadFocus.closest && hadFocus.closest('.gs-node');
+    vis.forEach(function (n) { treeEl.appendChild(els[n._id]); });
+    if (refocus && document.activeElement !== refocus) refocus.focus({ preventScroll: true });
+    syncAria();
+
+    canvas.style.width = size.w + 'px';
+    canvas.style.height = size.h + 'px';
+    svg.setAttribute('width', size.w);
+    svg.setAttribute('height', size.h);
+
+    /* Keep the row that was clicked under the pointer. */
+    if (anchorBefore) {
+      var a = ALL[anchorId];
+      ty += (anchorBefore.y - a._y) * scale;
+      tx += (anchorBefore.x - a._x) * scale;
+    }
+
+    var from = {}, to = {};
+    vis.forEach(function (n) {
+      to[n._id] = { x: n._x, y: n._y };
+      from[n._id] = prev[n._id] || parentStart(n, prev);
+    });
+
+    tween(from, to, animate && !reduce);
+  }
+
+  /* The tween is decoration. If requestAnimationFrame never runs — a hidden
+     tab, a throttled background window — the guard still lands the final
+     layout, so the tree is never left stranded mid-move. */
+  var animTimer = null;
+  function tween(from, to, animate) {
+    if (anim) { cancelAnimationFrame(anim); anim = null; }
+    if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+
+    function settle() {
+      if (anim) { cancelAnimationFrame(anim); anim = null; }
+      if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+      paint(1, from, to);
+      clampPan(); apply();
+    }
+    if (!animate) { settle(); return; }
+
+    var t0 = performance.now(), DUR = 260;
+    paint(0, from, to);
+    anim = requestAnimationFrame(function step(now) {
+      var k = Math.min(1, (now - t0) / DUR);
+      paint(1 - Math.pow(1 - k, 3), from, to);
+      if (k < 1) anim = requestAnimationFrame(step);
+      else settle();
+    });
+    animTimer = setTimeout(settle, DUR + 140);
+    clampPan(); apply();
+  }
+
+  function parentStart(n, prev) {
+    /* New rows grow out of wherever their parent already was. */
+    var pnt = n._parent;
+    while (pnt && !prev[pnt._id]) pnt = pnt._parent;
+    return pnt ? prev[pnt._id] : { x: n._x, y: n._y };
+  }
+
+  function paint(e, from, to) {
+    var pos = {};
+    Object.keys(to).forEach(function (id) {
+      var f = from[id], t = to[id];
+      var x = f.x + (t.x - f.x) * e, y = f.y + (t.y - f.y) * e;
+      pos[id] = { x: x, y: y };
+      var el = els[id];
+      if (el) {
+        el.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+        el.style.opacity = (e === 1 || from[id] === to[id]) ? '' : Math.max(0.15, e);
+      }
+    });
+    drawLines(function (n) { return pos[n._id] || { x: n._x, y: n._y }; });
+  }
+
+  /* ── Toggle ──────────────────────────────────────────────────────────── */
+  function toggle(n, force) {
+    if (!n.children.length) return;
+    n.open = (force == null) ? !n.open : force;
+    render(true, n._id);
+  }
+
+  treeEl.addEventListener('click', function (e) {
+    if (dragged) return;
+    if (e.target.closest('.gs-ext')) return;
+    var el = e.target.closest('.gs-node');
+    if (!el) return;
+    var n = ALL[+el.dataset.id];
+    if (n.children.length) { focusNode(n); toggle(n); }
+    else if (n.url) window.open(n.url, '_blank', 'noopener');
+  });
+
+  /* ── Keyboard: ARIA tree pattern with roving tabindex ─────────────────── */
+  function focusNode(n) {
+    focusId = n._id;
+    syncTabStop();
+    var el = els[focusId];
+    if (el) { el.focus({ preventScroll: true }); ensureVisible(n); }
+  }
+  function ensureVisible(n) {
+    var vw = viewport.clientWidth, vh = viewport.clientHeight, m = 26;
+    var l = n._x * scale + tx, t = n._y * scale + ty;
+    var r = l + NODE_W * scale, b = t + n._h * scale;
+    if (l < m) tx += m - l; else if (r > vw - m) tx -= r - (vw - m);
+    if (t < m) ty += m - t; else if (b > vh - m) ty -= b - (vh - m);
+    clampPan(); apply();
+  }
+  treeEl.addEventListener('keydown', function (e) {
+    var el = e.target.closest('.gs-node');
+    if (!el) return;
+    var n = ALL[+el.dataset.id];
+    var vis = visible(), i = vis.indexOf(n);
+    switch (e.key) {
+      case 'ArrowDown': if (i < vis.length - 1) focusNode(vis[i + 1]); break;
+      case 'ArrowUp':   if (i > 0) focusNode(vis[i - 1]); break;
+      case 'ArrowRight':
+        if (n.children.length && !n.open) toggle(n, true);
+        else if (n.children.length) focusNode(n.children[0]);
+        break;
+      case 'ArrowLeft':
+        if (n.children.length && n.open) toggle(n, false);
+        else if (n._parent) focusNode(n._parent);
+        break;
+      case 'Home': focusNode(vis[0]); break;
+      case 'End':  focusNode(vis[vis.length - 1]); break;
+      case 'Enter': case ' ':
+        if (n.children.length) toggle(n);
+        else if (n.url) window.open(n.url, '_blank', 'noopener');
+        break;
+      default: return;
+    }
+    e.preventDefault();
+  });
+
+  /* ── Pan and zoom ─────────────────────────────────────────────────────── */
+  var scale = 1, tx = 0, ty = 0, MIN = 0.25, MAX = 2.2;
+  function apply() {
+    canvas.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+    if (zoomTxt) zoomTxt.textContent = Math.round(scale * 100) + '%';
+  }
+  function clampPan() {
+    var vw = viewport.clientWidth, vh = viewport.clientHeight;
+    var cw = size.w * scale, ch = size.h * scale;
+    tx = cw <= vw ? (vw - cw) / 2 : Math.min(0, Math.max(vw - cw, tx));
+    ty = ch <= vh ? (vh - ch) / 2 : Math.min(0, Math.max(vh - ch, ty));
+  }
+  function zoomAt(delta, px, py) {
+    var next = Math.min(MAX, Math.max(MIN, scale + delta));
+    if (next === scale) return;
+    var ratio = next / scale;
+    tx = px - ratio * (px - tx); ty = py - ratio * (py - ty);
+    scale = next; clampPan(); apply();
+  }
+  function fit() {
+    var vw = viewport.clientWidth, vh = viewport.clientHeight;
+    scale = Math.min(Math.min(vw / size.w, vh / size.h) * 0.96, 1);
+    scale = Math.min(MAX, Math.max(MIN, scale));
+    tx = (vw - size.w * scale) / 2;
+    ty = (vh - size.h * scale) / 2;
+    clampPan(); apply();
+  }
+
+  viewport.addEventListener('wheel', function (e) {
+    if (!e.ctrlKey && !e.metaKey) return;   /* plain scroll belongs to the page */
+    e.preventDefault();
+    var r = viewport.getBoundingClientRect();
+    zoomAt(e.deltaY > 0 ? -0.08 : 0.08, e.clientX - r.left, e.clientY - r.top);
+  }, { passive: false });
+
+  var panning = false, lx = 0, ly = 0, moved = 0, dragged = false, touch = false, pid = null;
+  viewport.addEventListener('pointerdown', function (e) {
+    if (e.button !== 0) return;
+    panning = true; moved = 0; dragged = false; pid = e.pointerId;
+    touch = e.pointerType !== 'mouse';
+    lx = e.clientX; ly = e.clientY;
+    viewport.classList.add('is-panning');
+  });
+  viewport.addEventListener('pointermove', function (e) {
+    if (!panning) return;
+    var dx = e.clientX - lx, dy = e.clientY - ly;
+    moved += Math.abs(dx) + Math.abs(dy);
+    tx += dx;
+    if (!touch) ty += dy;   /* touch-action is pan-y: the page handles vertical */
+    lx = e.clientX; ly = e.clientY;
+    if (moved > 6) {
+      dragged = true;
+      if (pid !== null && viewport.setPointerCapture) {
+        try { viewport.setPointerCapture(pid); } catch (err) {}
+      }
+      if (e.cancelable) e.preventDefault();
+    }
+    clampPan(); apply();
+  });
+  function endPan() { panning = false; pid = null; viewport.classList.remove('is-panning'); }
+  viewport.addEventListener('pointerup', endPan);
+  viewport.addEventListener('pointercancel', endPan);
+  viewport.addEventListener('pointerleave', endPan);
+  treeEl.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+  /* ── Toolbar ──────────────────────────────────────────────────────────── */
+  function setAll(open) {
+    ALL.forEach(function (n) { if (n.children.length) n.open = open; });
+    DATA.open = true;
+    render(true, null);
+    fit();
+  }
+  document.querySelectorAll('[data-gs]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var a = b.getAttribute('data-gs');
+      var r = viewport.getBoundingClientRect();
+      if (a === 'fit') fit();
+      else if (a === 'expand') setAll(true);
+      else if (a === 'collapse') setAll(false);
+      else zoomAt(a === 'in' ? 0.15 : -0.15, r.width / 2, r.height / 2);
+    });
+  });
+
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(fit, 150); });
+
+  render(false, null);
+  fit();
+})();
 </script>
