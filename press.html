@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hackett &amp; Hackett · Brand &amp; Press Standards (recommended)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Recommended brand standards for Hackett &amp; Hackett International Group: colour system, logo usage, typography, house style, boilerplate and the agreed fact block. Prepared for discussion by James.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080808'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' fill='%23E5007E' text-anchor='middle'%3E%26%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<script>
+  /* Same storage key as the other Hackett pages, set before first paint. */
+  (function () {
+    try {
+      var t = localStorage.getItem('hh-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+<style>
+  :root{
+    --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+    --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+    --ok-bg:#E7F0E9; --ok-ink:#2B5E3B; --warn-bg:#FAEDDA; --warn-ink:#855211;
+    --bad-bg:#FBE9E7; --bad-ink:#9B2C1E;
+    --shadow:0 1px 2px rgba(25,27,31,.05),0 6px 18px rgba(25,27,31,.05);
+    --on-accent:#FFFFFF;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+      --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+      --ok-bg:#1C2B21; --ok-ink:#7FBB93; --warn-bg:#2F2513; --warn-ink:#DDAE55;
+      --bad-bg:#2E1A17; --bad-ink:#E29085;
+      --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.28);
+      --on-accent:#15171B;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+    --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+    --ok-bg:#E7F0E9; --ok-ink:#2B5E3B; --warn-bg:#FAEDDA; --warn-ink:#855211;
+    --bad-bg:#FBE9E7; --bad-ink:#9B2C1E;
+    --shadow:0 1px 2px rgba(25,27,31,.05),0 6px 18px rgba(25,27,31,.05);
+    --on-accent:#FFFFFF;
+  }
+  :root[data-theme="dark"]{
+    --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+    --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+    --ok-bg:#1C2B21; --ok-ink:#7FBB93; --warn-bg:#2F2513; --warn-ink:#DDAE55;
+    --bad-bg:#2E1A17; --bad-ink:#E29085;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px rgba(0,0,0,.28);
+    --on-accent:#15171B;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:18px;line-height:1.75;letter-spacing:.005em;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;text-wrap:balance;margin:0 0 .45em}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+  p{margin:.75em 0;max-width:64ch}
+  strong{color:var(--ink)}
+  a{color:var(--accent)}
+  code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em}
+
+  header.cover{padding:70px 0 46px;border-bottom:3px solid var(--accent);background:var(--surface)}
+  .brandmark{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:.95rem;letter-spacing:.03em;color:var(--accent)}
+  h1{font-size:clamp(2.1rem,5.5vw,3.2rem);margin:.3em 0 .25em}
+  .cover .lede{font-size:1.14rem;color:var(--ink-2);max-width:58ch;margin:0}
+  .cover .who{margin-top:22px;font-size:.9rem;color:var(--ink-3)}
+  .backlinks{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .backlinks a{
+    font-size:.78rem;text-decoration:none;color:var(--ink-2);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;
+  }
+  .backlinks a:hover{border-color:var(--accent);color:var(--accent)}
+
+  nav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
+  .navwrap{display:flex;align-items:center;gap:12px;max-width:1000px;margin:0 auto;padding:0 26px}
+  nav .row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1 1 auto;min-width:0}
+  nav .row::-webkit-scrollbar{display:none}
+  nav a{flex:0 0 auto;font-size:.76rem;color:var(--ink-2);text-decoration:none;padding:5px 11px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+  nav a:hover{border-color:var(--accent);color:var(--accent)}
+  .themetoggle{
+    flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+    width:36px;height:32px;padding:0;cursor:pointer;
+    background:var(--surface);color:var(--ink-2);border:1px solid var(--line);border-radius:999px;
+  }
+  .themetoggle:hover{border-color:var(--accent);color:var(--accent)}
+  .themetoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .themetoggle svg{width:17px;height:17px;display:none}
+  :root .themetoggle .ico-moon{display:block}
+  @media (prefers-color-scheme:dark){
+    :root .themetoggle .ico-moon{display:none}
+    :root .themetoggle .ico-sun{display:block}
+  }
+  :root[data-theme="light"] .themetoggle .ico-moon{display:block}
+  :root[data-theme="light"] .themetoggle .ico-sun{display:none}
+  :root[data-theme="dark"] .themetoggle .ico-moon{display:none}
+  :root[data-theme="dark"] .themetoggle .ico-sun{display:block}
+
+  section{padding:50px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .num{
+    display:inline-block;font-family:Fraunces,Georgia,serif;font-size:.8rem;font-weight:600;
+    color:var(--accent);border:1px solid var(--accent);border-radius:999px;
+    width:29px;height:29px;line-height:27px;text-align:center;margin-bottom:14px;
+  }
+  h2{font-size:clamp(1.6rem,3.6vw,2.1rem)}
+  h3{font-size:1.08rem;margin-top:1.9em;color:var(--ink)}
+  .sub{color:var(--ink-2);font-size:1.02rem;max-width:62ch;margin-top:-.2em}
+
+  .note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0;max-width:72ch}
+  .note b{display:block;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+  .note p{margin:.3em 0}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px 22px;box-shadow:var(--shadow)}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin:24px 0}
+
+  /* Fact block */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:12px;margin:24px 0}
+  .fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:15px 16px}
+  .fact b{display:block;font-family:Fraunces,Georgia,serif;font-size:1.45rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent);line-height:1.2}
+  .fact b.sm{font-size:1.12rem;letter-spacing:-.01em}
+  .fact span{display:block;font-size:.8rem;color:var(--ink-2);margin-top:4px;line-height:1.45}
+
+  /* Logo */
+  .logobox{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:22px 0}
+  .logotile{border:1px solid var(--line);border-radius:11px;overflow:hidden}
+  .logotile .stage{display:flex;align-items:center;justify-content:center;padding:26px 22px;min-height:118px}
+  .logotile .stage.on-light{background:#FFFFFF}
+  .logotile .stage.on-dark{background:#080808}
+  .logotile .stage.on-brand{background:#E5007E}
+  .logotile img{max-width:100%;height:auto;display:block}
+  .logotile .cap{font-size:.78rem;color:var(--ink-2);padding:10px 14px;background:var(--surface);border-top:1px solid var(--line)}
+  .wordmark{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:1.15rem;letter-spacing:.04em;text-align:center;line-height:1.3}
+  .wordmark small{display:block;font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;margin-top:5px;opacity:.75}
+
+  /* Colour */
+  .palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:12px;margin:22px 0}
+  .sw{border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--surface)}
+  .sw .chip{height:76px;display:block}
+  .sw .meta{padding:12px 14px}
+  .sw .nm{font-weight:600;font-size:.9rem;line-height:1.3}
+  .sw .hex{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;
+    color:var(--ink-2);margin-top:4px;display:flex;align-items:center;gap:7px;
+  }
+  .sw .use{font-size:.76rem;color:var(--ink-3);margin-top:6px;line-height:1.45}
+  .copy{
+    font:inherit;font-size:.68rem;font-weight:700;cursor:pointer;border:1px solid var(--line);
+    background:var(--surface-2);color:var(--ink-3);border-radius:5px;padding:1px 6px;line-height:1.5;
+  }
+  .copy:hover{border-color:var(--accent);color:var(--accent)}
+  .copy:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .copy.done{color:var(--ok-ink);border-color:var(--ok-ink)}
+
+  .tbl{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
+  th{text-align:left;font-size:.71rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding:11px 14px;background:var(--surface-2);border-bottom:1px solid var(--line-2);font-weight:700}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.5}
+  tr:last-child td{border-bottom:none}
+  td.name{font-weight:600}
+  .demo{
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:6px;padding:5px 12px;font-size:.86rem;font-weight:600;white-space:nowrap;
+  }
+  .ratio{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+  .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .b-aaa{background:var(--ok-bg);color:var(--ok-ink)}
+  .b-aa{background:var(--ok-bg);color:var(--ok-ink)}
+  .b-lg{background:var(--warn-bg);color:var(--warn-ink)}
+  .b-no{background:var(--bad-bg);color:var(--bad-ink)}
+
+  /* Type specimens */
+  .spec{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:22px 24px;margin:16px 0}
+  .spec .lbl{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:10px}
+  .spec .d1{font-family:Fraunces,Georgia,serif;font-size:2.3rem;font-weight:600;line-height:1.15;margin:0}
+  .spec .d2{font-family:Fraunces,Georgia,serif;font-size:1.3rem;font-weight:600;line-height:1.25;margin:0}
+  .spec .d3{font-size:1rem;line-height:1.7;margin:0;color:var(--ink-2);max-width:60ch}
+  .spec .d4{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:0}
+
+  /* Do / Don't */
+  .dd{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin:24px 0}
+  .dd .card.do{border-top:3px solid var(--ok-ink)}
+  .dd .card.dont{border-top:3px solid var(--bad-ink)}
+  .dd h3{margin:0 0 10px;font-size:1.02rem}
+  .dd ul{margin:0;padding-left:19px}
+  .dd li{margin:.5em 0;font-size:.93rem;color:var(--ink-2)}
+  .dd li b{color:var(--ink)}
+
+  /* Boilerplate */
+  .bp{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:18px 20px;margin:14px 0}
+  .bp .head{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .bp .head .t{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--accent);margin-right:auto}
+  .bp p{margin:0;font-size:.94rem;color:var(--ink-2);max-width:none}
+
+  ul.plain{padding-left:20px;max-width:66ch}
+  ul.plain li{margin:.5em 0}
+  .foot{padding:32px 0 56px;color:var(--ink-3);font-size:.8rem}
+  .foot a{color:var(--ink-2)}
+
+  @media print{
+    nav,.themetoggle,.copy,.backlinks{display:none}
+    body{font-size:11pt;background:#fff}
+    section{page-break-inside:avoid;padding:20px 0}
+    .card,.sw,.spec,.bp,.fact{box-shadow:none}
+    header.cover{padding:18px 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="brandmark">HACKETT &amp; HACKETT INTERNATIONAL GROUP</div>
+    <h1>Brand &amp; Press Standards</h1>
+    <p class="lede">A recommended standard for how the group looks, sounds and is described — so that fourteen divisions, nineteen partners and every document in circulation say the same thing.</p>
+    <div class="who">Proposed for adoption · August 2026 · Prepared by James</div>
+    <div class="backlinks">
+      <a href="strategy-briefing.html">← Strategy Briefing</a>
+      <a href="group-strategy-review.html">Strategic Reality Review</a>
+      <a href="index.html">Digital Relaunch Briefing</a>
+    </div>
+  </div>
+</header>
+
+<nav aria-label="Contents">
+  <div class="navwrap">
+    <div class="row">
+      <a href="#s1">1 The Fact Block</a>
+      <a href="#s2">2 Logo</a>
+      <a href="#s3">3 Colour</a>
+      <a href="#s4">4 Contrast</a>
+      <a href="#s5">5 Typography</a>
+      <a href="#s6">6 Naming</a>
+      <a href="#s7">7 Voice</a>
+      <a href="#s8">8 Boilerplate</a>
+      <a href="#s9">9 Press Contact</a>
+      <a href="#s10">10 Adoption</a>
+    </div>
+    <button id="themeToggle" class="themetoggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.2M12 19.4v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.4 12h2.2M19.4 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section id="s1">
+  <div class="wrap">
+    <span class="num">1</span>
+    <h2>The Fact Block</h2>
+    <p class="sub">One set of numbers, owned by one named person, that every document draws from. This is the most important part of the standard, because the current inconsistency is factual before it is visual.</p>
+
+    <div class="facts">
+      <div class="fact"><b>2009</b><span>Founded</span></div>
+      <div class="fact"><b class="sm">07100605</b><span>Companies House number</span></div>
+      <div class="fact"><b>14</b><span>Service divisions</span></div>
+      <div class="fact"><b>19</b><span>Named delivery partners</span></div>
+      <div class="fact"><b>5</b><span>Supporting charities</span></div>
+      <div class="fact"><b>W1W</b><span>Great Portland Street, London</span></div>
+    </div>
+
+    <div class="note">
+      <b>The distinction that keeps getting lost</b>
+      <p><strong>Fourteen is the number of divisions. Nineteen is the number of named partners.</strong> They are not competing versions of the same count. A division is a line of work the group sells; a partner is a named firm that delivers some of it. Nineteen partners sit against seven of the fourteen divisions; the other seven are delivered in house. Any document that implies the group has nineteen divisions, or fourteen partners, is wrong — and a journalist or buyer who checks will find that in a minute.</p>
+    </div>
+
+    <h3>The fourteen divisions, in the order the group structure lists them</h3>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>#</th><th>Division</th><th>Named partners</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="name">Chauffeur Services</td><td>—</td></tr>
+          <tr><td>2</td><td class="name">Event Management &amp; Production</td><td>5</td></tr>
+          <tr><td>3</td><td class="name">Security &amp; Management Services</td><td>2</td></tr>
+          <tr><td>4</td><td class="name">White Glove Services</td><td>3</td></tr>
+          <tr><td>5</td><td class="name">Lifestyle &amp; Concierge</td><td>2</td></tr>
+          <tr><td>6</td><td class="name">Model Management</td><td>—</td></tr>
+          <tr><td>7</td><td class="name">Music &amp; Artist Management</td><td>—</td></tr>
+          <tr><td>8</td><td class="name">Film Production &amp; Support</td><td>2</td></tr>
+          <tr><td>9</td><td class="name">Wedding Services</td><td>—</td></tr>
+          <tr><td>10</td><td class="name">Household Staff &amp; Recruitment</td><td>—</td></tr>
+          <tr><td>11</td><td class="name">Super Car Sales &amp; Self Drive Hire</td><td>—</td></tr>
+          <tr><td>12</td><td class="name">Bespoke Financial Solutions</td><td>1</td></tr>
+          <tr><td>13</td><td class="name">Public Relations / Marketing</td><td>4</td></tr>
+          <tr><td>14</td><td class="name">Real Estate &amp; Property Maintenance</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.82rem;color:var(--ink-3)">Section 6 of the <a href="strategy-briefing.html#s6">Strategy Briefing</a> draws the same structure as a diagram, with every partner and charity named.</p>
+
+    <h3>Where the current materials disagree</h3>
+    <p>These are the live inconsistencies a brand standard exists to close. None are difficult; all of them are visible to anyone checking.</p>
+    <ul class="plain">
+      <li><b>Service count.</b> Thirteen on the onboarding deck (security omitted), fourteen on the website, fifteen in the internal study. <strong>Fourteen is correct.</strong></li>
+      <li><b>Telephone.</b> Three different numbers across the site and internal documents. One number, published everywhere.</li>
+      <li><b>Websites.</b> Two live public sites for one brand. One canonical domain, with the other redirecting.</li>
+      <li><b>Email.</b> Team members using personal accounts alongside company addresses. One domain, one convention.</li>
+      <li><b>Mission statement.</b> The deck's wording describes a different company that shares the Hackett name. Replace with the group's own language.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <span class="num">2</span>
+    <h2>Logo</h2>
+    <p class="sub">The mark as it currently exists, shown on the three backgrounds it has to survive. The recommendation here is mostly about file formats, because that is what is actually blocking consistent use.</p>
+
+    <div class="logobox">
+      <div class="logotile">
+        <div class="stage on-light">
+          <img id="logo-light" alt="Hackett &amp; Hackett wordmark on white"
+               src="https://static.wixstatic.com/media/2a7e67_ca131ed28f22474aab11511d1e315e23~mv2.jpeg/v1/fill/w_980,h_162,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_0842.jpeg">
+        </div>
+        <div class="cap">On white — the primary lockup.</div>
+      </div>
+      <div class="logotile">
+        <div class="stage on-dark">
+          <span class="wordmark" style="color:#E5007E">HACKETT &amp; HACKETT<small style="color:#FFFFFF">International Group</small></span>
+        </div>
+        <div class="cap">On near-black — needs a light or magenta version. A JPEG cannot do this.</div>
+      </div>
+      <div class="logotile">
+        <div class="stage on-brand">
+          <span class="wordmark" style="color:#FFFFFF">HACKETT &amp; HACKETT<small style="color:#FFFFFF">International Group</small></span>
+        </div>
+        <div class="cap">On brand magenta — needs a pure white version.</div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>The blocking issue</b>
+      <p>The only master currently in circulation is a <strong>JPEG with a baked-in white background</strong>, served from the website's media host at a fixed 980&nbsp;×&nbsp;162. That format cannot sit on a dark header, cannot be printed at scale, cannot be given to a venue or a journalist, and cannot be placed on the magenta itself. Everything else in this section is easy once that is fixed.</p>
+    </div>
+
+    <h3>What to commission</h3>
+    <ul class="plain">
+      <li><b>An SVG master,</b> plus transparent PNG at 1×/2×/3×. These are the two formats every request will ask for.</li>
+      <li><b>Three colourways</b> — full colour on light, all-white for dark and magenta backgrounds, and single-colour black for fax-grade reproduction such as embroidery, etching and single-ink print.</li>
+      <li><b>A stacked variant</b> for square placements: social avatars, app icons, stamps on vehicle livery.</li>
+      <li><b>A favicon set</b> derived from the same master, so the browser tab matches the letterhead.</li>
+    </ul>
+
+    <h3>Usage rules</h3>
+    <ul class="plain">
+      <li><b>Clear space.</b> Keep free space on all sides equal to the height of the ampersand. Nothing crosses it — no text, no rule, no photograph edge.</li>
+      <li><b>Minimum size.</b> 120&nbsp;px wide on screen, 30&nbsp;mm wide in print. Below that, use the stacked variant.</li>
+      <li><b>Placement on photography.</b> Only over an area of even tone. If the image is busy, put the logo on a solid block rather than fighting the picture.</li>
+      <li><b>Never</b> stretch, rotate, recolour outside the three approved colourways, add effects, or rebuild the wordmark by typing it in a similar font.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <span class="num">3</span>
+    <h2>Colour</h2>
+    <p class="sub">The group's signature is a single, unusually confident magenta. The recommendation is to keep it unchanged and build a disciplined system around it, rather than dilute it.</p>
+
+    <h3>Core</h3>
+    <div class="palette">
+      <div class="sw">
+        <span class="chip" style="background:#E5007E"></span>
+        <div class="meta">
+          <div class="nm">Hackett Magenta</div>
+          <div class="hex"><span>#E5007E</span><button class="copy" type="button" data-copy="#E5007E">Copy</button></div>
+          <div class="use">The brand signature. Logo, key rules, large headings, buttons, the Club Magenta identity. Use it sparingly, so that it keeps its impact.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#B0125E"></span>
+        <div class="meta">
+          <div class="nm">Magenta Deep</div>
+          <div class="hex"><span>#B0125E</span><button class="copy" type="button" data-copy="#B0125E">Copy</button></div>
+          <div class="use">Body-size text and links on light backgrounds, where the signature magenta is too light to be comfortable to read.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#E85EA0"></span>
+        <div class="meta">
+          <div class="nm">Magenta Light</div>
+          <div class="hex"><span>#E85EA0</span><button class="copy" type="button" data-copy="#E85EA0">Copy</button></div>
+          <div class="use">The same role in reverse: text and links on dark backgrounds, including dark-mode web and dark print collateral.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#080808"></span>
+        <div class="meta">
+          <div class="nm">Hackett Black</div>
+          <div class="hex"><span>#080808</span><button class="copy" type="button" data-copy="#080808">Copy</button></div>
+          <div class="use">The partner to the magenta. Dark backgrounds, vehicle livery, event branding, covers.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Neutrals</h3>
+    <div class="palette">
+      <div class="sw">
+        <span class="chip" style="background:#191B1F"></span>
+        <div class="meta">
+          <div class="nm">Ink</div>
+          <div class="hex"><span>#191B1F</span><button class="copy" type="button" data-copy="#191B1F">Copy</button></div>
+          <div class="use">Body text on light. Softer than pure black over long reading.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#53575E"></span>
+        <div class="meta">
+          <div class="nm">Ink Secondary</div>
+          <div class="hex"><span>#53575E</span><button class="copy" type="button" data-copy="#53575E">Copy</button></div>
+          <div class="use">Supporting copy, captions, table detail.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#83878E"></span>
+        <div class="meta">
+          <div class="nm">Ink Muted</div>
+          <div class="hex"><span>#83878E</span><button class="copy" type="button" data-copy="#83878E">Copy</button></div>
+          <div class="use">Labels and footnotes only. Never body text.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#E6E3DE"></span>
+        <div class="meta">
+          <div class="nm">Line</div>
+          <div class="hex"><span>#E6E3DE</span><button class="copy" type="button" data-copy="#E6E3DE">Copy</button></div>
+          <div class="use">Rules, borders, table dividers.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#FBFAF8;box-shadow:inset 0 0 0 1px var(--line)"></span>
+        <div class="meta">
+          <div class="nm">Paper</div>
+          <div class="hex"><span>#FBFAF8</span><button class="copy" type="button" data-copy="#FBFAF8">Copy</button></div>
+          <div class="use">Page background. Warmer than white, which suits the serif and the magenta.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--line)"></span>
+        <div class="meta">
+          <div class="nm">Surface</div>
+          <div class="hex"><span>#FFFFFF</span><button class="copy" type="button" data-copy="#FFFFFF">Copy</button></div>
+          <div class="use">Cards and panels sitting on Paper.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Support</h3>
+    <p>Three restrained accents for charts, status and wayfinding. They exist so that nothing has to borrow the magenta and weaken it.</p>
+    <div class="palette">
+      <div class="sw">
+        <span class="chip" style="background:#2F6F9F"></span>
+        <div class="meta">
+          <div class="nm">Steel</div>
+          <div class="hex"><span>#2F6F9F</span><button class="copy" type="button" data-copy="#2F6F9F">Copy</button></div>
+          <div class="use">Second data series, informational notes.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#2B5E3B"></span>
+        <div class="meta">
+          <div class="nm">Green</div>
+          <div class="hex"><span>#2B5E3B</span><button class="copy" type="button" data-copy="#2B5E3B">Copy</button></div>
+          <div class="use">Confirmed, complete, on track. Also the charity tier.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <span class="chip" style="background:#855211"></span>
+        <div class="meta">
+          <div class="nm">Amber</div>
+          <div class="hex"><span>#855211</span><button class="copy" type="button" data-copy="#855211">Copy</button></div>
+          <div class="use">Needs attention, awaiting confirmation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>The one rule that protects the magenta</b>
+      <p>It is a signature colour, not a body colour. On a page, it should appear in <strong>one or two places</strong>: the mark, and one deliberate emphasis. When magenta is used for headings, links, buttons, rules and highlights all at once, it stops signalling anything. Let the near-black carry the bulk of the page and reserve the magenta for what should be noticed first.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <span class="num">4</span>
+    <h2>Contrast</h2>
+    <p class="sub">Every pairing below is measured in the browser as this page loads, against the WCAG 2.1 formula. No ratio below is asserted from memory; each is computed from the hex values in section 3.</p>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Pairing</th><th>Sample</th><th>Ratio</th><th>Normal text</th><th>Large text &amp; UI</th></tr></thead>
+        <tbody id="contrast-rows"></tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>How to read this</b>
+      <p>WCAG AA asks for <strong>4.5:1</strong> for normal text and <strong>3:1</strong> for large text (roughly 24&nbsp;px, or 19&nbsp;px bold) and for interface components. AAA asks for 7:1. The practical consequence for this brand: the signature magenta is comfortable for headings, buttons and the logo, but <em>not</em> for body-size text, which is the reason Magenta Deep and Magenta Light exist.</p>
+    </div>
+
+    <div class="note" style="border-left-color:var(--warn-ink);background:var(--warn-bg)">
+      <b style="color:var(--warn-ink)">One pairing to watch</b>
+      <p style="color:var(--ink-2)"><strong>Hackett Magenta on Hackett Black measures 4.42:1</strong> — it clears the 3:1 bar for large text and interface elements, but sits just under the 4.5:1 needed for body copy. This matters because it is the group's most characteristic pairing: magenta on near-black is the look of the group structure document itself. The remedy is not to abandon the pairing, but to limit it: keep magenta on black for headings, rules, the mark and large figures, and set body copy in <strong>Magenta Light (#E85EA0)</strong>, which measures 6.24:1 on the same background and looks like the same colour at text size.</p>
+    </div>
+
+    <p style="font-size:.82rem;color:var(--ink-3)">Accessibility here is not only a legal or ethical position. Corporate and public-sector buyers increasingly ask for a statement of conformance during procurement, and a group that already meets AA can answer that question in one line instead of starting a project.</p>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <span class="num">5</span>
+    <h2>Typography</h2>
+    <p class="sub">A serif for authority and a grotesque for clarity. Both are open-licence, so there is no per-seat cost, no licence to renew, and nothing to stop a partner or printer using them correctly.</p>
+
+    <div class="spec">
+      <div class="lbl">Display &amp; headings — Fraunces, 600</div>
+      <p class="d1">Extravagantly extraordinary, every time</p>
+    </div>
+    <div class="spec">
+      <div class="lbl">Subheadings — Fraunces, 600</div>
+      <p class="d2">Fourteen divisions, nineteen named partners, one standard</p>
+    </div>
+    <div class="spec">
+      <div class="lbl">Body — Hanken Grotesk, 400 / 1.75</div>
+      <p class="d3">The valuable position is not owning cars, jets or venues, but being the one number a client calls, holding the relationship, and knowing who to trust with each job. That is built from access and judgement, which is what makes it difficult for a competitor to copy.</p>
+    </div>
+    <div class="spec">
+      <div class="lbl">Eyebrow &amp; label — Hanken Grotesk, 700, tracked</div>
+      <p class="d4">Established 2009 · London W1W</p>
+    </div>
+
+    <h3>Scale and setting</h3>
+    <ul class="plain">
+      <li><b>Line length.</b> 60–70 characters. Long measures are the most common reason a well-typeset page still feels hard to read.</li>
+      <li><b>Line height.</b> 1.7–1.8 for body, 1.2 for headings.</li>
+      <li><b>Weights.</b> Two only — 400 and 600/700. A third weight adds no meaning and costs load time.</li>
+      <li><b>Substitutes.</b> Where the fonts cannot be installed — email signatures, Word templates, a partner's system — use <strong>Georgia</strong> for the serif and <strong>Segoe UI</strong> or <strong>Helvetica</strong> for the sans. Specify these in the template so nobody improvises.</li>
+      <li><b>Never</b> set body copy in the display serif, and never letter-space lowercase text.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <span class="num">6</span>
+    <h2>Naming &amp; House Style</h2>
+    <p class="sub">Small decisions, made once. Most brand inconsistency comes from several people each making a reasonable guess in the absence of a stated rule, rather than from any design failure.</p>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Item</th><th>Correct</th><th>Avoid</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Full legal name</td><td>Hackett &amp; Hackett International Group Limited</td><td>Hackett and Hackett Ltd; H&amp;H International</td></tr>
+          <tr><td class="name">First mention in copy</td><td>Hackett &amp; Hackett International Group</td><td>Hackett&amp;Hackett; HACKETT &amp; HACKETT in running text</td></tr>
+          <tr><td class="name">Thereafter</td><td>Hackett &amp; Hackett</td><td>H&amp;H, except in internal documents</td></tr>
+          <tr><td class="name">Ampersand</td><td>Always <code>&amp;</code>, always spaced</td><td>"and"; unspaced <code>&amp;</code></td></tr>
+          <tr><td class="name">Divisions</td><td>Named exactly as the group structure names them, in title case</td><td>Inventing shorter names per document</td></tr>
+          <tr><td class="name">Partners</td><td>"delivered with our partner, [Name]"</td><td>Presenting partner capability as in house</td></tr>
+          <tr><td class="name">Club Magenta</td><td>Title case, no italics, a product of Lifestyle &amp; Concierge</td><td>Club magenta; treating it as a division</td></tr>
+          <tr><td class="name">Dates</td><td>4 August 2026</td><td>08/04/26 — ambiguous to half the world</td></tr>
+          <tr><td class="name">Money</td><td>£1,250 · £2.9m</td><td>£1250.00; GBP 1,250</td></tr>
+          <tr><td class="name">Phone</td><td>One published number, in one format</td><td>Three numbers across three documents</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="wrap">
+    <span class="num">7</span>
+    <h2>Voice</h2>
+    <p class="sub">How the group should sound in writing. The tone follows from what the business actually sells, which is discretion.</p>
+
+    <div class="cols">
+      <div class="card">
+        <h3>The register</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);margin-top:0"><strong>Assured, specific, unhurried.</strong> The reader is usually an assistant, a household manager or a private office — someone competent and short of time. Write for them: what it is, what it costs, what happens next.</p>
+        <p style="font-size:.94rem;color:var(--ink-2)">Confidence in this market reads as restraint. Buyers respond better to a listed certification than to a string of adjectives.</p>
+      </div>
+      <div class="card">
+        <h3>The discipline</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);margin-top:0"><strong>Claim only what can be checked.</strong> Every superlative invites verification, and verification is where a premium brand is most exposed. Where a partner delivers, say so — "delivered with our certified partners" is a stronger sentence than an unevidenced in-house claim, and it has the advantage of being true.</p>
+      </div>
+    </div>
+
+    <div class="dd">
+      <div class="card do">
+        <h3>Do</h3>
+        <ul>
+          <li><b>Name the standard.</b> "SIA-licensed close protection" beats "the very best in security."</li>
+          <li><b>Give the number.</b> Seventeen years, 4.6★ across 49 reviews, 100+ countries.</li>
+          <li><b>Attribute delivery honestly.</b> "Arranged through our aviation partner."</li>
+          <li><b>Answer the practical question.</b> Response times, vetting, insurance, what happens if a flight moves.</li>
+          <li><b>Write short sentences.</b> They read as certainty.</li>
+        </ul>
+      </div>
+      <div class="card dont">
+        <h3>Don't</h3>
+        <ul>
+          <li><b>Name clients, households or venues</b> — including by strong implication. This is the rule most often broken by accident, and the most damaging to break.</li>
+          <li><b>Use "royal", "celebrity" or "VIP" as proof.</b> Unverifiable, and it trades on the discretion the client is paying for.</li>
+          <li><b>Stack adjectives.</b> "Bespoke luxury premium elite" describes nothing.</li>
+          <li><b>Advertise a division with no evidence behind it.</b> An unevidenced claim costs more credibility than the line earns.</li>
+          <li><b>Improvise the boilerplate.</b> Use section 8.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>On discretion, specifically</b>
+      <p>The founder's access is the group's most valuable asset and the one that marketing can most easily destroy. A case study that a knowledgeable reader can decode is a breach, whether or not a name appears. When in doubt, describe the <em>problem solved</em> and the <em>standard applied</em>, never the client. In this market reputation is carried by introduction rather than by published work.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="wrap">
+    <span class="num">8</span>
+    <h2>Boilerplate</h2>
+    <p class="sub">Three approved descriptions. Every claim in them is checkable against Companies House, the group structure or published reviews. Copy them rather than writing new ones.</p>
+
+    <div class="bp">
+      <div class="head"><span class="t">One line — 22 words</span><button class="copy" type="button" data-copy-el="bp1">Copy</button></div>
+      <p id="bp1">Hackett &amp; Hackett International Group is a London-based lifestyle management group, established in 2009, providing chauffeur, security, events and private staffing services worldwide.</p>
+    </div>
+
+    <div class="bp">
+      <div class="head"><span class="t">Short — 58 words</span><button class="copy" type="button" data-copy-el="bp2">Copy</button></div>
+      <p id="bp2">Hackett &amp; Hackett International Group Limited is a London-based lifestyle management group, established in 2009 and based in Great Portland Street, W1W. It provides chauffeur and ground transport, SIA-licensed close protection, event management and production, weddings, household staffing and concierge services across fourteen divisions, delivered directly and with a network of nineteen named partners in over 100 countries.</p>
+    </div>
+
+    <div class="bp">
+      <div class="head"><span class="t">Full — 118 words</span><button class="copy" type="button" data-copy-el="bp3">Copy</button></div>
+      <p id="bp3">Hackett &amp; Hackett International Group Limited (Companies House 07100605) is a London-based lifestyle management group founded in 2009 by Edwin Hackett, operating from Great Portland Street, W1W. The group works across fourteen service divisions — including chauffeur and ground transport, SIA-licensed security and close protection, event management and production, weddings, film production support, household staffing and concierge — delivered directly and through a network of nineteen named delivery partners covering more than 100 countries. The model is deliberately asset-light: the group holds the client relationship and selects who delivers each job. It supports five charities, including Missing People, Amnesty International and the Film + TV Charity. Most new work arrives by personal recommendation.</p>
+    </div>
+
+    <div class="note">
+      <b>Two words to retire</b>
+      <p><strong>"International Group"</strong> is accurate as a legal name and is fine in the boilerplate. It becomes a liability when paired with claims the filings do not support. Until the accounts show it, avoid pairing the name with language implying scale — "global operation", "worldwide offices", "our teams around the world". The group's genuine strength is a London firm with international reach through named partners, which is the more defensible claim.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="wrap">
+    <span class="num">9</span>
+    <h2>Press Contact &amp; Assets</h2>
+    <p class="sub">What a journalist, venue, partner or procurement team should be able to get without asking twice.</p>
+
+    <div class="cols">
+      <div class="card">
+        <h3>The single point of contact</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);margin-top:0">One named person owns press, one address receives it, and it is published on the site. A press enquiry landing in a shared operational inbox is the most common way a good story is lost.</p>
+        <p style="font-size:.94rem;color:var(--ink-2)">Recommended: <code>press@</code> on the canonical domain, forwarding to the named owner, with a stated response time of one working day.</p>
+      </div>
+      <div class="card">
+        <h3>The asset pack</h3>
+        <p style="font-size:.94rem;color:var(--ink-2);margin-top:0">A single link, kept current, containing everything below. Not a set of attachments emailed on request.</p>
+      </div>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Asset</th><th>Format</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Logo, three colourways</td><td>SVG + transparent PNG @1×/2×/3×</td><td><span class="badge b-no">To commission</span></td></tr>
+          <tr><td class="name">Stacked logo variant</td><td>SVG + PNG</td><td><span class="badge b-no">To commission</span></td></tr>
+          <tr><td class="name">Boilerplate, three lengths</td><td>Plain text</td><td><span class="badge b-aa">Section 8</span></td></tr>
+          <tr><td class="name">Fact block</td><td>Plain text</td><td><span class="badge b-aa">Section 1</span></td></tr>
+          <tr><td class="name">Colour and type standards</td><td>This page</td><td><span class="badge b-aa">Ready</span></td></tr>
+          <tr><td class="name">Founder biography and portrait</td><td>200 words + high-resolution image</td><td><span class="badge b-lg">To write</span></td></tr>
+          <tr><td class="name">Fleet and service photography</td><td>High-resolution, cleared for use</td><td><span class="badge b-lg">To shoot</span></td></tr>
+          <tr><td class="name">Licence and accreditation evidence</td><td>SIA, TfL / PCO, insurance</td><td><span class="badge b-lg">To assemble</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>Photography</b>
+      <p>Photography is the one asset that cannot be borrowed. Stock imagery is recognisable to the buyers this group most wants, and it undercuts a discretion-led promise. One day of real photography — vehicles, a protection officer, an event build, the London street — replaces every stock image across both sites and the whole asset pack, which makes it the highest-return item on this list.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s10">
+  <div class="wrap">
+    <span class="num">10</span>
+    <h2>Adoption</h2>
+    <p class="sub">Suggested order. The first three cost nothing but a decision.</p>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Step</th><th>Action</th><th>Effort</th></tr></thead>
+        <tbody>
+          <tr><td class="name">1</td><td>Name the owner of the fact block and the press address</td><td>One conversation</td></tr>
+          <tr><td class="name">2</td><td>Settle one telephone number and one email convention, and correct them everywhere</td><td>A morning</td></tr>
+          <tr><td class="name">3</td><td>Replace the service list in every document with the fourteen divisions, named as in section 1</td><td>A morning</td></tr>
+          <tr><td class="name">4</td><td>Commission the logo masters in SVG and transparent PNG, three colourways</td><td>Small design cost</td></tr>
+          <tr><td class="name">5</td><td>Rebuild the letterhead, deck template and email signature on this palette and type</td><td>A day</td></tr>
+          <tr><td class="name">6</td><td>Publish the asset pack behind one link and put it in the site footer</td><td>Half a day</td></tr>
+          <tr><td class="name">7</td><td>Commission photography and retire the stock imagery</td><td>One shoot day</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>Scope</b>
+      <p>None of this changes what the business does or how a client reaches it. These are recommendations about consistency: what makes fourteen divisions, nineteen partners and one founder read as one company from the outside. They are offered for discussion, not as decisions taken.</p>
+    </div>
+
+    <div class="foot">
+      Hackett &amp; Hackett International Group Limited &middot; Companies House 07100605 &middot; August 2026<br>
+      Recommended standards prepared for discussion by James. Colour and structural facts are drawn from the group structure document and a direct review of both Hackett &amp; Hackett websites. Contrast ratios are computed in the browser using the WCAG&nbsp;2.1 relative-luminance formula. <strong>This is an independent proposal and is not an official Hackett &amp; Hackett publication.</strong> The logo is reproduced from the company's own website to illustrate the recommendations.
+    </div>
+  </div>
+</section>
+
+<script>
+/* Theme toggle — shares the hh-theme key with the other Hackett pages. */
+(function () {
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  function current() {
+    var set = document.documentElement.getAttribute('data-theme');
+    if (set) return set;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function label() {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
+    btn.setAttribute('title', 'Switch to ' + next + ' theme');
+  }
+  label();
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('hh-theme', next); } catch (e) {}
+    label();
+  });
+})();
+
+/* Copy buttons — hex values and boilerplate. */
+(function () {
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = b.getAttribute('data-copy-el');
+      var text = el ? (document.getElementById(el) || {}).textContent : b.getAttribute('data-copy');
+      if (!text) return;
+      var done = function () {
+        var was = b.textContent;
+        b.textContent = 'Copied'; b.classList.add('done');
+        setTimeout(function () { b.textContent = was; b.classList.remove('done'); }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text.trim()).then(done, function () {});
+      }
+    });
+  });
+})();
+
+/* Contrast table — measured, not asserted.
+   WCAG 2.1 relative luminance, then (L1+0.05)/(L2+0.05). */
+(function () {
+  var body = document.getElementById('contrast-rows');
+  if (!body) return;
+
+  function lum(hex) {
+    var h = hex.replace('#', '');
+    var rgb = [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16) / 255; });
+    var lin = rgb.map(function (c) {
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * lin[0] + 0.7152 * lin[1] + 0.0722 * lin[2];
+  }
+  function ratio(a, b) {
+    var la = lum(a), lb = lum(b);
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+  }
+
+  var PAIRS = [
+    ['Hackett Magenta on white',        '#E5007E', '#FFFFFF', 'Headings, buttons, the mark'],
+    ['White on Hackett Magenta',        '#FFFFFF', '#E5007E', 'Buttons, banners, the Club Magenta panel'],
+    ['Hackett Magenta on Hackett Black','#E5007E', '#080808', 'Dark covers and event branding'],
+    ['Magenta Deep on white',           '#B0125E', '#FFFFFF', 'Links and emphasis at body size, light'],
+    ['Magenta Deep on Paper',           '#B0125E', '#FBFAF8', 'The same, on the page background'],
+    ['Magenta Light on Hackett Black',  '#E85EA0', '#080808', 'Links and emphasis at body size, dark'],
+    ['Ink on Paper',                    '#191B1F', '#FBFAF8', 'Body text, light'],
+    ['Ink Secondary on Paper',          '#53575E', '#FBFAF8', 'Supporting copy and captions'],
+    ['Ink Muted on Paper',              '#83878E', '#FBFAF8', 'Labels and footnotes only'],
+    ['Steel on white',                  '#2F6F9F', '#FFFFFF', 'Second data series'],
+    ['Green on white',                  '#2B5E3B', '#FFFFFF', 'Confirmed / on track'],
+    ['Amber on white',                  '#855211', '#FFFFFF', 'Needs attention']
+  ];
+
+  function badge(r, large) {
+    var need = large ? 3 : 4.5;
+    if (!large && r >= 7)    return '<span class="badge b-aaa">AAA</span>';
+    if (large && r >= 4.5)   return '<span class="badge b-aaa">AAA</span>';
+    if (r >= need)           return '<span class="badge b-aa">AA</span>';
+    return '<span class="badge b-no">Fails</span>';
+  }
+
+  var html = PAIRS.map(function (p) {
+    var name = p[0], fg = p[1], bg = p[2], use = p[3];
+    var r = ratio(fg, bg);
+    return '<tr>' +
+      '<td class="name">' + name + '<br><span style="font-weight:400;font-size:.78rem;color:var(--ink-3)">' + use + '</span></td>' +
+      '<td><span class="demo" style="color:' + fg + ';background:' + bg + ';box-shadow:inset 0 0 0 1px rgba(128,128,128,.35)">Aa</span></td>' +
+      '<td class="ratio">' + r.toFixed(2) + ':1</td>' +
+      '<td>' + badge(r, false) + '</td>' +
+      '<td>' + badge(r, true) + '</td>' +
+      '</tr>';
+  }).join('');
+
+  body.innerHTML = html;
+})();
+
+/* If the logo cannot be fetched, fall back to a set wordmark rather than a broken image. */
+(function () {
+  var img = document.getElementById('logo-light');
+  if (!img) return;
+  img.addEventListener('error', function () {
+    var span = document.createElement('span');
+    span.className = 'wordmark';
+    span.style.color = '#E5007E';
+    span.innerHTML = 'HACKETT &amp; HACKETT<small style="color:#191B1F">International Group</small>';
+    img.replaceWith(span);
+    var cap = document.querySelector('.logotile .cap');
+    if (cap) cap.textContent = 'On white — logo could not be loaded from the website; set wordmark shown.';
+  });
+})();
+</script>
+</body>
+</html>
