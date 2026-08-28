@@ -1,0 +1,421 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hackett &amp; Hackett Investor Overview</title>
+<meta name="description" content="Investor overview for Hackett &amp; Hackett International Group Limited: one relationship, sixteen businesses, seventeen years of access.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' x='16' font-family='Georgia,serif' font-size='22' fill='%23B0125E' text-anchor='middle'%3E%26%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('hh-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+:root{
+  --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+  --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+  --on-accent:#FFFFFF;
+  --e-move:#B0125E; --e-make:#8A5A12; --e-serve:#2B6B57; --e-broker:#2F6F9F;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+  --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+  --on-accent:#15171B;
+  --e-move:#E85EA0; --e-make:#D9A55A; --e-serve:#6FBF9F; --e-broker:#6FA9DC;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}}
+:root[data-theme="dark"]{
+  --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+  --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+  --on-accent:#15171B;
+  --e-move:#E85EA0; --e-make:#D9A55A; --e-serve:#6FBF9F; --e-broker:#6FA9DC;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-snap-type:y mandatory;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+
+.slide{
+  min-height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(30px,5vh,64px) clamp(28px,7vw,130px);
+  border-bottom:1px solid var(--line);position:relative;
+  font-size:clamp(.95rem,min(1.25vw,1.95vh),1.45rem);
+  gap:clamp(10px,1.7vh,20px);
+}
+.kick{
+  font-family:Fraunces,Georgia,serif;font-size:.88em;font-style:italic;
+  color:var(--sc,var(--accent));
+}
+.slide h2{font-size:2.5em;color:var(--ink);letter-spacing:-.02em;font-variation-settings:"opsz" 144}
+.slide h1{font-size:3.4em;color:var(--ink);letter-spacing:-.025em;font-variation-settings:"opsz" 144}
+.rule{height:2px;width:48px;background:var(--sc,var(--accent))}
+.slide p{margin:0;color:var(--ink-2);font-size:1.02em;max-width:62ch;line-height:1.55}
+.slide p b,li b,td b{color:var(--ink);font-weight:600}
+.big{font-family:Fraunces,Georgia,serif;font-size:1.85em;line-height:1.3;color:var(--ink);max-width:24ch}
+.sub{color:var(--ink-3);font-size:.88em}
+
+/* Rules and space, not boxes. A bordered card on every item is the tell. */
+.cols{display:grid;gap:0 clamp(24px,3vw,44px);grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{border-top:1px solid var(--line);padding:clamp(9px,1.4vh,14px) 0 clamp(10px,1.5vh,15px)}
+.card h4{font-size:1.02em;margin-bottom:.25em;color:var(--ink)}
+.card p{font-size:.88em;line-height:1.5}
+.card .tiny{font-size:.76em;color:var(--sc,var(--accent));margin-top:6px;display:block}
+
+.stats{display:flex;flex-wrap:wrap;gap:0 clamp(22px,3.6vw,54px)}
+.stat{border-top:1px solid var(--line);padding:10px 0 0;min-width:104px}
+.stat .k{
+  font-family:Fraunces,Georgia,serif;font-size:2.7em;font-weight:600;color:var(--ink);line-height:1;
+  font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.025em;font-variation-settings:"opsz" 144;
+}
+.stat .l{font-size:.74em;color:var(--ink-3);margin-top:5px}
+
+.note{border-top:1px solid var(--sc,var(--accent));padding:10px 0 0;font-size:.92em;color:var(--ink-2);max-width:70ch}
+.note b{color:var(--ink)}
+
+/* Revenue flow. Here containment is the point, so the boxes stay, but they
+   are hairline and square rather than shadowed cards. */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.flow .fbox{flex:1 1 190px;border:1px solid var(--line);padding:13px 16px}
+.flow .fbox.mid{border-color:var(--accent);border-width:1px 1px 2px}
+.flow .fbox h4{font-size:.98em;margin-bottom:.25em}
+.flow .fbox.mid h4{color:var(--accent)}
+.flow .fbox p{font-size:.83em;line-height:1.45}
+.flow .arrow{display:flex;align-items:center;color:var(--ink-3);font-size:1.1em;flex:0 0 auto;padding:0 12px}
+@media (max-width:760px){.flow .arrow{transform:rotate(90deg);padding:8px 0}}
+
+/* Each engine is a column under a coloured rule, not a card. */
+.engines{display:grid;gap:0 clamp(20px,2.6vw,38px);grid-template-columns:repeat(auto-fit,minmax(205px,1fr))}
+.eng{border-top:2px solid var(--ec);padding:11px 0 0}
+.eng h4{color:var(--ec);font-size:1.14em}
+.eng .cnt{font-size:.74em;color:var(--ink-3);margin-bottom:4px;font-variant-numeric:tabular-nums lining-nums}
+.eng ul{margin:7px 0 0;padding:0;list-style:none}
+.eng li{font-size:.85em;color:var(--ink-2);margin:3px 0;line-height:1.4}
+
+.field{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:0 clamp(20px,2.6vw,34px)}
+.field div{border-top:1px solid var(--line);padding:8px 0 9px}
+.field .who{font-family:Fraunces,Georgia,serif;font-size:.98em;color:var(--ink);display:block}
+.field .what{font-size:.83em;color:var(--ink-3);line-height:1.45}
+
+/* Chrome */
+#bar{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:60}
+#bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s ease}
+#hud{position:fixed;bottom:16px;right:20px;display:flex;gap:8px;align-items:center;z-index:60}
+.btn{font:inherit;font-size:.72rem;font-weight:600;color:var(--ink-2);background:var(--surface);
+  border:1px solid var(--line);border-radius:0;padding:6px 12px;cursor:pointer;text-decoration:none;
+  transition:transform 160ms var(--ease-out),border-color 160ms ease,color 160ms ease}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.btn:hover{border-color:var(--accent);color:var(--accent)}}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+#num{font-size:.72rem;color:var(--ink-3);letter-spacing:.12em;font-weight:600}
+#dots{position:fixed;left:20px;bottom:16px;display:flex;gap:6px;z-index:60}
+#dots button{width:8px;height:8px;padding:0;border-radius:50%;border:1.5px solid var(--line-2);
+  background:transparent;cursor:pointer}
+#dots button.on{background:var(--accent);border-color:var(--accent);transform:scale(1.3)}
+#dots button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+@media print{
+  @page{size:landscape;margin:12mm}
+  :root,:root[data-theme="dark"],:root[data-theme="light"]{
+    --bg:#FFF;--surface:#FFF;--surface-2:#FFF;--ink:#000;--ink-2:#2A2D33;--ink-3:#5C6068;
+    --accent:#8E0F4D;--accent-soft:#FBF2F6;--line:#BFBCB7;--line-2:#9E9A94;
+    --e-move:#8E0F4D;--e-make:#6E4710;--e-serve:#215544;--e-broker:#245A80;--shadow:none;
+  }
+  html{scroll-snap-type:none}
+  #bar,#hud,#dots{display:none !important}
+  .slide{min-height:auto;break-after:page;page-break-after:always;border:0;padding:0 0 10mm;font-size:11pt}
+  .card,.eng,.fbox,.note{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+</style>
+
+<div id="bar"><i></i></div>
+<nav id="dots" aria-label="Slide navigation"></nav>
+<div id="hud">
+  <span id="num"></span>
+  <button class="btn" id="theme-btn" type="button">Theme</button>
+  <button class="btn" id="print-btn" type="button">Print</button>
+  <a class="btn" href="tapestry.html">Tapestry</a>
+</div>
+
+<main id="deck"></main>
+
+<noscript><div style="padding:40px;font-family:Georgia,serif"><h1>Investor Overview</h1>
+<p>This deck draws itself from a data block and needs JavaScript enabled.</p></div></noscript>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   DATA
+   ──────────────────────────────────────────────────────────────────────────
+   KEEP IN STEP WITH tapestry.html. The division list below is the only thing
+   duplicated between the two files: if you add a division there, add its name
+   and engine here too. Everything else on this deck is narrative.
+   The counts are computed, never typed, so they cannot drift within this file.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const CO = {
+  legal:"Hackett & Hackett International Group Limited",
+  short:"Hackett & Hackett",
+  strap:"Lifestyle Management & Production",
+  founded:2009, years:17, crn:"07100605",
+  address:"167-169 Great Portland Street, London W1W 5PF",
+  phone:"+44 (0) 333 123 0773",
+  email:"service@hackettandhackettinternationalgrouplimited.com",
+  closing:"Extravagantly extraordinary, every time."
+};
+
+const ENGINES = [
+  { key:"move",   name:"Move",   line:"Getting the principal and their assets there, unnoticed.",
+    divisions:["Chauffeur Services","Security & Management Services","White Glove Services"] },
+  { key:"make",   name:"Make",   line:"Producing the thing itself.",
+    divisions:["Event Management & Production","Film Production & Support","Music & Artist Management","Model Management","Public Relations / Marketing"] },
+  { key:"serve",  name:"Serve",  line:"Running the life around the client.",
+    divisions:["Lifestyle & Concierge","Wedding Services","Household Staff & Recruitment"] },
+  { key:"broker", name:"Broker", line:"Standing between a buyer and a seller.",
+    divisions:["Bespoke Financial Solutions","Real Estate & Property Maintenance","Super Car Sales & Self Drive Hire","Business & Asset Brokerage","Social Housing"] }
+];
+
+const TOTAL_DIVISIONS = ENGINES.reduce((s,e) => s + e.divisions.length, 0);
+const PARTNERS = 19, PARTNER_DIVISIONS = 7, CHARITIES = 5;
+
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SLIDES — the order an investor expects, which is not the tapestry's order
+   ══════════════════════════════════════════════════════════════════════════ */
+const SLIDES = [
+
+{ c:"move", html:`
+  <span class="kick">Investor Overview. Private &amp; Confidential</span>
+  <h1>${CO.short}</h1>
+  <div class="rule"></div>
+  <p class="big">${CO.strap}</p>
+  <p>Founded ${CO.founded}. Central London. ${TOTAL_DIVISIONS} businesses under one name</p>
+  <p class="sub">${CO.legal}. Companies House ${CO.crn}. ${CO.address}</p>` },
+
+{ c:"move", kick:"The proposition", html:`
+  <h2>One relationship.<br>${TOTAL_DIVISIONS} businesses.<br>${CO.years} years of access.</h2>
+  <div class="rule"></div>
+  <p>A high-net-worth client runs a dozen suppliers. One for the car, one for the event, one for the
+  house, one for the property, one for the security. Each has to be found, briefed and trusted
+  separately.</p>
+  <p><b>${CO.short} is the single relationship that covers all of it</b>, held to one standard,
+  delivered through operations it owns and partners it names.</p>` },
+
+{ c:"move", kick:"What we are", html:`
+  <h2>An umbrella house, not a conglomerate</h2>
+  <div class="rule"></div>
+  <p>The model is the one LVMH and Virgin proved. The brand and the client relationship stay at the
+  centre. Delivery runs through owned operations where the standard must be controlled, and through
+  named partners everywhere else.</p>
+  <div class="cols">
+    <div class="card"><h4>What we own</h4><p>The chauffeur business, operated directly. It is the origin of the company and the standard everything else is measured against.</p><span class="tiny">Owned and operated</span></div>
+    <div class="card"><h4>What we broker</h4><p>Every other line, delivered with named partners. We carry the client, the specification and the quality control, and earn on the introduction and the oversight.</p><span class="tiny">${PARTNERS} named partners</span></div>
+  </div>
+  <div class="note"><b>Why it compounds.</b> Overhead stays flat while the portfolio widens. A new
+  division adds revenue without adding a payroll, and every client of one line is a warm introduction
+  to the other ${TOTAL_DIVISIONS - 1}.</div>` },
+
+{ c:"move", kick:"How the business earns", html:`
+  <h2>Revenue architecture</h2>
+  <div class="rule"></div>
+  <div class="flow">
+    <div class="fbox"><h4>Client</h4><p>Arrives for one thing, most often the car. Stays for the relationship.</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox mid"><h4>${CO.short}</h4><p>Brand, booking, specification, quality control. The relationship never leaves the house.</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="fbox"><h4>Delivery network</h4><p>Owned chauffeur operation, plus ${PARTNERS} named partners across security, events, aviation, film, PR and finance.</p></div>
+  </div>
+  <div class="note"><b>Two revenue forms.</b> Margin on owned operations, and commission on everything
+  placed through the network. The commission is earned on the introduction, the specification and the
+  oversight, without carrying the delivery cost.</div>` },
+
+{ c:"make", kick:"The portfolio", html:`
+  <h2>Four engines, ${TOTAL_DIVISIONS} businesses</h2>
+  <div class="rule"></div>
+  <p>Grouped by what each actually sells, so the portfolio reads as a house rather than a list.
+  A new division joins an engine rather than lengthening a list.</p>
+  <div class="engines">${ENGINES.map(e => `
+    <div class="eng" style="--ec:var(--e-${e.key})">
+      <div class="cnt">${e.divisions.length} division${e.divisions.length > 1 ? "s" : ""}</div>
+      <h4>${e.name}</h4>
+      <p style="font-size:.85em;color:var(--ink-2);margin:.2em 0 0">${esc(e.line)}</p>
+      <ul>${e.divisions.map(d => `<li>${esc(d)}</li>`).join("")}</ul>
+    </div>`).join("")}
+  </div>` },
+
+{ c:"move", kick:"The core", html:`
+  <h2>The car is the front door</h2>
+  <div class="rule"></div>
+  <p>Chauffeur services are the origin and the core operation. This is the only line the group owns
+  and runs itself, and it is also the introduction. A client who books a single transfer meets the
+  standard first, and the other ${TOTAL_DIVISIONS - 1} lines afterwards.</p>
+  <p><b>Where we sit against the field.</b></p>
+  <div class="field">
+    <div><span class="who">Uber</span><span class="what">Scale and price. No relationship.</span></div>
+    <div><span class="who">Addison Lee</span><span class="what">United Kingdom corporate volume.</span></div>
+    <div><span class="who">Blacklane</span><span class="what">Global marketplace, standardised.</span></div>
+    <div><span class="who">Wheely</span><span class="what">App-first premium, etiquette-led.</span></div>
+  </div>
+  <div class="note">Every firm above sells a ride. None can take the same call and also produce the
+  event, staff the household, cast the film or place the property. <b>That is a relationship problem,
+  not a software problem, which is why software competitors cannot copy it.</b></div>` },
+
+{ c:"serve", kick:"What is already real", html:`
+  <h2>Seventeen years, independently checkable</h2>
+  <div class="rule"></div>
+  <div class="stats">
+    <div class="stat"><div class="k">${CO.years}</div><div class="l">Years trading</div></div>
+    <div class="stat"><div class="k">${TOTAL_DIVISIONS}</div><div class="l">Businesses</div></div>
+    <div class="stat"><div class="k">${PARTNERS}</div><div class="l">Named partners</div></div>
+    <div class="stat"><div class="k">4.6&#9733;</div><div class="l">Across 49 reviews</div></div>
+    <div class="stat"><div class="k">${CHARITIES}</div><div class="l">Supported charities</div></div>
+  </div>
+  <p>Continuous trading as the same registered entity since ${CO.founded}, with a clean filing record.
+  Client sectors: banking and finance, media, entertainment, corporate and private clients, with
+  relationships that frequently run a decade or longer.</p>
+  <p class="sub">Partners named across ${PARTNER_DIVISIONS} divisions, concentrated in events, public
+  relations and white glove.</p>` },
+
+{ c:"broker", kick:"The investment case", html:`
+  <h2>Access is proven.<br>The mechanism is not.</h2>
+  <div class="rule"></div>
+  <p>The most valuable asset here is ${CO.years} years of access. It is the reason work arrives at all.</p>
+  <div class="cols">
+    <div class="card"><h4>What is already true</h4><p>Demand originates continuously through the founder's network. Introductions are made, transactions complete, relationships hold for years.</p></div>
+    <div class="card"><h4>What is not yet built</h4><p>That access runs through one person, by memory and by telephone. Transactions originate in the network and complete outside the company, because there is nothing built to capture them.</p></div>
+  </div>
+  <div class="note"><b>This is the whole of it.</b> The demand is evidenced. What is missing is the
+  machinery to hold it, route it, price it and record it. That machinery is what the raise builds.</div>` },
+
+{ c:"broker", kick:"What the money builds", html:`
+  <h2>The Wellington</h2>
+  <div class="rule"></div>
+  <p>The group's bespoke booking and operations platform. It exists to turn a personal network into a
+  company asset.</p>
+  <div class="cols">
+    <div class="card"><h4>One front door</h4><p>Every enquiry, from every channel, arriving in one place rather than a single mailbox.</p></div>
+    <div class="card"><h4>One client record</h4><p>A client of one division visible to all ${TOTAL_DIVISIONS}, with permission and with discretion.</p></div>
+    <div class="card"><h4>Routed delivery</h4><p>Partner allocation, availability, service level and commission captured on every booking.</p></div>
+    <div class="card"><h4>Compounding referral</h4><p>A completed job in one line raised automatically as a lead in the others.</p></div>
+  </div>` },
+
+{ c:"make", kick:"The independent arm", html:`
+  <h2>Projects, funded apart</h2>
+  <div class="rule"></div>
+  <p>Ventures that carry the group's standard and its introductions, capitalised on their own terms
+  rather than from group funds. Each has its own plan and its own return profile.</p>
+  <div class="cols">
+    <div class="card"><h4>Kai Veitch Racing</h4><p>Driver development, backing a prodigy prospect on the pathway toward Formula One.</p></div>
+    <div class="card"><h4>Relsah Films</h4><p>An existing group partner and an independent slate, including The Queen of Slaughtering Places.</p></div>
+    <div class="card"><h4>Spectrum</h4><p>A school for children on the autism spectrum and children underserved elsewhere. A separate brand, connected to the group.</p></div>
+    <div class="card"><h4>Also in development</h4><p>Stockpot, a fixed-price restaurant. Worldvision, a national-representative music competition. A talk-show and magazine format.</p></div>
+  </div>` },
+
+{ c:"serve", kick:"Governance", html:`
+  <h2>How it is governed</h2>
+  <div class="rule"></div>
+  <p>The group is building to full operational staffing across board, executive and group functions.</p>
+  <div class="cols">
+    <div class="card"><h4>Board</h4><p>Founder and Chief Executive, Edwin Hackett. A non-executive director appointment is in progress.</p></div>
+    <div class="card"><h4>Executive</h4><p>Operations, European Operations, Finance, Accountancy, and Legal and Compliance.</p></div>
+    <div class="card"><h4>Group</h4><p>Partnership management and a group team manager, coordinating the delivery network.</p></div>
+  </div>
+  <div class="note"><b>Independent oversight is the priority appointment.</b> A non-executive director
+  is what turns a founder-held network into a governed company asset. It is the appointment an
+  investor should expect to see made first.</div>` },
+
+{ c:"move", kick:"The ask", html:`
+  <h2>Two tracks, deliberately separate</h2>
+  <div class="rule"></div>
+  <div class="cols">
+    <div class="card"><h4>Track one: the machinery</h4><p>The Wellington build, a partner compliance programme, and the credibility work that lets one brand carry ${TOTAL_DIVISIONS} lines. This converts founder access into company revenue, and it raises the value of everything else.</p></div>
+    <div class="card"><h4>Track two: the projects</h4><p>Kai Veitch Racing, Relsah Films and Spectrum, each capitalised individually. Group funds are not sought for these.</p></div>
+  </div>
+  <div class="note"><b>The sponsor tier is open.</b> The group's structure carries a sponsor tier that
+  currently holds no names. It is the lowest-friction way into the house.</div>` },
+
+{ c:"move", html:`
+  <h1>${CO.closing}</h1>
+  <div class="rule"></div>
+  <p class="big">Edwin Hackett</p>
+  <p>${CO.email}<br>${CO.phone}<br>${CO.address}</p>
+  <p class="sub">${CO.legal}. Companies House ${CO.crn}</p>` }
+];
+
+/* ── Render ─────────────────────────────────────────────────────────────── */
+const deck = document.getElementById("deck");
+const dots = document.getElementById("dots");
+const num  = document.getElementById("num");
+
+SLIDES.forEach((s, i) => {
+  const sec = document.createElement("section");
+  sec.className = "slide";
+  sec.style.setProperty("--sc", `var(--e-${s.c || "move"})`);
+  sec.dataset.i = i;
+  sec.setAttribute("aria-label", `Slide ${i + 1} of ${SLIDES.length}`);
+  sec.innerHTML = (s.kick ? `<span class="kick">${s.kick}</span>` : "") + s.html;
+  deck.append(sec);
+
+  const d = document.createElement("button");
+  d.type = "button";
+  d.setAttribute("aria-label", `Go to slide ${i + 1}`);
+  d.addEventListener("click", () => go(i));
+  dots.append(d);
+});
+
+const slides = [...deck.children];
+const dotEls = [...dots.children];
+let cur = 0;
+
+function go(i){
+  cur = Math.max(0, Math.min(slides.length - 1, i));
+  slides[cur].scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth" });
+}
+function mark(){
+  dotEls.forEach((d, i) => d.classList.toggle("on", i === cur));
+  num.textContent = `${cur + 1} / ${slides.length}`;
+  document.querySelector("#bar i").style.width = ((cur + 1) / slides.length * 100) + "%";
+}
+
+const io = new IntersectionObserver(es => {
+  let best = null;
+  for (const e of es) if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+  if (best) { cur = +best.target.dataset.i; mark(); }
+}, { threshold: [.4, .6, .8] });
+slides.forEach(s => io.observe(s));
+
+addEventListener("keydown", e => {
+  if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+  const k = e.key;
+  if (k === "ArrowRight" || k === "ArrowDown" || k === "PageDown" || k === " ") { e.preventDefault(); go(cur + 1); }
+  else if (k === "ArrowLeft" || k === "ArrowUp" || k === "PageUp")               { e.preventDefault(); go(cur - 1); }
+  else if (k === "Home") { e.preventDefault(); go(0); }
+  else if (k === "End")  { e.preventDefault(); go(slides.length - 1); }
+});
+
+document.getElementById("print-btn").addEventListener("click", () => window.print());
+document.getElementById("theme-btn").addEventListener("click", () => {
+  const now = document.documentElement.getAttribute("data-theme")
+    || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");
+  const next = now === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("hh-theme", next); } catch (e) {}
+});
+
+mark();
+</script>

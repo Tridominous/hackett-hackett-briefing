@@ -1,9 +1,9 @@
 # Hackett & Hackett · briefing set
 
-Four static pages prepared around the Hackett & Hackett International Group
-digital relaunch: a digital relaunch briefing, two strategy documents for the
-founder, and a recommended brand standard. No build step, no framework, no
-npm install.
+Six static pages prepared around the Hackett & Hackett International Group
+relaunch: the Tapestry, an investor overview, a digital relaunch briefing, two
+strategy documents for the founder, and a recommended brand standard. No build
+step, no framework, no npm install.
 
 > Independent concept and analysis; not affiliated with or endorsed by
 > Hackett & Hackett.
@@ -12,6 +12,8 @@ npm install.
 
 Served from the custom domain in `CNAME`:
 
+- **The Tapestry:** https://briefing.jamesmou.com/tapestry.html
+- **Investor overview:** https://briefing.jamesmou.com/investor-deck.html
 - **Digital relaunch briefing:** https://briefing.jamesmou.com/
 - **Strategy briefing:** https://briefing.jamesmou.com/strategy-briefing.html
 - **Strategic reality review:** https://briefing.jamesmou.com/group-strategy-review.html
@@ -26,6 +28,9 @@ All pages share the light/dark choice, stored in `localStorage` under `hh-theme`
 
 ```
 hackett/
+├── tapestry.html               ← THE APEX PAGE. The whole group as one continuous cloth
+├── investor-deck.html          ← 13-slide investor overview, projector ready
+├── gap-sheet.html              ← LOCAL ONLY, git-ignored: claims to verify, doc conflicts (see below)
 ├── index.html                  ← digital relaunch briefing (SWOT, PESTLE, initiatives, roadmap)
 ├── strategy-briefing.html      ← founder-facing strategy: service map, group structure, 12-month plan
 ├── group-strategy-review.html  ← the long analysis: division matrix, SWOT, PESTLE, comparators, sources
@@ -43,23 +48,38 @@ with its own Pages deployment; the briefing's buttons point at that live URL.
 
 ## The agreed facts
 
-Every page draws from the group structure document. The two counts that get
-conflated most often are different things:
-
 | | Count | Notes |
 |---|---:|---|
-| Service divisions (tier 2) | **14** | Named exactly as the group structure names them |
-| Named delivery partners (tier 3) | **19** | Attached to 7 of the 14 divisions; 7 divisions have none |
+| Service divisions | **16** | 14 from the group structure, plus Business & Asset Brokerage (15) and Social Housing (16), added on the founder's direction |
+| Named delivery partners (tier 3) | **19** | Attached to 7 divisions; the other 9 have none |
 | Company sponsors (tier 4) | **0** | The tier exists in the structure but is empty |
 | Supporting charities (tier 5) | **5** | Missing People, Amnesty, Shawmind, Film + TV Charity, WWF |
 
-Section 6 of `strategy-briefing.html` renders the full five-tier structure as an
-interactive diagram, with a plain-text register underneath that is what prints.
-`press.html` carries the same numbers as the canonical fact block.
+Divisions 15 and 16 formalise brokerage work the founder already does
+personally. The list is expected to keep growing, which is why the Tapestry
+counts divisions from its data rather than hard-coding a number into a sentence.
 
-If any of these change, update `press.html` section 1, `strategy-briefing.html`
-sections 1 / 4 / 5 / 6, `group-strategy-review.html` sections 3 / 4, and the
-factsheet in `index.html`.
+**`tapestry.html` is now the single authority for this list.** Its `DATA` block,
+at the top of the page's one `<script>`, holds every division, engine, partner,
+project, governance role and number. Change the list there and the page redraws;
+counts, engine groupings and the network scene all recalculate.
+
+Divisions are grouped into four engines — **Move · Make · Serve · Broker**
+(3 · 5 · 3 · 5) — and a new division joins an engine rather than lengthening a
+flat list.
+
+### Two places the division list is duplicated
+
+`investor-deck.html` carries its own short copy of the division names and their
+engines, so that it stays a self-contained file. **If you add a division to
+`tapestry.html`, add its name and engine to the `ENGINES` array in
+`investor-deck.html` too.** Nothing else is duplicated; both files compute their
+counts, so they cannot drift internally.
+
+The older pages still describe the original fourteen. If the structure changes
+again, update `press.html` section 1, `strategy-briefing.html` sections 1 / 4 /
+5 / 6, `group-strategy-review.html` sections 3 / 4, and the factsheet in
+`index.html`.
 
 ## Preview locally
 
@@ -85,13 +105,40 @@ git push
 
 Live in about a minute.
 
-## presenter-notes.html — do not deploy
+## Driving the Tapestry
 
-This file is private delivery notes written in the second person ("this is your
-credibility peak"). It is not audience-facing and should be removed from the
-deployed branch before the set is shared. It isn't linked from the briefing and
-carries `noindex`, but on a public repo anyone who guesses the URL can open it.
-Keep a local copy and add it to `.gitignore`.
+| Key | Does |
+|---|---|
+| `P` | Toggle present mode — chrome hides, one scene fills the screen, borders dim to hairlines |
+| `←` `→` `space` | Move along the cloth (a lateral pan, not a cut) |
+| `Home` `End` | First / last scene |
+| `Esc` | Leave present mode |
+
+Also: drag to pan, wheel to scroll sideways, click any tick on the thread at the
+bottom to fly to that scene. Print unwraps the cloth into a linear document and
+forces the light palette regardless of the theme on screen.
+
+Verified at 1440×900, 1366×768 and 1280×720; every scene fits without internal
+scrolling in present mode at all three.
+
+## gap-sheet.html and presenter-notes.html — do not deploy
+
+Both are private working documents. Neither is linked from any public page and
+both carry `noindex`, but **this repo is public and serves GitHub Pages**, so
+anyone who guesses the URL can open whatever is committed here.
+
+- **`gap-sheet.html`** — the candid companion to the Tapestry: claims that need
+  verifying before an investor sees them, the conflicts between the eleven
+  source documents, and the credential exposure in the WhatsApp archive. Written
+  for James and Edwin only. **This one would do real damage if it leaked**, since
+  it lists exactly which claims are unverified. It is in `.gitignore` and stays
+  on local disk. Do not commit it.
+- **`presenter-notes.html`** — delivery notes written in the second person
+  ("this is your credibility peak"). Not audience-facing. **Still tracked, and
+  therefore already live** at `briefing.jamesmou.com/presenter-notes.html`.
+  To take it down: `git rm --cached presenter-notes.html`, add it to
+  `.gitignore`, then push.
 
 `press.html` also carries `noindex`, since it is a proposal rather than a
-published company standard.
+published company standard. `tapestry.html` and `investor-deck.html` carry
+`noindex` too while they are drafts under review.

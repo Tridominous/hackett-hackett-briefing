@@ -1,0 +1,865 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Hackett Tapestry</title>
+<meta name="description" content="The whole of Hackett &amp; Hackett International Group read as one continuous cloth: origin, engines, divisions, network, platform, projects, governance and the ask.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='24' x='16' font-family='Georgia,serif' font-size='22' fill='%23B0125E' text-anchor='middle'%3E%26%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  /* No-flash theme init. Shares the `hh-theme` key with the rest of the briefing set. */
+  (function () {
+    try {
+      var t = localStorage.getItem('hh-theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════
+   TOKENS — shared with strategy-briefing.html / press.html
+   ═══════════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#FBFAF8; --surface:#FFFFFF; --surface-2:#F3F1ED; --ink:#191B1F; --ink-2:#53575E;
+  --ink-3:#83878E; --accent:#B0125E; --accent-soft:#FAEEF3; --line:#E6E3DE; --line-2:#D3CFC9;
+  --on-accent:#FFFFFF;
+  --e-move:#B0125E; --e-make:#8A5A12; --e-serve:#2B6B57; --e-broker:#2F6F9F;
+  --e-move-soft:#FAEEF3; --e-make-soft:#F7F0E2; --e-serve-soft:#E8F1ED; --e-broker-soft:#E9F0F6;
+  --linen:rgba(25,27,31,.038);
+  --ghost:.055;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+    --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+    --on-accent:#15171B;
+    --e-move:#E85EA0; --e-make:#D9A55A; --e-serve:#6FBF9F; --e-broker:#6FA9DC;
+    --e-move-soft:#2C1A23; --e-make-soft:#2A2415; --e-serve-soft:#152720; --e-broker-soft:#161F2A;
+    --linen:rgba(255,255,255,.030);
+    --ghost:.075;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171B; --surface:#1C1F25; --surface-2:#23272F; --ink:#F1EEEC; --ink-2:#AAAEB5;
+  --ink-3:#787D86; --accent:#E85EA0; --accent-soft:#2C1A23; --line:#2B2F37; --line-2:#3B404A;
+  --on-accent:#15171B;
+  --e-move:#E85EA0; --e-make:#D9A55A; --e-serve:#6FBF9F; --e-broker:#6FA9DC;
+  --e-move-soft:#2C1A23; --e-make-soft:#2A2415; --e-serve-soft:#152720; --e-broker-soft:#161F2A;
+  --linen:rgba(255,255,255,.030);
+  --ghost:.075;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Hanken Grotesk","Segoe UI",system-ui,-apple-system,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden;
+}
+h1,h2,h3,h4{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;line-height:1.14;margin:0;text-wrap:balance}
+a{color:inherit}
+
+/* ── Chrome ─────────────────────────────────────────────────────── */
+#chrome{
+  height:52px;display:flex;align-items:center;gap:12px;padding:0 18px;
+  border-bottom:1px solid var(--line);background:var(--surface);
+  position:relative;z-index:40;transition:transform .3s ease,opacity .3s ease;
+}
+.brandmark{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:.92rem;color:var(--accent);letter-spacing:.02em;white-space:nowrap}
+.chrome-title{font-size:.74rem;color:var(--ink-3);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.spacer{flex:1 1 auto;min-width:0}
+/* One shape system across the page: everything is square. Rounded pills are
+   what makes a document read as a web app rather than a printed thing. */
+.btn{
+  font:inherit;font-size:.75rem;font-weight:600;color:var(--ink-2);background:transparent;
+  border:1px solid var(--line);border-radius:0;padding:6px 13px;cursor:pointer;white-space:nowrap;
+  transition:transform 160ms var(--ease-out),border-color 160ms ease,color 160ms ease;
+}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary:hover{filter:brightness(1.08);color:var(--on-accent)}
+  .backlinks a:hover{border-color:var(--accent);color:var(--accent)}
+}
+.btn:focus-visible,a:focus-visible,#loom:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.backlinks{display:flex;gap:6px}
+.backlinks a{
+  font-size:.72rem;text-decoration:none;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:0;padding:5px 11px;
+  transition:border-color 160ms ease,color 160ms ease;
+}
+
+/* ── The loom (scroll viewport) ─────────────────────────────────── */
+#loom{
+  height:calc(100dvh - 52px - 66px);
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x proximity;scroll-behavior:smooth;
+  cursor:grab;position:relative;
+  background:
+    repeating-linear-gradient(90deg,var(--linen) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(0deg,var(--linen) 0 1px,transparent 1px 3px),
+    var(--bg);
+}
+#loom.grabbing{cursor:grabbing;scroll-behavior:auto}
+#loom::-webkit-scrollbar{height:8px}
+#loom::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px}
+#loom::-webkit-scrollbar-track{background:transparent}
+
+#cloth{
+  display:grid;
+  grid-template-rows:var(--bh,74px) minmax(0,1fr) var(--bh,74px);
+  grid-auto-flow:column;
+  grid-auto-columns:var(--sw);
+  min-height:100%;height:100%;
+  --sw:min(94vw,1120px);
+}
+
+/* ── Borders (upper = provenance, lower = machinery) ────────────── */
+.bt,.bb{
+  padding:10px 30px;display:flex;flex-direction:column;justify-content:center;gap:3px;
+  border-right:1px solid var(--line);overflow:hidden;
+  transition:opacity .3s ease,padding .3s ease;
+}
+.bt{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.bb{background:var(--surface-2);border-top:1px solid var(--line)}
+.bt .lab,.bb .lab{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.bt .val{font-size:.83rem;color:var(--ink-2);line-height:1.4}
+.bb .val{font-size:.83rem;color:var(--ink-2);line-height:1.4}
+.bt .val b,.bb .val b{color:var(--ink);font-weight:600}
+
+/* ── Scenes (main register) ─────────────────────────────────────── */
+.scene{
+  padding:24px 30px;border-right:1px solid var(--line);
+  scroll-snap-align:center;overflow-y:auto;overflow-x:hidden;
+  display:flex;flex-direction:column;gap:11px;justify-content:safe center;
+  font-size:1rem;position:relative;
+}
+.scene::-webkit-scrollbar{width:6px}
+.scene::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:99px}
+.scene.is-current{background:var(--surface)}
+
+/* The scene numeral, set large and ghosted behind the title the way a
+   manuscript carries its folio number. Replaces the small-caps eyebrow. */
+.ghost{
+  position:absolute;top:10px;right:26px;
+  font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:7.2em;line-height:1;letter-spacing:-.03em;
+  font-variation-settings:"opsz" 144;
+  color:var(--sc,var(--accent));opacity:var(--ghost);
+  pointer-events:none;user-select:none;
+}
+.kicker{
+  font-family:Fraunces,Georgia,serif;font-size:.86em;font-style:italic;
+  color:var(--sc,var(--accent));
+}
+.scene h2{
+  font-size:1.95em;color:var(--ink);margin:.06em 0 .1em;letter-spacing:-.018em;
+  font-variation-settings:"opsz" 144;
+}
+.scene .lede{font-size:1.06em;color:var(--ink-2);max-width:62ch;margin:0}
+.scene p{margin:0;max-width:66ch;color:var(--ink-2);font-size:.97em}
+.scene p b,.scene li b{color:var(--ink);font-weight:600}
+.rule{height:2px;width:44px;background:var(--sc,var(--accent));margin:3px 0 5px}
+
+/* Divisions read as catalogue entries: a hairline, a number, a name.
+   No boxes, no left stripes, no shadows. */
+.divs{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:0 38px}
+.div{
+  border-top:1px solid var(--line);padding:9px 0 10px;
+  display:grid;grid-template-columns:1.9em 1fr;column-gap:12px;align-items:baseline;
+}
+.div .n{
+  font-family:Fraunces,Georgia,serif;font-size:1.15em;font-weight:600;line-height:1;
+  color:var(--sc,var(--accent));font-variant-numeric:tabular-nums lining-nums;
+}
+.div .nm{font-family:Fraunces,Georgia,serif;font-size:1.02em;font-weight:600;color:var(--ink);line-height:1.25}
+.div .bl{grid-column:2;font-size:.85em;color:var(--ink-2);line-height:1.48;margin-top:2px}
+.div .pt{grid-column:2;font-size:.78em;color:var(--ink-3);margin-top:4px}
+.div .pt b{color:var(--sc,var(--accent));font-weight:600}
+.div .new{
+  font-family:"Hanken Grotesk",sans-serif;font-size:.5em;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--sc,var(--accent));vertical-align:.35em;margin-left:6px;
+}
+
+/* The competitive field: a hairline register, not a row of pills.
+   Hackett & Hackett is marked by a heavier rule, not a coloured chip. */
+.field{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0 30px}
+.field div{border-top:1px solid var(--line);padding:8px 0 9px}
+.field .who{font-family:Fraunces,Georgia,serif;font-size:.97em;color:var(--ink);display:block}
+.field .what{font-size:.82em;color:var(--ink-3);line-height:1.45}
+.field .us{border-top:2px solid var(--sc,var(--accent))}
+.field .us .who{color:var(--sc,var(--accent))}
+.field .us .what{color:var(--ink-2)}
+
+/* A note is a rule and an indent, not a tinted box. */
+.note{
+  border-top:1px solid var(--sc,var(--accent));padding:9px 0 0;
+  font-size:.9em;color:var(--ink-2);max-width:68ch;
+}
+.note b{color:var(--ink);font-weight:600}
+
+.stats{display:flex;flex-wrap:wrap;gap:0 40px}
+.stat{border-top:1px solid var(--line);padding:9px 0 0;min-width:96px}
+.stat .k{
+  font-family:Fraunces,Georgia,serif;font-size:2.1em;font-weight:600;line-height:1;
+  color:var(--ink);font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.02em;
+  font-variation-settings:"opsz" 144;
+}
+.stat .l{font-size:.72em;color:var(--ink-3);margin-top:4px}
+
+/* The one place a left rule is correct typography: a pull quote. */
+.pull{
+  font-family:Fraunces,Georgia,serif;font-size:1.32em;line-height:1.36;color:var(--ink);
+  border-left:1px solid var(--sc,var(--accent));padding-left:18px;max-width:50ch;font-style:italic;
+}
+.cite{font-size:.72em;color:var(--ink-3);font-style:normal;display:block;margin-top:7px}
+
+ol.steps{
+  margin:0;padding:0;list-style:none;counter-reset:s;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));
+  gap:0 34px;align-items:start;
+}
+ol.steps li{
+  border-top:1px solid var(--line);padding:9px 0 10px;font-size:.9em;
+  color:var(--ink-2);line-height:1.5;counter-increment:s;
+  padding-left:1.7em;text-indent:-1.7em;  /* hanging figure */
+}
+ol.steps li::before{
+  content:counter(s) "\00a0\00a0";
+  font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--sc,var(--accent));
+  font-variant-numeric:tabular-nums lining-nums;
+}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:0 38px}
+.card{border-top:1px solid var(--line);padding:10px 0 11px}
+.card h4{font-size:1.02em;color:var(--ink);margin-bottom:4px}
+.card p{font-size:.87em;line-height:1.5}
+
+/* Governance reads as a register of posts, filled and unfilled. */
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0 38px}
+.rung{display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--line);padding:8px 0 9px}
+.rung .tier{font-size:.72em;color:var(--ink-3);min-width:46px}
+.rung .role{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:.97em;color:var(--ink);flex:1}
+.rung .who{font-size:.82em;color:var(--ink-2);text-align:right}
+.rung .who.open{color:var(--ink-3);font-style:italic}
+
+/* ── Thread (minimap) ───────────────────────────────────────────── */
+#thread{
+  height:66px;border-top:1px solid var(--line);background:var(--surface);
+  display:flex;align-items:center;gap:0;padding:0 18px;overflow-x:auto;
+  position:relative;z-index:30;transition:height .3s ease,opacity .3s ease;
+}
+#thread::-webkit-scrollbar{display:none}
+#thread{scrollbar-width:none}
+.tick{
+  flex:1 0 auto;min-width:74px;background:none;border:0;cursor:pointer;font:inherit;
+  padding:8px 6px;text-align:center;position:relative;color:var(--ink-3);
+}
+.tick::before{
+  content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line-2);
+}
+.tick .dot{
+  position:relative;display:block;width:9px;height:9px;border-radius:50%;
+  background:var(--surface);border:1.5px solid var(--line-2);margin:0 auto 5px;transition:all .2s;
+}
+.tick .rn{position:relative;display:block;font-family:Fraunces,Georgia,serif;font-size:.66rem;letter-spacing:.08em;line-height:1}
+.tick .tl{position:relative;display:block;font-size:.62rem;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tick:hover{color:var(--ink)}
+.tick:hover .dot{border-color:var(--accent)}
+.tick.on{color:var(--tc,var(--accent))}
+.tick.on .dot{background:var(--tc,var(--accent));border-color:var(--tc,var(--accent));transform:scale(1.35)}
+.tick.on .rn{font-weight:700}
+
+/* ── PRESENT MODE ───────────────────────────────────────────────── */
+body.present #chrome{transform:translateY(-100%);opacity:0;position:absolute;top:0;left:0;right:0}
+body.present #loom{height:calc(100dvh - 26px);scroll-snap-type:x mandatory}
+body.present #cloth{--bh:22px;--sw:100vw}
+body.present .bt,body.present .bb{opacity:.32;padding:0 30px;pointer-events:none}
+body.present .bt .lab,body.present .bb .lab{display:none}
+body.present .bt .val,body.present .bb .val{font-size:.68rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Type scales on the smaller of width and height: vertical space is the real
+   constraint on a laptop, and a scene that overflows in front of an audience
+   is a scene they cannot read. */
+body.present .scene{font-size:clamp(.95rem,min(1.3vw,2vh),1.5rem);padding:min(4.5vh,46px) clamp(30px,7vw,120px);justify-content:safe center;gap:min(1.7vh,16px)}
+body.present .scene:not(.is-current){opacity:.25;transition:opacity .4s ease}
+body.present #thread{height:26px;padding:0 18px}
+body.present .tick{padding:0;min-width:0}
+body.present .tick .rn,body.present .tick .tl{display:none}
+body.present .tick .dot{width:6px;height:6px;margin:0 auto}
+.escape-hint,.counter{display:none}
+body.present .escape-hint{
+  display:block;position:fixed;bottom:34px;right:20px;font-size:.66rem;color:var(--ink-3);
+  letter-spacing:.1em;text-transform:uppercase;z-index:50;pointer-events:none;
+}
+body.present .counter{
+  display:block;position:fixed;top:18px;right:24px;z-index:50;font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);pointer-events:none;font-weight:600;
+}
+/* No scrollbar furniture while presenting. */
+body.present #loom{scrollbar-width:none}
+body.present #loom::-webkit-scrollbar{display:none}
+
+/* ── Short viewports (13-inch laptops, 768px-tall projectors) ───── */
+@media (max-height:840px){
+  .scene{font-size:.93rem;padding:18px 28px;gap:9px}
+  .scene h2{font-size:1.78em}
+  #cloth{--bh:64px}
+}
+
+/* ── Small screens ──────────────────────────────────────────────── */
+@media (max-width:720px){
+  #cloth{--sw:94vw;--bh:62px}
+  .scene{padding:22px}
+  .scene h2{font-size:1.6em}
+  .backlinks{display:none}
+  .chrome-title{display:none}
+}
+
+/* ── Print: unwrap the cloth into a linear document ─────────────── */
+@media print{
+  @page{margin:16mm}
+  /* Paper is always light, whichever theme is on screen. Without this the dark
+     tokens survive and print grey text on white. */
+  :root,:root[data-theme="dark"],:root[data-theme="light"]{
+    --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#FFFFFF; --ink:#000000; --ink-2:#2A2D33;
+    --ink-3:#5C6068; --accent:#8E0F4D; --accent-soft:#FBF2F6; --line:#BFBCB7; --line-2:#9E9A94;
+    --e-move:#8E0F4D; --e-make:#6E4710; --e-serve:#215544; --e-broker:#245A80;
+    --e-move-soft:#FBF2F6; --e-make-soft:#FAF5EA; --e-serve-soft:#F0F6F3; --e-broker-soft:#F1F6FA;
+    --linen:transparent; --shadow:none;
+  }
+  body{overflow:visible;background:#fff;color:#000}
+  #chrome,#thread,.escape-hint,.counter{display:none !important}
+  #loom{height:auto;overflow:visible;background:#fff}
+  #cloth{display:block;height:auto}
+  .bt,.bb{border:0;background:#fff;padding:6px 0;display:block;opacity:1}
+  /* Label and value are flex children on screen; make them stack on paper. */
+  .bt .lab,.bt .val,.bb .lab,.bb .val{display:block}
+  .bt .lab,.bb .lab{margin-bottom:2px}
+  .bt{border-top:1px solid #ccc}
+  .bb{border-bottom:2px solid #000;margin-bottom:14mm;padding-bottom:10px}
+  .scene{
+    display:block;border:0;padding:10px 0;overflow:visible;
+    break-inside:avoid;page-break-inside:avoid;font-size:11pt;
+  }
+  .scene>*{margin-bottom:9px}
+  .div,.card,.note,.rung{break-inside:avoid;box-shadow:none}
+  .divs,.cols{display:block}
+  .div,.card{margin-bottom:7px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+  #loom{scroll-behavior:auto}
+}
+</style>
+
+<header id="chrome">
+  <span class="brandmark">Hackett &amp; Hackett</span>
+  <span class="chrome-title">The Tapestry</span>
+  <span class="spacer"></span>
+  <nav class="backlinks" aria-label="Related documents">
+    <a href="index.html">Relaunch</a>
+    <a href="strategy-briefing.html">Strategy</a>
+    <a href="group-strategy-review.html">Review</a>
+    <a href="press.html">Brand</a>
+  </nav>
+  <button class="btn" id="theme-btn" type="button" aria-label="Switch colour theme">Theme</button>
+  <button class="btn" id="print-btn" type="button">Print</button>
+  <button class="btn primary" id="present-btn" type="button" aria-pressed="false">Present &nbsp;P</button>
+</header>
+
+<main id="loom" tabindex="0" aria-label="The Hackett Tapestry. Scroll horizontally, or press P to present.">
+  <div id="cloth"></div>
+</main>
+
+<nav id="thread" aria-label="Scene navigation"></nav>
+<div class="counter" id="counter" aria-hidden="true"></div>
+<div class="escape-hint">← → to move &nbsp;&nbsp;&nbsp; Esc to exit</div>
+
+<noscript>
+  <div style="padding:40px;max-width:60ch;font-family:Georgia,serif">
+    <h1>The Hackett Tapestry</h1>
+    <p>This document draws itself from a single data block and needs JavaScript enabled.
+    Every other page in the briefing set works without it.</p>
+  </div>
+</noscript>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   DATA — THE ONLY BLOCK THAT NEEDS EDITING
+   ══════════════════════════════════════════════════════════════════════════
+   Change anything below and the tapestry redraws on reload.
+
+   TO ADD A DIVISION (a 17th, 18th …):
+     Add an object to DIVISIONS. Required: n, name, engine, blurb.
+     `engine` must be one of: move · make · serve · broker
+     `partners` is a list of names, or [] if none are named yet.
+     Counts, engine groupings and the network scene all recalculate themselves.
+
+   TO ADD A PROJECT:      add to PROJECTS.
+   TO ADD A PARTNER:      add the name to that division's `partners` list.
+   TO FILL A ROLE:        set `who` on the relevant GOVERNANCE row.
+   TO RENAME AN ENGINE:   edit ENGINES[key].name.
+
+   Division names are written exactly as the group structure names them.
+   House style: always "Hackett & Hackett", ampersand spaced; never name a
+   client, household or venue (press.html §7).
+   ────────────────────────────────────────────────────────────────────────── */
+
+const COMPANY = {
+  legal:    "Hackett & Hackett International Group Limited",
+  short:    "Hackett & Hackett",
+  founded:  2009,
+  years:    17,
+  crn:      "07100605",
+  address:  "167-169 Great Portland Street, London W1W 5PF",
+  strap:    "Lifestyle Management & Production",
+  closing:  "Extravagantly extraordinary, every time.",
+  principle:"A company is only as good as the clientele it serves."
+};
+
+const ENGINES = {
+  move:   { name:"Move",   line:"Getting the principal and their assets there, unnoticed." },
+  make:   { name:"Make",   line:"Producing the thing itself." },
+  serve:  { name:"Serve",  line:"Running the life around the client." },
+  broker: { name:"Broker", line:"Standing between a buyer and a seller." }
+};
+
+/* The sixteen divisions. 1–14 are named exactly as the group structure names
+   them. 15 and 16 formalise work the founder already does personally. */
+const DIVISIONS = [
+  { n:1,  engine:"move",   name:"Chauffeur Services",
+    blurb:"Ground transport, airport transfers, financial roadshows and as-directed hire, across the United Kingdom and 100+ countries.",
+    partners:[], owned:true },
+  { n:2,  engine:"make",   name:"Event Management & Production",
+    blurb:"End-to-end planning and production for private, corporate and creative events.",
+    partners:["N Events","Firefly Events & Concierge","Pink Flamingo Events","Barbara Chapman","Jade Green Productions"] },
+  { n:3,  engine:"move",   name:"Security & Management Services",
+    blurb:"Close protection, risk management and on-site event security, delivered discreetly.",
+    partners:["T.O.T. Private Consulting","Apex Global"] },
+  { n:4,  engine:"move",   name:"White Glove Services",
+    blurb:"High-value asset movement and private aviation and marine charter.",
+    partners:["Chapman Freeborn","Fly Victor","One Stop Super Yachts"] },
+  { n:5,  engine:"serve",  name:"Lifestyle & Concierge",
+    blurb:"Standing concierge support and private collection management. Club Magenta is a product of this division.",
+    partners:["Hema Vyas","Nicole Thompson (Collaire)"] },
+  { n:6,  engine:"make",   name:"Model Management",
+    blurb:"Representation across fashion, events and brand partnerships.",
+    partners:[] },
+  { n:7,  engine:"make",   name:"Music & Artist Management",
+    blurb:"Career, touring and logistics support for musicians and performers.",
+    partners:[] },
+  { n:8,  engine:"make",   name:"Film Production & Support",
+    blurb:"On-set logistics, casting and production support for film, television and media.",
+    partners:["Slick Casting","Relsah Films"] },
+  { n:9,  engine:"serve",  name:"Wedding Services",
+    blurb:"Planning, styling and coordination for weddings.",
+    partners:[] },
+  { n:10, engine:"serve",  name:"Household Staff & Recruitment",
+    blurb:"Sourcing, vetting and placing household and estate staff.",
+    partners:[] },
+  { n:11, engine:"broker", name:"Super Car Sales & Self Drive Hire",
+    blurb:"Collectable and performance vehicles, sold and brokered at the established end of the market.",
+    partners:[] },
+  { n:12, engine:"broker", name:"Bespoke Financial Solutions",
+    blurb:"Tailored personal and business financing arrangements for private clients.",
+    partners:["Denarius Worldwide"] },
+  { n:13, engine:"make",   name:"Public Relations / Marketing",
+    blurb:"Strategic communications and marketing built around the client's own brand.",
+    partners:["Sphere Hospitality Ventures","Blue Bottle Web Design","Jellyfish Consulting","Louise O'Hara"] },
+  { n:14, engine:"broker", name:"Real Estate & Property Maintenance",
+    blurb:"Sourcing, sales, lettings and ongoing upkeep, in the United Kingdom and in Europe.",
+    partners:[] },
+  { n:15, engine:"broker", name:"Business & Asset Brokerage", isNew:true,
+    blurb:"Introducing buyers to sellers of operating companies, aircraft and other substantial assets, on written terms.",
+    partners:[] },
+  { n:16, engine:"broker", name:"Social Housing", isNew:true,
+    blurb:"Residential development and management at scale, run to the group's standard of oversight.",
+    partners:[] }
+];
+
+const CHARITIES = ["Missing People","Amnesty International","Shawmind","Film + TV Charity","WWF"];
+
+const CLIENTS = ["Banking & finance","Media","Entertainment","Corporate","Private clients"];
+
+/* Named comparators for the Move scene. `us` marks the group's own position. */
+const COMPETITORS = [
+  { name:"Uber",         note:"Scale and price. No relationship." },
+  { name:"Addison Lee",  note:"United Kingdom corporate volume, owned fleet." },
+  { name:"Blacklane",    note:"Global marketplace, standardised product." },
+  { name:"Wheely",       note:"App-first premium, etiquette-led." },
+  { name:"Jump",         note:"Newer London entrant." },
+  { name:"Sherlock",     note:"Dispatch software, not an operator." },
+  { name:"Hackett & Hackett", note:"A relationship that can be asked for anything.", us:true }
+];
+
+const PROJECTS = [
+  { name:"Kai Veitch Racing", url:"https://kaiveitchracing.com/",
+    line:"Driver development. Backing a prodigy prospect on the pathway toward Formula One, through sponsorship the group raises or introduces." },
+  { name:"Relsah Films", url:"https://relsahfilms.com/",
+    line:"An existing group partner and an independent slate, including The Queen of Slaughtering Places." },
+  { name:"Spectrum",
+    line:"A school for children on the autism spectrum and for children underserved elsewhere. A separate brand, connected to the group. Charitable status under review." },
+  { name:"Stockpot",
+    line:"A fixed-price restaurant. American form, European spirit, one price covering all three meals." },
+  { name:"Worldvision",
+    line:"A music competition on the Eurovision model, each country nominating a single representative." },
+  { name:"The Late Show",
+    line:"A talk-show and magazine format, developed under arts and entertainment." }
+];
+
+const GOVERNANCE = [
+  { tier:"Board",   role:"Founder & Chief Executive",     who:"Edwin Hackett" },
+  { tier:"Board",   role:"Non-Executive Director",        who:"" },
+  { tier:"Exec",    role:"Operations",                    who:"" },
+  { tier:"Exec",    role:"European Operations",           who:"Bruno Martino" },
+  { tier:"Exec",    role:"Finance",                       who:"" },
+  { tier:"Exec",    role:"Accountancy",                   who:"" },
+  { tier:"Exec",    role:"Legal & Compliance",            who:"" },
+  { tier:"Group",   role:"Partnership Management",        who:"" },
+  { tier:"Group",   role:"Group Team Manager",            who:"" }
+];
+
+const WELLINGTON = [
+  "<b>One front door.</b> Every enquiry, from every channel, arriving in one place rather than a single mailbox.",
+  "<b>One client record.</b> A client of one division visible to all sixteen, with permission and with discretion.",
+  "<b>Routed delivery.</b> Partner allocation, availability, service level and commission captured on every booking.",
+  "<b>Compounding referral.</b> A completed job in one line raised automatically as a lead in the others."
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+   SCENES — the narrative order of the cloth.
+   `top`    → upper border slice (provenance)
+   `bottom` → lower border slice (machinery)
+   `build`  → returns the main register content
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const by = k => DIVISIONS.filter(d => d.engine === k);
+const partnerCount = DIVISIONS.reduce((s,d) => s + d.partners.length, 0);
+const withPartners  = DIVISIONS.filter(d => d.partners.length).length;
+const withoutPartners = DIVISIONS.length - withPartners;
+
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+const ORDINAL = ["One","Two","Three","Four","Five","Six","Seven","Eight"];
+
+function engineScene(key, title, lede, note){
+  const ds = by(key);
+  const ord = ORDINAL[Object.keys(ENGINES).indexOf(key)] || "";
+  return {
+    id:key, colour:key, title, lede,
+    kicker: `Engine ${ord.toLowerCase()}, ${ENGINES[key].name}`,
+    build: () => `
+      <p class="lede">${lede}</p>
+      <div class="divs">${ds.map(d => divisionRow(d)).join("")}</div>
+      ${note ? `<div class="note">${note}</div>` : ""}`
+  };
+}
+
+/* One markup for a division wherever it appears. */
+function divisionRow(d){
+  const partners = d.owned
+    ? `<div class="pt">Owned and operated</div>`
+    : d.partners.length
+      ? `<div class="pt"><b>${d.partners.length}</b> named partner${d.partners.length > 1 ? "s" : ""}. ${d.partners.map(esc).join(", ")}</div>`
+      : `<div class="pt">No named partner yet</div>`;
+  return `
+    <div class="div">
+      <div class="n">${d.n}</div>
+      <div class="nm">${esc(d.name)}${d.isNew ? `<span class="new">New</span>` : ""}</div>
+      <div class="bl">${esc(d.blurb)}</div>
+      ${partners}
+    </div>`;
+}
+
+const SCENES = [
+  /* ── I ───────────────────────────────────────────────────────── */
+  { id:"origin", colour:"move", title:"The First Car", kicker:"The Origin",
+    top:{ lab:"Founded", val:`<b>${COMPANY.founded}</b>, London` },
+    bottom:{ lab:"Registered", val:`Companies House <b>${COMPANY.crn}</b>, ${COMPANY.address}` },
+    build: () => `
+      <p class="lede">${COMPANY.legal} was founded in ${COMPANY.founded} by Edwin Hackett and his father. One car. One standard. A principle that still sets the terms.</p>
+      <div class="pull">&ldquo;${COMPANY.principle}&rdquo;<span class="cite">Founding principle</span></div>
+      <p>Seventeen years on, the standard has not moved. What has grown is the number of things the group can be asked for.</p>
+      <div class="stats">
+        <div class="stat"><div class="k">${COMPANY.years}</div><div class="l">Years trading</div></div>
+        <div class="stat"><div class="k">${DIVISIONS.length}</div><div class="l">Divisions</div></div>
+        <div class="stat"><div class="k">${partnerCount}</div><div class="l">Named partners</div></div>
+        <div class="stat"><div class="k">100+</div><div class="l">Countries served</div></div>
+      </div>` },
+
+  /* ── II ──────────────────────────────────────────────────────── */
+  { id:"house", colour:"move", title:"One Name, Many Houses", kicker:"The Model",
+    top:{ lab:"Positioning", val:`<b>${COMPANY.strap}</b>` },
+    bottom:{ lab:"Model", val:`Owned core, brokered breadth, commission on introduction and oversight` },
+    build: () => `
+      <p class="lede">One relationship, held to one standard, reaching into as many disciplines as a client needs. ${DIVISIONS.length} businesses, one name on the door.</p>
+      <p>The model is the one LVMH and Virgin proved. The brand and the client relationship stay at the centre. Delivery runs through owned operations where the standard must be controlled, and through named partners everywhere else.</p>
+      <div class="cols">
+        <div class="card"><h4>What the group owns</h4><p>The chauffeur business, directly operated. It is the standard the rest of the house is measured against.</p></div>
+        <div class="card"><h4>What the group brokers</h4><p>Every other line, delivered with named partners. The group carries the relationship, the specification and the quality control.</p></div>
+      </div>
+      <div class="note"><b>Why it compounds.</b> Overhead stays flat while the portfolio widens. A new division adds revenue without adding a payroll, and every client of one line is a warm introduction to the other ${DIVISIONS.length - 1}.</div>` },
+
+  /* ── III ─────────────────────────────────────────────────────── */
+  { id:"move", colour:"move", title:"The Car Is the Front Door", kicker:"Engine one, Move",
+    top:{ lab:"Engine one", val:`<b>Move</b>, ${by("move").length} divisions, the group's origin` },
+    bottom:{ lab:"Delivery", val:`Chauffeur owned and operated, plus ${by("move").reduce((s,d)=>s+d.partners.length,0)} named partners across security and white glove` },
+    build: () => `
+      <p class="lede">Chauffeur services are the group's origin and its core operation. This is the only line the group owns and runs itself. It is also the introduction to everything else.</p>
+      <div class="divs">${by("move").map(d => divisionRow(d)).join("")}</div>
+      <p><b>Where the group sits against the field.</b></p>
+      <div class="field">${COMPETITORS.map(c =>
+        `<div${c.us ? ` class="us"` : ""}><span class="who">${esc(c.name)}</span><span class="what">${esc(c.note)}</span></div>`).join("")}
+      </div>
+      <div class="note">Every firm above sells a ride. None can take the same call and also produce the event, staff the household, cast the film or place the property. <b>A client who books a single transfer meets the standard first, and the other ${DIVISIONS.length - 1} lines afterwards.</b></div>` },
+
+  /* ── IV, V, VI ───────────────────────────────────────────────── */
+  Object.assign(engineScene("make","Production",
+    "Where the group builds the thing itself. An event, a film, a campaign, a career.",
+    `<b>${by("make").reduce((s,d)=>s+d.partners.length,0)} of the group's ${partnerCount} named partners sit in this engine.</b> That makes it the most immediately scalable part of the business.`),
+    { top:{ lab:"Engine two", val:`<b>Make</b>, ${by("make").length} divisions` },
+      bottom:{ lab:"Delivery", val:`${by("make").reduce((s,d)=>s+d.partners.length,0)} named partners across production, casting, representation and communications` } }),
+
+  Object.assign(engineScene("serve","The Standing Relationship",
+    "Where the group is retained rather than booked. The work that recurs, and the work that holds a client for a decade.",
+    `<b>Recurring revenue lives here, and today this is the thinnest engine.</b> Club Magenta, the group's membership tier, is a product of Lifestyle & Concierge rather than a division of its own.`),
+    { top:{ lab:"Engine three", val:`<b>Serve</b>, ${by("serve").length} divisions, retained rather than booked` },
+      bottom:{ lab:"Delivery", val:`${by("serve").reduce((s,d)=>s+d.partners.length,0)} named partners, recurring and retainer work` } }),
+
+  Object.assign(engineScene("broker","Standing Between Buyer and Seller",
+    "The newest engine, and the shortest path to revenue. Here the group introduces a transaction and earns on it.",
+    `<b>Divisions 15 and 16 are new.</b> They formalise work the founder already does personally, introducing buyers to sellers of companies, aircraft, property and collectable vehicles, as a company function with written terms, agreed fees and a record of every introduction.`),
+    { top:{ lab:"Engine four", val:`<b>Broker</b>, ${by("broker").length} divisions, the newest and the fastest` },
+      bottom:{ lab:"Delivery", val:`Fee on introduction, on written terms. The engine that formalises founder access` } }),
+
+  /* ── VII ─────────────────────────────────────────────────────── */
+  { id:"network", colour:"serve", title:"Who Delivers", kicker:"The Network",
+    top:{ lab:"Network", val:`<b>${partnerCount}</b> named partners and <b>${CHARITIES.length}</b> supported charities` },
+    bottom:{ lab:"Coverage", val:`Partners named across <b>${withPartners}</b> of ${DIVISIONS.length} divisions` },
+    build: () => `
+      <p class="lede">The group's capacity is its network. ${partnerCount} named partners deliver alongside the owned chauffeur operation, across ${withPartners} of the ${DIVISIONS.length} divisions.</p>
+      <div class="divs">${DIVISIONS.filter(d => d.partners.length).map(d => `
+        <div class="div" style="--sc:var(--e-${d.engine})">
+          <div class="n">${d.n}</div>
+          <div class="nm">${esc(d.name)}</div>
+          <div class="bl">${d.partners.map(esc).join(", ")}</div>
+        </div>`).join("")}
+      </div>
+      <p><b>Supported charities.</b> ${CHARITIES.map(esc).join(". ")}.</p>
+      <div class="note">${withoutPartners} of the ${DIVISIONS.length} divisions carry no named partner yet, and the sponsor tier is open. <b>Naming delivery partners for those lines is the clearest measure of the group maturing</b>, and it costs introductions rather than capital.</div>` },
+
+  /* ── VIII — the thesis ───────────────────────────────────────── */
+  { id:"founder", colour:"broker", title:"Access Is Proven. The Mechanism Is Not.", kicker:"The Thesis",
+    top:{ lab:"The asset", val:`<b>${COMPANY.years} years</b> of access across ${CLIENTS.length} client sectors` },
+    bottom:{ lab:"The gap", val:`Held by one person, by memory and by telephone` },
+    build: () => `
+      <p class="lede">The group's most valuable asset is ${COMPANY.years} years of access. It is the reason work arrives at all.</p>
+      <div class="cols">
+        <div class="card"><h4>What is already true</h4><p>Demand originates continuously through the founder's network, across ${CLIENTS.length} sectors: ${CLIENTS.map(c=>c.toLowerCase()).join(", ")}. Introductions are made, transactions complete, relationships hold for years.</p></div>
+        <div class="card"><h4>What is not yet built</h4><p>That access runs through one person, by memory and by telephone. Transactions originate in the founder's network and complete outside the company, because there is nothing built to capture them.</p></div>
+      </div>
+      <div class="pull">The demand is evidenced. What is missing is the machinery to hold it, route it, price it and record it.<span class="cite">The investment case</span></div>
+      <p>Everything else on this cloth is either the demand or the machinery.</p>` },
+
+  /* ── IX ──────────────────────────────────────────────────────── */
+  { id:"wellington", colour:"broker", title:"The Wellington", kicker:"The Mechanism",
+    top:{ lab:"The platform", val:`<b>The Wellington</b>, bespoke booking and operations` },
+    bottom:{ lab:"Purpose", val:`Turning a personal network into a company asset` },
+    build: () => `
+      <p class="lede">The group's bespoke booking and operations platform. It exists to turn a personal network into a company asset.</p>
+      <ol class="steps">${WELLINGTON.map(w => `<li>${w}</li>`).join("")}</ol>
+      <div class="note"><b>Lineage.</b> An earlier internal research paper, HOPE, evaluated off-the-shelf options for this. Those recommendations predate the current generation of automation tooling and should be re-tested before anything is bought or built.</div>` },
+
+  /* ── X ───────────────────────────────────────────────────────── */
+  { id:"projects", colour:"make", title:"Under the Umbrella, Funded Apart", kicker:"The Projects",
+    top:{ lab:"Independent arm", val:`<b>${PROJECTS.length}</b> ventures alongside the ${DIVISIONS.length} divisions` },
+    bottom:{ lab:"Funding", val:`Capitalised individually, not from group funds` },
+    build: () => `
+      <p class="lede">A separate arm of independent ventures. They carry the group's standard and its introductions, and they are capitalised on their own terms rather than from group funds.</p>
+      <div class="divs">${PROJECTS.map(p => `
+        <div class="div">
+          <div class="nm">${esc(p.name)}</div>
+          <div class="bl">${esc(p.line)}</div>
+          ${p.url ? `<div class="pt"><a href="${p.url}" target="_blank" rel="noopener">${esc(p.url.replace(/^https?:\/\//,"").replace(/\/$/,""))}</a></div>` : ""}
+        </div>`).join("")}
+      </div>` },
+
+  /* ── XI ──────────────────────────────────────────────────────── */
+  { id:"order", colour:"serve", title:"The House Order", kicker:"Governance",
+    top:{ lab:"Governance", val:`Board, executive and group functions` },
+    bottom:{ lab:"Status", val:`Building to full operational staffing` },
+    build: () => `
+      <p class="lede">How the group is governed, and where it is still hiring. Roles shown as open are being recruited.</p>
+      <div class="ladder">${GOVERNANCE.map(g => `
+        <div class="rung">
+          <span class="tier">${esc(g.tier)}</span>
+          <span class="role">${esc(g.role)}</span>
+          <span class="who${g.who ? "" : " open"}">${g.who ? esc(g.who) : "Open"}</span>
+        </div>`).join("")}
+      </div>
+      <div class="note"><b>Independent oversight is the priority appointment.</b> A non-executive director is what allows a founder-held network to become a governed company asset. It is the appointment an investor should expect to see made first.</div>` },
+
+  /* ── XII ─────────────────────────────────────────────────────── */
+  { id:"ask", colour:"move", title:"What Is Being Raised", kicker:"The Ask",
+    top:{ lab:"The ask", val:`Two tracks: group machinery and project capital` },
+    bottom:{ lab:"Contact", val:`<b>${COMPANY.legal}</b>, ${COMPANY.address}` },
+    build: () => `
+      <p class="lede">Two tracks. They carry different risks and different returns, so they are raised separately.</p>
+      <div class="cols">
+        <div class="card"><h4>Track one: the machinery</h4><p>The Wellington build, a partner compliance programme, and the credibility work that lets one brand carry ${DIVISIONS.length} lines. This converts founder access into company revenue, and it raises the value of everything else.</p></div>
+        <div class="card"><h4>Track two: the projects</h4><p>Kai Veitch Racing, Relsah Films and Spectrum, each capitalised individually with its own plan, its own use of funds and its own return profile. No group funds are sought for these.</p></div>
+      </div>
+      <div class="note"><b>The sponsor tier is open.</b> The group's structure carries a sponsor tier that holds no names today. It is the lowest-friction way into the house.</div>
+      <div class="pull">${COMPANY.closing}<span class="cite">${COMPANY.legal}</span></div>` }
+];
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RENDER
+   ══════════════════════════════════════════════════════════════════════════ */
+const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX"];
+const PLATE = n => String(n + 1).padStart(2, "0");
+const cloth = document.getElementById("cloth");
+const thread = document.getElementById("thread");
+const counter = document.getElementById("counter");
+
+SCENES.forEach((s, i) => {
+  const c = s.colour || "move";
+  const vars = `--sc:var(--e-${c});--scs:var(--e-${c}-soft)`;
+
+  const top = document.createElement("div");
+  top.className = "bt";
+  top.style.cssText = vars;
+  top.setAttribute("aria-hidden", "true");
+  top.innerHTML = s.top
+    ? `<span class="lab">${s.top.lab}</span><span class="val">${s.top.val}</span>`
+    : "";
+
+  const scene = document.createElement("section");
+  scene.className = "scene";
+  scene.style.cssText = vars;
+  scene.id = "scene-" + s.id;
+  scene.dataset.i = i;
+  scene.setAttribute("aria-label", `Scene ${i + 1} of ${SCENES.length}: ${s.title}`);
+  scene.innerHTML =
+    `<div class="ghost" aria-hidden="true">${PLATE(i)}</div>
+     <div><span class="kicker">${s.kicker || (ENGINES[c] ? ENGINES[c].name : "The Group")}</span>
+       <h2>${s.title}</h2><div class="rule"></div></div>` + s.build();
+
+  const bot = document.createElement("div");
+  bot.className = "bb";
+  bot.style.cssText = vars;
+  bot.setAttribute("aria-hidden", "true");
+  bot.innerHTML = s.bottom
+    ? `<span class="val">${s.bottom.val}</span><span class="lab">${s.bottom.lab}</span>`
+    : "";
+
+  cloth.append(top, scene, bot);
+
+  const tick = document.createElement("button");
+  tick.className = "tick";
+  tick.type = "button";
+  tick.style.cssText = `--tc:var(--e-${c})`;
+  tick.innerHTML = `<span class="dot"></span><span class="rn">${ROMAN[i]}</span><span class="tl">${s.title}</span>`;
+  tick.addEventListener("click", () => goTo(i));
+  thread.append(tick);
+});
+
+const scenes = [...cloth.querySelectorAll(".scene")];
+const ticks  = [...thread.querySelectorAll(".tick")];
+const loom   = document.getElementById("loom");
+let current = 0;
+
+/* ══════════════════════════════════════════════════════════════════════════
+   CAMERA — explore and present share one document
+   ══════════════════════════════════════════════════════════════════════════ */
+function goTo(i){
+  current = Math.max(0, Math.min(scenes.length - 1, i));
+  scenes[current].scrollIntoView({
+    behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth",
+    inline: "center", block: "nearest"
+  });
+  mark();
+}
+
+function mark(){
+  scenes.forEach((s, i) => s.classList.toggle("is-current", i === current));
+  ticks.forEach((t, i) => {
+    t.classList.toggle("on", i === current);
+    t.setAttribute("aria-current", i === current ? "true" : "false");
+  });
+  counter.textContent = `${PLATE(current)} / ${String(scenes.length).padStart(2, "0")}`;
+}
+
+/* Track position while the user scrolls freely. */
+const io = new IntersectionObserver(entries => {
+  let best = null;
+  for (const e of entries) if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+  if (best) { current = +best.target.dataset.i; mark(); }
+}, { root: loom, threshold: [.45, .6, .8] });
+scenes.forEach(s => io.observe(s));
+
+function setPresent(on){
+  document.body.classList.toggle("present", on);
+  const btn = document.getElementById("present-btn");
+  btn.setAttribute("aria-pressed", String(on));
+  btn.innerHTML = on ? "Exit &nbsp;Esc" : "Present &nbsp;P";
+  requestAnimationFrame(() => goTo(current));
+}
+
+document.getElementById("present-btn").addEventListener("click",
+  () => setPresent(!document.body.classList.contains("present")));
+document.getElementById("print-btn").addEventListener("click", () => window.print());
+
+/* Theme, shared across the briefing set via the `hh-theme` key. */
+document.getElementById("theme-btn").addEventListener("click", () => {
+  const now = document.documentElement.getAttribute("data-theme")
+    || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light");
+  const next = now === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("hh-theme", next); } catch (e) {}
+});
+
+/* Keyboard. Arrows and space move along the cloth; P presents; Esc exits. */
+addEventListener("keydown", e => {
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
+  if (typing) return;
+  const k = e.key;
+  if (k === "ArrowRight" || k === "PageDown" || k === " ") { e.preventDefault(); goTo(current + 1); }
+  else if (k === "ArrowLeft" || k === "PageUp")            { e.preventDefault(); goTo(current - 1); }
+  else if (k === "Home")                                    { e.preventDefault(); goTo(0); }
+  else if (k === "End")                                     { e.preventDefault(); goTo(scenes.length - 1); }
+  else if (k === "p" || k === "P")                          { setPresent(!document.body.classList.contains("present")); }
+  else if (k === "Escape" && document.body.classList.contains("present")) { setPresent(false); }
+});
+
+/* Vertical wheel pans the cloth, unless the scene under the pointer has its
+   own vertical overflow still to give. */
+loom.addEventListener("wheel", e => {
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+  const scene = e.target.closest(".scene");
+  if (scene && scene.scrollHeight > scene.clientHeight + 4) {
+    const atTop = scene.scrollTop <= 0, atEnd = scene.scrollTop + scene.clientHeight >= scene.scrollHeight - 1;
+    if (!(e.deltaY < 0 && atTop) && !(e.deltaY > 0 && atEnd)) return;
+  }
+  e.preventDefault();
+  loom.scrollLeft += e.deltaY;
+}, { passive: false });
+
+/* Drag to pan. */
+let dragging = false, startX = 0, startL = 0;
+loom.addEventListener("pointerdown", e => {
+  if (e.target.closest("a,button,input,textarea,select")) return;
+  dragging = true; startX = e.clientX; startL = loom.scrollLeft;
+  loom.classList.add("grabbing");
+});
+addEventListener("pointermove", e => { if (dragging) loom.scrollLeft = startL - (e.clientX - startX); });
+addEventListener("pointerup", () => { dragging = false; loom.classList.remove("grabbing"); });
+
+mark();
+</script>

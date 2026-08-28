@@ -5,3 +5,8 @@ hackett-homepage-v2/
 # local tooling
 .playwright-mcp/
 .claude/
+
+# private working document: lists which company claims are still unverified,
+# and the credential exposure in the WhatsApp archive. This repo is public and
+# serves GitHub Pages, so gap-sheet.html must stay local. See README.
+gap-sheet.html
