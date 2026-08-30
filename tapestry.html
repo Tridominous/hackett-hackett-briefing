@@ -427,7 +427,7 @@ const ENGINES = {
   move:   { name:"Move",   line:"Getting the principal and their assets there, unnoticed." },
   make:   { name:"Make",   line:"Producing the thing itself." },
   serve:  { name:"Serve",  line:"Running the life around the client." },
-  broker: { name:"Broker", line:"Standing between a buyer and a seller." }
+  broker: { name:"Partnerships", line:"Putting the right two parties together, and standing behind both." }
 };
 
 /* The sixteen divisions. 1–14 are named exactly as the group structure names
@@ -596,13 +596,13 @@ const SCENES = [
   /* ── II ──────────────────────────────────────────────────────── */
   { id:"house", colour:"move", title:"One Name, Many Houses", kicker:"The Model",
     top:{ lab:"Positioning", val:`<b>${COMPANY.strap}</b>` },
-    bottom:{ lab:"Model", val:`Owned core, brokered breadth, commission on introduction and oversight` },
+    bottom:{ lab:"Model", val:`Owned core, partnered breadth, commission on introduction and oversight` },
     build: () => `
       <p class="lede">One relationship, held to one standard, reaching into as many disciplines as a client needs. ${DIVISIONS.length} businesses, one name on the door.</p>
       <p>The model is the one LVMH and Virgin proved. The brand and the client relationship stay at the centre. Delivery runs through owned operations where the standard must be controlled, and through named partners everywhere else.</p>
       <div class="cols">
         <div class="card"><h4>What the group owns</h4><p>The chauffeur business, directly operated. It is the standard the rest of the house is measured against.</p></div>
-        <div class="card"><h4>What the group brokers</h4><p>Every other line, delivered with named partners. The group carries the relationship, the specification and the quality control.</p></div>
+        <div class="card"><h4>What the group partners on</h4><p>Every other line, delivered with named partners. The group carries the relationship, the specification and the quality control.</p></div>
       </div>
       <div class="note"><b>Why it compounds.</b> Overhead stays flat while the portfolio widens. A new division adds revenue without adding a payroll, and every client of one line is a warm introduction to the other ${DIVISIONS.length - 1}.</div>` },
 
@@ -632,10 +632,10 @@ const SCENES = [
     { top:{ lab:"Engine three", val:`<b>Serve</b>, ${by("serve").length} divisions, retained rather than booked` },
       bottom:{ lab:"Delivery", val:`${by("serve").reduce((s,d)=>s+d.partners.length,0)} named partners, recurring and retainer work` } }),
 
-  Object.assign(engineScene("broker","Standing Between Buyer and Seller",
+  Object.assign(engineScene("broker","Putting The Two Sides Together",
     "The newest engine, and the shortest path to revenue. Here the group introduces a transaction and earns on it.",
     `<b>Divisions 15 and 16 are new.</b> They formalise work the founder already does personally, introducing buyers to sellers of companies, aircraft, property and collectable vehicles, as a company function with written terms, agreed fees and a record of every introduction.`),
-    { top:{ lab:"Engine four", val:`<b>Broker</b>, ${by("broker").length} divisions, the newest and the fastest` },
+    { top:{ lab:"Engine four", val:`<b>Partnerships</b>, ${by("broker").length} divisions, the newest and the fastest` },
       bottom:{ lab:"Delivery", val:`Fee on introduction, on written terms. The engine that formalises founder access` } }),
 
   /* ── VII ─────────────────────────────────────────────────────── */

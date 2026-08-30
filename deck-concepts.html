@@ -1,0 +1,338 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Deck Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#2A2C31;font-family:"Hanken Grotesk",system-ui,sans-serif;color:#fff}
+
+/* ── Concept board scaffolding (not part of the deck design) ───────── */
+.board{min-height:100vh;padding:34px 40px;display:flex;flex-direction:column;gap:18px}
+.board-head{display:flex;align-items:baseline;gap:16px}
+.board-head .letter{font-family:Fraunces,serif;font-size:2.4rem;font-weight:700;line-height:1;color:#E5007E}
+.board-head .name{font-family:Fraunces,serif;font-size:1.6rem;font-weight:600}
+.board-head .desc{font-size:.86rem;color:#9EA2AA;max-width:56ch;line-height:1.5}
+.row{display:flex;gap:16px;align-items:flex-start}
+.frame{overflow:hidden;position:relative;flex:none;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.frame.big{width:880px;height:495px}
+.frame.big .slide{transform:scale(.6875)}
+.frame.sm{width:432px;height:243px}
+.frame.sm .slide{transform:scale(.3375)}
+.cap{font-size:.7rem;color:#8A8E96;letter-spacing:.1em;text-transform:uppercase;margin-top:7px}
+.col{display:flex;flex-direction:column}
+
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;transform-origin:top left}
+
+/* ═══════════════════════════════════════════════════════════════════
+   A — THE LEDGER.  Archival restraint. Paper, ink, hairlines, engraving.
+   ═══════════════════════════════════════════════════════════════════ */
+.A{background:#F7F4EF;color:#16181C;
+   font-family:"Hanken Grotesk",sans-serif;
+   --mag:#9E0F55;--ink:#16181C;--mid:#5A5D64;--line:#CFC8BC}
+.A .pad{position:absolute;inset:70px 84px}
+.A .hair{height:1px;background:var(--line)}
+.A .plate{font-family:Fraunces,serif;font-size:13px;letter-spacing:.34em;color:var(--mag);text-transform:uppercase}
+.A .wordmark{font-family:Fraunces,serif;font-weight:700;font-size:46px;letter-spacing:.02em;
+  font-variation-settings:"opsz" 144;color:var(--ink)}
+.A .wordmark em{font-style:normal;color:var(--mag)}
+.A h1{font-family:Fraunces,serif;font-weight:500;font-size:104px;line-height:.94;letter-spacing:-.03em;
+  font-variation-settings:"opsz" 144}
+.A h2{font-family:Fraunces,serif;font-weight:500;font-size:62px;line-height:1;letter-spacing:-.025em;
+  font-variation-settings:"opsz" 144}
+.A .lede{font-size:19px;line-height:1.6;color:var(--mid);max-width:46ch}
+.A .meta{font-size:14px;letter-spacing:.06em;color:var(--mid)}
+.A .eng{border-top:1px solid var(--ink);padding-top:12px}
+.A .eng .n{font-family:Fraunces,serif;font-size:15px;color:var(--mag);letter-spacing:.1em}
+.A .eng .t{font-family:Fraunces,serif;font-size:27px;margin:4px 0 8px;font-weight:600}
+.A .eng li{list-style:none;font-size:14.5px;color:var(--mid);line-height:1.55}
+.A .fig{font-family:Fraunces,serif;font-size:78px;font-weight:600;line-height:1;
+  font-variation-settings:"opsz" 144;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.03em}
+.A .figl{font-size:13px;color:var(--mid);margin-top:6px;letter-spacing:.04em}
+
+/* ═══════════════════════════════════════════════════════════════════
+   B — MIDNIGHT.  Cinematic. Full-bleed photography, scrim, huge type.
+   ═══════════════════════════════════════════════════════════════════ */
+.B{background:#0B0C0E;color:#fff;--mag:#E5007E}
+.B .ph{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.72) contrast(1.06)}
+.B .scrim{position:absolute;inset:0}
+.B .pad{position:absolute;inset:74px 88px}
+.B .kick{font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--mag);font-weight:600}
+.B .wordmark{font-family:Fraunces,serif;font-weight:600;font-size:40px;letter-spacing:.03em}
+.B h1{font-family:Fraunces,serif;font-weight:400;font-size:112px;line-height:.95;letter-spacing:-.035em;
+  font-variation-settings:"opsz" 144}
+.B h1 em{font-style:italic;color:var(--mag)}
+.B h2{font-family:Fraunces,serif;font-weight:400;font-size:66px;line-height:1.02;letter-spacing:-.03em;
+  font-variation-settings:"opsz" 144}
+.B .lede{font-size:19px;line-height:1.62;color:#B9BDC4;max-width:44ch}
+.B .meta{font-size:13.5px;color:#7C818A;letter-spacing:.05em}
+.B .rule{width:56px;height:2px;background:var(--mag)}
+.B .eng{border-left:1px solid rgba(255,255,255,.16);padding-left:18px}
+.B .eng .n{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mag)}
+.B .eng .t{font-family:Fraunces,serif;font-size:29px;margin:5px 0 9px}
+.B .eng li{list-style:none;font-size:14.5px;color:#9BA0A8;line-height:1.6}
+.B .fig{font-family:Fraunces,serif;font-size:84px;font-weight:500;line-height:1;
+  font-variation-settings:"opsz" 144;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.035em}
+.B .figl{font-size:12.5px;color:#7C818A;margin-top:7px;letter-spacing:.1em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════════════════════════
+   C — THE MARQUE.  Brand-book confidence. Colour blocking, giant figures.
+   ═══════════════════════════════════════════════════════════════════ */
+.C{background:#0E0F12;color:#F2EFE9;--mag:#E5007E;--bone:#F2EFE9;--ink:#0E0F12}
+.C .split{position:absolute;inset:0;display:grid}
+.C .pad{position:absolute;inset:66px 74px}
+.C .kick{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
+.C .wordmark{font-family:Fraunces,serif;font-weight:700;font-size:38px;letter-spacing:.02em}
+/* 118px overflowed the left panel: "RELATIONSHIP." is 13 uppercase characters
+   and the column is only 746px wide. */
+.C h1{font-family:Fraunces,serif;font-weight:700;font-size:86px;line-height:.88;letter-spacing:-.042em;
+  font-variation-settings:"opsz" 144;text-transform:uppercase}
+.C h2{font-family:Fraunces,serif;font-weight:700;font-size:64px;line-height:.92;letter-spacing:-.038em;
+  font-variation-settings:"opsz" 144;text-transform:uppercase}
+.C .lede{font-size:18.5px;line-height:1.55;max-width:42ch;font-weight:400}
+.C .giant{font-family:"Hanken Grotesk",sans-serif;font-weight:800;font-size:250px;line-height:.78;
+  letter-spacing:-.06em;font-variant-numeric:tabular-nums lining-nums}
+.C .eng{padding:16px 18px}
+.C .eng .n{font-family:"Hanken Grotesk";font-weight:800;font-size:44px;line-height:1;letter-spacing:-.04em}
+.C .eng .t{font-family:Fraunces,serif;font-weight:700;font-size:25px;text-transform:uppercase;letter-spacing:-.01em;margin:4px 0 8px}
+.C .eng li{list-style:none;font-size:13.5px;line-height:1.55;opacity:.78}
+.C .meta{font-size:13px;letter-spacing:.05em;opacity:.6}
+</style>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════
+   Content is identical across all three directions, so the comparison is
+   purely about art direction rather than about wording.
+   ══════════════════════════════════════════════════════════════════════ */
+const ENGINES = [
+  { n:"01", t:"Move",   items:["Chauffeur Services","Security & Management","White Glove Services"] },
+  { n:"02", t:"Make",   items:["Event Management & Production","Film Production & Support","Music & Artist Management","Model Management","Public Relations / Marketing"] },
+  { n:"03", t:"Serve",  items:["Lifestyle & Concierge","Wedding Services","Household Staff & Recruitment"] },
+  { n:"04", t:"Broker", items:["Bespoke Financial Solutions","Real Estate & Property","Super Car Sales","Business & Asset Brokerage","Social Housing"] }
+];
+const IMG = "hackett-homepage-v2/assets/";
+</script>
+
+<!-- ══════════════════ A — THE LEDGER ══════════════════ -->
+<section class="board">
+  <div class="board-head">
+    <span class="letter">A</span>
+    <div>
+      <div class="name">The Ledger</div>
+      <div class="desc">Archival restraint. Paper, ink, hairline rules and engraved figures. Confidence expressed by how little it raises its voice. The private-bank and auction-house register.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="frame big"><div class="slide A" id="A1"></div></div>
+      <div class="cap">Cover</div>
+    </div>
+    <div class="col">
+      <div class="frame sm"><div class="slide A" id="A2"></div></div>
+      <div class="cap">Portfolio</div>
+      <div class="frame sm" style="margin-top:14px"><div class="slide A" id="A3"></div></div>
+      <div class="cap">The ask</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ B — MIDNIGHT ══════════════════ -->
+<section class="board">
+  <div class="board-head">
+    <span class="letter">B</span>
+    <div>
+      <div class="name">Midnight</div>
+      <div class="desc">Cinematic. Full-bleed photography under a deep scrim, oversized display type, magenta used as a single thread. The direction that sells hardest in the first three seconds.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="frame big"><div class="slide B" id="B1"></div></div>
+      <div class="cap">Cover</div>
+    </div>
+    <div class="col">
+      <div class="frame sm"><div class="slide B" id="B2"></div></div>
+      <div class="cap">Portfolio</div>
+      <div class="frame sm" style="margin-top:14px"><div class="slide B" id="B3"></div></div>
+      <div class="cap">The ask</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ C — THE MARQUE ══════════════════ -->
+<section class="board">
+  <div class="board-head">
+    <span class="letter">C</span>
+    <div>
+      <div class="name">The Marque</div>
+      <div class="desc">Brand-book confidence. Hard colour blocking, giant figures as graphic elements, uppercase display. The most designed and the most memorable, in the Virgin and LVMH register.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="frame big"><div class="slide C" id="C1"></div></div>
+      <div class="cap">Cover</div>
+    </div>
+    <div class="col">
+      <div class="frame sm"><div class="slide C" id="C2"></div></div>
+      <div class="cap">Portfolio</div>
+      <div class="frame sm" style="margin-top:14px"><div class="slide C" id="C3"></div></div>
+      <div class="cap">The ask</div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── A · THE LEDGER ─────────────────────────────────────────────── */
+A1.innerHTML = `
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div class="wordmark">Hackett <em>&amp;</em> Hackett</div>
+      <div class="plate">MMIX</div>
+    </div>
+    <div class="hair" style="margin:18px 0 0"></div>
+    <div style="position:absolute;left:0;right:0;top:196px">
+      <div class="plate" style="margin-bottom:24px">Investor Overview</div>
+      <h1>One relationship.<br>Sixteen businesses.</h1>
+      <div style="display:flex;gap:16px;align-items:center;margin-top:38px">
+        <div style="width:44px;height:1px;background:var(--mag)"></div>
+        <div class="meta">Lifestyle Management &amp; Production, London, since 2009</div>
+      </div>
+    </div>
+    <!-- engraved plate: concentric route arcs, drawn not photographed -->
+    <svg style="position:absolute;right:-58px;bottom:-52px;width:310px;height:310px;opacity:.5" viewBox="0 0 300 300" fill="none">
+      ${[...Array(9)].map((_,i)=>`<circle cx="150" cy="150" r="${20+i*15}" stroke="#9E0F55" stroke-width=".7" opacity="${.16+i*.055}"/>`).join("")}
+      <circle cx="150" cy="150" r="4.5" fill="#9E0F55"/>
+      <path d="M150 150 L296 74" stroke="#9E0F55" stroke-width=".9" opacity=".6"/>
+      <path d="M150 150 L262 262" stroke="#9E0F55" stroke-width=".9" opacity=".35"/>
+    </svg>
+    <div style="position:absolute;left:0;bottom:0" class="meta">167-169 Great Portland Street, London W1W 5PF</div>
+  </div>`;
+
+A2.innerHTML = `
+  <div class="pad">
+    <div class="plate">The Portfolio</div>
+    <h2 style="margin:14px 0 10px">Four engines,<br>sixteen businesses.</h2>
+    <p class="lede" style="max-width:62ch;font-size:17px">Grouped by what each actually sells, so the group reads as a house rather than a list. A new division joins an engine.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0 26px;margin-top:34px">
+      ${ENGINES.map(e=>`<div class="eng">
+        <div class="n">${e.n}</div><div class="t">${e.t}</div>
+        <ul>${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("")}
+    </div>
+  </div>`;
+
+A3.innerHTML = `
+  <div class="pad">
+    <div class="plate">The Ask</div>
+    <h2 style="margin:14px 0 18px;max-width:20ch">Access is proven.<br>The mechanism is not.</h2>
+    <div class="hair"></div>
+    <div style="display:flex;gap:64px;margin-top:26px">
+      <div><div class="fig">17</div><div class="figl">Years of access</div></div>
+      <div><div class="fig">19</div><div class="figl">Named partners</div></div>
+      <div><div class="fig">100<span style="font-size:44px">+</span></div><div class="figl">Countries served</div></div>
+      <div><div class="fig" style="color:var(--mag)">16</div><div class="figl">Businesses under one name</div></div>
+    </div>
+    <p class="lede" style="margin-top:34px;max-width:64ch">Demand already arrives through the founder's network. What is missing is the machinery to hold it, route it, price it and record it. That machinery is what the raise builds.</p>
+  </div>`;
+
+/* ── B · MIDNIGHT ───────────────────────────────────────────────── */
+B1.innerHTML = `
+  <div class="ph" style="background-image:url('${IMG}hero-sclass-night.webp')"></div>
+  <div class="scrim" style="background:linear-gradient(105deg,rgba(11,12,14,.94) 0%,rgba(11,12,14,.82) 42%,rgba(11,12,14,.34) 100%)"></div>
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div class="wordmark">Hackett &amp; Hackett</div>
+      <!-- white, not magenta: the scrim is lightest at this corner and the
+           brand pink failed contrast against the photograph behind it -->
+      <div class="kick" style="color:#fff">Investor Overview</div>
+    </div>
+    <div style="position:absolute;left:0;bottom:118px">
+      <div class="rule" style="margin-bottom:30px"></div>
+      <h1>One relationship.<br><em>Sixteen</em> businesses.</h1>
+      <p class="lede" style="margin-top:26px">Lifestyle management and production for clients who expect one call to be enough. London, since 2009.</p>
+    </div>
+    <div style="position:absolute;left:0;bottom:0" class="meta">167-169 Great Portland Street, London W1W 5PF</div>
+  </div>`;
+
+B2.innerHTML = `
+  <div class="ph" style="background-image:url('${IMG}london-night.webp');opacity:.3"></div>
+  <div class="scrim" style="background:linear-gradient(180deg,#0B0C0E 22%,rgba(11,12,14,.86) 100%)"></div>
+  <div class="pad">
+    <div class="kick">The Portfolio</div>
+    <h2 style="margin:16px 0 12px">Four engines, sixteen businesses.</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;margin-top:36px">
+      ${ENGINES.map(e=>`<div class="eng">
+        <div class="n">${e.n} &nbsp;${e.t}</div>
+        <ul style="margin-top:12px">${e.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("")}
+    </div>
+  </div>`;
+
+B3.innerHTML = `
+  <div class="ph" style="background-image:url('${IMG}cta-dusk.webp')"></div>
+  <div class="scrim" style="background:linear-gradient(90deg,rgba(11,12,14,.95) 34%,rgba(11,12,14,.5) 100%)"></div>
+  <div class="pad">
+    <div class="kick">The Ask</div>
+    <h2 style="margin:16px 0 0;max-width:17ch">Access is proven.<br>The mechanism is <em style="font-style:italic;color:var(--mag)">not</em>.</h2>
+    <div style="display:flex;gap:56px;margin-top:44px">
+      <div><div class="fig">17</div><div class="figl">Years</div></div>
+      <div><div class="fig">19</div><div class="figl">Partners</div></div>
+      <div><div class="fig" style="color:var(--mag)">16</div><div class="figl">Businesses</div></div>
+    </div>
+    <p class="lede" style="margin-top:38px">What is missing is the machinery to hold the demand, route it, price it and record it.</p>
+  </div>`;
+
+/* ── C · THE MARQUE ─────────────────────────────────────────────── */
+C1.innerHTML = `
+  <div class="split" style="grid-template-columns:1fr 430px">
+    <div style="background:var(--ink);position:relative">
+      <div style="position:absolute;left:74px;top:66px;right:40px">
+        <div class="wordmark">Hackett &amp; Hackett</div>
+      </div>
+      <div style="position:absolute;left:74px;bottom:96px;right:30px">
+        <h1>One<br>relationship.<br><span style="color:var(--mag)">Sixteen</span><br>businesses.</h1>
+      </div>
+      <div style="position:absolute;left:74px;bottom:52px" class="meta">London, since 2009 &nbsp;/&nbsp; Lifestyle Management &amp; Production</div>
+    </div>
+    <div style="background:var(--mag);position:relative;overflow:hidden">
+      <div style="position:absolute;top:60px;left:34px;right:34px" class="kick" >Investor<br>Overview</div>
+      <div class="giant" style="position:absolute;right:-18px;bottom:-32px;color:#fff;opacity:.92">16</div>
+      <div style="position:absolute;left:34px;bottom:44px;width:120px;height:2px;background:#fff;opacity:.85"></div>
+    </div>
+  </div>`;
+
+C2.innerHTML = `
+  <div class="split" style="background:var(--bone);color:var(--ink)">
+    <div class="pad">
+      <div class="kick" style="color:var(--mag)">The Portfolio</div>
+      <h2 style="margin:14px 0 26px">Four engines.<br>Sixteen businesses.</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        ${ENGINES.map((e,i)=>`<div class="eng" style="background:${i%2?'rgba(14,15,18,.055)':'rgba(229,0,126,.08)'}">
+          <div class="n" style="color:var(--mag)">${e.n}</div>
+          <div class="t">${e.t}</div>
+          <ul>${e.items.map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("")}
+      </div>
+    </div>
+  </div>`;
+
+C3.innerHTML = `
+  <div class="split" style="grid-template-rows:1fr 210px">
+    <div style="background:var(--ink);position:relative">
+      <div style="position:absolute;left:74px;top:66px;right:74px">
+        <div class="kick" style="color:var(--mag)">The Ask</div>
+        <h2 style="margin:16px 0 0;max-width:24ch;font-size:56px">Access is proven.<br>The mechanism is not.</h2>
+      </div>
+      <div class="giant" style="position:absolute;right:56px;top:24px;color:var(--mag);opacity:.22;font-size:300px">17</div>
+      <p class="lede" style="position:absolute;left:74px;bottom:44px;opacity:.72">Demand already arrives. The raise builds the machinery that captures it.</p>
+    </div>
+    <div style="background:var(--mag);display:flex;align-items:center;gap:0">
+      ${[["17","Years of access"],["19","Named partners"],["100+","Countries"],["16","Businesses"]].map(([k,l])=>`
+        <div style="flex:1;padding:0 40px;border-left:1px solid rgba(255,255,255,.28)">
+          <div style="font-family:'Hanken Grotesk';font-weight:800;font-size:56px;line-height:1;letter-spacing:-.04em">${k}</div>
+          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;opacity:.85">${l}</div>
+        </div>`).join("")}
+    </div>
+  </div>`;
+</script>

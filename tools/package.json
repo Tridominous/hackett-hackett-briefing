@@ -1,0 +1,10 @@
+{
+  "name": "hackett-deck-tools",
+  "private": true,
+  "type": "commonjs",
+  "description": "Renders deck.html to PDF + PPTX. Not part of the site; the pages themselves have no build step.",
+  "dependencies": {
+    "playwright-core": "^1.62.1",
+    "pptxgenjs": "^4.0.1"
+  }
+}
