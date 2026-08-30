@@ -1,0 +1,533 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hackett &amp; Hackett Investor Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Hanken+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════════════════════════════
+   HACKETT & HACKETT — INVESTOR DECK
+   Master 1280 x 720, one slide per printed page.
+
+   ART DIRECTION, after the founder's notes of 29 August:
+   - No photography anywhere. The leaflet has none, UKME's hero has none,
+     and the group is a lifestyle house, not a car company.
+   - ONE PALETTE ONLY: black, magenta, white. The four engine colours this
+     deck used to carry were rejected outright ("he hates the other colored
+     branding" / "we dont even have heavy branding"), so grouping is now
+     carried by type, rules and position — never by colour. Do not
+     reintroduce a second accent to distinguish a group.
+   - Matched to the deck Penny circulated, which is the version the founder
+     accepts: black ground, magenta accent, white text.
+   - Magenta on black is 4.42:1 — fine for display type and rules, NOT for
+     body copy. Body stays white/grey. (Measured in press.html.)
+   ══════════════════════════════════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --night:#0A0B0D;           /* the ground */
+  --panel:#15171B;           /* a card, one step off the ground */
+  --edge:#1D2025;            /* a card that needs to read as raised */
+  --ink:#FFFFFF; --mid:#B9BDC4; --faint:#7C818A;
+  --line:#2A2C31;            /* hairline on black */
+  --mag:#E5007E; --mag-deep:#B00062;
+}
+/* ── THE LIGHT EDITION ───────────────────────────────────────────────
+   Same deck, cream ground, served from this one file so the division list
+   is never duplicated: open deck.html?theme=light (tools/export.js builds
+   both). Only tokens change; no slide markup is theme-aware.
+
+   Two deliberate decisions:
+   1. The cover and the close stay black. The wordmark master is white and
+      magenta ON black and is composited with mix-blend-mode:screen, which
+      needs a black ground — on cream it washes out completely. Keeping
+      those two slides dark also matches the deck Penny circulated, which
+      mixes black and light pages rather than being uniformly one or other.
+   2. Magenta deepens to #B00062 on cream. #E5007E on this cream is about
+      3.9:1, which is under AA for the small letterspaced kickers; the
+      deeper tone is the same hue and reads as the same brand colour.
+   ──────────────────────────────────────────────────────────────────── */
+.deck.light{
+  --night:#F6F1E5; --panel:#EFE7D5; --edge:#E4DAC4;
+  --ink:#14161A; --mid:#54575E; --faint:#8A8D94;
+  --line:#D6CCB6; --mag:#B00062;
+}
+.deck.light .slide.dark{            /* cover and close, held back to black */
+  --night:#0A0B0D; --panel:#15171B; --edge:#1D2025;
+  --ink:#FFFFFF; --mid:#B9BDC4; --faint:#7C818A;
+  --line:#2A2C31; --mag:#E5007E;
+}
+
+body{background:#232529;font-family:"Hanken Grotesk",system-ui,sans-serif}
+body:has(.deck.light){background:#CFC7B4}
+.deck{display:flex;flex-direction:column;align-items:center;gap:22px;padding:26px 0}
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;flex:none;background:var(--night);color:var(--ink)}
+.pad{position:absolute;inset:64px 84px;display:flex;flex-direction:column;justify-content:center}
+
+/* ── Type ────────────────────────────────────────────────────────── */
+.plate{font-family:Fraunces,serif;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--mag)}
+h1{font-family:Fraunces,serif;font-weight:500;font-size:96px;line-height:.98;letter-spacing:-.03em;font-variation-settings:"opsz" 144}
+h2{font-family:Fraunces,serif;font-weight:500;font-size:56px;line-height:1.04;letter-spacing:-.025em;font-variation-settings:"opsz" 144}
+h3{font-family:Fraunces,serif;font-weight:600;font-size:24px;line-height:1.16}
+.lede{font-size:19px;line-height:1.6;color:var(--mid);max-width:56ch}
+p{font-size:16px;line-height:1.6;color:var(--mid)}
+b{color:var(--ink);font-weight:600}
+.meta{font-size:13.5px;letter-spacing:.04em;color:var(--faint)}
+.hair{height:1px;background:var(--line)}
+
+/* The leaflet's rule-and-dot ornament, reused as the house device. */
+.orn{display:flex;align-items:center;gap:12px}
+.orn i{display:block;height:1px;width:74px;background:var(--mag)}
+.orn s{display:block;width:6px;height:6px;border-radius:50%;background:var(--mag)}
+
+/* Every slide is black now, so the wordmark's screen blend works everywhere. */
+.logo{height:52px;mix-blend-mode:screen}
+.logo.sm{height:32px}
+
+h1 em{font-style:italic;color:var(--mag)}
+/* The strapline, set as the leaflet sets it */
+.strap{font-family:Fraunces,serif;font-size:19px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--mag);line-height:1.7}
+
+/* ── Section breaks. Black like everything else; the break is made by
+      scale and emptiness, not by a colour change.
+      The numeral is OUTLINED, not filled: magenta at any partial opacity
+      over black turns to mud, and a solid one would shout over the
+      headline. An outline reads as intentional at any size. ─────────── */
+.field .num{font-family:"Hanken Grotesk";font-weight:800;font-size:300px;line-height:.76;
+  letter-spacing:-.06em;position:absolute;right:64px;bottom:16px;
+  color:transparent;-webkit-text-stroke:2px var(--mag);opacity:.85}
+.field h1{font-size:92px}
+
+/* ── Groups. Ruled columns, not colour blocks: the four groups are told
+      apart by their heading and their rule, which is what stops the deck
+      reading as sixteen items on one shopping list. ─────────────────── */
+.blocks{display:grid;grid-template-columns:repeat(4,1fr);gap:0 26px}
+.blk{padding:14px 0 0;display:flex;flex-direction:column;min-height:302px;
+  border-top:2px solid var(--mag)}
+.blk .num{font-family:Fraunces,serif;font-size:13px;letter-spacing:.2em;color:var(--mag)}
+.blk h3{margin:3px 0 6px;font-size:27px;color:var(--ink)}
+.blk .sub{font-size:13px;line-height:1.45;color:var(--faint);margin-bottom:13px}
+.blk li{list-style:none;font-size:13.5px;line-height:1.72;color:var(--mid)}
+
+.tint{padding:17px 19px;background:var(--panel);border-left:2px solid var(--mag)}
+.tint h3{margin-bottom:5px;font-size:22px;color:var(--ink)}
+.tint p{font-size:13.5px;line-height:1.5}
+
+/* ── The snapshot, drawn as a system rather than an inventory.
+      One client enters at the top, four capability groups sit in the
+      middle, the partner network delivers at the bottom. The spanning
+      rules and the two stems are the whole point: they say "one house"
+      where four separate lists said "shopping list". ─────────────────── */
+.sys{display:flex;flex-direction:column;align-items:stretch}
+.sys .bar{padding:11px 20px;display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+.sys .bar b{font-family:Fraunces,serif;font-weight:600;font-size:19px;letter-spacing:.01em}
+.sys .bar span{font-size:13.5px;line-height:1.4;text-align:right}
+.sys .bar.in{background:var(--mag)}
+.sys .bar.in b{color:#fff}
+.sys .bar.in span{color:rgba(255,255,255,.92)}
+.sys .bar.out{background:var(--panel);border:1px solid var(--mag)}
+.sys .bar.out b{color:var(--mag)}
+.sys .bar.out span{color:var(--mid)}
+.sys .stem{height:15px;width:1px;background:var(--mag);align-self:center;flex:none}
+.sys .rule{height:1px;background:var(--mag);opacity:.5}
+.sys .blk{border-top:0;min-height:0;padding-top:15px}
+
+/* ── Figures ─────────────────────────────────────────────────────── */
+.figs{display:flex}
+.figs>div{flex:1;padding-right:24px}
+.fig{font-family:Fraunces,serif;font-weight:600;font-size:72px;line-height:.98;
+  font-variation-settings:"opsz" 144;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.032em}
+.fig .plus{font-size:38px}
+.figl{font-size:13px;color:var(--mid);margin-top:7px;line-height:1.4}
+.figs .fig{color:var(--mag)}
+
+.cols{display:grid;gap:0 40px}
+.col{border-top:2px solid var(--mag);padding-top:12px}
+.col .n{font-family:Fraunces,serif;font-size:14px;letter-spacing:.14em;color:var(--mag)}
+.col h3{margin:5px 0 7px}
+.col p{font-size:14.5px;line-height:1.58}
+
+.flow{display:flex;align-items:stretch}
+.flow .box{flex:1;border:1px solid var(--line);padding:19px 21px}
+.flow .box.mid{border:0;background:var(--mag);color:#fff}
+.flow .box.mid h3,.flow .box.mid p{color:#fff}
+.flow .box h3{font-size:21px;margin-bottom:5px}
+.flow .box p{font-size:13.5px}
+.flow .arw{display:flex;align-items:center;padding:0 15px;color:var(--faint);font-size:19px}
+
+.pull{font-family:Fraunces,serif;font-style:italic;font-size:34px;line-height:1.3;color:var(--ink);max-width:26ch}
+.cite{display:block;font-style:normal;font-family:"Hanken Grotesk";font-size:13px;
+  letter-spacing:.05em;color:var(--faint);margin-top:14px}
+
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12.5px;padding:5px 12px}
+.tag.project{background:var(--edge);color:var(--mid)}
+.tag.platform{background:var(--mag);color:#fff}
+
+.pgno{position:absolute;right:84px;bottom:40px;font-size:12px;color:var(--faint);
+  font-variant-numeric:tabular-nums lining-nums;letter-spacing:.1em}
+
+@media print{
+  body{background:var(--night)}
+  .deck{display:block;gap:0;padding:0}
+  .slide{break-after:page;page-break-after:always}
+  .slide:last-child{break-after:auto;page-break-after:auto}
+}
+@page{size:1280px 720px;margin:0}
+</style>
+
+<div class="deck" id="deck"></div>
+
+<script>
+const A = "deck-assets/";
+const LOGO = `<img class="logo" src="${A}logo-master.jpg" alt="Hackett &amp; Hackett">`;
+const LOGO_SM = `<img class="logo sm" src="${A}logo-master.jpg" alt="Hackett &amp; Hackett">`;
+const ORN = `<div class="orn"><i></i><s></s><i></i></div>`;
+
+const ENGINES = [
+  { k:"move",   n:"01", t:"Move",   sub:"Getting our client and their assets there, unnoticed.",
+    items:["Chauffeur Services","Security &amp; Management","White Glove Services"] },
+  { k:"make",   n:"02", t:"Make",   sub:"Producing the thing itself.",
+    items:["Event Management &amp; Production","Film Production &amp; Support","Music &amp; Artist Management","Model Management","Public Relations / Marketing"] },
+  { k:"serve",  n:"03", t:"Serve",  sub:"Running the life around our client.",
+    items:["Lifestyle &amp; Concierge","Wedding Services","Household Staff &amp; Recruitment"] },
+  /* "Partnerships", not "Broker" — the founder rejected the broker framing on
+     29 August. The division "Business & Asset Brokerage" keeps its name because
+     he coined it himself; it is the group label he objected to. */
+  /* Super Car Sales is deliberately NOT listed, on the founder's instruction of
+     29 August — it stays one of the sixteen and the counts elsewhere still say
+     sixteen, but it is not named on the slide. That means this list shows 15
+     names against a stated 16. See README. */
+  { k:"broker", n:"04", t:"Partnerships", sub:"Putting the right two parties together, and standing behind both.",
+    items:["Bespoke Financial Solutions","Real Estate &amp; Property","Business &amp; Asset Brokerage","Social Housing"] }
+];
+
+/* Colour-field section break.
+   No wordmark here: the master is supplied on black and blends with
+   mix-blend-mode:screen, which only works on a black ground. On magenta it
+   ghosts out. The cover and the close carry the mark instead. */
+const field = (num, kicker, title, sub, notes) => ({
+  cls:"field", notes, body:`
+  <div class="pad" style="justify-content:flex-end;padding-bottom:12px">
+    <div class="plate" style="margin-bottom:16px">${kicker}</div>
+    <h1>${title}</h1>
+    <p class="lede" style="margin-top:20px;max-width:46ch">${sub}</p>
+    <div class="num">${num}</div>
+  </div>`
+});
+
+const SLIDES = [
+
+/* 1 ── COVER. Typographic, as the leaflet is. ────────────────────── */
+{ cls:"dark", body:`
+  <div class="pad" style="justify-content:space-between">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      ${LOGO}<div class="plate" style="padding-top:14px">Investor Overview</div>
+    </div>
+    <div>
+      ${ORN}
+      <div class="strap" style="margin:26px 0 30px">Lifestyle Management<br>&amp; Production</div>
+      <h1>One relationship.<br><em>Sixteen</em> businesses.</h1>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div class="meta">167-169 Great Portland Street, London W1W 5PF</div>
+      <div class="meta">Trusted across London and worldwide since 2009</div>
+    </div>
+  </div>`,
+  notes:"No picture on the cover on purpose. We are a lifestyle house, not a car company. Let the name and the strapline carry it, then move." },
+
+/* 2 ── WHO WE ARE ────────────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">Who we are</div>
+    <p class="lede" style="margin-top:22px;max-width:68ch">Founded in 2009 by Edwin Hackett and his father, and
+    trading under one name ever since. We look after the whole of a client's life, not one corner of it.
+    Sixteen businesses, one relationship, one standard.</p>
+    <p style="font-size:17px;line-height:1.65;margin-top:18px;max-width:68ch"><b>We hold the relationship.
+    Our network does the rest</b>, to a standard we set and check ourselves.</p>
+    <div class="hair" style="margin-top:44px"></div>
+    <div class="figs" style="margin-top:28px">
+      <div><div class="fig">17</div><div class="figl">Years trading, one registered entity, clean filing record</div></div>
+      <div><div class="fig">16</div><div class="figl">Businesses under one name</div></div>
+      <div><div class="fig">19</div><div class="figl">Named delivery partners</div></div>
+      <div><div class="fig">100<span class="plus">+</span></div><div class="figl">Countries we operate across</div></div>
+    </div>
+  </div>`,
+  notes:"Open on the founding: 2009, father and son, one name ever since. Then the four numbers, all of which can be checked from outside." },
+
+/* 3 ── SECTION ONE ───────────────────────────────────────────────── */
+field("01", "Section one", "What we do",
+  "Sixteen businesses in four engines, and the six projects that sit alongside them.",
+  "Section break. The next slide is the whole business on one page. Let her look before you speak."),
+
+/* 4 ── THE SNAPSHOT. The slide the founder says is not landing, so it is
+       drawn as a system: in at the top, out at the bottom, the sixteen
+       businesses held between the two. Read it top to bottom, not left to
+       right. ──────────────────────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:baseline">
+      <div class="plate">The whole picture</div>
+      <div class="meta">One way in &nbsp;/&nbsp; sixteen businesses &nbsp;/&nbsp; one standard out</div>
+    </div>
+    <h2 style="margin:10px 0 18px;font-size:44px">One house, and one way through it.</h2>
+    <div class="sys">
+      <div class="bar in">
+        <b>One client, one relationship</b>
+        <span>Arrives through one door and never briefs a second agency</span>
+      </div>
+      <div class="stem"></div>
+      <div class="rule"></div>
+      <div class="blocks">
+        ${ENGINES.map(e => `<div class="blk">
+          <div class="num">${e.n}</div><h3>${e.t}</h3>
+          <div class="sub">${e.sub}</div>
+          <ul>${e.items.map(i => `<li>${i}</li>`).join("")}</ul>
+        </div>`).join("")}
+      </div>
+      <div class="rule" style="margin-top:14px"></div>
+      <div class="stem"></div>
+      <div class="bar out">
+        <b>Nineteen named partners deliver</b>
+        <span>To a specification we write and a standard we check ourselves</span>
+      </div>
+    </div>
+  </div>`,
+  notes:"This is the slide. Do not read the sixteen names, and do not go left to right. Point at the magenta bar at the top, then the four headings, then the bar at the bottom, and say it in one sentence: one client comes in through one door, sixteen businesses sit inside one house, nineteen named partners deliver to a standard we set. The names are there so she can read them herself; they are not the point." },
+
+/* 5 ── WHO WE SERVE.
+       This slot used to hold a peer comparison against UKME, Quintessentially
+       and Ten Lifestyle. It was cut on 29 August: it opened by saying what the
+       company is NOT, it argued with competitors, and it made the case for the
+       category rather than for the house. The peer material is kept in the
+       speaker note so it is still there if an investor asks.
+       The founding principle is the founder's own line and it is the argument
+       for this slide: the clientele IS the credential. ─────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">Who we serve</div>
+    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:0 56px;margin-top:12px;align-items:start">
+      <div class="pull" style="max-width:22ch">A company is only as good as the clientele it serves.
+        <span class="cite">Founding principle, Hackett &amp; Hackett</span></div>
+      <div style="padding-top:10px">
+        <p style="font-size:17px;line-height:1.65">Seventeen years at the ultra-premium end of the market,
+        with relationships that often run a decade or longer.</p>
+        <p style="font-size:17px;line-height:1.65;margin-top:12px"><b>Our clients are the credential.</b>
+        They are the reason a new business inside this house starts with trust rather than having to earn
+        it from nothing.</p>
+      </div>
+    </div>
+    <div class="hair" style="margin-top:34px"></div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0 26px;margin-top:26px">
+      <div class="col"><h3 style="font-size:21px">Royal families</h3>
+        <p style="font-size:13.5px">Discreet, high-level personal services, arranged without a trace.</p></div>
+      <div class="col"><h3 style="font-size:21px">Banking &amp; finance</h3>
+        <p style="font-size:13.5px">Corporate accounts, including financial roadshow work across the City.</p></div>
+      <div class="col"><h3 style="font-size:21px">Entertainment</h3>
+        <p style="font-size:13.5px">Celebrities and high-profile individuals, on and off tour.</p></div>
+      <div class="col"><h3 style="font-size:21px">Media &amp; production</h3>
+        <p style="font-size:13.5px">Transport, production and event support across long shooting schedules.</p></div>
+      <div class="col"><h3 style="font-size:21px">Private clients</h3>
+        <p style="font-size:13.5px">Concierge, household and lifestyle support, year in and year out.</p></div>
+    </div>
+  </div>`,
+  notes:"Lead with the founding principle, then the five columns. This is the credibility slide: the client list is the proof, not a comparison table. If she asks who we compete with, the honest peer set is the lifestyle management houses, not ground transport: UKME in Knightsbridge is the closest live analogue, then Quintessentially and Ten Lifestyle Group. Say we will send the filed accounts rather than quote their figures from memory. Name no client, ever." },
+
+/* 6 ── SECTION TWO ───────────────────────────────────────────────── */
+field("02", "Section two", "How we earn",
+  "Margin on what we own, commission on everything we place.",
+  "Section break. Keep this part short. Two revenue forms, and why overhead does not grow with the portfolio."),
+
+/* 7 ── THE MODEL ─────────────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">The model</div>
+    <h2 style="margin:14px 0 22px">We keep the client. Our network does the work.</h2>
+    <div class="flow">
+      <div class="box"><h3>Our client</h3><p>Arrives through one door, stays for the relationship.</p></div>
+      <div class="arw">&rarr;</div>
+      <div class="box mid"><h3>Us</h3><p>Brand, booking, specification and quality control. The relationship never leaves the house.</p></div>
+      <div class="arw">&rarr;</div>
+      <div class="box"><h3>Our network</h3><p>The operation we own, plus 19 named partners across security, events, aviation, film, PR and finance.</p></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px">
+      <div class="tint"><h3>Margin</h3><p>On the operation we own outright, where we control cost and standard directly.</p></div>
+      <div class="tint"><h3>Commission</h3><p>On everything we place through the network, earned on the introduction and the oversight.</p></div>
+      <div class="tint"><h3>Why it compounds</h3><p>A new business adds revenue without adding a payroll, and every client of one line is an introduction to fifteen.</p></div>
+    </div>
+    <p style="margin-top:22px;max-width:86ch;font-size:15px">Clients reach us through whichever line they
+    need first. <b>Whichever door they come through, they meet the same house, and the same standard
+    carries across all sixteen.</b></p>
+  </div>`,
+  notes:"Two revenue forms, margin and commission, and why overhead does not grow with the portfolio. If she asks for the split by line, offer to send it rather than break it down in the room. Do not lead on any single division." },
+
+/* 8 ── WHY CLIENTS STAY ──────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">Why they stay</div>
+    <h2 style="margin:14px 0 30px">One number, for everything.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0 44px">
+      <div class="col"><div class="n">01</div>
+        <h3>One trusted relationship</h3>
+        <p>Our clients do not brief a dozen agencies and hope each one holds the same line on discretion.</p></div>
+      <div class="col"><div class="n">02</div>
+        <h3>Seventeen years of it</h3>
+        <p>Built quietly across banking, media, entertainment and private clients. Relationships that frequently run a decade or longer.</p></div>
+      <div class="col"><div class="n">03</div>
+        <h3>Every line is a lead</h3>
+        <p>A client we look after well in one business is a warm introduction to the other fifteen. That is our cheapest growth, and it compounds.</p></div>
+    </div>
+    <div class="hair" style="margin-top:44px"></div>
+    <p style="margin-top:18px;max-width:84ch">We are the rare single point of contact across the whole range
+    of what a private client actually needs. <b>Most firms specialise in one or two things. We are the one
+    they call first.</b></p>
+  </div>`,
+  notes:"Retention is the quiet number and it is our strongest one. Relationships running a decade, across banking, media and private clients. If she asks for churn figures, offer to send them rather than quote from memory." },
+
+/* 9 ── SECTION THREE ─────────────────────────────────────────────── */
+field("03", "Section three", "Where we<br>are going",
+  "A book of demand we already meet, and four routes to meeting more of it.",
+  "The turn. Everything before this is the company as it runs today. Everything after is where it goes next."),
+
+/* 10 ── WHERE THE GROWTH IS.
+       This slide used to be "our access is proven, our machinery is not
+       built". It was cut on 29 August: a pitch deck states the opportunity,
+       it does not brief the room on what is missing. The candour that used
+       to live here belongs in gap-sheet.html, which is where it now is. ─── */
+{ body:`
+  <div class="pad">
+    <div class="plate">The opportunity</div>
+    <h2 style="margin:14px 0 14px;max-width:26ch">Demand we already meet,<br>and room we have not taken.</h2>
+    <p class="lede" style="max-width:84ch">Work arrives continuously through the network. Introductions
+    get made, transactions complete, and relationships hold for years. The company has never had to
+    advertise to fill a diary. Investment widens the routes into the house and the capacity behind them.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:30px">
+      <div class="tint"><h3>A compounding book</h3>
+        <p>Every client of one line is a warm introduction to the other fifteen, at no cost of acquisition.</p></div>
+      <div class="tint"><h3>A wider front door</h3>
+        <p>A branded app to browse, book and pay across every line, with credits that reward staying in the house.</p></div>
+      <div class="tint"><h3>A deeper bench</h3>
+        <p>More named partners against one written standard, audited, so capacity grows without payroll growing with it.</p></div>
+      <div class="tint"><h3>A name that carries</h3>
+        <p>A structured presence across LinkedIn, Instagram and the trade press, behind one house, not sixteen.</p></div>
+    </div>
+    <div class="hair" style="margin-top:32px"></div>
+    <p style="margin-top:16px;font-size:19px;line-height:1.55;max-width:80ch;color:var(--ink)">
+    The demand is evidenced and the delivery is proven. <b>Investment is what turns a book of relationships
+    into the full value of sixteen businesses.</b></p>
+  </div>`,
+  notes:"This is the reason-to-invest slide. Lead with the first sentence: work arrives continuously and the company has never had to advertise. Then the four routes, briefly. Close on the last line. If she asks how demand is tracked today, the answer is that it runs through the group and the platforms on the next slide extend it; do not volunteer more than that. Do not name a single client." },
+
+/* 11 ── THE SYSTEMS. Previously "three prototypes", which briefed the room
+       on immaturity. Cut on 29 August: describe what the systems DO and that
+       they are rolling out. Nothing here claims they are finished, so it
+       stays true, but the framing is a working company extending its own
+       platform rather than a company asking to be built. ────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">What we are building</div>
+    <h2 style="margin:14px 0 12px">One central pool for the whole group.</h2>
+    <p class="lede" style="max-width:82ch">Three systems, one record. Together they hold everything about
+    a client, a partner and a booking in one place, reachable by every business we run.</p>
+    <div class="blocks" style="grid-template-columns:repeat(3,1fr);margin-top:28px">
+      <div class="blk" style="min-height:236px">
+        <div class="num">01</div><h3>Mesh</h3><div class="sub">The network layer.</div>
+        <p style="color:var(--ink);font-size:14px;line-height:1.6">Who we know, who they know, and
+        which of our sixteen businesses each relationship touches.</p></div>
+      <div class="blk" style="min-height:236px">
+        <div class="num">02</div><h3>Hope</h3><div class="sub">The client layer.</div>
+        <p style="color:var(--ink);font-size:14px;line-height:1.6">One record per client, visible to
+        every business we run, with permission and with discretion.</p></div>
+      <div class="blk" style="min-height:236px">
+        <div class="num">03</div><h3>Wellington</h3><div class="sub">The booking layer.</div>
+        <p style="color:var(--ink);font-size:14px;line-height:1.6">Every enquiry in one front door,
+        routed to the right partner, with the service level and the commission captured.</p></div>
+    </div>
+    <p style="margin-top:24px;max-width:86ch"><b>Built in house and rolling out across all sixteen
+    businesses.</b> One record per client, one route per booking, one standard applied the same way
+    everywhere, and enough history in one place to schedule and forecast against.</p>
+  </div>`,
+  notes:"Three named systems, described by what they do. Say they are rolling out across the group. If she asks for a demo, offer one as a follow-up rather than opening anything in the room." },
+
+/* 12 ── THE PROJECTS ─────────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">Beyond the Businesses</div>
+    <h2 style="margin:14px 0 12px">Projects.</h2>
+    <p class="lede" style="max-width:82ch">These carry our standard and our introductions, and they are
+    capitalised on their own terms. We are not asking for group money for any of them.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px">
+      <div class="tint"><h3>Kai Veitch Racing</h3><p>Backing a prodigy prospect on the pathway toward Formula One.</p></div>
+      <div class="tint"><h3>Relsah Films</h3><p>An existing partner of ours, and an independent slate.</p></div>
+      <div class="tint"><h3>Spectrum</h3><p>A school for children on the autism spectrum and children underserved elsewhere.</p></div>
+      <div class="tint"><h3>Stockpot</h3><p>A fixed-price restaurant. American form, European spirit, one price for the day.</p></div>
+      <div class="tint"><h3>Worldvision</h3><p>A music competition on the Eurovision model, one representative per country.</p></div>
+      <div class="tint"><h3>The Late Show</h3><p>A talk-show and magazine format, under arts and entertainment.</p></div>
+    </div>
+  </div>`,
+  notes:"Keep these separate from the group ask. If she is interested in one specifically, that is a different instrument." },
+
+/* 13 ── THE ASK ──────────────────────────────────────────────────── */
+{ body:`
+  <div class="pad">
+    <div class="plate">What we are asking for</div>
+    <h2 style="margin:14px 0 26px">Two tracks, raised separately.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="blk" style="min-height:220px">
+        <div class="num">01</div><h3>The group</h3>
+        <p style="color:var(--ink);font-size:15px;line-height:1.6;margin-top:8px">Mesh, Hope and
+        Wellington across all sixteen businesses. A written partner standard we audit. The brand and
+        marketing that let one name carry the whole house. This puts the group behind every client
+        relationship, and lifts the value of everything we own.</p></div>
+      <div class="blk" style="min-height:220px">
+        <div class="num">02</div><h3>The projects</h3>
+        <p style="color:var(--ink);font-size:15px;line-height:1.6;margin-top:8px">Kai Veitch Racing,
+        Relsah Films and Spectrum, each capitalised on its own terms with its own plan and its own return
+        profile. No group funds are sought for these.</p></div>
+    </div>
+    <div class="hair" style="margin-top:30px"></div>
+    <p style="margin-top:16px;max-width:86ch"><b>Our sponsor tier is open</b>, and it is the
+    lowest-friction way into the house for anyone who would rather start alongside us than begin with an
+    equity conversation.</p>
+  </div>`,
+  notes:"Do not quote a number unless she asks. If she asks, give the range for track one only, and say the projects are separate instruments." },
+
+/* 14 ── CLOSE. Bookends the cover. ───────────────────────────────── */
+{ cls:"dark", body:`
+  <div class="pad" style="justify-content:space-between">
+    <div style="display:flex;justify-content:flex-end">
+      <div class="plate">Thank you</div>
+    </div>
+    <div>
+      ${ORN}
+      <h1 style="margin-top:28px;font-size:74px">Extravagantly<br>extraordinary,<br><em>every time.</em></h1>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div>
+        ${LOGO_SM}
+        <div class="meta" style="line-height:1.8;margin-top:12px">
+          Edwin Hackett<br>
+          service@hackettandhackettinternationalgrouplimited.com<br>
+          +44 (0) 333 123 0773
+        </div>
+      </div>
+      <div class="meta" style="text-align:right">167-169 Great Portland Street<br>London W1W 5PF</div>
+    </div>
+  </div>`,
+  notes:"Close on the strapline and stop talking. Hand over the printed copy and let her ask the first question." }
+];
+
+/* ── Render ───────────────────────────────────────────────────────── */
+const deck = document.getElementById("deck");
+// deck.html?theme=light serves the cream edition from this same file.
+if (new URLSearchParams(location.search).get("theme") === "light") deck.classList.add("light");
+SLIDES.forEach((s, i) => {
+  const el = document.createElement("section");
+  el.className = "slide " + (s.cls || "");
+  el.dataset.notes = s.notes || "";
+  el.innerHTML = s.body + (i === 0 ? "" : `<div class="pgno">${String(i + 1).padStart(2, "0")}</div>`);
+  deck.append(el);
+});
+</script>
