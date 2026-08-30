@@ -10,3 +10,19 @@ hackett-homepage-v2/
 # and the credential exposure in the WhatsApp archive. This repo is public and
 # serves GitHub Pages, so gap-sheet.html must stay local. See README.
 gap-sheet.html
+
+# built deck binaries; deck.html + deck-assets/ are the source and tools/ rebuilds them
+dist/
+
+# deck build tooling deps (tools/*.js themselves are tracked)
+tools/node_modules/
+
+# deck build scratch: rebuild renders and diff composites
+tools/_*
+
+# Unreferenced deck imagery. deck.html uses only deck-assets/logo-master.jpg;
+# these nine are left over from the photographic draft the founder rejected on
+# 29 August ("nothing to do with cars in the forefront"). This repo is public and
+# serves Pages, so committing them would publish them at guessable URLs. They
+# stay on local disk -- delete these lines and `git add` them if they are wanted.
+deck-assets/*.webp
